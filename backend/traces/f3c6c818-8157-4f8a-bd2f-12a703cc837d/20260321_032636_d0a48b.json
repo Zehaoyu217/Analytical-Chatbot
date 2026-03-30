@@ -1,0 +1,246 @@
+{
+  "session_id": "f3c6c818-8157-4f8a-bd2f-12a703cc837d",
+  "timestamp": "2026-03-21T03:26:36.915370+00:00",
+  "question": "hi",
+  "response": "Hello! How can I help you today?",
+  "total_elapsed_s": 3.083,
+  "event_count": 19,
+  "events": [
+    {
+      "timestamp": 1774063596.91607,
+      "elapsed_s": 0.001,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1bbb6949",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774063596.9156532,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063596.916929,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "hi",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "f3c6c818-8157-4f8a-bd2f-12a703cc837d",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063596.917293,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "f3c6c818-8157-4f8a-bd2f-12a703cc837d",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.6996858,
+      "elapsed_s": 2.784,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1bbb6949",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774063596.9156532,
+        "finished_at": 1774063599.699539,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.699789,
+      "elapsed_s": 2.784,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-2e79f6c2",
+        "label": "Generating response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774063599.6996071,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.699837,
+      "elapsed_s": 2.784,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Hello",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.732266,
+      "elapsed_s": 2.817,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "!",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.7647831,
+      "elapsed_s": 2.849,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " How",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.797327,
+      "elapsed_s": 2.882,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " can",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.830063,
+      "elapsed_s": 2.915,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " I",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.862612,
+      "elapsed_s": 2.947,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " help",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.895828,
+      "elapsed_s": 2.98,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " you",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.928202,
+      "elapsed_s": 3.013,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " today",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.963,
+      "elapsed_s": 3.048,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "?",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.9971251,
+      "elapsed_s": 3.082,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-2e79f6c2",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Generating response",
+        "started_at": 1774063599.6996071,
+        "finished_at": 1774063599.996654,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.997209,
+      "elapsed_s": 3.082,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "Hello! How can I help you today?",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "f3c6c818-8157-4f8a-bd2f-12a703cc837d",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.997801,
+      "elapsed_s": 3.082,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "f3c6c818-8157-4f8a-bd2f-12a703cc837d",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.997994,
+      "elapsed_s": 3.083,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774063599.997953,
+        "finished_at": 1774063599.997953,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774063599.9980228,
+      "elapsed_s": 3.083,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "f3c6c818-8157-4f8a-bd2f-12a703cc837d",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

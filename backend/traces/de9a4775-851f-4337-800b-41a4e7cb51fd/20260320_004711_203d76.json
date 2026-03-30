@@ -1,0 +1,823 @@
+{
+  "session_id": "de9a4775-851f-4337-800b-41a4e7cb51fd",
+  "timestamp": "2026-03-20T00:47:11.029822+00:00",
+  "question": "run ARDL model on macro quarterly dataset. Dependent: real_gdp. Independent: cpi, unemployment_rate. Execute the full workflow now.",
+  "response": "I'll run a full ARDL model workflow on the macro quarterly dataset with real_gdp as dependent variable and cpi, unemployment_rate as independent variables.\n\nLet me start by loading the ARDL skill and executing the full workflow.",
+  "total_elapsed_s": 56.173,
+  "event_count": 69,
+  "events": [
+    {
+      "timestamp": 1773967631.032476,
+      "elapsed_s": 0.003,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-f8e441e1",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773967631.031706,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967631.0335329,
+      "elapsed_s": 0.004,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "run ARDL model on macro quarterly dataset. Dependent: real_gdp. Independent: cpi, unemployment_rate. Execute the full workflow now.",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "de9a4775-851f-4337-800b-41a4e7cb51fd",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967648.809828,
+      "elapsed_s": 17.78,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-f8e441e1",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773967631.031706,
+        "finished_at": 1773967648.809761,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967648.80987,
+      "elapsed_s": 17.78,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-ab054300",
+        "label": "Generating response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773967648.809793,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967648.809881,
+      "elapsed_s": 17.78,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "I",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967648.8435268,
+      "elapsed_s": 17.814,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "'ll",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967648.8776069,
+      "elapsed_s": 17.848,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " run",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967648.91081,
+      "elapsed_s": 17.881,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " a",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967648.947573,
+      "elapsed_s": 17.918,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " full",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967648.9804301,
+      "elapsed_s": 17.951,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " AR",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.0137029,
+      "elapsed_s": 17.984,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "DL",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.047913,
+      "elapsed_s": 18.018,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " model",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.0821388,
+      "elapsed_s": 18.052,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " workflow",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.115396,
+      "elapsed_s": 18.086,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " on",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.1494179,
+      "elapsed_s": 18.12,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.1833029,
+      "elapsed_s": 18.153,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " macro",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.21701,
+      "elapsed_s": 18.187,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " quarterly",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.2514648,
+      "elapsed_s": 18.222,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " dataset",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.2853918,
+      "elapsed_s": 18.256,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " with",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.318906,
+      "elapsed_s": 18.289,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " real",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.3532732,
+      "elapsed_s": 18.323,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "_g",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.38659,
+      "elapsed_s": 18.357,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "dp",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.420135,
+      "elapsed_s": 18.39,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " as",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.454487,
+      "elapsed_s": 18.425,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " dependent",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.4879382,
+      "elapsed_s": 18.458,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " variable",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.523776,
+      "elapsed_s": 18.494,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " and",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.556886,
+      "elapsed_s": 18.527,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " c",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.59041,
+      "elapsed_s": 18.561,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "pi",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.624602,
+      "elapsed_s": 18.595,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ",",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.659316,
+      "elapsed_s": 18.629,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " unemployment",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.6933498,
+      "elapsed_s": 18.664,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "_rate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.727813,
+      "elapsed_s": 18.698,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " as",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.761943,
+      "elapsed_s": 18.732,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " independent",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.7953029,
+      "elapsed_s": 18.765,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " variables",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.828865,
+      "elapsed_s": 18.799,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.8962839,
+      "elapsed_s": 18.866,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n\nLet",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.9305978,
+      "elapsed_s": 18.901,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " me",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.9644742,
+      "elapsed_s": 18.935,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " start",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967649.997549,
+      "elapsed_s": 18.968,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " by",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.032038,
+      "elapsed_s": 19.002,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " loading",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.066143,
+      "elapsed_s": 19.036,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.1017349,
+      "elapsed_s": 19.072,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " AR",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.135008,
+      "elapsed_s": 19.105,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "DL",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.168705,
+      "elapsed_s": 19.139,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " skill",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.202364,
+      "elapsed_s": 19.173,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " and",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.236962,
+      "elapsed_s": 19.207,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " executing",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.270174,
+      "elapsed_s": 19.24,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.303688,
+      "elapsed_s": 19.274,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " full",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.338194,
+      "elapsed_s": 19.308,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " workflow",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967650.37167,
+      "elapsed_s": 19.342,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967659.7471611,
+      "elapsed_s": 28.717,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-ab054300",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773967648.809793,
+        "finished_at": 1773967659.7468019,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967659.747197,
+      "elapsed_s": 28.717,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-bc38e0f3",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773967659.746832,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967659.747209,
+      "elapsed_s": 28.717,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "I'll run a full ARDL model workflow on the macro quarterly dataset with real_gdp as dependent variable and cpi, unemployment_rate as independent variables.\n\nLet me start by loading the ARDL skill and executing the full workflow.",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "load_skill",
+                  "args": {
+                    "skill_name": "ardl"
+                  }
+                },
+                {
+                  "name": "run_python",
+                  "args": {
+                    "code": "from statsmodels.tsa.ardl import ARDL, ardl_select_order\nfrom statsmodels.tsa.stattools import adfuller, kpss\nfrom statsmodels.stats.diagnostic import acorr_breusch_godfrey, het_breuschpagan\nimport pandas as pd\nimport numpy as np\n\n# Load the macro quarterly data\ndf = _db.execute(\"\"\"\nSELECT date, real_gdp, cpi, unemployment_rate, fed_funds_rate, m2_money_supply, \n       tbill_3m, treasury_10y, nominal_gdp, gdp_growth_pct, cpi_inflation_rate, \n       yield_spread, m2_growth_pct\nFROM us_macro_quarterly_fred_126b4cea\nORDER BY date\n\"\"\").df()\n\nprint(\"Data loaded successfully\")\nprint(f\"Shape: {df.shape}\")\nprint(f\"Date range: {df['date'].min()} to {df['date'].max()}\")\nprint(f\"\\nFirst few rows:\")\nprint(df.head())"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "de9a4775-851f-4337-800b-41a4e7cb51fd",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967659.747713,
+      "elapsed_s": 28.718,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "de9a4775-851f-4337-800b-41a4e7cb51fd",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967659.7481039,
+      "elapsed_s": 28.718,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "args_preview": "Code: from statsmodels.tsa.ardl import ARDL, ardl_select_order",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967659.748889,
+      "elapsed_s": 28.719,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "load_skill",
+        "args_preview": "{'skill_name': 'ardl'}",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967659.759486,
+      "elapsed_s": 28.73,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "load_skill",
+        "elapsed_s": 0.01,
+        "result_preview": "# ARDL Time Series Econometrics Skill\n\n## Overview\nThe ARDL (Autoregressive Distributed Lag) approach by Pesaran, Shin & Smith (2001) tests for cointegration between variables regardless of whether th",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967659.760559,
+      "elapsed_s": 28.731,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-bc38e0f3",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773967659.746832,
+        "finished_at": 1773967659.760489,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967659.760594,
+      "elapsed_s": 28.731,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-75d3afae",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773967659.760503,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967659.760603,
+      "elapsed_s": 28.731,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "# ARDL Time Series Econometrics Skill\n\n## Overview\nThe ARDL (Autoregressive Distributed Lag) approach by Pesaran, Shin & Smith (2001) tests for cointegration between variables regardless of whether they are I(0), I(1), or a mix. This skill covers the full ARDL workflow.\n\n## Packages\n```python\nimport statsmodels.api as sm\nfrom statsmodels.tsa.ardl import ARDL, ardl_select_order\nfrom statsmodels.tsa.stattools import adfuller, kpss\nfrom statsmodels.tsa.api import VAR\nfrom statsmodels.stats.diagnostic import acorr_breusch_godfrey, het_breuschpagan\nfrom scipy import stats\nimport pandas as pd\nimport numpy as np\nimport altair as alt\nimport warnings\nwarnings.filterwarnings('ignore')\n```\n\n## Full ARDL Workflow \u2014 Follow These Steps In Order\n\n### Step 1: Data Preparation & Visual Inspection\n```python\n# Load data\ndf = _db.execute(\"SELECT * FROM your_table ORDER BY date\").df()\ndf['date'] = pd.to_datetime(df['date'])\ndf = df.set_index('date')\n\n# Plot all variables \u2014 ALWAYS use Altair\nmelted = df.reset_index().melt(id_vars='date', var_name='Variable', value_name='Value')\nchart = alt.Chart(melted).mark_line(strokeWidth=1.5).encode(\n    x='date:T',\n    y=alt.Y('Value:Q', scale=alt.Scale(zero=False)),\n    color='Variable:N',\n    tooltip=['date:T', 'Variable:N', alt.Tooltip('Value:Q', format=',.2f')]\n).properties(width=560, height=300)\n\n# Add dropdown for variable selection\ndropdown = alt.binding_select(options=[None] + list(df.columns), labels=['All'] + list(df.columns), name='Variable: ')\nsel = alt.param(name='var_filter', bind=dropdown, value=None)\nchart = chart.add_params(sel).transform_filter(\n    (alt.datum.Variable == sel) | (sel == None)\n)\nchart = styled_chart(chart, \"Time Series Overview\")\nsave_chart_vegalite(chart, \"Time Series Overview\")\n```\n\n### Step 2: Unit Root Testing (ADF + KPSS)\nTest each variable at level and first difference. ARDL requires all variables to be I(0) or I(1), NOT I(2).\n\n```python\ndef unit_root_tests(series, name):\n    \"\"\"Run ADF and KPSS tests, return summary dict.\"\"\"\n    results = {}\n    for label, data in [(\"Level\", series.dropna()), (\"1st Diff\", series.diff().dropna())]:\n        adf_stat, adf_p, adf_lags, _, adf_cv, _ = adfuller(data, autolag='AIC')\n        kpss_stat, kpss_p, kpss_lags, kpss_cv = kpss(data, regression='c', nlags='auto')\n        results[label] = {\n            'Variable': f\"{name} ({label})\",\n            'ADF Stat': round(adf_stat, 4),\n            'ADF p-value': round(adf_p, 4),\n            'ADF Decision': 'Stationary' if adf_p < 0.05 else 'Non-stationary',\n            'KPSS Stat': round(kpss_stat, 4),\n            'KPSS p-value': round(kpss_p, 4),\n            'KPSS Decision': 'Stationary' if kpss_p > 0.05 else 'Non-stationary',\n            'Integration': 'I(0)' if (adf_p < 0.05 and kpss_p > 0.05) else 'I(1)' if label == \"Level\" else 'I(1)',\n        }\n    return results\n\n# Run for all variables\nall_results = []\nfor col in df.select_dtypes(include=[np.number]).columns:\n    r = unit_root_tests(df[col], col)\n    all_results.extend(r.values())\n\nur_df = pd.DataFrame(all_results)\nsave_table_html(ur_df, \"Unit Root Tests (ADF + KPSS)\")\nprint_full(ur_df)\n```\n\n### Step 3: Optimal Lag Selection\n```python\n# Use statsmodels ARDL lag selection\nfrom statsmodels.tsa.ardl import ardl_select_order\n\ndep_var = 'your_dependent_variable'  # e.g., 'gdp_growth_pct'\nexog_vars = ['var1', 'var2', 'var3']  # e.g., ['cpi_inflation_rate', 'fed_funds_rate']\n\n# Select optimal lag order (max 8 for quarterly data)\nsel_res = ardl_select_order(\n    df[dep_var].dropna(),\n    maxlag=8,\n    exog=df[exog_vars].dropna(),\n    maxorder=4,\n    ic='aic',\n    trend='c'\n)\nprint(f\"Optimal lags: {sel_res.dl_lags}\")\nprint(f\"AIC: {sel_res.aic:.4f}\")\nprint(f\"BIC: {sel_res.bic:.4f}\")\n```\n\n### Step 4: ARDL Model Estimation\n```python\n# Fit ARDL model with selected lags\nmodel = ARDL(\n    df[dep_var].dropna(),\n    lags=sel_res.ar_lags,\n    exog=df[exog_vars].dropna(),\n    order=sel_res.dl_lags,\n    trend='c'\n)\nresults = model.fit()\nprint(results.summary())\n\n# Save summary as artifact\nsave_artifact(\"ARDL Model Summary\", f\"<pre>{results.summary().as_text()}</pre>\", \"table\", \"html\")\n```\n\n### Step 5: Bounds Test for Cointegration\n```python\n# Pesaran bounds test\nbounds = results.bounds_test()\n# Extract F-statistic and critical values\nprint(f\"F-statistic: {bounds.stat:.4f}\")\nprint(f\"Critical values (10%, 5%, 1%):\")\nprint(bounds.critical_values)\n\n# Decision\nf_stat = bounds.stat\ncv_lower_5 = bounds.critical_values.loc['5%', 'I(0)']\ncv_upper_5 = bounds.critical_values.loc['5%', 'I(1)']\n\nif f_stat > cv_upper_5:\n    decision = \"COINTEGRATION EXISTS \u2014 F-stat exceeds upper bound at 5%\"\nelif f_stat < cv_lower_5:\n    decision = \"NO COINTEGRATION \u2014 F-stat below lower bound at 5%\"\nelse:\n    decision = \"INCONCLUSIVE \u2014 F-stat between bounds\"\n\nprint(f\"\\nDecision: {decision}\")\n```\n\n### Step 6: Long-Run and Short-Run Coefficients (ECM)\n```python\n# Error Correction Model from ARDL\necm = results.ardl_to_ecm()\nprint(\"=== Error Correction Model ===\")\nprint(ecm.summary())\n\n# Extract speed of adjustment (ECT coefficient)\nect_coef = ecm.params.get('L1.ect', None)\nif ect_coef and ect_coef < 0:\n    half_life = abs(np.log(2) / np.log(1 + ect_coef))\n    print(f\"\\nSpeed of adjustment: {ect_coef:.4f}\")\n    print(f\"Half-life of disequilibrium: {half_life:.1f} periods\")\n```\n\n### Step 7: Diagnostic Tests\n```python\n# Serial correlation (Breusch-Godfrey)\nbg_stat, bg_p, _, _ = acorr_breusch_godfrey(results, nlags=4)\nprint(f\"Breusch-Godfrey (serial correlation): stat={bg_stat:.4f}, p={bg_p:.4f}\")\n\n# Heteroscedasticity (Breusch-Pagan)\nbp_stat, bp_p, _, _ = het_breuschpagan(results.resid, results.model.exog)\nprint(f\"Breusch-Pagan (heteroscedasticity): stat={bp_stat:.4f}, p={bp_p:.4f}\")\n\n# Normality (Jarque-Bera)\njb_stat, jb_p = stats.jarque_bera(results.resid)\nprint(f\"Jarque-Bera (normality): stat={jb_stat:.4f}, p={jb_p:.4f}\")\n\n# R-squared\nprint(f\"R-squared: {results.rsquared:.4f}\")\nprint(f\"Adj R-squared: {results.rsquared_adj:.4f}\")\nprint(f\"AIC: {results.aic:.4f}\")\nprint(f\"BIC: {results.bic:.4f}\")\n```\n\n### Step 8: Visualization \u2014 ALWAYS Use Altair\n\n#### Actual vs Fitted Plot\n```python\nfitted_df = pd.DataFrame({\n    'date': df.index[-len(results.fittedvalues):],\n    'Actual': results.model.endog[-len(results.fittedvalues):],\n    'Fitted': results.fittedvalues.values\n}).melt(id_vars='date', var_name='Series', value_name='Value')\n\nchart = alt.Chart(fitted_df).mark_line().encode(\n    x='date:T',\n    y=alt.Y('Value:Q', scale=alt.Scale(zero=False)),\n    color=alt.Color('Series:N', scale=alt.Scale(\n        domain=['Actual', 'Fitted'],\n        range=['#818cf8', '#f59e0b']\n    )),\n    strokeDash=alt.StrokeDash('Series:N', scale=alt.Scale(\n        domain=['Actual', 'Fitted'],\n        range=[[0], [5, 3]]\n    )),\n    tooltip=['date:T', 'Series:N', alt.Tooltip('Value:Q', format=',.4f')]\n).properties(width=560, height=300)\nchart = styled_chart(chart, \"ARDL: Actual vs Fitted\")\nsave_chart_vegalite(chart, \"ARDL: Actual vs Fitted\")\n```\n\n#### Residuals Plot\n```python\nresid_df = pd.DataFrame({\n    'date': df.index[-len(results.resid):],\n    'Residual': results.resid.values\n})\nbar = alt.Chart(resid_df).mark_bar(opacity=0.7).encode(\n    x='date:T',\n    y='Residual:Q',\n    color=alt.condition(\n        alt.datum.Residual > 0,\n        alt.value('#10b981'),\n        alt.value('#f43f5e')\n    ),\n    tooltip=['date:T', alt.Tooltip('Residual:Q', format=',.4f')]\n).properties(width=560, height=200)\nbar = styled_chart(bar, \"ARDL Residuals\")\nsave_chart_vegalite(bar, \"ARDL Residuals\")\n```\n\n#### CUSUM Stability Test\n```python\nfrom statsmodels.stats.diagnostic import recursive_olsresiduals\n_, resid_rec, _ = recursive_olsresiduals(results)\ncusum = np.cumsum(resid_rec) / np.std(resid_rec)\nn = len(cusum)\nupper = 0.948 * np.sqrt(n) + 2 * 0.948 * np.arange(1, n+1) / np.sqrt(n)\nlower = -upper\n\ncusum_df = pd.DataFrame({\n    'Observation': range(1, n+1),\n    'CUSUM': cusum,\n    'Upper': upper,\n    'Lower': lower\n}).melt(id_vars='Observation', var_name='Series', value_name='Value')\n\nchart = alt.Chart(cusum_df).mark_line().encode(\n    x='Observation:Q',\n    y='Value:Q',\n    color=alt.Color('Series:N', scale=alt.Scale(\n        domain=['CUSUM', 'Upper', 'Lower'],\n        range=['#818cf8', '#f43f5e', '#f43f5e']\n    )),\n    strokeDash=alt.StrokeDash('Series:N', scale=alt.Scale(\n        domain=['CUSUM', 'Upper', 'Lower'],\n        range=[[0], [5, 3], [5, 3]]\n    ))\n).properties(width=560, height=250)\nchart = styled_chart(chart, \"CUSUM Stability Test\")\nsave_chart_vegalite(chart, \"CUSUM Stability Test\")\n```\n\n## Classic ARDL Applications\n1. **GDP-Inflation-Money Supply**: Test money neutrality (y=GDP, x=M2, CPI)\n2. **Phillips Curve**: Inflation-Unemployment relationship (y=inflation, x=unemployment)\n3. **Taylor Rule**: Interest rate as f(inflation, output gap) (y=fed_funds, x=inflation, gdp_gap)\n4. **Yield Curve**: Spread predicting GDP (y=gdp_growth, x=yield_spread)\n5. **Okun's Law**: Unemployment-Output relationship (y=unemployment, x=gdp_growth)\n\n## Key Interpretation Guidelines\n- **Bounds test F-stat > upper bound** \u2192 Cointegration exists, proceed to ECM\n- **ECT coefficient must be negative** and between -1 and 0 for stable adjustment\n- **Half-life** = ln(2) / |ln(1 + ECT)| \u2014 how quickly system returns to equilibrium\n- **Long-run coefficients** from ECM show equilibrium relationship\n- **Short-run coefficients** show immediate impact\n- **CUSUM within bounds** \u2192 model is structurally stable\n\n## Reporting Template\nAlways present results in this order:\n1. Variable descriptions and time period\n2. Unit root test results table\n3. Lag selection (AIC/BIC)\n4. ARDL specification (e.g., ARDL(2,1,3))\n5. Bounds test result and decision\n6. Long-run coefficients with interpretation\n7. Short-run coefficients (ECM) with speed of adjustment\n8. Diagnostic test results table\n9. Charts: Time series, Actual vs Fitted, Residuals, CUSUM",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "de9a4775-851f-4337-800b-41a4e7cb51fd",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967660.7652512,
+      "elapsed_s": 29.735,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "elapsed_s": 1.02,
+        "result_preview": "Output:\nData loaded successfully\nShape: (316, 13)\nDate range: 1947-01-01 00:00:00 to 2025-10-01 00:00:00\n\nFirst few rows:\n        date  real_gdp  ...  yield_spread  m2_growth_pct\n0 1947-01-01  2182.68",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967660.766162,
+      "elapsed_s": 29.736,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-75d3afae",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773967659.760503,
+        "finished_at": 1773967660.7657988,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967660.7661922,
+      "elapsed_s": 29.736,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-8cd28d16",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773967660.76581,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967660.766203,
+      "elapsed_s": 29.736,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Output:\nData loaded successfully\nShape: (316, 13)\nDate range: 1947-01-01 00:00:00 to 2025-10-01 00:00:00\n\nFirst few rows:\n        date  real_gdp  ...  yield_spread  m2_growth_pct\n0 1947-01-01  2182.681  ...           NaN            NaN\n1 1947-04-01  2176.892  ...           NaN            NaN\n2 1947-07-01  2172.432  ...           NaN            NaN\n3 1947-10-01  2206.452  ...           NaN            NaN\n4 1948-01-01  2239.682  ...           NaN            NaN\n\n[5 rows x 13 columns]\n",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "de9a4775-851f-4337-800b-41a4e7cb51fd",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967687.202488,
+      "elapsed_s": 56.173,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-8cd28d16",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773967660.76581,
+        "finished_at": 1773967687.2021382,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967687.202532,
+      "elapsed_s": 56.173,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "de9a4775-851f-4337-800b-41a4e7cb51fd",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967687.202841,
+      "elapsed_s": 56.173,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "de9a4775-851f-4337-800b-41a4e7cb51fd",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967687.203,
+      "elapsed_s": 56.173,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1773967687.202962,
+        "finished_at": 1773967687.202962,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773967687.203032,
+      "elapsed_s": 56.173,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "de9a4775-851f-4337-800b-41a4e7cb51fd",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

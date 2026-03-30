@@ -1,0 +1,81 @@
+{
+  "session_id": "test-openrouter-1774067118",
+  "timestamp": "2026-03-21T04:25:18.991200+00:00",
+  "question": "What is 2+2?",
+  "response": "",
+  "total_elapsed_s": 1.044,
+  "event_count": 5,
+  "events": [
+    {
+      "timestamp": 1774067119.815829,
+      "elapsed_s": 0.825,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-be583088",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774067119.81506,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067119.816532,
+      "elapsed_s": 0.825,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "What is 2+2?",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "test-openrouter-1774067118",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067119.816832,
+      "elapsed_s": 0.826,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "test-openrouter-1774067118",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067120.0344288,
+      "elapsed_s": 1.043,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-be583088",
+        "label": "Error",
+        "status": "error",
+        "detail": "Error code: 404 - {'error': {'message': 'No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy', 'code': 404}}",
+        "started_at": 1774067119.81506,
+        "finished_at": 1774067120.034338,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067120.034506,
+      "elapsed_s": 1.043,
+      "event_type": "error",
+      "agent_id": "orchestrator",
+      "data": {
+        "error": "Error code: 404 - {'error': {'message': 'No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy', 'code': 404}}",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1975 @@
+{
+  "session_id": "27b-multi-001",
+  "timestamp": "2026-03-21T01:30:03.642532+00:00",
+  "question": "Create a line chart of GDP growth over time. Then also show the average GDP growth as a summary statistic.",
+  "response": "I'll create a line chart of GDP growth over time and calculate the average GDP growth using the quarterly macroeconomic data.",
+  "total_elapsed_s": 300.001,
+  "event_count": 177,
+  "events": [
+    {
+      "timestamp": 1774056603.643434,
+      "elapsed_s": 0.001,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-bfd1371c",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774056603.6429179,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056603.6443589,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Create a line chart of GDP growth over time. Then also show the average GDP growth as a summary statistic.",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056603.644798,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056689.3171682,
+      "elapsed_s": 85.675,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-bfd1371c",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774056603.6429179,
+        "finished_at": 1774056689.317031,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056689.317272,
+      "elapsed_s": 85.675,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-8babb10a",
+        "label": "Generating response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774056689.317086,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056689.317318,
+      "elapsed_s": 85.675,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "I",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056689.423054,
+      "elapsed_s": 85.781,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "'ll",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056689.528957,
+      "elapsed_s": 85.886,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " create",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056689.635749,
+      "elapsed_s": 85.993,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " a",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056689.742502,
+      "elapsed_s": 86.1,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " line",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056689.848136,
+      "elapsed_s": 86.206,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " chart",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056689.955786,
+      "elapsed_s": 86.313,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " of",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056690.062655,
+      "elapsed_s": 86.42,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056690.170769,
+      "elapsed_s": 86.528,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056690.278257,
+      "elapsed_s": 86.636,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " over",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056690.386066,
+      "elapsed_s": 86.744,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " time",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056690.493681,
+      "elapsed_s": 86.851,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " and",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056690.602153,
+      "elapsed_s": 86.96,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " calculate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056690.709861,
+      "elapsed_s": 87.067,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056690.816203,
+      "elapsed_s": 87.174,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " average",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056690.923223,
+      "elapsed_s": 87.281,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056691.0295491,
+      "elapsed_s": 87.387,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056691.135415,
+      "elapsed_s": 87.493,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " using",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056691.241754,
+      "elapsed_s": 87.599,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056691.348421,
+      "elapsed_s": 87.706,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " quarterly",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056691.455188,
+      "elapsed_s": 87.813,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " macro",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056691.5619478,
+      "elapsed_s": 87.919,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "economic",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056691.668555,
+      "elapsed_s": 88.026,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " data",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056691.774445,
+      "elapsed_s": 88.132,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056749.011564,
+      "elapsed_s": 145.369,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-8babb10a",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774056689.317086,
+        "finished_at": 1774056749.010954,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056749.011672,
+      "elapsed_s": 145.369,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-52672f2b",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774056749.011009,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056749.011701,
+      "elapsed_s": 145.369,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "I'll create a line chart of GDP growth over time and calculate the average GDP growth using the quarterly macroeconomic data.",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "run_python",
+                  "args": {
+                    "code": "import altair as alt\nimport pandas as pd\n\n# Query GDP growth data\ndf = _db.execute(\"\"\"\n    SELECT date, gdp_growth_pct \n    FROM us_macro_quarterly_fred_126b4cea \n    WHERE gdp_growth_pct IS NOT NULL\n    ORDER BY date\n\"\"\").df()\n\nprint(\"GDP Growth Data Summary:\")\nprint(f\"Total observations: {len(df)}\")\nprint(f\"Date range: {df['date'].min()} to {df['date'].max()}\")\nprint(f\"\\nAverage GDP Growth: {df['gdp_growth_pct'].mean():.2f}%\")\nprint(f\"Median GDP Growth: {df['gdp_growth_pct'].median():.2f}%\")\nprint(f\"Std Dev: {df['gdp_growth_pct'].std():.2f}%\")\nprint(f\"Min: {df['gdp_growth_pct'].min():.2f}%\")\nprint(f\"Max: {df['gdp_growth_pct'].max():.2f}%\")\n\n# Create line chart\nchart = alt.Chart(df).mark_line(color='#2E86AB', strokeWidth=2).encode(\n    x=alt.X('date:T', title='Date', axis=alt.Axis(labelangle=0)),\n    y=alt.Y('gdp_growth_pct:Q', title='GDP Growth (%)', scale=alt.Domain(-5, 10)),\n    tooltip=['date:T', 'gdp_growth_pct:Q']\n).properties(\n    width=800,\n    height=400,\n    title='US GDP Growth Rate Over Time'\n)\n\n# Add reference line for average\navg_line = alt.Chart(pd.DataFrame({'value': [df['gdp_growth_pct'].mean()]})).mark_rule(\n    color='#E94F37', \n    strokeDash=[5, 5],\n    strokeWidth=2\n).encode(\n    y='value:Q'\n)\n\n# Combine chart with average line\ncombined_chart = chart + avg_line\n\n# Apply styling and save\ncombined_chart = styled_chart(combined_chart, \"US GDP Growth Rate Over Time\", width=800, height=400)\nsave_chart_vegalite(combined_chart, \"US GDP Growth Rate Over Time\")\n\nprint(\"\\nChart saved as artifact: 'US GDP Growth Rate Over Time'\")\n"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056749.012862,
+      "elapsed_s": 145.37,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056749.01501,
+      "elapsed_s": 145.372,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "args_preview": "Code: import altair as alt",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056749.591265,
+      "elapsed_s": 145.949,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "elapsed_s": 0.58,
+        "result_preview": "Error: SchemaValidationError: `Axis` has no parameter named 'labelangle'\n\nExisting parameter names are:\naria               gridDashOffset     labelLineHeight   tickCount        titleBaseline     \nband",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056749.592385,
+      "elapsed_s": 145.95,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-52672f2b",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774056749.011009,
+        "finished_at": 1774056749.592062,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056749.592413,
+      "elapsed_s": 145.95,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-afc13495",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774056749.592074,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056749.592423,
+      "elapsed_s": 145.95,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Error: SchemaValidationError: `Axis` has no parameter named 'labelangle'\n\nExisting parameter names are:\naria               gridDashOffset     labelLineHeight   tickCount        titleBaseline     \nbandPosition       gridOpacity        labelOffset       tickDash         titleColor        \ndescription        gridWidth          labelOpacity      tickDashOffset   titleFont         \ndomain             labelAlign         labelOverlap      tickExtra        titleFontSize     \ndomainCap          labelAngle         labelPadding      tickMinStep      titleFontStyle    \ndomainColor        labelBaseline      labelSeparation   tickOffset       titleFontWeight   \ndomainDash         labelBound         labels            tickOpacity      titleLimit        \ndomainDashOffset   labelColor         maxExtent         tickRound        titleLineHeight   \ndomainOpacity      labelExpr          minExtent         tickSize         titleOpacity      \ndomainWidth        labelFlush         offset            tickWidth        titlePadding      \nformat             labelFlushOffset   orient            ticks            titleX            \nformatType         labelFont          position          title            titleY            \ngrid               labelFontSize      style             titleAlign       translate         \ngridCap            labelFontStyle     tickBand          titleAnchor      values            \ngridColor          labelFontWeight    tickCap           titleAngle       zindex            \ngridDash           labelLimit         tickColor                                            \n\nSee the help for `Axis` to read the full description of these parameters\nFIX THE ERROR AND RETRY. Read the error message carefully, correct your code, and call run_python again.\nOutput:\nGDP Growth Data Summary:\nTotal observations: 315\nDate range: 1947-04-01 00:00:00 to 2025-10-01 00:00:00\n\nAverage GDP Growth: 0.77%\nMedian GDP Growth: 0.77%\nStd Dev: 1.11%\nMin: -7.88%\nMax: 7.76%\n",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056819.808772,
+      "elapsed_s": 216.166,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-afc13495",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774056749.592074,
+        "finished_at": 1774056819.8079948,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056819.8088682,
+      "elapsed_s": 216.166,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-2ab8891c",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774056819.808028,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056819.8089118,
+      "elapsed_s": 216.166,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "run_python",
+                  "args": {
+                    "code": "import altair as alt\nimport pandas as pd\n\n# Query GDP growth data\ndf = _db.execute(\"\"\"\n    SELECT date, gdp_growth_pct \n    FROM us_macro_quarterly_fred_126b4cea \n    WHERE gdp_growth_pct IS NOT NULL\n    ORDER BY date\n\"\"\").df()\n\n# Create line chart\nchart = alt.Chart(df).mark_line(color='#2E86AB', strokeWidth=2).encode(\n    x=alt.X('date:T', title='Date', axis=alt.Axis(labelAngle=0)),\n    y=alt.Y('gdp_growth_pct:Q', title='GDP Growth (%)', scale=alt.Domain(-5, 10)),\n    tooltip=['date:T', 'gdp_growth_pct:Q']\n).properties(\n    width=800,\n    height=400,\n    title='US GDP Growth Rate Over Time'\n)\n\n# Add reference line for average\navg_line = alt.Chart(pd.DataFrame({'value': [df['gdp_growth_pct'].mean()]})).mark_rule(\n    color='#E94F37', \n    strokeDash=[5, 5],\n    strokeWidth=2\n).encode(\n    y='value:Q'\n)\n\n# Combine chart with average line\ncombined_chart = chart + avg_line\n\n# Apply styling and save\ncombined_chart = styled_chart(combined_chart, \"US GDP Growth Rate Over Time\", width=800, height=400)\nsave_chart_vegalite(combined_chart, \"US GDP Growth Rate Over Time\")\n\nprint(\"Chart saved successfully!\")\n"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056819.810312,
+      "elapsed_s": 216.168,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056819.8125062,
+      "elapsed_s": 216.17,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "args_preview": "Code: import altair as alt",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056820.2258492,
+      "elapsed_s": 216.583,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "elapsed_s": 0.41,
+        "result_preview": "Error: AttributeError: module 'altair' has no attribute 'Domain'\nIMPORT ERROR. Check the correct module path and retry. Available packages: pandas, numpy, matplotlib, seaborn, plotly, scipy, scikit-le",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056820.227037,
+      "elapsed_s": 216.585,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-2ab8891c",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774056819.808028,
+        "finished_at": 1774056820.226691,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056820.227059,
+      "elapsed_s": 216.585,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-b1860e4c",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774056820.2267032,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056820.227069,
+      "elapsed_s": 216.585,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Error: AttributeError: module 'altair' has no attribute 'Domain'\nIMPORT ERROR. Check the correct module path and retry. Available packages: pandas, numpy, matplotlib, seaborn, plotly, scipy, scikit-learn, statsmodels, duckdb, altair.",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056872.0864,
+      "elapsed_s": 268.444,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-b1860e4c",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774056820.2267032,
+        "finished_at": 1774056872.0857768,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056872.086494,
+      "elapsed_s": 268.444,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-b600fe28",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774056872.085821,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056872.0865269,
+      "elapsed_s": 268.444,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "run_python",
+                  "args": {
+                    "code": "import altair as alt\nimport pandas as pd\n\n# Query GDP growth data\ndf = _db.execute(\"\"\"\n    SELECT date, gdp_growth_pct \n    FROM us_macro_quarterly_fred_126b4cea \n    WHERE gdp_growth_pct IS NOT NULL\n    ORDER BY date\n\"\"\").df()\n\n# Create line chart\nchart = alt.Chart(df).mark_line(color='#2E86AB', strokeWidth=2).encode(\n    x=alt.X('date:T', title='Date', axis=alt.Axis(labelAngle=0)),\n    y=alt.Y('gdp_growth_pct:Q', title='GDP Growth (%)', scale=alt.Scale(domain=[-5, 10])),\n    tooltip=['date:T', 'gdp_growth_pct:Q']\n).properties(\n    width=800,\n    height=400,\n    title='US GDP Growth Rate Over Time'\n)\n\n# Add reference line for average\navg_line = alt.Chart(pd.DataFrame({'value': [df['gdp_growth_pct'].mean()]})).mark_rule(\n    color='#E94F37', \n    strokeDash=[5, 5],\n    strokeWidth=2\n).encode(\n    y='value:Q'\n)\n\n# Combine chart with average line\ncombined_chart = chart + avg_line\n\n# Apply styling and save\ncombined_chart = styled_chart(combined_chart, \"US GDP Growth Rate Over Time\", width=800, height=400)\nsave_chart_vegalite(combined_chart, \"US GDP Growth Rate Over Time\")\n\nprint(\"Chart saved successfully!\")\n"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056872.087436,
+      "elapsed_s": 268.445,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056872.0889668,
+      "elapsed_s": 268.446,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "args_preview": "Code: import altair as alt",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056872.679191,
+      "elapsed_s": 269.037,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "elapsed_s": 0.59,
+        "result_preview": "Output:\nChart saved successfully!\n\nSaved chart artifact: US GDP Growth Rate Over Time (id=eceeed44, type={}, ). This chart is now visible in the Artifacts panel and inline in the chat.",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056872.680396,
+      "elapsed_s": 269.038,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-b600fe28",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774056872.085821,
+        "finished_at": 1774056872.6800508,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056872.6804218,
+      "elapsed_s": 269.038,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-3-54f9b465",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774056872.680063,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056872.6804311,
+      "elapsed_s": 269.038,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "eceeed44",
+        "type": "chart",
+        "title": "US GDP Growth Rate Over Time",
+        "content": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v6.1.0.json\",\n  \"config\": {\n    \"axis\": {\n      \"domainColor\": \"rgba(255,255,255,0.1)\",\n      \"gridColor\": \"rgba(255,255,255,0.04)\",\n      \"labelColor\": \"#9da3b4\",\n      \"labelFont\": \"Inter\",\n      \"labelFontSize\": 11,\n      \"tickColor\": \"rgba(255,255,255,0.1)\",\n      \"titleColor\": \"#9da3b4\",\n      \"titleFont\": \"Inter\",\n      \"titleFontSize\": 12\n    },\n    \"background\": \"transparent\",\n    \"font\": \"Inter\",\n    \"legend\": {\n      \"labelColor\": \"#9da3b4\",\n      \"labelFont\": \"Inter\",\n      \"labelFontSize\": 11,\n      \"orient\": \"bottom\",\n      \"padding\": 10,\n      \"titleColor\": \"#f1f3f9\",\n      \"titleFont\": \"Inter\",\n      \"titleFontSize\": 12\n    },\n    \"view\": {\n      \"continuousHeight\": 300,\n      \"continuousWidth\": 300,\n      \"strokeWidth\": 0\n    }\n  },\n  \"datasets\": {\n    \"data-305edef4792ec379f35b7945ddce87e6\": [\n      {\n        \"date\": \"1947-04-01T00:00:00\",\n        \"gdp_growth_pct\": -0.2652\n      },\n      {\n        \"date\": \"1947-07-01T00:00:00\",\n        \"gdp_growth_pct\": -0.2049\n      },\n      {\n        \"date\": \"1947-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.566\n      },\n      {\n        \"date\": \"1948-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.506\n      },\n      {\n        \"date\": \"1948-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6524\n      },\n      {\n        \"date\": \"1948-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5745\n      },\n      {\n        \"date\": \"1948-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1133\n      },\n      {\n        \"date\": \"1949-01-01T00:00:00\",\n        \"gdp_growth_pct\": -1.3766\n      },\n      {\n        \"date\": \"1949-04-01T00:00:00\",\n        \"gdp_growth_pct\": -0.3397\n      },\n      {\n        \"date\": \"1949-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0339\n      },\n      {\n        \"date\": \"1949-10-01T00:00:00\",\n        \"gdp_growth_pct\": -0.8378\n      },\n      {\n        \"date\": \"1950-01-01T00:00:00\",\n        \"gdp_growth_pct\": 3.9317\n      },\n      {\n        \"date\": \"1950-04-01T00:00:00\",\n        \"gdp_growth_pct\": 3.0509\n      },\n      {\n        \"date\": \"1950-07-01T00:00:00\",\n        \"gdp_growth_pct\": 3.8651\n      },\n      {\n        \"date\": \"1950-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.915\n      },\n      {\n        \"date\": \"1951-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.358\n      },\n      {\n        \"date\": \"1951-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.7321\n      },\n      {\n        \"date\": \"1951-07-01T00:00:00\",\n        \"gdp_growth_pct\": 2.06\n      },\n      {\n        \"date\": \"1951-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.219\n      },\n      {\n        \"date\": \"1952-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0669\n      },\n      {\n        \"date\": \"1952-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.2143\n      },\n      {\n        \"date\": \"1952-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7212\n      },\n      {\n        \"date\": \"1952-10-01T00:00:00\",\n        \"gdp_growth_pct\": 3.2839\n      },\n      {\n        \"date\": \"1953-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.859\n      },\n      {\n        \"date\": \"1953-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7731\n      },\n      {\n        \"date\": \"1953-07-01T00:00:00\",\n        \"gdp_growth_pct\": -0.5625\n      },\n      {\n        \"date\": \"1953-10-01T00:00:00\",\n        \"gdp_growth_pct\": -1.5137\n      },\n      {\n        \"date\": \"1954-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.4776\n      },\n      {\n        \"date\": \"1954-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1094\n      },\n      {\n        \"date\": \"1954-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.1297\n      },\n      {\n        \"date\": \"1954-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.957\n      },\n      {\n        \"date\": \"1955-01-01T00:00:00\",\n        \"gdp_growth_pct\": 2.8566\n      },\n      {\n        \"date\": \"1955-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6275\n      },\n      {\n        \"date\": \"1955-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.3508\n      },\n      {\n        \"date\": \"1955-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6007\n      },\n      {\n        \"date\": \"1956-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.388\n      },\n      {\n        \"date\": \"1956-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8266\n      },\n      {\n        \"date\": \"1956-07-01T00:00:00\",\n        \"gdp_growth_pct\": -0.0897\n      },\n      {\n        \"date\": \"1956-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6459\n      },\n      {\n        \"date\": \"1957-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6403\n      },\n      {\n        \"date\": \"1957-04-01T00:00:00\",\n        \"gdp_growth_pct\": -0.2191\n      },\n      {\n        \"date\": \"1957-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9799\n      },\n      {\n        \"date\": \"1957-10-01T00:00:00\",\n        \"gdp_growth_pct\": -1.0345\n      },\n      {\n        \"date\": \"1958-01-01T00:00:00\",\n        \"gdp_growth_pct\": -2.5959\n      },\n      {\n        \"date\": \"1958-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6569\n      },\n      {\n        \"date\": \"1958-07-01T00:00:00\",\n        \"gdp_growth_pct\": 2.3131\n      },\n      {\n        \"date\": \"1958-10-01T00:00:00\",\n        \"gdp_growth_pct\": 2.3382\n      },\n      {\n        \"date\": \"1959-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.9184\n      },\n      {\n        \"date\": \"1959-04-01T00:00:00\",\n        \"gdp_growth_pct\": 2.2534\n      },\n      {\n        \"date\": \"1959-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.0697\n      },\n      {\n        \"date\": \"1959-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.285\n      },\n      {\n        \"date\": \"1960-01-01T00:00:00\",\n        \"gdp_growth_pct\": 2.2486\n      },\n      {\n        \"date\": \"1960-04-01T00:00:00\",\n        \"gdp_growth_pct\": -0.5384\n      },\n      {\n        \"date\": \"1960-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4899\n      },\n      {\n        \"date\": \"1960-10-01T00:00:00\",\n        \"gdp_growth_pct\": -1.2831\n      },\n      {\n        \"date\": \"1961-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.675\n      },\n      {\n        \"date\": \"1961-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6979\n      },\n      {\n        \"date\": \"1961-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.9204\n      },\n      {\n        \"date\": \"1961-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.9617\n      },\n      {\n        \"date\": \"1962-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.7837\n      },\n      {\n        \"date\": \"1962-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9048\n      },\n      {\n        \"date\": \"1962-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.2296\n      },\n      {\n        \"date\": \"1962-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3294\n      },\n      {\n        \"date\": \"1963-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0921\n      },\n      {\n        \"date\": \"1963-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.1224\n      },\n      {\n        \"date\": \"1963-07-01T00:00:00\",\n        \"gdp_growth_pct\": 2.1988\n      },\n      {\n        \"date\": \"1963-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6559\n      },\n      {\n        \"date\": \"1964-01-01T00:00:00\",\n        \"gdp_growth_pct\": 2.1087\n      },\n      {\n        \"date\": \"1964-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0891\n      },\n      {\n        \"date\": \"1964-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.5626\n      },\n      {\n        \"date\": \"1964-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3092\n      },\n      {\n        \"date\": \"1965-01-01T00:00:00\",\n        \"gdp_growth_pct\": 2.4199\n      },\n      {\n        \"date\": \"1965-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.2635\n      },\n      {\n        \"date\": \"1965-07-01T00:00:00\",\n        \"gdp_growth_pct\": 2.2232\n      },\n      {\n        \"date\": \"1965-10-01T00:00:00\",\n        \"gdp_growth_pct\": 2.3039\n      },\n      {\n        \"date\": \"1966-01-01T00:00:00\",\n        \"gdp_growth_pct\": 2.4338\n      },\n      {\n        \"date\": \"1966-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3415\n      },\n      {\n        \"date\": \"1966-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8468\n      },\n      {\n        \"date\": \"1966-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8204\n      },\n      {\n        \"date\": \"1967-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8858\n      },\n      {\n        \"date\": \"1967-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.0614\n      },\n      {\n        \"date\": \"1967-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9461\n      },\n      {\n        \"date\": \"1967-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7539\n      },\n      {\n        \"date\": \"1968-01-01T00:00:00\",\n        \"gdp_growth_pct\": 2.0393\n      },\n      {\n        \"date\": \"1968-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6704\n      },\n      {\n        \"date\": \"1968-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7745\n      },\n      {\n        \"date\": \"1968-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3928\n      },\n      {\n        \"date\": \"1969-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.5644\n      },\n      {\n        \"date\": \"1969-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3034\n      },\n      {\n        \"date\": \"1969-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.66\n      },\n      {\n        \"date\": \"1969-10-01T00:00:00\",\n        \"gdp_growth_pct\": -0.4882\n      },\n      {\n        \"date\": \"1970-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.1489\n      },\n      {\n        \"date\": \"1970-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1417\n      },\n      {\n        \"date\": \"1970-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9215\n      },\n      {\n        \"date\": \"1970-10-01T00:00:00\",\n        \"gdp_growth_pct\": -1.0716\n      },\n      {\n        \"date\": \"1971-01-01T00:00:00\",\n        \"gdp_growth_pct\": 2.7161\n      },\n      {\n        \"date\": \"1971-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5408\n      },\n      {\n        \"date\": \"1971-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8224\n      },\n      {\n        \"date\": \"1971-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.2349\n      },\n      {\n        \"date\": \"1972-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.8372\n      },\n      {\n        \"date\": \"1972-04-01T00:00:00\",\n        \"gdp_growth_pct\": 2.2693\n      },\n      {\n        \"date\": \"1972-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9441\n      },\n      {\n        \"date\": \"1972-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6744\n      },\n      {\n        \"date\": \"1973-01-01T00:00:00\",\n        \"gdp_growth_pct\": 2.4749\n      },\n      {\n        \"date\": \"1973-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0887\n      },\n      {\n        \"date\": \"1973-07-01T00:00:00\",\n        \"gdp_growth_pct\": -0.5258\n      },\n      {\n        \"date\": \"1973-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9492\n      },\n      {\n        \"date\": \"1974-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.8597\n      },\n      {\n        \"date\": \"1974-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.2377\n      },\n      {\n        \"date\": \"1974-07-01T00:00:00\",\n        \"gdp_growth_pct\": -0.9453\n      },\n      {\n        \"date\": \"1974-10-01T00:00:00\",\n        \"gdp_growth_pct\": -0.3884\n      },\n      {\n        \"date\": \"1975-01-01T00:00:00\",\n        \"gdp_growth_pct\": -1.2176\n      },\n      {\n        \"date\": \"1975-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7147\n      },\n      {\n        \"date\": \"1975-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.712\n      },\n      {\n        \"date\": \"1975-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.3471\n      },\n      {\n        \"date\": \"1976-01-01T00:00:00\",\n        \"gdp_growth_pct\": 2.2495\n      },\n      {\n        \"date\": \"1976-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7334\n      },\n      {\n        \"date\": \"1976-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5474\n      },\n      {\n        \"date\": \"1976-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7226\n      },\n      {\n        \"date\": \"1977-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.1862\n      },\n      {\n        \"date\": \"1977-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.9419\n      },\n      {\n        \"date\": \"1977-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.8032\n      },\n      {\n        \"date\": \"1977-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.002\n      },\n      {\n        \"date\": \"1978-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3198\n      },\n      {\n        \"date\": \"1978-04-01T00:00:00\",\n        \"gdp_growth_pct\": 3.8648\n      },\n      {\n        \"date\": \"1978-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0057\n      },\n      {\n        \"date\": \"1978-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.3441\n      },\n      {\n        \"date\": \"1979-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1796\n      },\n      {\n        \"date\": \"1979-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1067\n      },\n      {\n        \"date\": \"1979-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7428\n      },\n      {\n        \"date\": \"1979-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.25\n      },\n      {\n        \"date\": \"1980-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3146\n      },\n      {\n        \"date\": \"1980-04-01T00:00:00\",\n        \"gdp_growth_pct\": -2.0604\n      },\n      {\n        \"date\": \"1980-07-01T00:00:00\",\n        \"gdp_growth_pct\": -0.1189\n      },\n      {\n        \"date\": \"1980-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.8649\n      },\n      {\n        \"date\": \"1981-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.9594\n      },\n      {\n        \"date\": \"1981-04-01T00:00:00\",\n        \"gdp_growth_pct\": -0.7411\n      },\n      {\n        \"date\": \"1981-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.1975\n      },\n      {\n        \"date\": \"1981-10-01T00:00:00\",\n        \"gdp_growth_pct\": -1.0896\n      },\n      {\n        \"date\": \"1982-01-01T00:00:00\",\n        \"gdp_growth_pct\": -1.5536\n      },\n      {\n        \"date\": \"1982-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4562\n      },\n      {\n        \"date\": \"1982-07-01T00:00:00\",\n        \"gdp_growth_pct\": -0.3823\n      },\n      {\n        \"date\": \"1982-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.04\n      },\n      {\n        \"date\": \"1983-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.3178\n      },\n      {\n        \"date\": \"1983-04-01T00:00:00\",\n        \"gdp_growth_pct\": 2.2755\n      },\n      {\n        \"date\": \"1983-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.999\n      },\n      {\n        \"date\": \"1983-10-01T00:00:00\",\n        \"gdp_growth_pct\": 2.0862\n      },\n      {\n        \"date\": \"1984-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.9548\n      },\n      {\n        \"date\": \"1984-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.7278\n      },\n      {\n        \"date\": \"1984-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.964\n      },\n      {\n        \"date\": \"1984-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8208\n      },\n      {\n        \"date\": \"1985-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.969\n      },\n      {\n        \"date\": \"1985-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8805\n      },\n      {\n        \"date\": \"1985-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.5273\n      },\n      {\n        \"date\": \"1985-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7434\n      },\n      {\n        \"date\": \"1986-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9337\n      },\n      {\n        \"date\": \"1986-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4503\n      },\n      {\n        \"date\": \"1986-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9567\n      },\n      {\n        \"date\": \"1986-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5364\n      },\n      {\n        \"date\": \"1987-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7418\n      },\n      {\n        \"date\": \"1987-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0782\n      },\n      {\n        \"date\": \"1987-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8672\n      },\n      {\n        \"date\": \"1987-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.717\n      },\n      {\n        \"date\": \"1988-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5169\n      },\n      {\n        \"date\": \"1988-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.314\n      },\n      {\n        \"date\": \"1988-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.586\n      },\n      {\n        \"date\": \"1988-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.3325\n      },\n      {\n        \"date\": \"1989-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0164\n      },\n      {\n        \"date\": \"1989-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7631\n      },\n      {\n        \"date\": \"1989-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7407\n      },\n      {\n        \"date\": \"1989-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.197\n      },\n      {\n        \"date\": \"1990-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0929\n      },\n      {\n        \"date\": \"1990-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.363\n      },\n      {\n        \"date\": \"1990-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.0666\n      },\n      {\n        \"date\": \"1990-10-01T00:00:00\",\n        \"gdp_growth_pct\": -0.9104\n      },\n      {\n        \"date\": \"1991-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.4679\n      },\n      {\n        \"date\": \"1991-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7797\n      },\n      {\n        \"date\": \"1991-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5054\n      },\n      {\n        \"date\": \"1991-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3485\n      },\n      {\n        \"date\": \"1992-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.1973\n      },\n      {\n        \"date\": \"1992-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0843\n      },\n      {\n        \"date\": \"1992-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9881\n      },\n      {\n        \"date\": \"1992-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0429\n      },\n      {\n        \"date\": \"1993-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1669\n      },\n      {\n        \"date\": \"1993-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5822\n      },\n      {\n        \"date\": \"1993-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4772\n      },\n      {\n        \"date\": \"1993-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.3601\n      },\n      {\n        \"date\": \"1994-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9704\n      },\n      {\n        \"date\": \"1994-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.3552\n      },\n      {\n        \"date\": \"1994-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5846\n      },\n      {\n        \"date\": \"1994-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.1456\n      },\n      {\n        \"date\": \"1995-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3548\n      },\n      {\n        \"date\": \"1995-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.2983\n      },\n      {\n        \"date\": \"1995-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8507\n      },\n      {\n        \"date\": \"1995-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6791\n      },\n      {\n        \"date\": \"1996-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7491\n      },\n      {\n        \"date\": \"1996-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6679\n      },\n      {\n        \"date\": \"1996-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.897\n      },\n      {\n        \"date\": \"1996-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0384\n      },\n      {\n        \"date\": \"1997-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6454\n      },\n      {\n        \"date\": \"1997-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6652\n      },\n      {\n        \"date\": \"1997-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.2486\n      },\n      {\n        \"date\": \"1997-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8539\n      },\n      {\n        \"date\": \"1998-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0038\n      },\n      {\n        \"date\": \"1998-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9257\n      },\n      {\n        \"date\": \"1998-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.2589\n      },\n      {\n        \"date\": \"1998-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6092\n      },\n      {\n        \"date\": \"1999-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9394\n      },\n      {\n        \"date\": \"1999-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8347\n      },\n      {\n        \"date\": \"1999-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.3259\n      },\n      {\n        \"date\": \"1999-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6407\n      },\n      {\n        \"date\": \"2000-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3628\n      },\n      {\n        \"date\": \"2000-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.8213\n      },\n      {\n        \"date\": \"2000-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1019\n      },\n      {\n        \"date\": \"2000-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.597\n      },\n      {\n        \"date\": \"2001-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.3278\n      },\n      {\n        \"date\": \"2001-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6245\n      },\n      {\n        \"date\": \"2001-07-01T00:00:00\",\n        \"gdp_growth_pct\": -0.4006\n      },\n      {\n        \"date\": \"2001-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.2748\n      },\n      {\n        \"date\": \"2002-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8364\n      },\n      {\n        \"date\": \"2002-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6127\n      },\n      {\n        \"date\": \"2002-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4065\n      },\n      {\n        \"date\": \"2002-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1236\n      },\n      {\n        \"date\": \"2003-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5266\n      },\n      {\n        \"date\": \"2003-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8856\n      },\n      {\n        \"date\": \"2003-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.6632\n      },\n      {\n        \"date\": \"2003-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.1607\n      },\n      {\n        \"date\": \"2004-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5667\n      },\n      {\n        \"date\": \"2004-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.775\n      },\n      {\n        \"date\": \"2004-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9486\n      },\n      {\n        \"date\": \"2004-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0202\n      },\n      {\n        \"date\": \"2005-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.1094\n      },\n      {\n        \"date\": \"2005-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4926\n      },\n      {\n        \"date\": \"2005-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7838\n      },\n      {\n        \"date\": \"2005-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5555\n      },\n      {\n        \"date\": \"2006-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.3454\n      },\n      {\n        \"date\": \"2006-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.2588\n      },\n      {\n        \"date\": \"2006-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.15\n      },\n      {\n        \"date\": \"2006-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8594\n      },\n      {\n        \"date\": \"2007-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3008\n      },\n      {\n        \"date\": \"2007-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6118\n      },\n      {\n        \"date\": \"2007-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.576\n      },\n      {\n        \"date\": \"2007-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6282\n      },\n      {\n        \"date\": \"2008-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.4268\n      },\n      {\n        \"date\": \"2008-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5954\n      },\n      {\n        \"date\": \"2008-07-01T00:00:00\",\n        \"gdp_growth_pct\": -0.5253\n      },\n      {\n        \"date\": \"2008-10-01T00:00:00\",\n        \"gdp_growth_pct\": -2.189\n      },\n      {\n        \"date\": \"2009-01-01T00:00:00\",\n        \"gdp_growth_pct\": -1.1349\n      },\n      {\n        \"date\": \"2009-04-01T00:00:00\",\n        \"gdp_growth_pct\": -0.1787\n      },\n      {\n        \"date\": \"2009-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3512\n      },\n      {\n        \"date\": \"2009-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0809\n      },\n      {\n        \"date\": \"2010-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4845\n      },\n      {\n        \"date\": \"2010-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9676\n      },\n      {\n        \"date\": \"2010-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7711\n      },\n      {\n        \"date\": \"2010-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5251\n      },\n      {\n        \"date\": \"2011-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.2372\n      },\n      {\n        \"date\": \"2011-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6766\n      },\n      {\n        \"date\": \"2011-07-01T00:00:00\",\n        \"gdp_growth_pct\": -0.0223\n      },\n      {\n        \"date\": \"2011-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.123\n      },\n      {\n        \"date\": \"2012-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8386\n      },\n      {\n        \"date\": \"2012-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4463\n      },\n      {\n        \"date\": \"2012-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.144\n      },\n      {\n        \"date\": \"2012-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1156\n      },\n      {\n        \"date\": \"2013-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9866\n      },\n      {\n        \"date\": \"2013-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.2676\n      },\n      {\n        \"date\": \"2013-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8514\n      },\n      {\n        \"date\": \"2013-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8717\n      },\n      {\n        \"date\": \"2014-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.3451\n      },\n      {\n        \"date\": \"2014-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.2918\n      },\n      {\n        \"date\": \"2014-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.2154\n      },\n      {\n        \"date\": \"2014-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5057\n      },\n      {\n        \"date\": \"2015-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.9005\n      },\n      {\n        \"date\": \"2015-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6194\n      },\n      {\n        \"date\": \"2015-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4002\n      },\n      {\n        \"date\": \"2015-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1845\n      },\n      {\n        \"date\": \"2016-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5795\n      },\n      {\n        \"date\": \"2016-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.3211\n      },\n      {\n        \"date\": \"2016-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7094\n      },\n      {\n        \"date\": \"2016-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5543\n      },\n      {\n        \"date\": \"2017-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4869\n      },\n      {\n        \"date\": \"2017-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5599\n      },\n      {\n        \"date\": \"2017-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7885\n      },\n      {\n        \"date\": \"2017-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.127\n      },\n      {\n        \"date\": \"2018-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8134\n      },\n      {\n        \"date\": \"2018-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.5308\n      },\n      {\n        \"date\": \"2018-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6237\n      },\n      {\n        \"date\": \"2018-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1416\n      },\n      {\n        \"date\": \"2019-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6243\n      },\n      {\n        \"date\": \"2019-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8351\n      },\n      {\n        \"date\": \"2019-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.17\n      },\n      {\n        \"date\": \"2019-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6819\n      },\n      {\n        \"date\": \"2020-01-01T00:00:00\",\n        \"gdp_growth_pct\": -1.3163\n      },\n      {\n        \"date\": \"2020-04-01T00:00:00\",\n        \"gdp_growth_pct\": -7.8768\n      },\n      {\n        \"date\": \"2020-07-01T00:00:00\",\n        \"gdp_growth_pct\": 7.7623\n      },\n      {\n        \"date\": \"2020-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.1335\n      },\n      {\n        \"date\": \"2021-01-01T00:00:00\",\n        \"gdp_growth_pct\": 1.3958\n      },\n      {\n        \"date\": \"2021-04-01T00:00:00\",\n        \"gdp_growth_pct\": 1.7019\n      },\n      {\n        \"date\": \"2021-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8251\n      },\n      {\n        \"date\": \"2021-10-01T00:00:00\",\n        \"gdp_growth_pct\": 1.7158\n      },\n      {\n        \"date\": \"2022-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.2548\n      },\n      {\n        \"date\": \"2022-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1565\n      },\n      {\n        \"date\": \"2022-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7219\n      },\n      {\n        \"date\": \"2022-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6902\n      },\n      {\n        \"date\": \"2023-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.7239\n      },\n      {\n        \"date\": \"2023-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.6279\n      },\n      {\n        \"date\": \"2023-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.1536\n      },\n      {\n        \"date\": \"2023-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8441\n      },\n      {\n        \"date\": \"2024-01-01T00:00:00\",\n        \"gdp_growth_pct\": 0.2099\n      },\n      {\n        \"date\": \"2024-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8855\n      },\n      {\n        \"date\": \"2024-07-01T00:00:00\",\n        \"gdp_growth_pct\": 0.8248\n      },\n      {\n        \"date\": \"2024-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.4599\n      },\n      {\n        \"date\": \"2025-01-01T00:00:00\",\n        \"gdp_growth_pct\": -0.1625\n      },\n      {\n        \"date\": \"2025-04-01T00:00:00\",\n        \"gdp_growth_pct\": 0.946\n      },\n      {\n        \"date\": \"2025-07-01T00:00:00\",\n        \"gdp_growth_pct\": 1.0763\n      },\n      {\n        \"date\": \"2025-10-01T00:00:00\",\n        \"gdp_growth_pct\": 0.1628\n      }\n    ],\n    \"data-f5d45b25b00ea39b79b05d5685f0e588\": [\n      {\n        \"value\": 0.771034603174603\n      }\n    ]\n  },\n  \"height\": 400,\n  \"layer\": [\n    {\n      \"data\": {\n        \"name\": \"data-305edef4792ec379f35b7945ddce87e6\"\n      },\n      \"encoding\": {\n        \"tooltip\": [\n          {\n            \"field\": \"date\",\n            \"type\": \"temporal\"\n          },\n          {\n            \"field\": \"gdp_growth_pct\",\n            \"type\": \"quantitative\"\n          }\n        ],\n        \"x\": {\n          \"axis\": {\n            \"labelAngle\": 0\n          },\n          \"field\": \"date\",\n          \"title\": \"Date\",\n          \"type\": \"temporal\"\n        },\n        \"y\": {\n          \"field\": \"gdp_growth_pct\",\n          \"scale\": {\n            \"domain\": [\n              -5,\n              10\n            ]\n          },\n          \"title\": \"GDP Growth (%)\",\n          \"type\": \"quantitative\"\n        }\n      },\n      \"mark\": {\n        \"color\": \"#2E86AB\",\n        \"strokeWidth\": 2,\n        \"type\": \"line\"\n      },\n      \"title\": \"US GDP Growth Rate Over Time\"\n    },\n    {\n      \"data\": {\n        \"name\": \"data-f5d45b25b00ea39b79b05d5685f0e588\"\n      },\n      \"encoding\": {\n        \"y\": {\n          \"field\": \"value\",\n          \"type\": \"quantitative\"\n        }\n      },\n      \"mark\": {\n        \"color\": \"#E94F37\",\n        \"strokeDash\": [\n          5,\n          5\n        ],\n        \"strokeWidth\": 2,\n        \"type\": \"rule\"\n      }\n    }\n  ],\n  \"title\": {\n    \"anchor\": \"start\",\n    \"color\": \"#f1f3f9\",\n    \"fontSize\": 14,\n    \"fontWeight\": 600,\n    \"offset\": 10,\n    \"text\": \"US GDP Growth Rate Over Time\"\n  },\n  \"width\": 800\n}",
+        "format": "vega-lite",
+        "created_at": 1774056872.678774,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056872.680589,
+      "elapsed_s": 269.038,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Output:\nChart saved successfully!\n\nSaved chart artifact: US GDP Growth Rate Over Time (id=eceeed44, type={}, ). This chart is now visible in the Artifacts panel and inline in the chat.",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "27b-multi-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056889.6865048,
+      "elapsed_s": 286.044,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-3-54f9b465",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774056872.680063,
+        "finished_at": 1774056889.686392,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056889.686581,
+      "elapsed_s": 286.044,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-bec0a924",
+        "label": "Generating response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774056889.6864388,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056889.686614,
+      "elapsed_s": 286.044,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "##",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056889.789365,
+      "elapsed_s": 286.147,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Executive",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056889.892191,
+      "elapsed_s": 286.25,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Summary",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056890.099523,
+      "elapsed_s": 286.457,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n\nThe",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056890.20486,
+      "elapsed_s": 286.562,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " line",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056890.3067038,
+      "elapsed_s": 286.664,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " chart",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056890.410995,
+      "elapsed_s": 286.768,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " shows",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056890.516499,
+      "elapsed_s": 286.874,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " US",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056890.618557,
+      "elapsed_s": 286.976,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056890.718463,
+      "elapsed_s": 287.076,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056890.816854,
+      "elapsed_s": 287.174,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " from",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056891.0124931,
+      "elapsed_s": 287.37,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " 1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056891.109945,
+      "elapsed_s": 287.467,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "9",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056891.2076852,
+      "elapsed_s": 287.565,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056891.3052092,
+      "elapsed_s": 287.663,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056891.403349,
+      "elapsed_s": 287.761,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " to",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056891.601554,
+      "elapsed_s": 287.959,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " 2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056891.703286,
+      "elapsed_s": 288.061,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "0",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056891.803812,
+      "elapsed_s": 288.161,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056891.906125,
+      "elapsed_s": 288.264,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "5",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056892.0120351,
+      "elapsed_s": 288.37,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056892.1170712,
+      "elapsed_s": 288.475,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " The",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056892.223068,
+      "elapsed_s": 288.581,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056892.328776,
+      "elapsed_s": 288.686,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "average",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056892.434391,
+      "elapsed_s": 288.792,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056892.540113,
+      "elapsed_s": 288.898,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056892.646017,
+      "elapsed_s": 289.003,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " rate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056892.750046,
+      "elapsed_s": 289.108,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " is",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056892.960097,
+      "elapsed_s": 289.318,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " 0",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056893.0656588,
+      "elapsed_s": 289.423,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056893.170557,
+      "elapsed_s": 289.528,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056893.276629,
+      "elapsed_s": 289.634,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056893.382219,
+      "elapsed_s": 289.74,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056893.489462,
+      "elapsed_s": 289.847,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " over",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056893.5941482,
+      "elapsed_s": 289.952,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " this",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056893.700407,
+      "elapsed_s": 290.058,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " period",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056893.806572,
+      "elapsed_s": 290.164,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ",",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056893.912857,
+      "elapsed_s": 290.27,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " with",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056894.019119,
+      "elapsed_s": 290.377,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " significant",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056894.1240451,
+      "elapsed_s": 290.482,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " volatility",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056894.23107,
+      "elapsed_s": 290.589,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " ranging",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056894.337318,
+      "elapsed_s": 290.695,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " from",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056894.443555,
+      "elapsed_s": 290.801,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " -",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056894.550112,
+      "elapsed_s": 290.908,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056894.653506,
+      "elapsed_s": 291.011,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056894.759368,
+      "elapsed_s": 291.117,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "8",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056894.865665,
+      "elapsed_s": 291.223,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "8",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056894.971015,
+      "elapsed_s": 291.328,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056895.07719,
+      "elapsed_s": 291.435,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " to",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056895.288231,
+      "elapsed_s": 291.646,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " 7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056895.394342,
+      "elapsed_s": 291.752,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056895.5011368,
+      "elapsed_s": 291.859,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056895.6072168,
+      "elapsed_s": 291.965,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "6",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056895.7131462,
+      "elapsed_s": 292.071,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%.",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056895.925075,
+      "elapsed_s": 292.283,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n\n##",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056896.030986,
+      "elapsed_s": 292.388,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Summary",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056896.135481,
+      "elapsed_s": 292.493,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Statistics",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056896.348706,
+      "elapsed_s": 292.706,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n\n|",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056896.4551558,
+      "elapsed_s": 292.813,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Metric",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056896.561125,
+      "elapsed_s": 292.919,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056896.6674922,
+      "elapsed_s": 293.025,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Value",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056896.7733629,
+      "elapsed_s": 293.131,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056896.985226,
+      "elapsed_s": 293.343,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n|",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056897.089955,
+      "elapsed_s": 293.447,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "--------",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056897.195689,
+      "elapsed_s": 293.553,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "|",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056897.301335,
+      "elapsed_s": 293.659,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "-------",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056897.407205,
+      "elapsed_s": 293.765,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "|",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056897.61955,
+      "elapsed_s": 293.977,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n|",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056897.7256901,
+      "elapsed_s": 294.083,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056897.831114,
+      "elapsed_s": 294.189,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Average",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056897.937261,
+      "elapsed_s": 294.295,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056898.043135,
+      "elapsed_s": 294.401,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056898.1480262,
+      "elapsed_s": 294.505,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056898.25388,
+      "elapsed_s": 294.611,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056898.359689,
+      "elapsed_s": 294.717,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056898.465698,
+      "elapsed_s": 294.823,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "0",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056898.57231,
+      "elapsed_s": 294.93,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056898.674716,
+      "elapsed_s": 295.032,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056898.78053,
+      "elapsed_s": 295.138,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056898.8863308,
+      "elapsed_s": 295.244,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056898.992246,
+      "elapsed_s": 295.35,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056899.203306,
+      "elapsed_s": 295.561,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n|",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056899.309024,
+      "elapsed_s": 295.666,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Median",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056899.414797,
+      "elapsed_s": 295.772,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056899.5207539,
+      "elapsed_s": 295.878,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056899.626422,
+      "elapsed_s": 295.984,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056899.837953,
+      "elapsed_s": 296.195,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " 0",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056899.9436421,
+      "elapsed_s": 296.301,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056900.048977,
+      "elapsed_s": 296.406,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056900.1539772,
+      "elapsed_s": 296.511,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056900.261377,
+      "elapsed_s": 296.619,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056900.3653162,
+      "elapsed_s": 296.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056900.577133,
+      "elapsed_s": 296.935,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n|",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056900.682972,
+      "elapsed_s": 297.04,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Standard",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056900.7888498,
+      "elapsed_s": 297.146,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Dev",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056900.894589,
+      "elapsed_s": 297.252,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "iation",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056901.0001652,
+      "elapsed_s": 297.358,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056901.205468,
+      "elapsed_s": 297.563,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " 1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056901.312362,
+      "elapsed_s": 297.67,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056901.418848,
+      "elapsed_s": 297.776,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056901.525204,
+      "elapsed_s": 297.883,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056901.631551,
+      "elapsed_s": 297.989,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056901.7374961,
+      "elapsed_s": 298.095,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056901.9499578,
+      "elapsed_s": 298.307,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n|",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056902.0556202,
+      "elapsed_s": 298.413,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Minimum",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056902.160235,
+      "elapsed_s": 298.518,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056902.2668211,
+      "elapsed_s": 298.624,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " -",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056902.372436,
+      "elapsed_s": 298.73,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056902.478498,
+      "elapsed_s": 298.836,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056902.584491,
+      "elapsed_s": 298.942,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "8",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056902.69096,
+      "elapsed_s": 299.048,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "8",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056902.796886,
+      "elapsed_s": 299.154,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056902.902983,
+      "elapsed_s": 299.26,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056903.113127,
+      "elapsed_s": 299.471,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n|",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056903.219529,
+      "elapsed_s": 299.577,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Maximum",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056903.325418,
+      "elapsed_s": 299.683,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " |",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056903.537079,
+      "elapsed_s": 299.895,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " 7",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774056903.642276,
+      "elapsed_s": 300.0,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

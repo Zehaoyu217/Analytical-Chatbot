@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+.venv/
+venv/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Data
+data/uploads/*
+data/duckdb/*
+backend/data/uploads/*
+backend/data/*.duckdb
+!.gitkeep
+
+# Environment
+.env
+backend/.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store

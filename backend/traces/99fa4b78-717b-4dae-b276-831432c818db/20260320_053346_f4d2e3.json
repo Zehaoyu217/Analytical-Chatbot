@@ -1,0 +1,503 @@
+{
+  "session_id": "99fa4b78-717b-4dae-b276-831432c818db",
+  "timestamp": "2026-03-20T05:33:46.122624+00:00",
+  "question": "Create a line chart of GDP growth over time from the us_macro_economic table",
+  "response": "I'll create a line chart of GDP growth over time from the us_macro_economic table.",
+  "total_elapsed_s": 28.264,
+  "event_count": 39,
+  "events": [
+    {
+      "timestamp": 1773984826.12324,
+      "elapsed_s": 0.001,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-f88651ba",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773984826.122881,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984826.123884,
+      "elapsed_s": 0.001,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Create a line chart of GDP growth over time from the us_macro_economic table",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "99fa4b78-717b-4dae-b276-831432c818db",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984826.124286,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "99fa4b78-717b-4dae-b276-831432c818db",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984833.976008,
+      "elapsed_s": 7.853,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-f88651ba",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773984826.122881,
+        "finished_at": 1773984833.975907,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984833.9760761,
+      "elapsed_s": 7.853,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-e583eb14",
+        "label": "Generating response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773984833.975952,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984833.976105,
+      "elapsed_s": 7.853,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "I",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.0087318,
+      "elapsed_s": 7.886,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "'ll",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.041632,
+      "elapsed_s": 7.919,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " create",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.074471,
+      "elapsed_s": 7.952,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " a",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.107053,
+      "elapsed_s": 7.984,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " line",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.140016,
+      "elapsed_s": 8.017,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " chart",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.172978,
+      "elapsed_s": 8.05,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " of",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.2059531,
+      "elapsed_s": 8.083,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.2392519,
+      "elapsed_s": 8.117,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.2723851,
+      "elapsed_s": 8.15,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " over",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.3053381,
+      "elapsed_s": 8.183,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " time",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.3382359,
+      "elapsed_s": 8.216,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " from",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.371069,
+      "elapsed_s": 8.248,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.4040132,
+      "elapsed_s": 8.281,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " us",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.436681,
+      "elapsed_s": 8.314,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "_macro",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.4703941,
+      "elapsed_s": 8.348,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "_e",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.502539,
+      "elapsed_s": 8.38,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "conomic",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.535836,
+      "elapsed_s": 8.413,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " table",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984834.568656,
+      "elapsed_s": 8.446,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984835.987208,
+      "elapsed_s": 9.865,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-e583eb14",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773984833.975952,
+        "finished_at": 1773984835.986584,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984835.9873269,
+      "elapsed_s": 9.865,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-f5f009f7",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773984835.986642,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984835.987359,
+      "elapsed_s": 9.865,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "I'll create a line chart of GDP growth over time from the us_macro_economic table.",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "query_duckdb",
+                  "args": {
+                    "sql": "SELECT date, gdp_growth_pct FROM us_macro_economic ORDER BY date"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "99fa4b78-717b-4dae-b276-831432c818db",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984835.988172,
+      "elapsed_s": 9.866,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "99fa4b78-717b-4dae-b276-831432c818db",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984835.989229,
+      "elapsed_s": 9.867,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "args_preview": "SQL: SELECT date, gdp_growth_pct FROM us_macro_economic ORDER BY date",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984835.990242,
+      "elapsed_s": 9.868,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "elapsed_s": 0.0,
+        "result_preview": "Columns: ['date', 'gdp_growth_pct']\nRows returned: 300\n\n{'date': datetime.date(2000, 1, 1), 'gdp_growth_pct': 2.67}\n{'date': datetime.date(2000, 2, 1), 'gdp_growth_pct': 2.65}\n{'date': datetime.date(2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984835.99145,
+      "elapsed_s": 9.869,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-f5f009f7",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773984835.986642,
+        "finished_at": 1773984835.990838,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984835.991513,
+      "elapsed_s": 9.869,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-af0aad4a",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773984835.9908538,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984835.9915369,
+      "elapsed_s": 9.869,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "1e271cee",
+        "type": "table",
+        "title": "Query Result (300 rows)",
+        "content": "<table class=\"artifact-table\"><thead><tr><th>date</th><th>gdp_growth_pct</th></tr></thead><tbody><tr><td>2000-01-01</td><td>2.67</td></tr><tr><td>2000-02-01</td><td>2.65</td></tr><tr><td>2000-03-01</td><td>2.86</td></tr><tr><td>2000-04-01</td><td>3.34</td></tr><tr><td>2000-05-01</td><td>3.29</td></tr><tr><td>2000-06-01</td><td>3.24</td></tr><tr><td>2000-07-01</td><td>3.73</td></tr><tr><td>2000-08-01</td><td>3.98</td></tr><tr><td>2000-09-01</td><td>3.86</td></tr><tr><td>2000-10-01</td><td>4.04</td></tr><tr><td>2000-11-01</td><td>3.93</td></tr><tr><td>2000-12-01</td><td>3.81</td></tr><tr><td>2001-01-01</td><td>3.9</td></tr><tr><td>2001-02-01</td><td>3.34</td></tr><tr><td>2001-03-01</td><td>2.85</td></tr><tr><td>2001-04-01</td><td>2.7</td></tr><tr><td>2001-05-01</td><td>2.41</td></tr><tr><td>2001-06-01</td><td>2.53</td></tr><tr><td>2001-07-01</td><td>2.28</td></tr><tr><td>2001-08-01</td><td>1.87</td></tr><tr><td>2001-09-01</td><td>2.33</td></tr><tr><td>2001-10-01</td><td>2.28</td></tr><tr><td>2001-11-01</td><td>2.32</td></tr><tr><td>2001-12-01</td><td>1.92</td></tr><tr><td>2002-01-01</td><td>1.77</td></tr><tr><td>2002-02-01</td><td>1.83</td></tr><tr><td>2002-03-01</td><td>1.5</td></tr><tr><td>2002-04-01</td><td>1.63</td></tr><tr><td>2002-05-01</td><td>1.47</td></tr><tr><td>2002-06-01</td><td>1.41</td></tr><tr><td>2002-07-01</td><td>1.25</td></tr><tr><td>2002-08-01</td><td>1.82</td></tr><tr><td>2002-09-01</td><td>1.84</td></tr><tr><td>2002-10-01</td><td>1.54</td></tr><tr><td>2002-11-01</td><td>1.81</td></tr><tr><td>2002-12-01</td><td>1.46</td></tr><tr><td>2003-01-01</td><td>1.54</td></tr><tr><td>2003-02-01</td><td>0.98</td></tr><tr><td>2003-03-01</td><td>0.6</td></tr><tr><td>2003-04-01</td><td>0.68</td></tr><tr><td>2003-05-01</td><td>0.92</td></tr><tr><td>2003-06-01</td><td>0.99</td></tr><tr><td>2003-07-01</td><td>0.97</td></tr><tr><td>2003-08-01</td><td>0.9</td></tr><tr><td>2003-09-01</td><td>0.48</td></tr><tr><td>2003-10-01</td><td>0.28</td></tr><tr><td>2003-11-01</td><td>0.17</td></tr><tr><td>2003-12-01</td><td>0.5</td></tr><tr><td>2004-01-01</td><td>0.63</td></tr><tr><td>2004-02-01</td><td>0.12</td></tr><tr><td>2004-03-01</td><td>0.24</td></tr><tr><td>2004-04-01</td><td>0.14</td></tr><tr><td>2004-05-01</td><td>-0.04</td></tr><tr><td>2004-06-01</td><td>0.16</td></tr><tr><td>2004-07-01</td><td>0.49</td></tr><tr><td>2004-08-01</td><td>0.79</td></tr><tr><td>2004-09-01</td><td>0.56</td></tr><tr><td>2004-10-01</td><td>0.48</td></tr><tr><td>2004-11-01</td><td>0.6</td></tr><tr><td>2004-12-01</td><td>0.92</td></tr><tr><td>2005-01-01</td><td>0.79</td></tr><tr><td>2005-02-01</td><td>0.76</td></tr><tr><td>2005-03-01</td><td>0.44</td></tr><tr><td>2005-04-01</td><td>0.11</td></tr><tr><td>2005-05-01</td><td>0.37</td></tr><tr><td>2005-06-01</td><td>0.8</td></tr><tr><td>2005-07-01</td><td>0.8</td></tr><tr><td>2005-08-01</td><td>1.12</td></tr><tr><td>2005-09-01</td><td>1.24</td></tr><tr><td>2005-10-01</td><td>1.07</td></tr><tr><td>2005-11-01</td><td>1.2</td></tr><tr><td>2005-12-01</td><td>1.68</td></tr><tr><td>2006-01-01</td><td>1.69</td></tr><tr><td>2006-02-01</td><td>2.18</td></tr><tr><td>2006-03-01</td><td>1.41</td></tr><tr><td>2006-04-01</td><td>1.68</td></tr><tr><td>2006-05-01</td><td>1.73</td></tr><tr><td>2006-06-01</td><td>1.66</td></tr><tr><td>2006-07-01</td><td>1.7</td></tr><tr><td>2006-08-01</td><td>1.13</td></tr><tr><td>2006-09-01</td><td>1.08</td></tr><tr><td>2006-10-01</td><td>1.21</td></tr><tr><td>2006-11-01</td><td>1.67</td></tr><tr><td>2006-12-01</td><td>1.54</td></tr><tr><td>2007-01-01</td><td>1.31</td></tr><tr><td>2007-02-01</td><td>1.18</td></tr><tr><td>2007-03-01</td><td>1.48</td></tr><tr><td>2007-04-01</td><td>1.6</td></tr><tr><td>2007-05-01</td><td>1.46</td></tr><tr><td>2007-06-01</td><td>1.63</td></tr><tr><td>2007-07-01</td><td>1.68</td></tr><tr><td>2007-08-01</td><td>1.99</td></tr><tr><td>2007-09-01</td><td>1.8</td></tr><tr><td>2007-10-01</td><td>1.72</td></tr><tr><td>2007-11-01</td><td>1.63</td></tr><tr><td>2007-12-01</td><td>1.21</td></tr><tr><td>2008-01-01</td><td>1.32</td></tr><tr><td>2008-02-01</td><td>1.41</td></tr><tr><td>2008-03-01</td><td>1.43</td></tr><tr><td>2008-04-01</td><td>1.38</td></tr></tbody></table>",
+        "format": "html",
+        "created_at": 1773984835.990023,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984835.991593,
+      "elapsed_s": 9.869,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Columns: ['date', 'gdp_growth_pct']\nRows returned: 300\n\n{'date': datetime.date(2000, 1, 1), 'gdp_growth_pct': 2.67}\n{'date': datetime.date(2000, 2, 1), 'gdp_growth_pct': 2.65}\n{'date': datetime.date(2000, 3, 1), 'gdp_growth_pct': 2.86}\n{'date': datetime.date(2000, 4, 1), 'gdp_growth_pct': 3.34}\n{'date': datetime.date(2000, 5, 1), 'gdp_growth_pct': 3.29}\n{'date': datetime.date(2000, 6, 1), 'gdp_growth_pct': 3.24}\n{'date': datetime.date(2000, 7, 1), 'gdp_growth_pct': 3.73}\n{'date': datetime.date(2000, 8, 1), 'gdp_growth_pct': 3.98}\n{'date': datetime.date(2000, 9, 1), 'gdp_growth_pct': 3.86}\n{'date': datetime.date(2000, 10, 1), 'gdp_growth_pct': 4.04}\n{'date': datetime.date(2000, 11, 1), 'gdp_growth_pct': 3.93}\n{'date': datetime.date(2000, 12, 1), 'gdp_growth_pct': 3.81}\n{'date': datetime.date(2001, 1, 1), 'gdp_growth_pct': 3.9}\n{'date': datetime.date(2001, 2, 1), 'gdp_growth_pct': 3.34}\n{'date': datetime.date(2001, 3, 1), 'gdp_growth_pct': 2.85}\n{'date': datetime.date(2001, 4, 1), 'gdp_growth_pct': 2.7}\n{'date': datetime.date(2001, 5, 1), 'gdp_growth_pct': 2.41}\n{'date': datetime.date(2001, 6, 1), 'gdp_growth_pct': 2.53}\n{'date': datetime.date(2001, 7, 1), 'gdp_growth_pct': 2.28}\n{'date': datetime.date(2001, 8, 1), 'gdp_growth_pct': 1.87}\n{'date': datetime.date(2001, 9, 1), 'gdp_growth_pct': 2.33}\n{'date': datetime.date(2001, 10, 1), 'gdp_growth_pct': 2.28}\n{'date': datetime.date(2001, 11, 1), 'gdp_growth_pct': 2.32}\n{'date': datetime.date(2001, 12, 1), 'gdp_growth_pct': 1.92}\n{'date': datetime.date(2002, 1, 1), 'gdp_growth_pct': 1.77}\n{'date': datetime.date(2002, 2, 1), 'gdp_growth_pct': 1.83}\n{'date': datetime.date(2002, 3, 1), 'gdp_growth_pct': 1.5}\n{'date': datetime.date(2002, 4, 1), 'gdp_growth_pct': 1.63}\n{'date': datetime.date(2002, 5, 1), 'gdp_growth_pct': 1.47}\n{'date': datetime.date(2002, 6, 1), 'gdp_growth_pct': 1.41}\n{'date': datetime.date(2002, 7, 1), 'gdp_growth_pct': 1.25}\n{'date': datetime.date(2002, 8, 1), 'gdp_growth_pct': 1.82}\n{'date': datetime.date(2002, 9, 1), 'gdp_growth_pct': 1.84}\n{'date': datetime.date(2002, 10, 1), 'gdp_growth_pct': 1.54}\n{'date': datetime.date(2002, 11, 1), 'gdp_growth_pct': 1.81}\n{'date': datetime.date(2002, 12, 1), 'gdp_growth_pct': 1.46}\n{'date': datetime.date(2003, 1, 1), 'gdp_growth_pct': 1.54}\n{'date': datetime.date(2003, 2, 1), 'gdp_growth_pct': 0.98}\n{'date': datetime.date(2003, 3, 1), 'gdp_growth_pct': 0.6}\n{'date': datetime.date(2003, 4, 1), 'gdp_growth_pct': 0.68}\n{'date': datetime.date(2003, 5, 1), 'gdp_growth_pct': 0.92}\n{'date': datetime.date(2003, 6, 1), 'gdp_growth_pct': 0.99}\n{'date': datetime.date(2003, 7, 1), 'gdp_growth_pct': 0.97}\n{'date': datetime.date(2003, 8, 1), 'gdp_growth_pct': 0.9}\n{'date': datetime.date(2003, 9, 1), 'gdp_growth_pct': 0.48}\n{'date': datetime.date(2003, 10, 1), 'gdp_growth_pct': 0.28}\n{'date': datetime.date(2003, 11, 1), 'gdp_growth_pct': 0.17}\n{'date': datetime.date(2003, 12, 1), 'gdp_growth_pct': 0.5}\n{'date': datetime.date(2004, 1, 1), 'gdp_growth_pct': 0.63}\n{'date': datetime.date(2004, 2, 1), 'gdp_growth_pct': 0.12}\n... and 250 more rows\n\n[Table auto-saved as artifact 1e271cee]",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "99fa4b78-717b-4dae-b276-831432c818db",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984854.385432,
+      "elapsed_s": 28.263,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-af0aad4a",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773984835.9908538,
+        "finished_at": 1773984854.384876,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984854.385504,
+      "elapsed_s": 28.263,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "99fa4b78-717b-4dae-b276-831432c818db",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984854.385988,
+      "elapsed_s": 28.263,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "99fa4b78-717b-4dae-b276-831432c818db",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984854.3861802,
+      "elapsed_s": 28.264,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1773984854.386127,
+        "finished_at": 1773984854.386127,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773984854.386226,
+      "elapsed_s": 28.264,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "99fa4b78-717b-4dae-b276-831432c818db",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

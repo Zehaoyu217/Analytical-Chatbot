@@ -1,0 +1,20 @@
+{
+  "session_id": "dafbab34-f45b-421e-b013-cff6811f85d3",
+  "timestamp": "2026-03-19T03:21:01.688269+00:00",
+  "question": "Peek at the data",
+  "response": "",
+  "total_elapsed_s": 0.011,
+  "event_count": 1,
+  "events": [
+    {
+      "timestamp": 1773890461.699216,
+      "elapsed_s": 0.011,
+      "event_type": "error",
+      "agent_id": "orchestrator",
+      "data": {
+        "error": "checkpointer=True cannot be used for root graphs.",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

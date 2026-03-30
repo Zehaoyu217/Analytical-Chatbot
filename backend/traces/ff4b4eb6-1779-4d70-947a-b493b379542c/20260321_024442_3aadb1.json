@@ -1,0 +1,417 @@
+{
+  "session_id": "ff4b4eb6-1779-4d70-947a-b493b379542c",
+  "timestamp": "2026-03-21T02:44:42.611595+00:00",
+  "question": "Show basic statistics of GDP growth",
+  "response": "I'll query the GDP growth data to show basic statistics.",
+  "total_elapsed_s": 25.216,
+  "event_count": 31,
+  "events": [
+    {
+      "timestamp": 1774061082.617253,
+      "elapsed_s": 0.006,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-fa9f097d",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774061082.6158772,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061082.6184871,
+      "elapsed_s": 0.007,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Show basic statistics of GDP growth",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "ff4b4eb6-1779-4d70-947a-b493b379542c",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061082.618908,
+      "elapsed_s": 0.007,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "ff4b4eb6-1779-4d70-947a-b493b379542c",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.120596,
+      "elapsed_s": 8.509,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-fa9f097d",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774061082.6158772,
+        "finished_at": 1774061091.120451,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.120699,
+      "elapsed_s": 8.509,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-3bc06dc4",
+        "label": "Generating response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774061091.120511,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.1207418,
+      "elapsed_s": 8.509,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "I",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.1530309,
+      "elapsed_s": 8.541,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "'ll",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.186162,
+      "elapsed_s": 8.575,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " query",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.218922,
+      "elapsed_s": 8.607,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.251622,
+      "elapsed_s": 8.64,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.283983,
+      "elapsed_s": 8.672,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.3170738,
+      "elapsed_s": 8.705,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " data",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.350231,
+      "elapsed_s": 8.739,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " to",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.383469,
+      "elapsed_s": 8.772,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " show",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.415901,
+      "elapsed_s": 8.804,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " basic",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.448642,
+      "elapsed_s": 8.837,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " statistics",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061091.48125,
+      "elapsed_s": 8.87,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061099.019546,
+      "elapsed_s": 16.408,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-3bc06dc4",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Calling run_python",
+        "started_at": 1774061091.120511,
+        "finished_at": 1774061099.018974,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061099.019614,
+      "elapsed_s": 16.408,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-ea091c0f",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774061099.0190148,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061099.019645,
+      "elapsed_s": 16.408,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "I'll query the GDP growth data to show basic statistics.",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "run_python",
+                  "args": {
+                    "code": "import pandas as pd\nimport numpy as np\n\n# Query GDP growth data\ndf = _db.execute(\"SELECT gdp_growth_pct, quarter FROM us_quarterly_macro_0047798b ORDER BY quarter\").df()\n\n# Calculate basic statistics\nstats = df['gdp_growth_pct'].describe()\nprint(\"Basic Statistics for GDP Growth:\")\nprint(stats)\n\n# Additional summary\nprint(f\"\\nMean GDP Growth: {df['gdp_growth_pct'].mean():.2f}%\")\nprint(f\"Std Dev: {df['gdp_growth_pct'].std():.2f}%\")\nprint(f\"Min: {df['gdp_growth_pct'].min():.2f}%\")\nprint(f\"Max: {df['gdp_growth_pct'].max():.2f}%\")\nprint(f\"Range: {df['gdp_growth_pct'].max() - df['gdp_growth_pct'].min():.2f}%\")"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "ff4b4eb6-1779-4d70-947a-b493b379542c",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061099.020427,
+      "elapsed_s": 16.409,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "ff4b4eb6-1779-4d70-947a-b493b379542c",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061099.021727,
+      "elapsed_s": 16.41,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "args_preview": "Query GDP growth data",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061099.3266938,
+      "elapsed_s": 16.715,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "elapsed_s": 0.31,
+        "result_preview": "Output:\nBasic Statistics for GDP Growth:\ncount    100.000000\nmean       7.760800\nstd        1.076014\nmin        1.000000\n25%        8.000000\n50%        8.000000\n75%        8.000000\nmax        8.000000",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061099.3278022,
+      "elapsed_s": 16.716,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-ea091c0f",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774061099.0190148,
+        "finished_at": 1774061099.327496,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061099.3278239,
+      "elapsed_s": 16.716,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-2bf1e1df",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774061099.327512,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061099.327832,
+      "elapsed_s": 16.716,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Output:\nBasic Statistics for GDP Growth:\ncount    100.000000\nmean       7.760800\nstd        1.076014\nmin        1.000000\n25%        8.000000\n50%        8.000000\n75%        8.000000\nmax        8.000000\nName: gdp_growth_pct, dtype: float64\n\nMean GDP Growth: 7.76%\nStd Dev: 1.08%\nMin: 1.00%\nMax: 8.00%\nRange: 7.00%\n",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "ff4b4eb6-1779-4d70-947a-b493b379542c",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061107.826504,
+      "elapsed_s": 25.215,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-2bf1e1df",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Generating response",
+        "started_at": 1774061099.327512,
+        "finished_at": 1774061107.826029,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061107.826582,
+      "elapsed_s": 25.215,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "ff4b4eb6-1779-4d70-947a-b493b379542c",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061107.827091,
+      "elapsed_s": 25.215,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "ff4b4eb6-1779-4d70-947a-b493b379542c",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061107.827297,
+      "elapsed_s": 25.216,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774061107.827243,
+        "finished_at": 1774061107.827243,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061107.827345,
+      "elapsed_s": 25.216,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "ff4b4eb6-1779-4d70-947a-b493b379542c",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

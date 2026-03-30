@@ -1,0 +1,302 @@
+{
+  "session_id": "219b0596-a2be-41a4-a4d2-0ba9b89879c2",
+  "timestamp": "2026-03-21T02:56:59.139257+00:00",
+  "question": "Show first 5 rows of the data",
+  "response": "Created **Query Result (5 rows)** \u2014 see the Artifacts panel.",
+  "total_elapsed_s": 14.889,
+  "event_count": 19,
+  "events": [
+    {
+      "timestamp": 1774061819.139943,
+      "elapsed_s": 0.001,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-d68f698b",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774061819.139544,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061819.140694,
+      "elapsed_s": 0.001,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Show first 5 rows of the data",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "219b0596-a2be-41a4-a4d2-0ba9b89879c2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061819.1411562,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "219b0596-a2be-41a4-a4d2-0ba9b89879c2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061822.967514,
+      "elapsed_s": 3.828,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-d68f698b",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Calling query_duckdb",
+        "started_at": 1774061819.139544,
+        "finished_at": 1774061822.966944,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061822.967585,
+      "elapsed_s": 3.828,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-48849519",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774061822.9670012,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061822.967616,
+      "elapsed_s": 3.828,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "query_duckdb",
+                  "args": {
+                    "sql": "SELECT * FROM us_quarterly_macro_0047798b LIMIT 5"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "219b0596-a2be-41a4-a4d2-0ba9b89879c2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061822.9683762,
+      "elapsed_s": 3.829,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "219b0596-a2be-41a4-a4d2-0ba9b89879c2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061822.9693289,
+      "elapsed_s": 3.83,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "args_preview": "SQL: SELECT * FROM us_quarterly_macro_0047798b LIMIT 5",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061822.969965,
+      "elapsed_s": 3.831,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "elapsed_s": 0.0,
+        "result_preview": "Columns: ['quarter', 'gdp_growth_pct', 'inflation_rate', 'unemployment_rate', 'fed_funds_rate']\nRows returned: 5\n\n{'quarter': datetime.date(2000, 1, 1), 'gdp_growth_pct': 1.0, 'inflation_rate': 2.08, ",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061822.970888,
+      "elapsed_s": 3.832,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-48849519",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774061822.9670012,
+        "finished_at": 1774061822.970506,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061822.9709172,
+      "elapsed_s": 3.832,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-aa49f79c",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774061822.9705222,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061822.970934,
+      "elapsed_s": 3.832,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "4761a383",
+        "type": "table",
+        "title": "Query Result (5 rows)",
+        "content": "<table class=\"artifact-table\"><thead><tr><th>quarter</th><th>gdp_growth_pct</th><th>inflation_rate</th><th>unemployment_rate</th><th>fed_funds_rate</th></tr></thead><tbody><tr><td>2000-01-01</td><td>1.0</td><td>2.08</td><td>5.1</td><td>1.88</td></tr><tr><td>2000-04-01</td><td>1.86</td><td>2.18</td><td>5.2</td><td>1.79</td></tr><tr><td>2000-07-01</td><td>3.33</td><td>2.29</td><td>5.4</td><td>1.9</td></tr><tr><td>2000-10-01</td><td>5.46</td><td>2.25</td><td>5.6</td><td>2.0</td></tr><tr><td>2001-01-01</td><td>6.11</td><td>2.39</td><td>5.3</td><td>1.99</td></tr></tbody></table>",
+        "format": "html",
+        "created_at": 1774061822.969813,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061822.970954,
+      "elapsed_s": 3.832,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Columns: ['quarter', 'gdp_growth_pct', 'inflation_rate', 'unemployment_rate', 'fed_funds_rate']\nRows returned: 5\n\n{'quarter': datetime.date(2000, 1, 1), 'gdp_growth_pct': 1.0, 'inflation_rate': 2.08, 'unemployment_rate': 5.1, 'fed_funds_rate': 1.88}\n{'quarter': datetime.date(2000, 4, 1), 'gdp_growth_pct': 1.86, 'inflation_rate': 2.18, 'unemployment_rate': 5.2, 'fed_funds_rate': 1.79}\n{'quarter': datetime.date(2000, 7, 1), 'gdp_growth_pct': 3.33, 'inflation_rate': 2.29, 'unemployment_rate': 5.4, 'fed_funds_rate': 1.9}\n{'quarter': datetime.date(2000, 10, 1), 'gdp_growth_pct': 5.46, 'inflation_rate': 2.25, 'unemployment_rate': 5.6, 'fed_funds_rate': 2.0}\n{'quarter': datetime.date(2001, 1, 1), 'gdp_growth_pct': 6.11, 'inflation_rate': 2.39, 'unemployment_rate': 5.3, 'fed_funds_rate': 1.99}\n\n[Table auto-saved as artifact 4761a383]",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "219b0596-a2be-41a4-a4d2-0ba9b89879c2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061834.026814,
+      "elapsed_s": 14.888,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-aa49f79c",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Generating response",
+        "started_at": 1774061822.9705222,
+        "finished_at": 1774061834.026292,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061834.026895,
+      "elapsed_s": 14.888,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "219b0596-a2be-41a4-a4d2-0ba9b89879c2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061834.0274088,
+      "elapsed_s": 14.888,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "219b0596-a2be-41a4-a4d2-0ba9b89879c2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061834.027593,
+      "elapsed_s": 14.888,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "Created **Query Result (5 rows)** \u2014 see the Artifacts panel.",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "219b0596-a2be-41a4-a4d2-0ba9b89879c2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061834.02762,
+      "elapsed_s": 14.888,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774061834.0275588,
+        "finished_at": 1774061834.0275588,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061834.027641,
+      "elapsed_s": 14.888,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "219b0596-a2be-41a4-a4d2-0ba9b89879c2",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

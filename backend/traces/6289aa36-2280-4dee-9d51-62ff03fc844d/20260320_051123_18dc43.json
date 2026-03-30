@@ -1,0 +1,253 @@
+{
+  "session_id": "6289aa36-2280-4dee-9d51-62ff03fc844d",
+  "timestamp": "2026-03-20T05:11:23.168771+00:00",
+  "question": "How many rows in each dataset?",
+  "response": "",
+  "total_elapsed_s": 8.909,
+  "event_count": 16,
+  "events": [
+    {
+      "timestamp": 1773983483.172336,
+      "elapsed_s": 0.004,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-16fd0890",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773983483.1712892,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983483.173235,
+      "elapsed_s": 0.004,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "How many rows in each dataset?",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "6289aa36-2280-4dee-9d51-62ff03fc844d",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983487.52402,
+      "elapsed_s": 4.355,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-16fd0890",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773983483.1712892,
+        "finished_at": 1773983487.5233018,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983487.524118,
+      "elapsed_s": 4.355,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-1f9c4270",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773983487.523361,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983487.5241501,
+      "elapsed_s": 4.355,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "list_datasets",
+                  "args": {}
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "6289aa36-2280-4dee-9d51-62ff03fc844d",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983487.5250392,
+      "elapsed_s": 4.356,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "6289aa36-2280-4dee-9d51-62ff03fc844d",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983487.5260758,
+      "elapsed_s": 4.357,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "list_datasets",
+        "args_preview": "{}",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983487.527528,
+      "elapsed_s": 4.359,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "list_datasets",
+        "elapsed_s": 0.0,
+        "result_preview": "Available datasets:\n  - us_macro_quarterly_fred_126b4cea: 316 rows, 13 columns\n  - us_macro_economic: 300 rows, 9 columns",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983487.528865,
+      "elapsed_s": 4.36,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-1f9c4270",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773983487.523361,
+        "finished_at": 1773983487.5283048,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983487.528935,
+      "elapsed_s": 4.36,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-8ab308a2",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773983487.528346,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983487.528959,
+      "elapsed_s": 4.36,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Available datasets:\n  - us_macro_quarterly_fred_126b4cea: 316 rows, 13 columns\n  - us_macro_economic: 300 rows, 9 columns",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "6289aa36-2280-4dee-9d51-62ff03fc844d",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983492.076386,
+      "elapsed_s": 8.908,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-8ab308a2",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773983487.528346,
+        "finished_at": 1773983492.0759811,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983492.07644,
+      "elapsed_s": 8.908,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "6289aa36-2280-4dee-9d51-62ff03fc844d",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983492.077,
+      "elapsed_s": 8.908,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "6289aa36-2280-4dee-9d51-62ff03fc844d",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983492.077219,
+      "elapsed_s": 8.908,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1773983492.077174,
+        "finished_at": 1773983492.077174,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773983492.077251,
+      "elapsed_s": 8.908,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "6289aa36-2280-4dee-9d51-62ff03fc844d",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

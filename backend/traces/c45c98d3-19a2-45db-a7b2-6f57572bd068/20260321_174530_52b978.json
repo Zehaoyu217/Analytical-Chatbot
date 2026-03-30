@@ -1,0 +1,81 @@
+{
+  "session_id": "c45c98d3-19a2-45db-a7b2-6f57572bd068",
+  "timestamp": "2026-03-21T17:45:30.684097+00:00",
+  "question": "Analyze the trend of GDP in us_quarterly_macro_0047798b and show me a plot and your detailed thought process",
+  "response": "",
+  "total_elapsed_s": 0.059,
+  "event_count": 5,
+  "events": [
+    {
+      "timestamp": 1774115130.685909,
+      "elapsed_s": 0.002,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-4b298221",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774115130.685056,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774115130.6869152,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Analyze the trend of GDP in us_quarterly_macro_0047798b and show me a plot and your detailed thought process",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "c45c98d3-19a2-45db-a7b2-6f57572bd068",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774115130.687232,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "c45c98d3-19a2-45db-a7b2-6f57572bd068",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774115130.74289,
+      "elapsed_s": 0.059,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-4b298221",
+        "label": "Error",
+        "status": "error",
+        "detail": "model '120b' not found (status code: 404)",
+        "started_at": 1774115130.685056,
+        "finished_at": 1774115130.742841,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774115130.742934,
+      "elapsed_s": 0.059,
+      "event_type": "error",
+      "agent_id": "orchestrator",
+      "data": {
+        "error": "model '120b' not found (status code: 404)",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

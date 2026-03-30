@@ -1,0 +1,166 @@
+{
+  "session_id": "test-nemo1-1774067180",
+  "timestamp": "2026-03-21T04:26:20.476765+00:00",
+  "question": "What is 2+2?",
+  "response": "4",
+  "total_elapsed_s": 1.41,
+  "event_count": 11,
+  "events": [
+    {
+      "timestamp": 1774067180.4774349,
+      "elapsed_s": 0.001,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-44d0278d",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774067180.477034,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067180.478097,
+      "elapsed_s": 0.001,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "What is 2+2?",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "test-nemo1-1774067180",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067180.478515,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "test-nemo1-1774067180",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067181.88215,
+      "elapsed_s": 1.405,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-44d0278d",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774067180.477034,
+        "finished_at": 1774067181.881942,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067181.882302,
+      "elapsed_s": 1.406,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-5c09d018",
+        "label": "Generating response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774067181.882035,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067181.882356,
+      "elapsed_s": 1.406,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067181.885243,
+      "elapsed_s": 1.408,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-5c09d018",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Generating response",
+        "started_at": 1774067181.882035,
+        "finished_at": 1774067181.8845088,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067181.885309,
+      "elapsed_s": 1.409,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "4",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "test-nemo1-1774067180",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067181.886024,
+      "elapsed_s": 1.409,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "test-nemo1-1774067180",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067181.886283,
+      "elapsed_s": 1.41,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774067181.886219,
+        "finished_at": 1774067181.886219,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774067181.886346,
+      "elapsed_s": 1.41,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "test-nemo1-1774067180",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

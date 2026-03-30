@@ -1,0 +1,223 @@
+{
+  "session_id": "0af93f07-cb79-485d-9ec9-9ee7e18cf6ac",
+  "timestamp": "2026-03-19T22:47:04.665563+00:00",
+  "question": "how many rows?",
+  "response": "",
+  "total_elapsed_s": 36.914,
+  "event_count": 14,
+  "events": [
+    {
+      "timestamp": 1773960424.669325,
+      "elapsed_s": 0.004,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-93fdc875",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773960424.668454,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960424.6701498,
+      "elapsed_s": 0.005,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "how many rows?",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "0af93f07-cb79-485d-9ec9-9ee7e18cf6ac",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960455.376819,
+      "elapsed_s": 30.711,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-93fdc875",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773960424.668454,
+        "finished_at": 1773960455.3761559,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960455.376894,
+      "elapsed_s": 30.711,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-a0cdac76",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773960455.376223,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960455.376918,
+      "elapsed_s": 30.711,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "list_datasets",
+                  "args": {}
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "0af93f07-cb79-485d-9ec9-9ee7e18cf6ac",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960455.378031,
+      "elapsed_s": 30.712,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "0af93f07-cb79-485d-9ec9-9ee7e18cf6ac",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960455.379225,
+      "elapsed_s": 30.714,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "list_datasets",
+        "args_preview": "{}",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960455.380608,
+      "elapsed_s": 30.715,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "list_datasets",
+        "elapsed_s": 0.0,
+        "result_preview": "Available datasets:\n  - us_macro_economic: 300 rows, 9 columns",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960455.381737,
+      "elapsed_s": 30.716,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-a0cdac76",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773960455.376223,
+        "finished_at": 1773960455.381342,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960455.381778,
+      "elapsed_s": 30.716,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-40b2ce01",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773960455.381363,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960455.3818,
+      "elapsed_s": 30.716,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Available datasets:\n  - us_macro_economic: 300 rows, 9 columns",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "0af93f07-cb79-485d-9ec9-9ee7e18cf6ac",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960461.5781,
+      "elapsed_s": 36.913,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-40b2ce01",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1773960455.381363,
+        "finished_at": 1773960461.5779572,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960461.578201,
+      "elapsed_s": 36.913,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-3dfda398",
+        "label": "Generating response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773960461.578022,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773960461.5782442,
+      "elapsed_s": 36.913,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

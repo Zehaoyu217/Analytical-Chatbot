@@ -1,0 +1,36 @@
+server:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins: ["http://localhost:5173"]
+
+llm:
+  provider: "ollama"           # or "openai", "anthropic"
+  model: "qwen3:32b-q4_K_M"
+  base_url: "http://localhost:11434/v1"
+  api_key: null                # set for openai/anthropic
+  temperature: 0.1
+  max_tokens: 4096
+
+data:
+  duckdb_path: "./data/analytical.duckdb"
+  upload_dir: "./data/uploads"
+  max_upload_size_mb: 500
+
+sandbox:
+  enabled: true
+  timeout_seconds: 30
+  max_memory_mb: 2048
+  allowed_packages:
+    - pandas
+    - numpy
+    - matplotlib
+    - seaborn
+    - plotly
+    - scipy
+    - scikit-learn
+    - statsmodels
+    - duckdb
+
+skills:
+  directory: "./app/skills"
+  auto_reload: true

@@ -1,0 +1,69 @@
+{
+  "session_id": "5f6ab37a-aefc-4b76-bf2a-487b9bbd8ce6",
+  "timestamp": "2026-03-20T00:23:02.379031+00:00",
+  "question": "run the ARDL model based on the us_marco_quarterly dataset, give me your chart and findings",
+  "response": "",
+  "total_elapsed_s": 0.216,
+  "event_count": 4,
+  "events": [
+    {
+      "timestamp": 1773966182.5501819,
+      "elapsed_s": 0.171,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-ab601c07",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1773966182.5499032,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773966182.550708,
+      "elapsed_s": 0.172,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "run the ARDL model based on the us_marco_quarterly dataset, give me your chart and findings",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "5f6ab37a-aefc-4b76-bf2a-487b9bbd8ce6",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773966182.594906,
+      "elapsed_s": 0.216,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-ab601c07",
+        "label": "Error",
+        "status": "error",
+        "detail": "model 'qwen3:8b' not found (status code: 404)",
+        "started_at": 1773966182.5499032,
+        "finished_at": 1773966182.594841,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1773966182.594953,
+      "elapsed_s": 0.216,
+      "event_type": "error",
+      "agent_id": "orchestrator",
+      "data": {
+        "error": "model 'qwen3:8b' not found (status code: 404)",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "session_id": "mermaid-001",
+  "timestamp": "2026-03-20T12:59:09.663484+00:00",
+  "question": "Create a mermaid flowchart showing the data flow: CSV Upload -> DuckDB -> SQL Query -> Results",
+  "response": "",
+  "total_elapsed_s": 23.134,
+  "event_count": 18,
+  "events": [
+    {
+      "timestamp": 1774011549.664196,
+      "elapsed_s": 0.001,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-4ea7c110",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774011549.663785,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011549.664858,
+      "elapsed_s": 0.001,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Create a mermaid flowchart showing the data flow: CSV Upload -> DuckDB -> SQL Query -> Results",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "mermaid-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011549.6652858,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "mermaid-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011564.837659,
+      "elapsed_s": 15.174,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-4ea7c110",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774011549.663785,
+        "finished_at": 1774011564.83718,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011564.837722,
+      "elapsed_s": 15.174,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-de30cbf6",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774011564.8372219,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011564.8377469,
+      "elapsed_s": 15.174,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "save_artifact",
+                  "args": {
+                    "title": "Data Flow Diagram",
+                    "content": "graph TD\n    A[CSV Upload] --> B[DuckDB Database]\n    B --> C[SQL Query Execution]\n    C --> D[Results]\n    \n    style A fill:#e1f5fe,stroke:#01579b,stroke-width:2px\n    style B fill:#fff3e0,stroke:#e65100,stroke-width:2px\n    style C fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px\n    style D fill:#f3e5f5,stroke:#4a148c,stroke-width:2px\n    \n    linkStyle 0 stroke:#333,stroke-width:2px\n    linkStyle 1 stroke:#333,stroke-width:2px\n    linkStyle 2 stroke:#333,stroke-width:2px",
+                    "artifact_type": "diagram",
+                    "format": "mermaid"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "mermaid-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011564.8384151,
+      "elapsed_s": 15.175,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "mermaid-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011564.839448,
+      "elapsed_s": 15.176,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "save_artifact",
+        "args_preview": "{'title': 'Data Flow Diagram', 'content': 'graph TD\\n    A[CSV Upload] --> B[Duc",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011564.8395572,
+      "elapsed_s": 15.176,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "save_artifact",
+        "elapsed_s": 0.0,
+        "result_preview": "Artifact saved: [32c98c79] Data Flow Diagram (diagram/mermaid). Now visible in Artifacts panel and inline in chat. Preview: graph TD\n    A[CSV Upload] --> B[DuckDB Database]\n    B --> C[SQL Query Exec",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011564.8404748,
+      "elapsed_s": 15.177,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-de30cbf6",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774011564.8372219,
+        "finished_at": 1774011564.84012,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011564.8405068,
+      "elapsed_s": 15.177,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-39eab908",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774011564.840137,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011564.8405252,
+      "elapsed_s": 15.177,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "32c98c79",
+        "type": "diagram",
+        "title": "Data Flow Diagram",
+        "content": "graph TD\n    A[CSV Upload] --> B[DuckDB Database]\n    B --> C[SQL Query Execution]\n    C --> D[Results]\n    \n    style A fill:#e1f5fe,stroke:#01579b,stroke-width:2px\n    style B fill:#fff3e0,stroke:#e65100,stroke-width:2px\n    style C fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px\n    style D fill:#f3e5f5,stroke:#4a148c,stroke-width:2px\n    \n    linkStyle 0 stroke:#333,stroke-width:2px\n    linkStyle 1 stroke:#333,stroke-width:2px\n    linkStyle 2 stroke:#333,stroke-width:2px",
+        "format": "mermaid",
+        "created_at": 1774011564.8393779,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011564.840547,
+      "elapsed_s": 15.177,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Artifact saved: [32c98c79] Data Flow Diagram (diagram/mermaid). Now visible in Artifacts panel and inline in chat. Preview: graph TD\n    A[CSV Upload] --> B[DuckDB Database]\n    B --> C[SQL Query Execution]\n    C --> D[Results]\n    \n    style A fill:#e1f5fe,stroke:#01579b,s...",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "mermaid-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011572.795809,
+      "elapsed_s": 23.132,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-39eab908",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774011564.840137,
+        "finished_at": 1774011572.795032,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011572.795904,
+      "elapsed_s": 23.132,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "mermaid-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011572.796782,
+      "elapsed_s": 23.133,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "mermaid-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011572.797038,
+      "elapsed_s": 23.134,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774011572.796986,
+        "finished_at": 1774011572.796986,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774011572.797083,
+      "elapsed_s": 23.134,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "mermaid-001",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "session_id": "a1b7a683-6c95-4bae-939c-4898d377b1d9",
+  "timestamp": "2026-03-21T02:49:38.214584+00:00",
+  "question": "can you show me?",
+  "response": "Here are the results:\n\n```\nArtifact [7e489c27] 'Query Result (2 rows)' (table/html)\nCreated: 1774061360.614392\nContent:\n<table class=\"artifact-table\"><thead><tr><th>quarter</th><th>gdp_growth_pct</th><th>inflation_rate</th><th>unemployment_rate</th><th>fed_funds_rate</th></tr></thead><tbody><tr><td>2019-10-01</td><td>8.0</td><td>5.16</td><td>5.6</td><td>3.68</td></tr><tr><td>2020-01-01</td><td>8.0</td><td>5.16</td><td>5.7</td><td>3.56</td></tr></tbody></table>\n```",
+  "total_elapsed_s": 12.144,
+  "event_count": 18,
+  "events": [
+    {
+      "timestamp": 1774061378.216832,
+      "elapsed_s": 0.002,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-48f67c1c",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774061378.215234,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061378.218884,
+      "elapsed_s": 0.004,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Table of quarters where inflation > 5%",
+              "type": "human"
+            },
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "query_duckdb",
+                  "args": {
+                    "sql": "SELECT quarter, gdp_growth_pct, inflation_rate, unemployment_rate, fed_funds_rate\nFROM us_quarterly_macro_0047798b\nWHERE inflation_rate > 5\nORDER BY quarter"
+                  }
+                }
+              ]
+            },
+            {
+              "content": "Columns: ['quarter', 'gdp_growth_pct', 'inflation_rate', 'unemployment_rate', 'fed_funds_rate']\nRows returned: 2\n\n{'quarter': datetime.date(2019, 10, 1), 'gdp_growth_pct': 8.0, 'inflation_rate': 5.16, 'unemployment_rate': 5.6, 'fed_funds_rate': 3.68}\n{'quarter': datetime.date(2020, 1, 1), 'gdp_growth_pct': 8.0, 'inflation_rate': 5.16, 'unemployment_rate': 5.7, 'fed_funds_rate': 3.56}\n\n[Table auto-saved as artifact 7e489c27]",
+              "type": "tool"
+            },
+            {
+              "content": "",
+              "type": "ai"
+            },
+            {
+              "content": "can you show me?",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "a1b7a683-6c95-4bae-939c-4898d377b1d9",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061378.219674,
+      "elapsed_s": 0.005,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "a1b7a683-6c95-4bae-939c-4898d377b1d9",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061382.4024918,
+      "elapsed_s": 4.188,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-48f67c1c",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Calling get_artifact_content",
+        "started_at": 1774061378.215234,
+        "finished_at": 1774061382.401506,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061382.402569,
+      "elapsed_s": 4.188,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-5ba26187",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774061382.401564,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061382.402594,
+      "elapsed_s": 4.188,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "get_artifact_content",
+                  "args": {
+                    "artifact_id": "7e489c27"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "a1b7a683-6c95-4bae-939c-4898d377b1d9",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061382.403875,
+      "elapsed_s": 4.189,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "a1b7a683-6c95-4bae-939c-4898d377b1d9",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061382.405223,
+      "elapsed_s": 4.191,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "get_artifact_content",
+        "args_preview": "{'artifact_id': '7e489c27'}",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061382.4054751,
+      "elapsed_s": 4.191,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "get_artifact_content",
+        "elapsed_s": 0.0,
+        "result_preview": "Artifact [7e489c27] 'Query Result (2 rows)' (table/html)\nCreated: 1774061360.614392\nContent:\n<table class=\"artifact-table\"><thead><tr><th>quarter</th><th>gdp_growth_pct</th><th>inflation_rate</th><th>",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061382.4071958,
+      "elapsed_s": 4.193,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-5ba26187",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774061382.401564,
+        "finished_at": 1774061382.40638,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061382.407296,
+      "elapsed_s": 4.193,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-8204e414",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774061382.406409,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061382.4073238,
+      "elapsed_s": 4.193,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Artifact [7e489c27] 'Query Result (2 rows)' (table/html)\nCreated: 1774061360.614392\nContent:\n<table class=\"artifact-table\"><thead><tr><th>quarter</th><th>gdp_growth_pct</th><th>inflation_rate</th><th>unemployment_rate</th><th>fed_funds_rate</th></tr></thead><tbody><tr><td>2019-10-01</td><td>8.0</td><td>5.16</td><td>5.6</td><td>3.68</td></tr><tr><td>2020-01-01</td><td>8.0</td><td>5.16</td><td>5.7</td><td>3.56</td></tr></tbody></table>",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "a1b7a683-6c95-4bae-939c-4898d377b1d9",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061390.357949,
+      "elapsed_s": 12.143,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-8204e414",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Generating response",
+        "started_at": 1774061382.406409,
+        "finished_at": 1774061390.357522,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061390.357999,
+      "elapsed_s": 12.143,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "a1b7a683-6c95-4bae-939c-4898d377b1d9",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061390.358465,
+      "elapsed_s": 12.144,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "a1b7a683-6c95-4bae-939c-4898d377b1d9",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061390.35867,
+      "elapsed_s": 12.144,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "Here are the results:\n\n```\nArtifact [7e489c27] 'Query Result (2 rows)' (table/html)\nCreated: 1774061360.614392\nContent:\n<table class=\"artifact-table\"><thead><tr><th>quarter</th><th>gdp_growth_pct</th><th>inflation_rate</th><th>unemployment_rate</th><th>fed_funds_rate</th></tr></thead><tbody><tr><td>2019-10-01</td><td>8.0</td><td>5.16</td><td>5.6</td><td>3.68</td></tr><tr><td>2020-01-01</td><td>8.0</td><td>5.16</td><td>5.7</td><td>3.56</td></tr></tbody></table>\n```",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "a1b7a683-6c95-4bae-939c-4898d377b1d9",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061390.358733,
+      "elapsed_s": 12.144,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774061390.358634,
+        "finished_at": 1774061390.358634,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774061390.358769,
+      "elapsed_s": 12.144,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "a1b7a683-6c95-4bae-939c-4898d377b1d9",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "session_id": "f7757f0c-1e31-496f-9c92-0f4e7421ef23",
+  "timestamp": "2026-03-21T05:24:29.252980+00:00",
+  "question": "Top 10 quarters by GDP growth",
+  "response": "Here's **Query Result (10 rows)**:",
+  "total_elapsed_s": 56.434,
+  "event_count": 19,
+  "events": [
+    {
+      "timestamp": 1774070669.2543879,
+      "elapsed_s": 0.001,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-09542960",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774070669.253522,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070669.255729,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Top 10 quarters by GDP growth",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "f7757f0c-1e31-496f-9c92-0f4e7421ef23",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070669.256345,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "f7757f0c-1e31-496f-9c92-0f4e7421ef23",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070702.872565,
+      "elapsed_s": 33.62,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-09542960",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Calling query_duckdb",
+        "started_at": 1774070669.253522,
+        "finished_at": 1774070702.871974,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070702.872701,
+      "elapsed_s": 33.62,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-0353da12",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774070702.872011,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070702.872753,
+      "elapsed_s": 33.62,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "query_duckdb",
+                  "args": {
+                    "sql": "SELECT quarter, gdp_growth_pct \nFROM us_quarterly_macro_0047798b \nORDER BY gdp_growth_pct DESC \nLIMIT 10"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "f7757f0c-1e31-496f-9c92-0f4e7421ef23",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070702.873984,
+      "elapsed_s": 33.621,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "f7757f0c-1e31-496f-9c92-0f4e7421ef23",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070702.8782852,
+      "elapsed_s": 33.625,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "args_preview": "SQL: SELECT quarter, gdp_growth_pct \nFROM us_quarterly_macro_0047798b \nORDER BY gdp_g...",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070702.879699,
+      "elapsed_s": 33.627,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "elapsed_s": 0.01,
+        "result_preview": "Columns: ['quarter', 'gdp_growth_pct']\nRows returned: 10\n\n{'quarter': datetime.date(2001, 7, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2001, 10, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datet",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070702.881431,
+      "elapsed_s": 33.628,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-0353da12",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774070702.872011,
+        "finished_at": 1774070702.880836,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070702.881514,
+      "elapsed_s": 33.629,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-c83078fb",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774070702.880866,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070702.881547,
+      "elapsed_s": 33.629,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "b656d75a",
+        "type": "table",
+        "title": "Query Result (10 rows)",
+        "content": "<table class=\"artifact-table\"><thead><tr><th>quarter</th><th>gdp_growth_pct</th></tr></thead><tbody><tr><td>2001-07-01</td><td>8.0</td></tr><tr><td>2001-10-01</td><td>8.0</td></tr><tr><td>2002-01-01</td><td>8.0</td></tr><tr><td>2002-04-01</td><td>8.0</td></tr><tr><td>2002-07-01</td><td>8.0</td></tr><tr><td>2002-10-01</td><td>8.0</td></tr><tr><td>2003-01-01</td><td>8.0</td></tr><tr><td>2003-04-01</td><td>8.0</td></tr><tr><td>2003-07-01</td><td>8.0</td></tr><tr><td>2003-10-01</td><td>8.0</td></tr></tbody></table>",
+        "format": "html",
+        "created_at": 1774070702.8793159,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070702.881585,
+      "elapsed_s": 33.629,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Columns: ['quarter', 'gdp_growth_pct']\nRows returned: 10\n\n{'quarter': datetime.date(2001, 7, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2001, 10, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2002, 1, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2002, 4, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2002, 7, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2002, 10, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2003, 1, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2003, 4, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2003, 7, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2003, 10, 1), 'gdp_growth_pct': 8.0}\n\n[Table auto-saved as artifact b656d75a]",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "f7757f0c-1e31-496f-9c92-0f4e7421ef23",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070725.6850739,
+      "elapsed_s": 56.432,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-c83078fb",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Generating response",
+        "started_at": 1774070702.880866,
+        "finished_at": 1774070725.684449,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070725.685171,
+      "elapsed_s": 56.432,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "f7757f0c-1e31-496f-9c92-0f4e7421ef23",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070725.68593,
+      "elapsed_s": 56.433,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "f7757f0c-1e31-496f-9c92-0f4e7421ef23",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070725.686212,
+      "elapsed_s": 56.433,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "Here's **Query Result (10 rows)**:",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "f7757f0c-1e31-496f-9c92-0f4e7421ef23",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070725.686273,
+      "elapsed_s": 56.433,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774070725.686163,
+        "finished_at": 1774070725.686164,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774070725.686306,
+      "elapsed_s": 56.433,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "f7757f0c-1e31-496f-9c92-0f4e7421ef23",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+server:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins: ["http://localhost:5173"]
+
+agent:
+  mode: "single"              # "single" (one agent + skills, faster) or "multi" (orchestrator + sub-agents)
+  max_tool_results_kept: 10   # Keep full results for latest N tool calls, compress older ones
+
+llm:
+  provider: "ollama"
+  model: "120b"
+  base_url: "http://localhost:11434"
+  api_key: null
+  temperature: 0.1
+  max_tokens: 8192
+
+data:
+  duckdb_path: "./data/analytical.duckdb"
+  upload_dir: "./data/uploads"
+  max_upload_size_mb: 500
+
+sandbox:
+  enabled: true
+  timeout_seconds: 30
+  max_memory_mb: 2048
+  allowed_packages:
+    - pandas
+    - numpy
+    - matplotlib
+    - seaborn
+    - plotly
+    - scipy
+    - scikit-learn
+    - statsmodels
+    - duckdb
+    - altair
+    - vl_convert
+    - arch
+    - linearmodels
+    - warnings
+
+skills:
+  directory: "./app/skills"
+  auto_reload: true

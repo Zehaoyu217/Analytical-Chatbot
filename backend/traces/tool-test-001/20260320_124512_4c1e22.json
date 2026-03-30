@@ -1,0 +1,283 @@
+{
+  "session_id": "tool-test-001",
+  "timestamp": "2026-03-20T12:45:12.409467+00:00",
+  "question": "How many rows are in the us_macro_economic table? Use query_duckdb to check.",
+  "response": "",
+  "total_elapsed_s": 12.999,
+  "event_count": 18,
+  "events": [
+    {
+      "timestamp": 1774010712.410167,
+      "elapsed_s": 0.001,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-56f84a04",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774010712.409761,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010712.410826,
+      "elapsed_s": 0.001,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "How many rows are in the us_macro_economic table? Use query_duckdb to check.",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "tool-test-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010712.411139,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "tool-test-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010719.689068,
+      "elapsed_s": 7.28,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-56f84a04",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774010712.409761,
+        "finished_at": 1774010719.688502,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010719.689147,
+      "elapsed_s": 7.28,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-04ceb316",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774010719.688554,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010719.689173,
+      "elapsed_s": 7.28,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "query_duckdb",
+                  "args": {
+                    "sql": "SELECT COUNT(*) as row_count FROM us_macro_economic"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "tool-test-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010719.689897,
+      "elapsed_s": 7.28,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "tool-test-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010719.6909819,
+      "elapsed_s": 7.282,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "args_preview": "SQL: SELECT COUNT(*) as row_count FROM us_macro_economic",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010719.692395,
+      "elapsed_s": 7.283,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "elapsed_s": 0.0,
+        "result_preview": "Columns: ['row_count']\nRows returned: 1\n\n{'row_count': 300}\n\n[Table auto-saved as artifact 94300891]",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010719.693562,
+      "elapsed_s": 7.284,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-04ceb316",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774010719.688554,
+        "finished_at": 1774010719.69328,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010719.6936152,
+      "elapsed_s": 7.284,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-98cb8c49",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774010719.693295,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010719.6936378,
+      "elapsed_s": 7.284,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "94300891",
+        "type": "table",
+        "title": "Query Result (1 rows)",
+        "content": "<table class=\"artifact-table\"><thead><tr><th>row_count</th></tr></thead><tbody><tr><td>300</td></tr></tbody></table>",
+        "format": "html",
+        "created_at": 1774010719.692134,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010719.6936572,
+      "elapsed_s": 7.284,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Columns: ['row_count']\nRows returned: 1\n\n{'row_count': 300}\n\n[Table auto-saved as artifact 94300891]",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "tool-test-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010725.406802,
+      "elapsed_s": 12.997,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-98cb8c49",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774010719.693295,
+        "finished_at": 1774010725.406133,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010725.40688,
+      "elapsed_s": 12.997,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "tool-test-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010725.4076219,
+      "elapsed_s": 12.998,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "tool-test-001",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010725.407833,
+      "elapsed_s": 12.998,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774010725.4077828,
+        "finished_at": 1774010725.4077828,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774010725.407881,
+      "elapsed_s": 12.998,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "tool-test-001",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}
