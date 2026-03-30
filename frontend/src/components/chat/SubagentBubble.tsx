@@ -11,24 +11,22 @@ export const SubagentBubble = memo(function SubagentBubble({ message }: Props) {
   if (!message.content) return null;
 
   return (
-    <div className="flex justify-end mb-4">
-      <div className="max-w-[78%] w-full flex items-start gap-3">
-        <div className="flex-1 min-w-0 px-5 py-3.5 rounded-2xl rounded-tr-sm border border-indigo-500/20 bg-gradient-to-br from-[var(--surface-2)] to-indigo-900/10 shadow-[var(--shadow-sm)] relative overflow-hidden">
-          
-          {/* Top colored accent bar */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-indigo-500 to-purple-500 opacity-70" />
+    <div className="flex justify-end mb-3">
+      <div className="max-w-[78%] w-full flex items-start gap-2">
+        <div className="flex-1 min-w-0 px-3.5 py-2.5 rounded-[var(--radius-sm)] border border-violet-500/12 bg-[var(--surface-2)] relative overflow-hidden">
+
+          {/* Top accent line */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-violet-500/25" />
 
           {/* Badge */}
-          <div className="flex items-center gap-1.5 mb-2.5">
-            <span className="material-symbols-rounded text-[14px] text-indigo-400">psychology</span>
-            <span className="text-[11px] font-bold text-indigo-400 uppercase tracking-wider select-none">
-              {message.agent_name.replace('_', ' ')} • Parallel Update
+          <div className="flex items-center gap-1.5 mb-2">
+            <span className="text-[9px] font-mono font-bold text-violet-400/80 uppercase tracking-[1px] select-none">
+              {message.agent_name.replace('_', ' ')}
             </span>
             {message.isStreaming && (
-              <span className="flex items-center gap-1 ml-1 mb-0.5">
-                <span className="w-1 h-1 rounded-full bg-indigo-400 animate-pulse" />
-                <span className="w-1 h-1 rounded-full bg-indigo-400 animate-pulse delay-75" />
-                <span className="w-1 h-1 rounded-full bg-indigo-400 animate-pulse delay-150" />
+              <span className="flex items-center gap-0.5 ml-0.5">
+                <span className="w-[3px] h-[3px] rounded-full bg-violet-400/70 animate-pulse" />
+                <span className="w-[3px] h-[3px] rounded-full bg-violet-400/70 animate-pulse delay-75" />
               </span>
             )}
           </div>
@@ -39,7 +37,7 @@ export const SubagentBubble = memo(function SubagentBubble({ message }: Props) {
             prose-strong:text-[var(--text-primary)] prose-strong:font-semibold
             prose-li:text-[var(--text-secondary)] prose-li:text-[13.5px] prose-li:my-0.5 prose-li:leading-[1.6]
             prose-ul:my-2 prose-ol:my-2
-            prose-a:text-indigo-400 hover:prose-a:underline
+            prose-a:text-violet-400 hover:prose-a:underline
           ">
             <div className={message.isStreaming ? "typing-cursor" : ""}>
               <ReactMarkdown remarkPlugins={[remarkGfm]}>

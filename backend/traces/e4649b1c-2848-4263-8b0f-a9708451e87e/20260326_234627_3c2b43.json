@@ -1,0 +1,115 @@
+{
+  "session_id": "e4649b1c-2848-4263-8b0f-a9708451e87e",
+  "timestamp": "2026-03-26T23:46:27.961024+00:00",
+  "question": "Describe the fed funds rate distribution",
+  "response": "",
+  "total_elapsed_s": 30.395,
+  "event_count": 7,
+  "events": [
+    {
+      "timestamp": 1774568788.075576,
+      "elapsed_s": 0.115,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2c350146",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774568788.0751958,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774568788.076121,
+      "elapsed_s": 0.115,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Describe the fed funds rate distribution",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e4649b1c-2848-4263-8b0f-a9708451e87e",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774568788.0767171,
+      "elapsed_s": 0.116,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Describe the fed funds rate distribution",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e4649b1c-2848-4263-8b0f-a9708451e87e",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774568788.077021,
+      "elapsed_s": 0.116,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "e4649b1c-2848-4263-8b0f-a9708451e87e",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774568788.077303,
+      "elapsed_s": 0.116,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ComplexityAdaptiveMiddleware.before_agent",
+        "data": null,
+        "session_id": "e4649b1c-2848-4263-8b0f-a9708451e87e",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774568788.0775628,
+      "elapsed_s": 0.117,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "NagReminderMiddleware.before_agent",
+        "data": null,
+        "session_id": "e4649b1c-2848-4263-8b0f-a9708451e87e",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774568788.077939,
+      "elapsed_s": 0.117,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "EvaluatorMiddleware.before_agent",
+        "data": null,
+        "session_id": "e4649b1c-2848-4263-8b0f-a9708451e87e",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

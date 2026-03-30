@@ -9,7 +9,9 @@ Supports two modes (configurable via config.yaml `agent.mode`):
 """
 from __future__ import annotations
 
+import difflib
 import logging
+import re
 import time
 from pathlib import Path
 from typing import Any
@@ -29,6 +31,10 @@ from app.agent.tools.load_skill import load_skill
 from app.agent.tools.save_artifact import (
     save_artifact, update_artifact, get_artifact_content, save_dashboard_component,
 )
+from app.agent.tools.show_component import show_component
+from app.agent.tools.record_finding import record_finding
+from app.agent.tools.read_result import read_result
+from app.agent.persistent_state import PersistentStateMiddleware, _persistent_store
 from app.data.catalog import get_catalog
 from app.data.duckdb_manager import get_duckdb
 from app.events.bus import AgentEvent
@@ -43,6 +49,7 @@ PROMPTS_DIR = Path(__file__).parent / "prompts"
 AGENT_TOOLS: list[BaseTool] = [
     list_datasets, get_schema, query_duckdb, run_python, load_skill,
     save_artifact, update_artifact, get_artifact_content, save_dashboard_component,
+    show_component, record_finding, read_result,
 ]
 
 
@@ -136,12 +143,111 @@ def _build_system_prompt(mode: str = "single", relevant_datasets: list[str] | No
 # ── Middleware ──────────────────────────────────────────────────────
 
 
+_OFFLOAD_THRESHOLD = 1500  # chars — results larger than this go to disk
+# Tools whose results should NOT be offloaded (they're already compact references or UI events)
+_OFFLOAD_SKIP_TOOLS = frozenset({
+    "write_todos", "record_finding", "load_skill", "list_datasets",
+    "save_artifact", "save_dashboard_component", "show_component", "read_result",
+})
+
+
+def _maybe_offload_result(result: Any, result_text: str, tool_name: str, session_id: str | None) -> Any:
+    """If result is large, write to disk and return a compact reference ToolMessage."""
+    if tool_name in _OFFLOAD_SKIP_TOOLS:
+        return result
+    if not session_id or len(result_text) <= _OFFLOAD_THRESHOLD:
+        return result
+
+    try:
+        from pathlib import Path as _Path
+        import time as _time
+
+        session_dir = _Path(f"/tmp/agent_results/{session_id}")
+        session_dir.mkdir(parents=True, exist_ok=True)
+        fname = f"{tool_name}_{int(_time.time() * 1000)}.txt"
+        fpath = session_dir / fname
+        fpath.write_text(result_text, encoding="utf-8")
+
+        lines = result_text.split("\n")
+        preview = "\n".join(lines[:5])
+        compact = (
+            f"[Result archived — {len(result_text):,} chars, {len(lines)} lines → {fpath}]\n"
+            f"Preview (first 20 lines):\n{preview}\n"
+            f"[Use read_result('{fpath}') to load full content if needed]"
+        )
+        return ToolMessage(
+            content=compact,
+            tool_call_id=result.tool_call_id,
+            name=getattr(result, "name", None),
+        )
+    except Exception:
+        return result  # Never fail — return original on any error
+
+
+async def _validate_plan(plan_text: str) -> list[str]:
+    """Check plan text for column/table references that don't exist in the live schema."""
+    try:
+        catalog = get_catalog()
+        db = get_duckdb()
+        all_tables = {ds["table_name"] for ds in catalog.list_datasets()}
+        if not all_tables:
+            return []
+
+        all_columns: list[str] = []
+        table_columns: dict[str, list[str]] = {}
+        for tname in all_tables:
+            schema = db.get_table_schema(tname)
+            cols = [c["name"].lower() for c in schema]
+            all_columns.extend(cols)
+            table_columns[tname] = cols
+
+        # Find backtick-quoted identifiers in the plan
+        col_refs = re.findall(r"`([a-zA-Z_][a-zA-Z0-9_]*)`", plan_text)
+        warnings: list[str] = []
+        seen: set[str] = set()
+        for ref in col_refs:
+            ref_lower = ref.lower()
+            if ref_lower in seen:
+                continue
+            seen.add(ref_lower)
+            # Skip common Python/SQL keywords
+            if ref_lower in {"df", "sql", "select", "from", "where", "group", "order", "limit",
+                             "by", "and", "or", "not", "as", "join", "on", "true", "false"}:
+                continue
+            if any(ref_lower in cols for cols in table_columns.values()):
+                continue  # found in a table — OK
+            close = difflib.get_close_matches(ref_lower, all_columns, n=2, cutoff=0.7)
+            warnings.append(
+                f"  Column `{ref}` not found in any table."
+                + (f" Did you mean: {close}?" if close else " Run get_schema() to verify.")
+            )
+        return warnings
+    except Exception:
+        return []  # Never block plan execution due to validation errors
+
+
 class EventBusMiddleware(AgentMiddleware):
     """Emits tool_start/tool_end events to our EventBus for real-time UI."""
 
     async def awrap_tool_call(self, request, handler):
         tc = request.tool_call
         tool_name = tc.get("name", "") if isinstance(tc, dict) else getattr(tc, "name", "")
+
+        # Native deepagents SDK handles write_todos with its own 'thinking' layout event.
+        # We run plan validation here and optionally append schema warnings.
+        if tool_name == "write_todos":
+            result = await handler(request)
+            warnings = await _validate_plan(
+                result.content if hasattr(result, "content") else str(result)
+            )
+            if warnings:
+                result_text = result.content if hasattr(result, "content") else str(result)
+                result = ToolMessage(
+                    content=result_text + "\n\n[PLAN VALIDATOR — schema warnings]:\n" + "\n".join(warnings),
+                    tool_call_id=result.tool_call_id,
+                )
+            return result
+
         args = tc.get("args", {}) if isinstance(tc, dict) else getattr(tc, "args", {})
         args_preview = _preview_args(tool_name, args)
 
@@ -159,8 +265,13 @@ class EventBusMiddleware(AgentMiddleware):
         result = await handler(request)
         elapsed = round(time.monotonic() - t0, 2)
 
+        result_text = result.content if hasattr(result, "content") else str(result)
+
+        # C1: Offload large results to disk — keep message history lean
+        result = _maybe_offload_result(result, result_text, tool_name, session_id)
+        result_text = result.content if hasattr(result, "content") else str(result)
+
         if bus:
-            result_text = result.content if hasattr(result, "content") else str(result)
             await bus.emit(session_id, AgentEvent(
                 type="tool_end",
                 data={
@@ -240,23 +351,14 @@ class ToolResultCompactionMiddleware(AgentMiddleware):
         return {"messages": Overwrite(compacted)}
 
 
+
 def _preview_args(tool_name: str, args: dict) -> str:
     """Create a short preview of tool args for progress display."""
     if tool_name == "query_duckdb":
         sql = args.get("sql", "")
         return f"SQL: {sql[:80]}..." if len(sql) > 80 else f"SQL: {sql}"
     if tool_name == "run_python":
-        code = args.get("code", "")
-        # Extract first comment line as a meaningful description
-        for line in code.split("\n"):
-            stripped = line.strip()
-            if stripped.startswith("#") and not stripped.startswith("#!"):
-                comment = stripped.lstrip("# ").strip()
-                if comment:
-                    return comment[:50]
-        # Fallback to first non-empty line
-        first_line = code.split("\n")[0].strip() if code else ""
-        return first_line[:50]
+        return args.get("code", "")
     if tool_name == "get_schema":
         return f"Table: {args.get('table_name', '')}"
     if tool_name == "load_skill":
@@ -282,15 +384,21 @@ def _build_subagents(relevant_datasets: list[str] | None = None) -> list[SubAgen
             name="analyst",
             description="Data profiling, SQL analysis, statistical research, multi-step investigations, and reporting",
             system_prompt=_load_prompt("analyst_prompt.md") + data_context,
-            tools=[list_datasets, get_schema, query_duckdb, run_python, load_skill,
-                   save_artifact, save_dashboard_component],
+            tools=[
+                list_datasets, get_schema, query_duckdb, run_python,
+                load_skill, save_artifact, save_dashboard_component,
+                record_finding, read_result,
+            ],
         ),
         SubAgent(
             name="visualizer",
             description="Charts, plots, and visual data representations using Altair/Vega-Lite with GS theme",
             system_prompt=_load_prompt("visualizer_prompt.md") + data_context,
-            tools=[list_datasets, get_schema, query_duckdb, run_python, load_skill,
-                   save_artifact, save_dashboard_component],
+            tools=[
+                list_datasets, get_schema, query_duckdb, run_python,
+                load_skill, save_artifact, save_dashboard_component,
+                record_finding, read_result,
+            ],
         ),
     ]
 
@@ -328,8 +436,12 @@ def build_deep_agent(
 
     from langgraph.checkpoint.memory import MemorySaver
     checkpointer = MemorySaver()
+    # NOTE: H6 (SQLite checkpoint persistence) deferred — AsyncSqliteSaver requires
+    # async context manager lifecycle management (app lifespan) not available in this
+    # sync factory. MemorySaver works correctly; sessions reset on server restart.
 
     middleware = [
+        PersistentStateMiddleware(_persistent_store),
         ToolResultCompactionMiddleware(max_keep=max_keep),
         EventBusMiddleware(),
     ]

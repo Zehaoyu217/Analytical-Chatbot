@@ -17,7 +17,31 @@ _stderr_buf = io.StringIO()
 sys.stdout = _stdout_buf
 sys.stderr = _stderr_buf
 
-_result = {"stdout": "", "stderr": "", "figures": [], "charts": [], "tables_html": [], "diagrams": [], "return_value": None, "error": None}
+_result = {"stdout": "", "stderr": "", "figures": [], "charts": [], "tables_html": [], "diagrams": [], "inline_components": [], "artifact_updates": [], "return_value": None, "error": None}
+
+# Auto-summarize DataFrames on print() so large tables don't flood the context window.
+# Use print_full(df) when you actually need all rows.
+_original_print = print
+def print(*args, **kwargs):
+    import pandas as _pd
+    if len(args) == 1 and isinstance(args[0], _pd.DataFrame):
+        df = args[0]
+        n_rows, n_cols = df.shape
+        if n_rows > 20:
+            _original_print(f"DataFrame({n_rows:,} rows x {n_cols} cols)")
+            _original_print(f"Columns: {list(df.columns)}")
+            nulls = df.isnull().sum()
+            if nulls.any():
+                _original_print(f"Nulls: {dict(nulls[nulls > 0])}")
+            num = df.select_dtypes(include='number')
+            if not num.empty:
+                _original_print("Numeric stats:")
+                _original_print(num.describe().round(3).to_string())
+            _original_print("First 5 rows:")
+            _original_print(df.head(5).to_string())
+            _original_print(f"[Full view: use print_full(df) or print_full(df, max_rows=N)]")
+            return
+    _original_print(*args, **kwargs)
 
 def print_full(obj, max_rows=200):
     """Print a DataFrame or object without truncation so the agent can fully see results."""
@@ -36,32 +60,93 @@ def save_table_html(df, title=""):
     _result["tables_html"].append({"title": title, "html": html})
 
 def save_chart_vegalite(chart, title=""):
-    """Save an Altair chart as Vega-Lite JSON for the Artifacts panel."""
-    spec = chart.to_json()
+    """Save an Altair chart (or Vega-Lite dict/JSON string) to the Artifacts panel."""
+    import json as _json
+    if isinstance(chart, dict):
+        spec = _json.dumps(chart)
+    elif isinstance(chart, str):
+        spec = chart  # already a JSON string
+    else:
+        spec = chart.to_json()  # Altair chart object
     _result["charts"].append({"title": title, "spec": spec})
 
 def save_mermaid(code, title="Diagram"):
     """Save a Mermaid diagram for the Artifacts panel."""
     _result["diagrams"].append({"title": title, "code": code})
 
-def styled_chart(base_chart, title="", width=560, height=320):
-    """Apply premium financial dark theme to any Altair chart."""
-    import altair as alt
-    return base_chart.properties(
-        title=alt.Title(title, fontSize=14, fontWeight=600, color='#f1f3f9', anchor='start', offset=10),
-        width=width, height=height,
-    ).configure(
-        background='transparent', font='Inter',
-    ).configure_axis(
-        labelColor='#9da3b4', titleColor='#9da3b4',
-        gridColor='rgba(255,255,255,0.04)', domainColor='rgba(255,255,255,0.1)',
-        labelFontSize=11, titleFontSize=12, labelFont='Inter', titleFont='Inter',
-        tickColor='rgba(255,255,255,0.1)',
-    ).configure_legend(
-        labelColor='#9da3b4', titleColor='#f1f3f9',
-        labelFontSize=11, titleFontSize=12, labelFont='Inter', titleFont='Inter',
-        orient='bottom', padding=10,
-    ).configure_view(strokeWidth=0)
+def show_component(component_or_list, title=""):
+    """Render A2UI component(s) inline in the current chat message.
+
+    component_or_list: a single component dict, a list of component dicts,
+                       or a JSON string of either.
+    title: optional group title displayed above the block in the chat bubble.
+    """
+    import json as _json
+    if isinstance(component_or_list, dict):
+        components = [component_or_list]
+    elif isinstance(component_or_list, list):
+        components = component_or_list
+    elif isinstance(component_or_list, str):
+        parsed = _json.loads(component_or_list)
+        components = parsed if isinstance(parsed, list) else [parsed]
+    else:
+        components = [component_or_list]
+    _result["inline_components"].append({"components": components, "title": title})
+
+def save_artifact(content, title="", artifact_type="table", format=None):
+    """Universal save — works for tables, charts, and diagrams.
+
+    content: DataFrame or HTML string (tables), Altair chart or dict/JSON (charts), Mermaid string (diagrams)
+    artifact_type: "table" | "chart" | "diagram"  (or inferred from content type)
+    format: "html" | "vega-lite" | "mermaid"  (optional, overrides artifact_type)
+    """
+    import pandas as _pd
+    _type = format or artifact_type
+    if _type in ("chart", "vega-lite") or hasattr(content, "to_json") or isinstance(content, dict):
+        save_chart_vegalite(content, title)
+    elif _type in ("diagram", "mermaid"):
+        save_mermaid(content, title)
+    else:
+        # table: accept DataFrame or raw HTML string
+        if isinstance(content, _pd.DataFrame):
+            save_table_html(content, title)
+        else:
+            html = str(content)
+            _result["tables_html"].append({"title": title, "html": html})
+
+def update_artifact(artifact_id, content, title=None):
+    """Update an existing artifact from inside run_python.
+
+    Use this when refining or changing an existing chart, table, or diagram.
+    The artifact panel will reflect the change immediately.
+
+    artifact_id: the ID of the artifact to update (e.g. "535c6589")
+    content:     the new content — Altair chart object, vega-lite dict, JSON string, or Mermaid string
+    title:       optional new title; leave None to keep the current title
+
+    Example (chart refinement):
+        chart = alt.Chart(df).mark_bar().encode(...)
+        chart = gs_theme(chart, "Inflation Rate Over Time")
+        update_artifact("535c6589", chart)
+    """
+    import json as _json
+    if isinstance(content, dict):
+        spec = _json.dumps(content)
+    elif isinstance(content, str):
+        spec = content
+    else:
+        spec = content.to_json()  # Altair chart object
+    _result["artifact_updates"].append({"artifact_id": artifact_id, "content": spec, "title": title})
+
+try:
+    # Auto-import all OneGS helpers (gs_theme, styled_table_html, GS_MERMAID_THEME, constants)
+    from sandbox_helpers import *
+except ImportError:
+    pass  # fallback: helpers unavailable but sandbox still works
+
+def styled_chart(base_chart, title="", width=640, height=400):
+    """Alias for gs_theme() — prefer gs_theme() for new code."""
+    return gs_theme(base_chart, title=title, width=width, height=height)
 
 try:
     # Set matplotlib to non-interactive backend
@@ -90,8 +175,37 @@ try:
         print(f"Warning: Could not copy DuckDB: {_copy_err}", file=sys.stderr)
         _db = duckdb.connect()  # fallback: empty in-memory
 
+    # A3: Auto-load persisted objects from previous sandbox calls.
+    # Variables saved as _persist_* in a prior run are restored into globals().
+    import glob as _glob
+    _session_dir = f"/tmp/sandbox_{os.environ.get('SANDBOX_SESSION_ID', '')}"
+    if _session_dir != "/tmp/sandbox_" and os.path.isdir(_session_dir):
+        for _pkl in _glob.glob(f"{_session_dir}/*.pkl"):
+            _vname = os.path.basename(_pkl).replace(".pkl", "")
+            try:
+                import joblib as _jl
+                globals()[_vname] = _jl.load(_pkl)
+            except Exception as _le:
+                print(f"Warning: could not load {_vname}: {_le}", file=sys.stderr)
+
     # Execute user code
 __USER_CODE__
+
+    # A3: Auto-persist variables named _persist_* so they survive across sandbox calls.
+    _persist_log = []
+    if _session_dir != "/tmp/sandbox_":
+        os.makedirs(_session_dir, exist_ok=True)
+        for _k, _v in list(locals().items()):
+            if _k.startswith("_persist_") and not _k.startswith("_persist_log"):
+                try:
+                    import joblib as _jl
+                    _pkl_path = f"{_session_dir}/{_k}.pkl"
+                    _jl.dump(_v, _pkl_path)
+                    _persist_log.append(_k)
+                except Exception as _pe:
+                    print(f"Warning: could not persist {_k}: {_pe}", file=sys.stderr)
+    if _persist_log:
+        _original_print(f"[Persisted to session: {', '.join(_persist_log)}]")
 
     # Capture any matplotlib figures
     for fig_num in plt.get_fignums():

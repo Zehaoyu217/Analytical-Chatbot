@@ -1,0 +1,140 @@
+{
+  "session_id": "e2e-table-1774569339",
+  "timestamp": "2026-03-26T23:55:39.503387+00:00",
+  "question": "Show me the top 5 rows from us_quarterly_macro_0047798b",
+  "response": "",
+  "total_elapsed_s": 3.258,
+  "event_count": 9,
+  "events": [
+    {
+      "timestamp": 1774569339.562109,
+      "elapsed_s": 0.059,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2bc00569",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569339.561176,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569339.562845,
+      "elapsed_s": 0.059,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Show me the top 5 rows from us_quarterly_macro_0047798b",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-table-1774569339",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569339.563447,
+      "elapsed_s": 0.06,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Show me the top 5 rows from us_quarterly_macro_0047798b",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-table-1774569339",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569339.563766,
+      "elapsed_s": 0.06,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-table-1774569339",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569339.564061,
+      "elapsed_s": 0.061,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ComplexityAdaptiveMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-table-1774569339",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569339.56435,
+      "elapsed_s": 0.061,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "NagReminderMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-table-1774569339",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569339.564615,
+      "elapsed_s": 0.061,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "EvaluatorMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-table-1774569339",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569342.76099,
+      "elapsed_s": 3.258,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2bc00569",
+        "label": "Error",
+        "status": "error",
+        "detail": "Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'openai/gpt-oss-120b:free is temporarily rate-limited upstream. Please retry shortly, or add your ow",
+        "started_at": 1774569339.561176,
+        "finished_at": 1774569342.760837,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569342.761204,
+      "elapsed_s": 3.258,
+      "event_type": "error",
+      "agent_id": "orchestrator",
+      "data": {
+        "error": "Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'openai/gpt-oss-120b:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'OpenInference', 'is_byok': False}}, 'user_id': 'user_3BEuNaNrFfWcrzl8GU5n4B1CpQU'}",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

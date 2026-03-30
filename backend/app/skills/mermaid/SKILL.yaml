@@ -1,0 +1,63 @@
+skill_name: mermaid
+skill_description: "Create professional Mermaid diagrams using the OneGS dark palette (sapphire + teal)"
+
+content: |
+  # Mermaid Diagrams
+
+  `GS_MERMAID_THEME` is pre-imported. ALWAYS prepend it to any Mermaid string.
+
+  ## Basic Usage
+  ```python
+  diagram = GS_MERMAID_THEME + """
+  graph TD
+      A[Start] --> B[Process]
+      B --> C[End]
+  """
+  save_artifact(diagram, "My Diagram", artifact_type="diagram")
+  ```
+
+  ## Diagram Types
+  `graph TD` — top-down flowcharts, hierarchies | `graph LR` — left-right pipelines |
+  `sequenceDiagram` — API interactions | `classDiagram` — data models | `erDiagram` — ER diagrams
+
+  ## Node Shapes
+  `A[Label]` rectangle | `A(Label)` rounded | `A{Label}` diamond | `A[(Label)]` database | `A((Label))` circle
+
+  ## Examples
+
+  ### System Architecture
+  ```python
+  diagram = GS_MERMAID_THEME + """
+  graph TD
+      User([User]) -->|Uploads| API[FastAPI]
+      API --> DB[(DuckDB)]
+      DB --> Agent{AI Agent}
+      Agent -->|Artifacts| UI[Dashboard]
+      style User fill:#1a2038,stroke:#3d7be8,stroke-width:2px,color:#e8ecf4
+      style Agent fill:#1a2038,stroke:#2eb89a,stroke-width:2px,color:#e8ecf4
+      style DB fill:#12172b,stroke:#e8a820,stroke-width:2px,color:#e8ecf4
+  """
+  save_artifact(diagram, "System Architecture", artifact_type="diagram")
+  ```
+
+  ### Sequence Diagram
+  ```python
+  diagram = GS_MERMAID_THEME + """
+  sequenceDiagram
+      participant U as User
+      participant A as Agent
+      participant D as DuckDB
+      U->>A: Ask question
+      A->>D: SQL query
+      D-->>A: Result set
+      A-->>U: Answer + chart
+  """
+  save_artifact(diagram, "Request Flow", artifact_type="diagram")
+  ```
+
+  ## Rules
+  1. ALWAYS prepend `GS_MERMAID_THEME`
+  2. Use `artifact_type="diagram"` in `save_artifact()`
+  3. Highlight 1-3 key nodes with `style` overrides: `fill:#1a2038,stroke:#3d7be8,stroke-width:2px,color:#e8ecf4`
+  4. Prefer `LR` for pipelines, `TD` for hierarchies
+  5. Max ~15 nodes before splitting into subgraphs. Labels ≤5 words.

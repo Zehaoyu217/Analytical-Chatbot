@@ -42,28 +42,30 @@ def _derive_title_from_sql(sql: str, columns: list, row_count: int) -> str:
     return title
 
 def _auto_save_table_artifact(columns: list, rows: list, sql: str) -> str | None:
-    """Auto-save query results as an HTML table artifact."""
+    """Auto-save query results as a structured JSON table artifact."""
     try:
         session_id = current_session_id.get()
         if not session_id:
             return None
 
-        # Build HTML table
-        header = "".join(f"<th>{c}</th>" for c in columns)
-        body_rows = []
-        for row in rows[:100]:  # Cap at 100 rows for display
-            cells = "".join(f"<td>{v}</td>" for v in row)
-            body_rows.append(f"<tr>{cells}</tr>")
-        html = (
-            f'<table class="artifact-table"><thead><tr>{header}</tr></thead>'
-            f'<tbody>{"".join(body_rows)}</tbody></table>'
-        )
+        display_rows = rows[:100]  # Cap at 100 rows for display
+
+        # Serialize rows — convert any non-JSON-serializable values to strings
+        safe_rows = []
+        for row in display_rows:
+            safe_rows.append([None if v is None else (v if isinstance(v, (bool, int, float, str)) else str(v)) for v in row])
+
+        content = json.dumps({
+            "columns": columns,
+            "rows": safe_rows,
+            "total_rows": len(rows),
+        })
 
         # Derive a descriptive title from the SQL
         title = _derive_title_from_sql(sql, columns, len(rows))
 
         store = get_artifact_store()
-        artifact = Artifact(type="table", title=title, content=html, format="html")
+        artifact = Artifact(type="table", title=title, content=content, format="table-json")
         stored = store.add_artifact(session_id, artifact)
 
         # Emit artifact event via EventBus
@@ -118,18 +120,14 @@ def query_duckdb(sql: str) -> str:
         # Auto-save as artifact for the UI
         artifact_id = _auto_save_table_artifact(columns, rows, sql)
 
-        # Format as readable table for the LLM
+        # Format results for the model (up to 50 rows)
         lines = [f"Columns: {columns}", f"Rows returned: {len(rows)}", ""]
-        # Show up to 50 rows
         for row in rows[:50]:
             lines.append(str(dict(zip(columns, row))))
-
         if len(rows) > 50:
             lines.append(f"... and {len(rows) - 50} more rows")
-
         if artifact_id:
             lines.append(f"\n[Table auto-saved as artifact {artifact_id}]")
-
         return "\n".join(lines)
 
     except Exception as e:

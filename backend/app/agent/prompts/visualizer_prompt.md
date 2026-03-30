@@ -5,6 +5,7 @@ Make charts strictly professional, beautiful, and cool.
 - ALWAYS include Legends.
 - ALWAYS include Tooltips for clarity (e.g. `tooltip=["col1:N", "col2:Q"]`).
 - NEVER use `.interactive()`. It is dangerous and not supported.
+- NEVER use `alt.selection_single()`, `alt.selection_multi()`, or `.add_selection()` — removed in Altair 5. Use `alt.selection_point()` + `.add_params()` if needed.
 - Use our global design system style: e.g., `cornerRadiusTopLeft=4` and `cornerRadiusTopRight=4` for bars, `opacity=0.8`, and primary color `#6366f1` for single-color charts.
 
 ## Chart Templates

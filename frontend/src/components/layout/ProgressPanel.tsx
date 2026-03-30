@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useChatStore } from "@/stores/chatStore";
 import { funText } from "@/lib/funText";
-import type { ProgressStep, ThinkingEvent } from "@/types";
+import type { ProgressStep } from "@/types";
 
 /* ── Fun thinking verbs (rotate while running) ────────── */
 const THINKING_VERBS = [
@@ -13,38 +13,64 @@ const THINKING_VERBS = [
   "Juggling variables...", "Untangling the data spaghetti...", "Herding data cats...",
   "Putting on thinking cap...", "Entering the data matrix...", "Calculating at light speed...",
   "Spinning up brain cells...", "Going full galaxy brain...",
+  "Running the numbers (twice)...", "Asking DuckDB nicely...", "Convincing Python to cooperate...",
+  "Deploying advanced statistics...", "Thinking about thinking...", "This is fine. Data is fine.",
 ];
 
 const TOOL_VERBS: Record<string, string[]> = {
   query_duckdb: [
     "Quacking through SQL...", "Asking the ducks politely...", "Querying the data pond...",
     "SQL-ing like a pro...", "SELECT-ing the good stuff...", "JOINing the party...",
+    "GROUP BY... everything...", "Filtering with extreme prejudice...",
   ],
   run_python: [
     "Unleashing the snake...", "Running Pythonic magic...", "Crunching in Python...",
     "Computing away...", "import awesome_results...", "def get_answers()...",
+    "Snake go brrrr...", "Numpy doing numpy things...", "pandas are eating data...",
   ],
   save_artifact: [
     "Saving treasures...", "Stashing the goods...", "Preserving findings...",
+    "Framing it nicely...", "Archiving brilliance...",
   ],
   load_skill: [
     "Loading special powers...", "Activating skill module...", "Unlocking abilities...",
+    "Reading the manual (actually)...", "Skill tree ++...",
   ],
   get_schema: [
     "Inspecting the blueprint...", "Reading the schema tea...", "Mapping the data DNA...",
+    "What columns lurk here?...", "Surveying the terrain...",
   ],
   list_datasets: [
     "Surveying the data lake...", "Counting tables...", "Taking inventory...",
+    "What data do we have?...", "Checking the warehouse...",
   ],
   save_dashboard_component: [
     "Building the dashboard...", "Painting the canvas...", "Placing the widgets...",
+    "Assembling the mission control...", "Dashboard++...",
+  ],
+  record_finding: [
+    "Logging to the brain...", "Pinning this finding...", "Filing it away...",
+    "Memory updated...", "This is important, keeping it...",
   ],
 };
 
 const DONE_QUIPS = [
   "Nailed it!", "Done and dusted!", "Boom!", "Easy peasy!",
   "That was fun!", "Mission complete!", "Another one bites the dust!",
-  "Ta-da!", "Chef's kiss!", "Mic drop!",
+  "Ta-da!", "Chef's kiss!", "Mic drop!", "Crushed it.",
+  "Analysis complete.", "Brought to you by SQL.", "The data has spoken.",
+];
+
+/* ── Terminal empty state messages ───────────────────── */
+const TERMINAL_STANDBY = [
+  "awaiting query...",
+  "standing by...",
+  "ready to analyze...",
+  "idle. ask me something...",
+  "systems nominal...",
+  "all tools loaded...",
+  "connected to DuckDB...",
+  "LLM is warm and waiting...",
 ];
 
 function useRotatingText(texts: string[], intervalMs = 2500): string {
@@ -59,7 +85,7 @@ function useRotatingText(texts: string[], intervalMs = 2500): string {
 }
 
 /* ── Live ticking timer ──────────────────────────────── */
-function LiveTimer({ startedAt }: { startedAt: number }) {
+function LiveTimer({ startedAt, className }: { startedAt: number; className?: string }) {
   const [elapsed, setElapsed] = useState(0);
   useEffect(() => {
     const tick = () => setElapsed(Date.now() / 1000 - startedAt);
@@ -72,7 +98,7 @@ function LiveTimer({ startedAt }: { startedAt: number }) {
   const secs = elapsed % 60;
 
   return (
-    <span className="text-[10px] font-mono tabular-nums text-indigo-400/80 shrink-0">
+    <span className={`text-[10px] font-mono tabular-nums shrink-0 ${className ?? "text-amber-400/80"}`}>
       {mins > 0 ? `${mins}:${secs.toFixed(1).padStart(4, "0")}` : `${secs.toFixed(1)}s`}
     </span>
   );
@@ -87,7 +113,7 @@ function ElapsedBadge({ startedAt, finishedAt }: { startedAt: number; finishedAt
     <motion.span
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      className="text-[9px] text-emerald-400/70 font-mono tabular-nums shrink-0 bg-emerald-500/8 px-1.5 py-0.5 rounded-full"
+      className="text-[10px] text-emerald-400/70 font-mono tabular-nums shrink-0 bg-emerald-500/8 px-1.5 py-0.5 rounded-sm"
     >
       {display}
     </motion.span>
@@ -106,11 +132,11 @@ function RunningStatus({ label, type }: { label: string; type?: string }) {
     <AnimatePresence mode="wait">
       <motion.span
         key={text}
-        initial={{ opacity: 0, y: 5 }}
+        initial={{ opacity: 0, y: 4 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -5 }}
+        exit={{ opacity: 0, y: -4 }}
         transition={{ duration: 0.15 }}
-        className="text-[10px] text-indigo-300/70 italic truncate max-w-[160px]"
+        className="text-[10px] text-amber-400/55 italic truncate max-w-[160px]"
       >
         {text}
       </motion.span>
@@ -121,18 +147,36 @@ function RunningStatus({ label, type }: { label: string; type?: string }) {
 /* ── Tool icon mapping ───────────────────────────────── */
 function getToolIcon(toolName: string): string {
   const icons: Record<string, string> = {
-    query_duckdb: "database",
-    run_python: "code",
-    save_artifact: "save",
-    save_dashboard_component: "dashboard",
-    list_datasets: "list",
-    get_schema: "schema",
-    load_skill: "auto_stories",
-    get_artifact_content: "article",
-    update_artifact: "edit",
+    query_duckdb:             "table_rows",
+    run_python:               "terminal",
+    save_artifact:            "add_chart",
+    save_dashboard_component: "space_dashboard",
+    list_datasets:            "dataset",
+    get_schema:               "account_tree",
+    load_skill:               "extension",
+    get_artifact_content:     "description",
+    update_artifact:          "edit_note",
+    record_finding:           "emoji_objects",
+    read_result:              "read_more",
   };
-  return icons[toolName] || "build";
+  return icons[toolName] || "manufacturing";
 }
+
+/* ── Tool color palette ──────────────────────────────── */
+const TOOL_COLORS: Record<string, { bg: string; text: string; runBg: string }> = {
+  query_duckdb:            { bg: "bg-teal-500/10",   text: "text-teal-400",   runBg: "bg-teal-500/15" },
+  run_python:              { bg: "bg-violet-500/10",  text: "text-violet-400", runBg: "bg-violet-500/15" },
+  save_artifact:           { bg: "bg-emerald-500/10", text: "text-emerald-400",runBg: "bg-emerald-500/15" },
+  save_dashboard_component:{ bg: "bg-cyan-500/10",    text: "text-cyan-400",   runBg: "bg-cyan-500/15" },
+  list_datasets:           { bg: "bg-sky-500/10",     text: "text-sky-400",    runBg: "bg-sky-500/15" },
+  get_schema:              { bg: "bg-blue-500/10",    text: "text-blue-400",   runBg: "bg-blue-500/15" },
+  load_skill:              { bg: "bg-amber-500/10",   text: "text-amber-400",  runBg: "bg-amber-500/15" },
+  get_artifact_content:    { bg: "bg-slate-500/10",   text: "text-slate-400",  runBg: "bg-slate-500/15" },
+  update_artifact:         { bg: "bg-slate-500/10",   text: "text-slate-400",  runBg: "bg-slate-500/15" },
+  record_finding:          { bg: "bg-rose-500/10",    text: "text-rose-400",   runBg: "bg-rose-500/15" },
+  read_result:             { bg: "bg-orange-500/10",  text: "text-orange-400", runBg: "bg-orange-500/15" },
+};
+const DEFAULT_TOOL_COLOR = { bg: "bg-amber-500/10", text: "text-amber-400", runBg: "bg-amber-500/12" };
 
 /* ── Friendly tool name ──────────────────────────────── */
 function friendlyToolName(name: string): string {
@@ -146,19 +190,28 @@ function friendlyToolName(name: string): string {
     load_skill: "Load Skill",
     get_artifact_content: "Read Artifact",
     update_artifact: "Update Artifact",
+    record_finding: "Record Finding",
   };
   return names[name] || name;
 }
 
-/* ── Result Preview (expandable + copyable) ──────────── */
-function ResultPreview({ preview }: { preview: string }) {
+/* ── Expandable preview block (input or output) ─────── */
+function PreviewBlock({
+  preview,
+  marker,
+  markerClass,
+}: {
+  preview: string;
+  marker: string;
+  markerClass: string;
+}) {
   const [expanded, setExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
 
   if (!preview) return null;
 
-  const isLong = preview.length > 80;
-  const display = expanded ? preview : preview.slice(0, 80) + (isLong ? "..." : "");
+  const isLong = preview.length > 120;
+  const display = expanded ? preview : preview.slice(0, 120) + (isLong ? "..." : "");
 
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -172,18 +225,20 @@ function ResultPreview({ preview }: { preview: string }) {
       initial={{ opacity: 0, height: 0 }}
       animate={{ opacity: 1, height: "auto" }}
       exit={{ opacity: 0, height: 0 }}
-      className="mt-0.5"
+      className="mt-1"
     >
       <div
         onClick={() => isLong && setExpanded(!expanded)}
-        className={`relative group/preview text-[10px] font-mono text-[var(--text-muted)] bg-[var(--surface-3)] px-2 py-1 pr-7 rounded-md leading-tight text-left max-w-full break-words select-text ${isLong ? "cursor-pointer hover:text-[var(--text-secondary)]" : ""}`}
+        className={`relative group/preview text-[10px] font-mono bg-[var(--surface-3)] px-2 py-1.5 pr-7 rounded-sm leading-relaxed text-left max-w-full break-words select-text border border-[var(--border)] ${isLong ? "cursor-pointer" : ""}`}
       >
-        <span className="text-emerald-400/60 mr-1">&rarr;</span>
-        {display}
+        <span className={`mr-1.5 select-none ${markerClass}`}>{marker}</span>
+        <span className={`text-[var(--text-secondary)] ${isLong && !expanded ? "hover:text-[var(--text-primary)]" : ""}`}>
+          {display}
+        </span>
         <button
           onClick={handleCopy}
-          className="absolute top-0.5 right-1 opacity-0 group-hover/preview:opacity-100 transition-opacity p-0.5 rounded hover:bg-[var(--surface-2)]"
-          title="Copy result"
+          className="absolute top-1 right-1 opacity-0 group-hover/preview:opacity-100 transition-opacity p-0.5 rounded hover:bg-[var(--surface-2)]"
+          title="Copy"
         >
           <span className="material-symbols-rounded text-[11px] text-[var(--text-muted)] hover:text-[var(--text-secondary)]">
             {copied ? "check" : "content_copy"}
@@ -194,11 +249,103 @@ function ResultPreview({ preview }: { preview: string }) {
   );
 }
 
-/* ── Tool Step Row (child of a round) ────────────────── */
+function ResultPreview({ preview }: { preview: string }) {
+  return <PreviewBlock preview={preview} marker="→" markerClass="text-emerald-400/70" />;
+}
+
+function InputPreview({ preview }: { preview: string }) {
+  return <PreviewBlock preview={preview} marker="←" markerClass="text-amber-400/50" />;
+}
+
+/* ── Python Code Block ───────────────────────────────── */
+function PythonCodeBlock({ code, isRunning }: { code: string; isRunning: boolean }) {
+  const lines = code.split("\n");
+  const PREVIEW_LINES = 5;
+  const isLong = lines.length > PREVIEW_LINES;
+  const [expanded, setExpanded] = useState(isRunning);
+  const [copied, setCopied] = useState(false);
+
+  // Auto-collapse when run finishes
+  useEffect(() => {
+    if (!isRunning && isLong) setExpanded(false);
+  }, [isRunning, isLong]);
+
+  const displayCode = expanded ? code : lines.slice(0, PREVIEW_LINES).join("\n") + (isLong ? "\n…" : "");
+
+  const handleCopy = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    await navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: "auto" }}
+      exit={{ opacity: 0, height: 0 }}
+      className="mt-1.5"
+    >
+      <div className="rounded-sm bg-[#0b0e18] border border-violet-500/20 overflow-hidden">
+        {/* Header bar */}
+        <div className="flex items-center justify-between px-2 py-1 border-b border-violet-500/15 bg-violet-500/5">
+          <div className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-violet-400/60" />
+            <span className="text-[9px] font-mono text-violet-400/70 tracking-wider">PYTHON</span>
+            {isRunning && (
+              <span className="text-[9px] font-mono text-amber-400/60 animate-pulse">executing…</span>
+            )}
+          </div>
+          <div className="flex items-center gap-1">
+            {isLong && (
+              <button
+                onClick={() => setExpanded(!expanded)}
+                className="text-[9px] font-mono text-violet-400/50 hover:text-violet-400 transition-colors px-1"
+              >
+                {expanded ? "collapse" : `+${lines.length - PREVIEW_LINES} lines`}
+              </button>
+            )}
+            <button
+              onClick={handleCopy}
+              className="p-0.5 rounded hover:bg-violet-500/10 transition-colors"
+              title="Copy code"
+            >
+              <span className="material-symbols-rounded text-[11px] text-violet-400/50 hover:text-violet-400">
+                {copied ? "check" : "content_copy"}
+              </span>
+            </button>
+          </div>
+        </div>
+        {/* Code */}
+        <pre
+          className="px-3 py-2 text-[10.5px] font-mono leading-[1.65] overflow-x-auto select-text"
+          style={{ color: "rgba(180, 190, 220, 0.85)" }}
+        >
+          {displayCode}
+        </pre>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ── Tool Step Row ───────────────────────────────────── */
 function ToolRow({ step }: { step: ProgressStep }) {
+  const [showInput, setShowInput] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const icon = getToolIcon(step.label);
   const hasResult = !!step.result_preview;
+  const hasInput = !!step.args_preview;
+  const isPython = step.label === "run_python";
+  const isRunning = step.status === "running";
+  const isDone = step.status === "done";
+  const toolColors = TOOL_COLORS[step.label] || DEFAULT_TOOL_COLOR;
+
+  // Python code block: auto-visible while running, toggled when done
+  const showCode = isPython && (isRunning || showInput);
+
+  const pillBase = "text-[10px] font-mono px-1.5 py-[1px] rounded-sm border transition-all duration-150";
+  const pillActive = `${toolColors.text} ${toolColors.bg} border-transparent`;
+  const pillInactive = "text-[var(--text-muted)] bg-transparent border-[var(--border)] hover:text-[var(--text-secondary)] hover:border-[var(--border-strong)]";
 
   return (
     <div>
@@ -206,15 +353,15 @@ function ToolRow({ step }: { step: ProgressStep }) {
         initial={{ opacity: 0, x: -4 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.12 }}
-        className="flex items-center gap-1.5 py-[3px] group"
+        className="flex items-start gap-1.5 py-[3px]"
       >
         {/* Tool icon */}
         <div
-          className={`w-[18px] h-[18px] rounded flex items-center justify-center shrink-0 ${
-            step.status === "done"
-              ? "bg-emerald-500/10"
-              : step.status === "running"
-                ? "bg-indigo-500/15 step-running-glow"
+          className={`relative w-[18px] h-[18px] rounded-sm flex items-center justify-center shrink-0 mt-0.5 ${
+            isDone
+              ? toolColors.bg
+              : isRunning
+                ? `${toolColors.runBg} step-running-glow`
                 : step.status === "error"
                   ? "bg-rose-500/10"
                   : "bg-[var(--surface-3)]"
@@ -222,27 +369,34 @@ function ToolRow({ step }: { step: ProgressStep }) {
         >
           <span
             className={`material-symbols-rounded text-[11px] leading-none ${
-              step.status === "done"
-                ? "text-emerald-400"
-                : step.status === "running"
-                  ? "text-indigo-400"
+              isDone
+                ? toolColors.text
+                : isRunning
+                  ? toolColors.text
                   : step.status === "error"
                     ? "text-rose-400"
                     : "text-[var(--text-muted)]"
             }`}
           >
-            {step.status === "done" ? "check" : step.status === "error" ? "error" : icon}
+            {step.status === "error" ? "error" : icon}
           </span>
+          {/* Status dot: tiny indicator in bottom-right corner */}
+          {isDone && (
+            <span className="absolute -bottom-[2px] -right-[2px] w-[5px] h-[5px] rounded-full bg-emerald-400 ring-1 ring-[var(--surface-1)]" />
+          )}
+          {isRunning && (
+            <span className="absolute -bottom-[2px] -right-[2px] w-[5px] h-[5px] rounded-full bg-amber-400 animate-pulse ring-1 ring-[var(--surface-1)]" />
+          )}
         </div>
 
-        {/* Tool name + detail */}
+        {/* Tool name + timing + input/output toggles */}
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
             <span
               className={`text-[11px] font-medium leading-none ${
-                step.status === "done"
+                isDone
                   ? "text-[var(--text-secondary)]"
-                  : step.status === "running"
+                  : isRunning
                     ? "text-[var(--text-primary)]"
                     : step.status === "error"
                       ? "text-rose-400"
@@ -252,60 +406,81 @@ function ToolRow({ step }: { step: ProgressStep }) {
               {friendlyToolName(step.label)}
             </span>
 
-            {/* Args preview as muted detail */}
-            {step.detail && step.status === "running" && (
-              <span className="text-[10px] font-mono text-[var(--text-muted)] truncate max-w-[140px]">
-                {step.detail}
-              </span>
-            )}
-
-            {step.status === "running" && step.started_at && (
+            {isRunning && step.started_at && (
               <LiveTimer startedAt={step.started_at} />
             )}
 
-            {step.status === "done" && step.started_at && step.finished_at && (
+            {isDone && step.started_at && step.finished_at && (
               <ElapsedBadge startedAt={step.started_at} finishedAt={step.finished_at} />
             )}
 
-            {step.status === "running" && (
+            {isRunning && (
               <RunningStatus label={step.label} type="tool" />
+            )}
+
+            {/* Input pill — hidden while running (auto-shown), shown when done */}
+            {hasInput && isDone && (
+              <button
+                onClick={(e) => { e.stopPropagation(); setShowInput(!showInput); }}
+                className={`${pillBase} ${showInput ? pillActive : pillInactive}`}
+              >
+                input
+              </button>
+            )}
+
+            {/* Output pill */}
+            {hasResult && isDone && (
+              <button
+                onClick={(e) => { e.stopPropagation(); setShowResult(!showResult); }}
+                className={`${pillBase} ${showResult ? pillActive : pillInactive}`}
+              >
+                output
+              </button>
             )}
           </div>
 
-          {/* Args preview for done tools (e.g., SQL query, code comment) */}
-          {step.detail && step.status === "done" && step.label !== "run_python" && (
-            <p className="text-[9px] font-mono text-[var(--text-muted)] truncate mt-0.5 opacity-60">
-              {step.detail}
+          {/* Args preview inline — only for non-python while running */}
+          {hasInput && isRunning && !isPython && (
+            <p className="text-[10px] font-mono truncate mt-0.5 text-amber-400/50">
+              {step.args_preview}
             </p>
           )}
         </div>
-
-        {/* Result preview toggle */}
-        {hasResult && step.status === "done" && (
-          <button
-            onClick={(e) => { e.stopPropagation(); setShowResult(!showResult); }}
-            className={`w-[16px] h-[16px] rounded flex items-center justify-center shrink-0 transition-all duration-150
-              ${showResult
-                ? "opacity-100 bg-indigo-500/10"
-                : "opacity-0 group-hover:opacity-100 hover:bg-[rgba(255,255,255,0.05)]"
-              }`}
-            title={showResult ? "Hide result" : "Show result"}
-          >
-            <span className={`material-symbols-rounded text-[10px] leading-none ${showResult ? "text-indigo-400" : "text-[var(--text-muted)]"}`}>
-              {showResult ? "visibility_off" : "visibility"}
-            </span>
-          </button>
-        )}
       </motion.div>
 
       {/* Error detail */}
       {step.status === "error" && step.detail && (
-        <p className="text-[9px] text-rose-400/70 ml-[22px] truncate">
+        <p className="text-[10px] text-rose-400/70 ml-[22px] truncate">
           {step.detail}
         </p>
       )}
 
-      {/* Result preview */}
+      {/* Python code block */}
+      <AnimatePresence>
+        {showCode && step.args_preview && (
+          <motion.div
+            key="python-code"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.15 }}
+            className="overflow-hidden ml-[22px]"
+          >
+            <PythonCodeBlock code={step.args_preview} isRunning={isRunning} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Non-python input preview */}
+      <AnimatePresence>
+        {showInput && !isPython && step.args_preview && (
+          <div className="ml-[22px]">
+            <InputPreview preview={step.args_preview} />
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Output/result preview */}
       <AnimatePresence>
         {showResult && step.result_preview && (
           <div className="ml-[22px]">
@@ -329,27 +504,31 @@ function groupIntoRounds(steps: ProgressStep[]): { rounds: Round[]; ungrouped: P
   let currentRound: Round | null = null;
 
   for (const step of steps) {
-    // "Thinking..." or "Generating response..." steps start a new round
     if (step.label === "Thinking..." || step.label === "Generating response...") {
       currentRound = { thinking: step, tools: [] };
       rounds.push(currentRound);
-    } else if (step.label === "Running tools...") {
-      // Skip the "Running tools..." wrapper — tools are shown directly
+    } else if (step.label === "Running tools..." || step.label === "Complete") {
       continue;
     } else if (step.type === "tool" && currentRound) {
       currentRound.tools.push(step);
-    } else if (step.label === "Complete") {
-      // Skip the final "Complete" marker
-      continue;
     } else {
       ungrouped.push(step);
     }
   }
 
-  return { rounds, ungrouped };
+  // Filter noise: skip rounds that are done, have no tools, and no decision.
+  // "Generating response..." rounds fall here — the CommandHeader already shows DONE.
+  const filtered = rounds.filter((r) => {
+    if (r.tools.length > 0) return true; // has work to show
+    if (r.thinking.status !== "done") return true; // still running (show it)
+    if (r.thinking.decision) return true; // meaningful decision reached without tools
+    return false; // empty completed marker — skip
+  });
+
+  return { rounds: filtered, ungrouped };
 }
 
-/* ── Round View (thinking header + tool children) ────── */
+/* ── Round View ──────────────────────────────────────── */
 function RoundView({ round, roundIndex, totalRounds }: { round: Round; roundIndex: number; totalRounds: number }) {
   const [collapsed, setCollapsed] = useState(false);
   const thinking = round.thinking;
@@ -357,7 +536,6 @@ function RoundView({ round, roundIndex, totalRounds }: { round: Round; roundInde
   const isDone = thinking.status === "done";
   const hasTools = round.tools.length > 0;
 
-  // Determine the round header label
   let headerLabel: string;
   if (isRunning) {
     headerLabel = "Thinking...";
@@ -369,7 +547,6 @@ function RoundView({ round, roundIndex, totalRounds }: { round: Round; roundInde
     headerLabel = "Generating response";
   }
 
-  // Round number badge
   const roundNum = totalRounds > 1 ? `${roundIndex + 1}` : null;
 
   return (
@@ -379,40 +556,39 @@ function RoundView({ round, roundIndex, totalRounds }: { round: Round; roundInde
       transition={{ duration: 0.15 }}
       className="mb-1"
     >
-      {/* Round header (thinking) */}
       <div
-        className={`flex items-center gap-2 py-[5px] ${isDone && hasTools ? "cursor-pointer" : ""} rounded-md -mx-1 px-1 transition-colors hover:bg-[rgba(255,255,255,0.015)]`}
+        className={`flex items-center gap-2 py-[5px] ${isDone && hasTools ? "cursor-pointer" : ""} rounded-sm -mx-1 px-1 transition-colors hover:bg-[rgba(255,255,255,0.015)]`}
         onClick={() => isDone && hasTools && setCollapsed(!collapsed)}
       >
-        {/* Round indicator dot */}
+        {/* Round indicator */}
         <div
-          className={`relative z-10 flex items-center justify-center shrink-0 w-[22px] h-[22px] rounded-full transition-all duration-300 ${
+          className={`relative z-10 flex items-center justify-center shrink-0 w-[22px] h-[22px] rounded-sm transition-all duration-300 ${
             isDone
-              ? "bg-emerald-500/12 ring-1 ring-emerald-500/20"
+              ? "bg-emerald-500/10 ring-1 ring-emerald-500/20"
               : isRunning
-                ? "bg-indigo-500/15 ring-1 ring-indigo-500/35 step-running-glow"
-                : "bg-rose-500/12 ring-1 ring-rose-500/20"
+                ? "bg-amber-500/12 ring-1 ring-amber-500/30 step-running-glow"
+                : "bg-rose-500/10 ring-1 ring-rose-500/20"
           }`}
         >
           {roundNum && (
-            <span className={`text-[10px] font-bold leading-none ${
-              isDone ? "text-emerald-400" : isRunning ? "text-indigo-400" : "text-rose-400"
+            <span className={`text-[10px] font-bold leading-none font-mono ${
+              isDone ? "text-emerald-400" : isRunning ? "text-amber-400" : "text-rose-400"
             }`}>
               {roundNum}
             </span>
           )}
           {!roundNum && (
             <span className={`material-symbols-rounded text-[13px] leading-none ${
-              isDone ? "text-emerald-400" : isRunning ? "text-indigo-400" : "text-rose-400"
+              isDone ? "text-emerald-400" : isRunning ? "text-amber-400" : "text-rose-400"
             }`}>
-              {isDone ? "check_circle" : isRunning ? "neurology" : "error"}
+              {isDone ? "task_alt" : isRunning ? "psychology" : "error"}
             </span>
           )}
         </div>
 
         {/* Header content */}
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
             <span className={`text-[12px] font-semibold leading-none truncate ${
               isDone ? "text-[var(--text-secondary)]" : isRunning ? "text-[var(--text-primary)]" : "text-rose-400"
             }`}>
@@ -432,15 +608,13 @@ function RoundView({ round, roundIndex, totalRounds }: { round: Round; roundInde
             )}
           </div>
 
-          {/* Tool count summary when collapsed */}
           {isDone && collapsed && hasTools && (
-            <p className="text-[9px] text-[var(--text-muted)] mt-0.5">
-              {round.tools.length} tool{round.tools.length > 1 ? "s" : ""} — click to expand
+            <p className="text-[10px] text-[var(--text-muted)] mt-0.5 font-mono">
+              {round.tools.length} call{round.tools.length > 1 ? "s" : ""} — expand
             </p>
           )}
         </div>
 
-        {/* Collapse chevron */}
         {isDone && hasTools && (
           <span
             className="material-symbols-rounded text-[14px] text-[var(--text-muted)] shrink-0 transition-transform duration-150"
@@ -451,7 +625,6 @@ function RoundView({ round, roundIndex, totalRounds }: { round: Round; roundInde
         )}
       </div>
 
-      {/* Tool children */}
       <AnimatePresence>
         {!collapsed && hasTools && (
           <motion.div
@@ -471,220 +644,141 @@ function RoundView({ round, roundIndex, totalRounds }: { round: Round; roundInde
   );
 }
 
-/* ── Total Timer Header ──────────────────────────────── */
-function TotalTimerHeader({ steps }: { steps: ProgressStep[] }) {
-  const hasRunning = steps.some((s) => s.status === "running");
+/* ── Command Header — replaces TotalTimerHeader ───────── */
+function CommandHeader({ steps }: { steps: ProgressStep[] }) {
+  const isRunning = steps.some((s) => s.status === "running");
   const allDone = steps.length > 0 && steps.every((s) => s.status === "done" || s.status === "error");
-  const doneCount = steps.filter((s) => s.status === "done").length;
+  const toolSteps = steps.filter((s) => s.type === "tool");
+  const doneTools = toolSteps.filter((s) => s.status === "done");
   const errorCount = steps.filter((s) => s.status === "error").length;
 
   const timestamps = steps.map((s) => s.started_at).filter(Boolean) as number[];
-  const earliestStart = timestamps.length > 0 ? Math.min(...timestamps) : null;
+  const earliest = timestamps.length > 0 ? Math.min(...timestamps) : null;
   const finishTimes = steps.map((s) => s.finished_at).filter(Boolean) as number[];
-  const latestFinish = finishTimes.length > 0 ? Math.max(...finishTimes) : null;
+  const latest = finishTimes.length > 0 ? Math.max(...finishTimes) : null;
 
   const quipRef = useRef(DONE_QUIPS[Math.floor(Math.random() * DONE_QUIPS.length)]);
   useEffect(() => {
-    if (allDone) {
-      quipRef.current = DONE_QUIPS[Math.floor(Math.random() * DONE_QUIPS.length)];
-    }
+    if (allDone) quipRef.current = DONE_QUIPS[Math.floor(Math.random() * DONE_QUIPS.length)];
   }, [allDone]);
 
   return (
-    <div className="mx-3 mb-2 px-3 py-2 rounded-lg bg-[var(--surface-2)] border border-[var(--border)]">
-      <div className="flex items-center justify-between">
+    <div className="mx-2.5 mb-2 rounded-[var(--radius-sm)] overflow-hidden border border-[var(--border-strong)]">
+      {/* Main status row */}
+      <div className="flex items-center justify-between px-2.5 py-1.5 bg-[var(--surface-3)]">
+        {/* Left: status indicator + label */}
         <div className="flex items-center gap-2">
-          {hasRunning ? (
-            <div className="relative">
-              <span className="material-symbols-rounded text-[var(--icon-md)] text-indigo-400">
-                hourglass_top
+          {isRunning ? (
+            <div className="flex items-center gap-1.5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-60" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
               </span>
-              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-indigo-400 animate-ping" />
+              <span className="text-[10px] font-mono font-bold text-amber-400 tracking-[0.12em]">LIVE</span>
             </div>
           ) : allDone ? (
-            <motion.span
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              className="material-symbols-rounded text-[var(--icon-md)] text-emerald-400"
-            >
-              task_alt
-            </motion.span>
+            <div className="flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              <span className="text-[10px] font-mono font-bold text-emerald-400 tracking-[0.12em]">DONE</span>
+            </div>
           ) : (
-            <span className="material-symbols-rounded text-[var(--icon-md)] text-[var(--text-muted)]">
-              pending
-            </span>
+            <div className="flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-[var(--text-muted)] opacity-50" />
+              <span className="text-[10px] font-mono text-[var(--text-muted)] tracking-[0.12em]">IDLE</span>
+            </div>
           )}
 
-          <span className="text-[11px] font-semibold text-[var(--text-primary)]">
-            {hasRunning ? "Working..." : allDone ? quipRef.current : "Ready"}
+          <span className="text-[var(--border-strong)] opacity-60">·</span>
+
+          <span className="text-[10px] font-mono text-[var(--text-secondary)]">
+            {isRunning ? "agent working" : allDone ? quipRef.current : "ready"}
           </span>
         </div>
 
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1">
-            {doneCount > 0 && (
-              <span className="text-[9px] font-mono text-emerald-400/70 bg-emerald-500/8 px-1.5 py-0.5 rounded-full">
-                {doneCount} done
+        {/* Right: metrics */}
+        <div className="flex items-center gap-3">
+          {/* Tool call counter */}
+          {toolSteps.length > 0 && (
+            <div className="flex items-center gap-1">
+              <span className="material-symbols-rounded text-[11px] text-[var(--text-muted)]">build</span>
+              <span className="text-[10px] font-mono tabular-nums text-[var(--text-secondary)]">
+                <motion.span
+                  key={doneTools.length}
+                  initial={{ scale: 1.3, color: "#d4a017" }}
+                  animate={{ scale: 1, color: "#8494ad" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {doneTools.length}
+                </motion.span>
+                <span className="text-[var(--text-muted)]">/{toolSteps.length}</span>
               </span>
-            )}
-            {errorCount > 0 && (
-              <span className="text-[9px] font-mono text-rose-400/70 bg-rose-500/8 px-1.5 py-0.5 rounded-full">
-                {errorCount} err
-              </span>
-            )}
-          </div>
-
-          {hasRunning && earliestStart && (
-            <div className="flex items-center gap-1 bg-indigo-500/10 px-2 py-0.5 rounded-full">
-              <span className="material-symbols-rounded text-[10px] text-indigo-400">timer</span>
-              <LiveTimer startedAt={earliestStart} />
             </div>
           )}
-          {allDone && earliestStart && latestFinish && (
+
+
+          {/* Total elapsed */}
+          {isRunning && earliest && (
+            <div className="flex items-center gap-1 bg-amber-500/8 px-1.5 py-0.5 rounded-sm border border-amber-500/20">
+              <span className="material-symbols-rounded text-[10px] text-amber-400">timer</span>
+              <LiveTimer startedAt={earliest} className="text-amber-400" />
+            </div>
+          )}
+          {allDone && earliest && latest && (
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="flex items-center gap-1 bg-emerald-500/10 px-2 py-0.5 rounded-full"
+              className="flex items-center gap-1 bg-emerald-500/8 px-1.5 py-0.5 rounded-sm border border-emerald-500/20"
             >
               <span className="material-symbols-rounded text-[10px] text-emerald-400">check</span>
-              <ElapsedBadge startedAt={earliestStart} finishedAt={latestFinish} />
+              <ElapsedBadge startedAt={earliest} finishedAt={latest} />
             </motion.div>
           )}
+
+          {errorCount > 0 && (
+            <span className="text-[9px] font-mono text-rose-400 bg-rose-500/8 px-1.5 py-0.5 rounded-sm border border-rose-500/20">
+              {errorCount} err
+            </span>
+          )}
         </div>
+      </div>
+
+      {/* Activity scanning bar */}
+      <div className="h-[2px] bg-[var(--surface-2)] relative overflow-hidden">
+        {isRunning && <div className="absolute h-full bg-amber-500/60 activity-scan" />}
+        {allDone && <div className="h-full w-full bg-emerald-500/25" />}
       </div>
     </div>
   );
 }
 
-/* ── Thinking / Planning Section (live-updating todo list) ─ */
-function ThinkingSection() {
-  const thinkingSteps = useChatStore((s) => s.thinkingSteps);
+/* ── Terminal Empty State ────────────────────────────── */
+function TerminalEmptyState() {
+  const message = useRotatingText(TERMINAL_STANDBY, 3200);
+  const [blink, setBlink] = useState(true);
 
-  if (thinkingSteps.length === 0) return null;
+  useEffect(() => {
+    const t = setInterval(() => setBlink((b) => !b), 500);
+    return () => clearInterval(t);
+  }, []);
 
   return (
-    <div className="mx-3 mb-2 space-y-1.5">
-      <AnimatePresence>
-        {thinkingSteps.map((step, i) => (
-          <motion.div
-            key={`thinking-${i}`}
-            initial={{ opacity: 0, y: -6, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
-            {(step.kind === "plan" || step.kind === "todo_update") && step.todoItems && (
-              <div className="rounded-lg bg-gradient-to-r from-amber-500/8 to-orange-500/5 border border-amber-500/20 overflow-hidden">
-                {/* Header with progress badge */}
-                <div className="flex items-center gap-2 px-3 py-1.5 border-b border-amber-500/10">
-                  <span className="material-symbols-rounded text-[13px] text-amber-400">
-                    checklist
-                  </span>
-                  <span className="text-[11px] font-semibold text-amber-300 flex-1">
-                    {step.label}
-                  </span>
-                  {/* Progress fraction badge */}
-                  {(() => {
-                    const done = step.todoItems!.filter((t) => t.status === "done").length;
-                    const total = step.todoItems!.length;
-                    return (
-                      <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded-full ${
-                        done === total
-                          ? "text-emerald-400/90 bg-emerald-500/12"
-                          : "text-amber-400/70 bg-amber-500/10"
-                      }`}>
-                        {done}/{total}
-                      </span>
-                    );
-                  })()}
-                </div>
-                {/* Todo items with status indicators */}
-                <div className="px-3 py-2 space-y-1">
-                  {step.todoItems!.map((item, j) => (
-                    <motion.div
-                      key={j}
-                      className="flex items-start gap-2 text-[10px]"
-                      animate={item.status === "done" ? { opacity: 0.7 } : { opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {/* Status icon */}
-                      {item.status === "done" ? (
-                        <motion.span
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                          className="material-symbols-rounded text-[13px] text-emerald-400 mt-px shrink-0"
-                        >
-                          check_circle
-                        </motion.span>
-                      ) : item.status === "running" ? (
-                        <span className="material-symbols-rounded text-[13px] text-indigo-400 mt-px shrink-0 animate-pulse">
-                          radio_button_checked
-                        </span>
-                      ) : (
-                        <span className="material-symbols-rounded text-[13px] text-[var(--text-muted)] mt-px shrink-0 opacity-40">
-                          radio_button_unchecked
-                        </span>
-                      )}
-                      {/* Item text */}
-                      <span className={`leading-tight ${
-                        item.status === "done"
-                          ? "text-[var(--text-muted)] line-through"
-                          : item.status === "running"
-                            ? "text-[var(--text-primary)] font-medium"
-                            : "text-[var(--text-secondary)]"
-                      }`}>
-                        {item.text}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Legacy fallback: flat items (no todoItems) */}
-            {step.kind === "plan" && !step.todoItems && step.items && (
-              <div className="rounded-lg bg-gradient-to-r from-amber-500/8 to-orange-500/5 border border-amber-500/20 overflow-hidden">
-                <div className="flex items-center gap-2 px-3 py-1.5 border-b border-amber-500/10">
-                  <span className="material-symbols-rounded text-[13px] text-amber-400">
-                    checklist
-                  </span>
-                  <span className="text-[11px] font-semibold text-amber-300">
-                    {step.label}
-                  </span>
-                </div>
-                <div className="px-3 py-2 space-y-1">
-                  {step.items.map((item, j) => (
-                    <div key={j} className="flex items-start gap-2 text-[10px]">
-                      <span className="text-amber-400/60 mt-px shrink-0">{j + 1}.</span>
-                      <span className="text-[var(--text-secondary)]">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {step.kind === "delegation" && (
-              <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-gradient-to-r from-purple-500/8 to-indigo-500/5 border border-purple-500/20">
-                <span className="material-symbols-rounded text-[13px] text-purple-400">
-                  fork_right
-                </span>
-                <div className="flex-1 min-w-0">
-                  <span className="text-[11px] font-semibold text-purple-300">
-                    {step.label}
-                  </span>
-                  {step.task && (
-                    <p className="text-[10px] text-[var(--text-muted)] truncate mt-0.5">
-                      {step.task}
-                    </p>
-                  )}
-                </div>
-              </div>
-            )}
-          </motion.div>
-        ))}
-      </AnimatePresence>
+    <div className="px-4 py-5">
+      <div className="font-mono text-[11px] leading-[1.8] space-y-0">
+        <div className="text-[var(--text-muted)]">
+          <span className="text-emerald-400/50">$</span>{" "}
+          <span className="text-[var(--text-muted)]">analytical-agent --ready</span>
+        </div>
+        <div className="text-[var(--text-muted)] opacity-70">→ tools loaded · context ready</div>
+        <div className="text-[var(--text-muted)] opacity-70">→ duckdb connected · llm warm</div>
+        <div className="mt-1">
+          <span className="text-amber-400/40">$</span>{" "}
+          <span className="text-amber-400/60">{message}</span>
+          <span className={`text-amber-400 ${blink ? "opacity-100" : "opacity-0"}`}>▌</span>
+        </div>
+      </div>
+      <p className="mt-3 text-[11px] text-[var(--text-muted)] opacity-50 font-mono">
+        {funText.progressEmpty}
+      </p>
     </div>
   );
 }
@@ -694,32 +788,20 @@ export function ProgressPanel() {
   const progressSteps = useChatStore((s) => s.progressSteps);
 
   if (progressSteps.length === 0) {
-    return (
-      <div className="px-4 py-8 text-center">
-        <span className="material-symbols-rounded text-[var(--icon-xl)] text-[var(--text-muted)] block mb-2 opacity-40">
-          timeline
-        </span>
-        <p className="text-[12px] text-[var(--text-muted)]">
-          {funText.progressEmpty}
-        </p>
-      </div>
-    );
+    return <TerminalEmptyState />;
   }
 
   const { rounds } = groupIntoRounds(progressSteps);
 
   return (
     <div className="py-2">
-      {/* Total timer header */}
-      <TotalTimerHeader steps={progressSteps} />
-
-      {/* Thinking/planning (todo list) */}
-      <ThinkingSection />
+      {/* Command header with live stats */}
+      <CommandHeader steps={progressSteps} />
 
       {/* Rounds timeline */}
       <div className="relative pl-7 pr-3">
-        {/* Vertical line */}
-        <div className="absolute left-[20px] top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/30 via-[var(--border)] to-transparent" />
+        {/* Vertical timeline line */}
+        <div className="absolute left-[20px] top-0 bottom-0 w-px bg-gradient-to-b from-amber-500/20 via-[var(--border)] to-transparent" />
 
         {rounds.map((round, i) => (
           <RoundView key={round.thinking.id || i} round={round} roundIndex={i} totalRounds={rounds.length} />

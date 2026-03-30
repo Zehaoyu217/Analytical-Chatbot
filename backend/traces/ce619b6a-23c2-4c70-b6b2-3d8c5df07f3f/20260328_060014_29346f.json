@@ -1,0 +1,978 @@
+{
+  "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+  "timestamp": "2026-03-28T06:00:14.885564+00:00",
+  "question": "What's the mean and std of inflation rate?",
+  "response": "The average inflation rate is **\u2248\u202f2.79\u202f%**, with a **standard deviation of \u2248\u202f0.98\u202f%**. This indicates that inflation typically varies by about \u00b11\u202f% around the mean across the observed quarters.",
+  "total_elapsed_s": 15.096,
+  "event_count": 80,
+  "events": [
+    {
+      "timestamp": 1774677614.8892312,
+      "elapsed_s": 0.004,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-3b128929",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774677614.887943,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677614.8913689,
+      "elapsed_s": 0.006,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "What's the mean and std of inflation rate?",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677614.893187,
+      "elapsed_s": 0.008,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "What's the mean and std of inflation rate?",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677614.893933,
+      "elapsed_s": 0.008,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677621.116134,
+      "elapsed_s": 6.231,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-3b128929",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Querying database: SELECT AVG(inflation_rate) AS mean_inflation, STDDEV_SAMP(in...",
+        "started_at": 1774677614.887943,
+        "finished_at": 1774677621.1153011,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677621.116242,
+      "elapsed_s": 6.231,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-5970ae4b",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774677621.1153831,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677621.116273,
+      "elapsed_s": 6.231,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "query_duckdb",
+                  "args": {
+                    "sql": "SELECT AVG(inflation_rate) AS mean_inflation, STDDEV_SAMP(inflation_rate) AS std_inflation FROM us_quarterly_macro_0047798b"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677621.1173718,
+      "elapsed_s": 6.232,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677621.120206,
+      "elapsed_s": 6.235,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "args_preview": "SQL: SELECT AVG(inflation_rate) AS mean_inflation, STDDEV_SAMP(inflation_rate) AS std...",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677621.122335,
+      "elapsed_s": 6.237,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "elapsed_s": 0.0,
+        "result_preview": "Columns: ['mean_inflation', 'std_inflation']\nRows returned: 1\n\n{'mean_inflation': 2.786800000000001, 'std_inflation': 0.979422505584002}\n\n[Table auto-saved as artifact e8374512]",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677621.12604,
+      "elapsed_s": 6.24,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-5970ae4b",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774677621.1153831,
+        "finished_at": 1774677621.12545,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677621.126115,
+      "elapsed_s": 6.241,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-29ae86b6",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774677621.12549,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677621.1261399,
+      "elapsed_s": 6.241,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "e8374512",
+        "type": "table",
+        "title": "Mean Inflation, Std Inflation \u2014 Us Quarterly Macro (1 rows)",
+        "content": "<table class=\"artifact-table\"><thead><tr><th>mean_inflation</th><th>std_inflation</th></tr></thead><tbody><tr><td>2.786800000000001</td><td>0.979422505584002</td></tr></tbody></table>",
+        "format": "html",
+        "created_at": 1774677621.121342,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677621.126164,
+      "elapsed_s": 6.241,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Columns: ['mean_inflation', 'std_inflation']\nRows returned: 1\n\n{'mean_inflation': 2.786800000000001, 'std_inflation': 0.979422505584002}\n\n[Table auto-saved as artifact e8374512]",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677627.804907,
+      "elapsed_s": 12.919,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-29ae86b6",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "record_finding",
+        "started_at": 1774677621.12549,
+        "finished_at": 1774677627.8041558,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677627.805012,
+      "elapsed_s": 12.919,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-f01ae6be",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774677627.804229,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677627.805044,
+      "elapsed_s": 12.919,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "record_finding",
+                  "args": {
+                    "finding": "Mean inflation rate = 2.79%, StdDev = 0.98%",
+                    "phase": "EDA"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677627.806066,
+      "elapsed_s": 12.921,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677627.8075242,
+      "elapsed_s": 12.922,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "record_finding",
+        "args_preview": "{'finding': 'Mean inflation rate = 2.79%, StdDev = 0.98%', 'phase': 'EDA'}",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677627.810081,
+      "elapsed_s": 12.925,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "record_finding",
+        "elapsed_s": 0.0,
+        "result_preview": "Finding recorded: [EDA] Mean inflation rate = 2.79%, StdDev = 0.98%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677627.813164,
+      "elapsed_s": 12.928,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-f01ae6be",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774677627.804229,
+        "finished_at": 1774677627.8125901,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677627.813218,
+      "elapsed_s": 12.928,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-e9b93783",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774677627.812614,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677627.813243,
+      "elapsed_s": 12.928,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Finding recorded: [EDA] Mean inflation rate = 2.79%, StdDev = 0.98%",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.2340522,
+      "elapsed_s": 14.348,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-e9b93783",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774677627.812614,
+        "finished_at": 1774677629.233747,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.234208,
+      "elapsed_s": 14.349,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-2a174cdd",
+        "label": "Composing response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774677629.233952,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.2342558,
+      "elapsed_s": 14.349,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "The",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.2443452,
+      "elapsed_s": 14.359,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " average",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.253772,
+      "elapsed_s": 14.368,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " inflation",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.2710028,
+      "elapsed_s": 14.385,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " rate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.283036,
+      "elapsed_s": 14.397,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " is",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.305398,
+      "elapsed_s": 14.42,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.312332,
+      "elapsed_s": 14.427,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u2248",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.3266938,
+      "elapsed_s": 14.441,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.340789,
+      "elapsed_s": 14.455,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.3562958,
+      "elapsed_s": 14.471,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.36858,
+      "elapsed_s": 14.483,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "79",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.3824918,
+      "elapsed_s": 14.497,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.3957388,
+      "elapsed_s": 14.51,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.411171,
+      "elapsed_s": 14.526,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**,",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.4249249,
+      "elapsed_s": 14.539,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " with",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.44618,
+      "elapsed_s": 14.561,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " a",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.455162,
+      "elapsed_s": 14.57,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.4673548,
+      "elapsed_s": 14.582,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "standard",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.49681,
+      "elapsed_s": 14.611,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " deviation",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.5123909,
+      "elapsed_s": 14.627,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " of",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.52447,
+      "elapsed_s": 14.639,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " ",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.539739,
+      "elapsed_s": 14.654,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u2248",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.567607,
+      "elapsed_s": 14.682,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.576544,
+      "elapsed_s": 14.691,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "0",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.582585,
+      "elapsed_s": 14.697,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.599317,
+      "elapsed_s": 14.714,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "98",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.6147761,
+      "elapsed_s": 14.729,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.628921,
+      "elapsed_s": 14.743,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.642825,
+      "elapsed_s": 14.757,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.6574259,
+      "elapsed_s": 14.772,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.672943,
+      "elapsed_s": 14.787,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " This",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.6975129,
+      "elapsed_s": 14.812,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " indicates",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.7129679,
+      "elapsed_s": 14.827,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " that",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.716668,
+      "elapsed_s": 14.831,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " inflation",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.732716,
+      "elapsed_s": 14.847,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " typically",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.747079,
+      "elapsed_s": 14.862,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " varies",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.76328,
+      "elapsed_s": 14.878,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " by",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.7776132,
+      "elapsed_s": 14.892,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " about",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.792002,
+      "elapsed_s": 14.906,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u00b1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.806756,
+      "elapsed_s": 14.921,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.82341,
+      "elapsed_s": 14.938,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.836737,
+      "elapsed_s": 14.951,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.8518798,
+      "elapsed_s": 14.966,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " around",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.867257,
+      "elapsed_s": 14.982,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.881726,
+      "elapsed_s": 14.996,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " mean",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.895423,
+      "elapsed_s": 15.01,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " across",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.910157,
+      "elapsed_s": 15.025,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.925478,
+      "elapsed_s": 15.04,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " observed",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.940417,
+      "elapsed_s": 15.055,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " quarters",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.956332,
+      "elapsed_s": 15.071,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.979929,
+      "elapsed_s": 15.094,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-2a174cdd",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Summarizing findings...",
+        "started_at": 1774677629.233952,
+        "finished_at": 1774677629.979054,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.980007,
+      "elapsed_s": 15.094,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "The average inflation rate is **\u2248\u202f2.79\u202f%**, with a **standard deviation of \u2248\u202f0.98\u202f%**. This indicates that inflation typically varies by about \u00b11\u202f% around the mean across the observed quarters.",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.980597,
+      "elapsed_s": 15.095,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.9808981,
+      "elapsed_s": 15.095,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774677629.98084,
+        "finished_at": 1774677629.98084,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677629.980944,
+      "elapsed_s": 15.095,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "ce619b6a-23c2-4c70-b6b2-3d8c5df07f3f",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

@@ -144,6 +144,12 @@ export function useChat() {
         onSuggestions: (chips: SuggestionChip[]) => {
           useChatStore.getState().setSuggestions(chips);
         },
+        onInlineComponent: (event) => {
+          useChatStore.getState().addInlineComponents({
+            title: event.title,
+            components: event.components,
+          });
+        },
       }, controller.signal);
     } catch (err: any) {
       if (err.name === "AbortError") {

@@ -1,0 +1,73 @@
+skill_name: scatter_chart
+skill_description: "Scatter plots, bubble charts, and correlation with regression line"
+
+content: |
+  # Scatter & Bubble Charts — Templates
+
+  For correlations and two-variable relationships. NEVER `.interactive()`. ALWAYS `gs_theme()` + `save_artifact()`.
+
+  ## A — Scatter + Regression Line
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT x_col, y_col, label FROM your_table").df()
+  scatter = alt.Chart(df).mark_point(
+      filled=True, color=PRIMARY, size=SCATTER_SIZE, opacity=SCATTER_OPACITY,
+  ).encode(
+      x=alt.X('x_col:Q', axis=alt.Axis(title='X Variable')),
+      y=alt.Y('y_col:Q', axis=alt.Axis(title='Y Variable')),
+      tooltip=[alt.Tooltip('label:N', title='Label'),
+               alt.Tooltip('x_col:Q', title='X', format=',.2f'),
+               alt.Tooltip('y_col:Q', title='Y', format=',.2f')]
+  )
+  regression = scatter.transform_regression('x_col', 'y_col').mark_line(
+      color=ACCENT_AMBER, strokeWidth=1.5, strokeDash=[4, 3])
+  chart = gs_theme(scatter + regression, "X vs Y Correlation")
+  save_artifact(chart, "X vs Y Correlation")
+  ```
+
+  ## B — Scatter Colored by Category
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT x_col, y_col, category, label FROM your_table").df()
+  n_cats = df['category'].nunique()
+  chart = alt.Chart(df).mark_point(
+      filled=True, size=SCATTER_SIZE, opacity=SCATTER_OPACITY
+  ).encode(
+      x=alt.X('x_col:Q', axis=alt.Axis(title='X Variable')),
+      y=alt.Y('y_col:Q', axis=alt.Axis(title='Y Variable')),
+      color=alt.Color('category:N', scale=alt.Scale(range=CAT_PALETTE[:n_cats]),
+                       legend=alt.Legend(title=None)),
+      tooltip=[alt.Tooltip('label:N', title='Name'),
+               alt.Tooltip('category:N', title='Category'),
+               alt.Tooltip('x_col:Q', title='X', format=',.2f'),
+               alt.Tooltip('y_col:Q', title='Y', format=',.2f')]
+  )
+  chart = gs_theme(chart, "Category Scatter")
+  save_artifact(chart, "Category Scatter")
+  ```
+
+  ## C — Bubble Chart (size-encoded 3rd dimension)
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT x_col, y_col, size_col, label FROM your_table").df()
+  chart = alt.Chart(df).mark_point(
+      filled=True, color=PRIMARY, opacity=SCATTER_OPACITY
+  ).encode(
+      x=alt.X('x_col:Q', axis=alt.Axis(title='X Variable')),
+      y=alt.Y('y_col:Q', axis=alt.Axis(title='Y Variable')),
+      size=alt.Size('size_col:Q', scale=alt.Scale(range=[50, 1000]),
+                     legend=alt.Legend(title='Size Metric')),
+      tooltip=[alt.Tooltip('label:N', title='Name'),
+               alt.Tooltip('x_col:Q', title='X', format=',.2f'),
+               alt.Tooltip('y_col:Q', title='Y', format=',.2f'),
+               alt.Tooltip('size_col:Q', title='Size', format=',.0f')]
+  )
+  chart = gs_theme(chart, "Bubble Chart")
+  save_artifact(chart, "Bubble Chart")
+  ```
+
+  ## Rules
+  - Label axes clearly — field names alone are often insufficient
+  - Use `transform_regression` only when correlation is the point
+  - For >500 points, reduce opacity to 0.4-0.5 for overplotting
+  - `ACCENT_AMBER` for regression line contrasts well against `PRIMARY` points

@@ -1,0 +1,81 @@
+skill_name: distribution
+skill_description: "Histogram, KDE density, and box plots for statistical distributions"
+
+content: |
+  # Distribution Charts — Templates
+
+  Histogram → exact counts. KDE → smooth shape. Box plot → median/quartiles/outliers.
+  NEVER `.interactive()`. ALWAYS `gs_theme()` + `save_artifact()`.
+
+  ## A — Histogram
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT value FROM your_table").df()
+  chart = alt.Chart(df).mark_bar(
+      color=PRIMARY, opacity=BAR_OPACITY,
+      cornerRadiusTopLeft=BAR_CORNER_RADIUS, cornerRadiusTopRight=BAR_CORNER_RADIUS,
+  ).encode(
+      x=alt.X('value:Q', bin=alt.Bin(maxbins=30), axis=alt.Axis(title='Value')),
+      y=alt.Y('count():Q', axis=alt.Axis(title='Count')),
+      tooltip=[alt.Tooltip('value:Q', bin=True, title='Range'),
+               alt.Tooltip('count():Q', title='Count')]
+  )
+  chart = gs_theme(chart, "Distribution of Values")
+  save_artifact(chart, "Distribution of Values")
+  ```
+  Adjust `maxbins`: 10-15 broad, 30-50 fine-grained.
+
+  ## B — KDE Density
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT value FROM your_table").df()
+  chart = alt.Chart(df).transform_density(
+      'value', as_=['value', 'density'], bandwidth=0.5,
+  ).mark_area(
+      color=PRIMARY, opacity=AREA_OPACITY,
+      line={'color': PRIMARY, 'strokeWidth': LINE_WIDTH}
+  ).encode(
+      x=alt.X('value:Q', axis=alt.Axis(title='Value')),
+      y=alt.Y('density:Q', axis=alt.Axis(title='Density')),
+      tooltip=[alt.Tooltip('value:Q', title='Value', format=',.2f'),
+               alt.Tooltip('density:Q', title='Density', format='.4f')]
+  )
+  chart = gs_theme(chart, "Density Distribution")
+  save_artifact(chart, "Density Distribution")
+  ```
+
+  ## C — Box Plot (single group)
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT value FROM your_table").df()
+  chart = alt.Chart(df).mark_boxplot(
+      color=PRIMARY,
+      median={'color': ACCENT_AMBER, 'strokeWidth': 2},
+      outliers={'color': ACCENT_ROSE, 'opacity': 0.6, 'size': 30},
+  ).encode(y=alt.Y('value:Q', axis=alt.Axis(title='Value')))
+  chart = gs_theme(chart, "Value Distribution", width=200, height=H_STANDARD)
+  save_artifact(chart, "Value Distribution")
+  ```
+
+  ## D — Grouped Box Plot (compare across categories)
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT category, value FROM your_table").df()
+  n_cats = df['category'].nunique()
+  chart = alt.Chart(df).mark_boxplot(
+      median={'strokeWidth': 2}, outliers={'opacity': 0.5, 'size': 20},
+  ).encode(
+      x=alt.X('category:N', axis=alt.Axis(title=None, labelAngle=-30)),
+      y=alt.Y('value:Q', axis=alt.Axis(title='Value')),
+      color=alt.Color('category:N', scale=alt.Scale(range=CAT_PALETTE[:n_cats]), legend=None),
+      tooltip=[alt.Tooltip('category:N', title='Group'),
+               alt.Tooltip('value:Q', title='Value', format=',.2f')]
+  )
+  chart = gs_theme(chart, "Distribution by Group")
+  save_artifact(chart, "Distribution by Group")
+  ```
+
+  ## Rules
+  - <50 rows: prefer box plot or scatter. >10K rows: histogram or KDE.
+  - Always set `maxbins` explicitly. KDE `bandwidth`: 0.1=wiggly, 2.0=smooth.
+  - Highlight median in `ACCENT_AMBER` for box plots.

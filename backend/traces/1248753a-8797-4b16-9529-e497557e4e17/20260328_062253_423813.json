@@ -1,0 +1,104 @@
+{
+  "session_id": "1248753a-8797-4b16-9529-e497557e4e17",
+  "timestamp": "2026-03-28T06:22:53.953850+00:00",
+  "question": "plot inflation rate over time",
+  "response": "",
+  "total_elapsed_s": 11.244,
+  "event_count": 6,
+  "events": [
+    {
+      "timestamp": 1774678973.95783,
+      "elapsed_s": 0.004,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-c74b5a04",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774678973.956147,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774678973.9601212,
+      "elapsed_s": 0.006,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "plot inflation rate over time",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "1248753a-8797-4b16-9529-e497557e4e17",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774678973.962167,
+      "elapsed_s": 0.008,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "plot inflation rate over time",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "1248753a-8797-4b16-9529-e497557e4e17",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774678973.9629781,
+      "elapsed_s": 0.009,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "1248753a-8797-4b16-9529-e497557e4e17",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774678985.1973639,
+      "elapsed_s": 11.244,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-c74b5a04",
+        "label": "Error",
+        "status": "error",
+        "detail": "Provider returned error",
+        "started_at": 1774678973.956147,
+        "finished_at": 1774678985.197193,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774678985.197532,
+      "elapsed_s": 11.244,
+      "event_type": "error",
+      "agent_id": "orchestrator",
+      "data": {
+        "error": "Provider returned error",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

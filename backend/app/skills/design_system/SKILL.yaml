@@ -1,0 +1,26 @@
+skill_name: design_system
+skill_description: "Centralized design system for themes, colors, and aesthetics across all output types"
+
+content: |
+  # Design System — OneGS Theme
+
+  ## Colors
+  - **Primary**: Sapphire `#3d7be8` — actions, chart marks, main nodes
+  - **Background**: Deep Navy `#0d1117`
+  - **Surface**: `#12172b` (dark), `#1a2038` (raised)
+  - **Text**: `#e8ecf4` (primary), `#a8b4c8` (secondary), `#5c6278` (muted)
+  - **Border**: `rgba(255,255,255,0.06)`
+
+  Full chart palette → `load_skill("altair_charts")`
+
+  ## Icons
+  Google Material Symbols ONLY. No emojis in rendered output.
+  Names: `analytics`, `table_chart`, `schema`, `account_balance`, `query_stats`,
+  `dashboard`, `bar_chart`, `timeline`, `trending_up`, `group`.
+  HTML: `<span class="material-symbols-rounded">analytics</span>`
+
+  ## Output References
+  - Tables: `load_skill("tables")`
+  - Charts: `load_skill("altair_charts")` → then sub-skill
+  - Diagrams: `load_skill("mermaid")`
+  - Dashboards: `load_skill("dashboard")`

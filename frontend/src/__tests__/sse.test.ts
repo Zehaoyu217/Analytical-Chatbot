@@ -173,5 +173,7 @@ function createCallbacks(): Required<SSECallbacks> {
     onSubagentDelta: vi.fn(),
     onSubagentDone: vi.fn(),
     onSuggestions: vi.fn(),
+    onThoughtStream: vi.fn(),
+    onInlineComponent: vi.fn(),
   } as Required<SSECallbacks>;
 }

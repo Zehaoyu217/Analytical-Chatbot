@@ -5,21 +5,16 @@ import { funText } from "@/lib/funText";
 
 export function LeftPanel() {
   return (
-    <aside className="h-full flex flex-col bg-[var(--surface-glass)] backdrop-blur-[20px] border-r border-[var(--border)] overflow-visible">
+    <aside className="h-full flex flex-col bg-[var(--surface-1)] border-r border-[var(--border)] overflow-visible">
       {/* Logo / Branding */}
-      <div className="px-3.5 pt-3.5 pb-2.5 shrink-0">
-        <div className="flex items-center gap-2.5">
-          <div className="relative w-8 h-8 rounded-[var(--radius-md)] overflow-hidden shadow-[var(--shadow-glow)]">
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-400" />
-            <span className="material-symbols-rounded absolute inset-0 flex items-center justify-center text-white text-[var(--icon-md)]">
-              auto_awesome
-            </span>
-          </div>
+      <div className="px-3 pt-3 pb-2 shrink-0">
+        <div className="flex items-center gap-2">
+          <span className="text-amber-400/70 text-[11px] font-mono font-bold tracking-[0.15em] select-none">///</span>
           <div>
-            <h1 className="text-[14px] font-semibold text-[var(--text-primary)] leading-tight tracking-[-0.2px]">
+            <h1 className="text-[13px] font-bold text-[var(--text-primary)] leading-tight tracking-[-0.3px]">
               {funText.appTitle}
             </h1>
-            <p className="text-[10px] text-[var(--text-muted)] leading-tight mt-0.5">
+            <p className="text-[10px] text-[var(--text-dim)] leading-tight mt-0.5 font-mono">
               {funText.tagline}
             </p>
           </div>
@@ -27,22 +22,33 @@ export function LeftPanel() {
       </div>
 
       {/* Model Selector */}
-      <div className="px-3 pb-2.5 shrink-0 relative z-50">
-        <SectionLabel>MODEL</SectionLabel>
+      <div className="px-3 pb-2 shrink-0 relative z-50">
+        <SectionLabel>{funText.sectionModel}</SectionLabel>
         <ModelSelector />
       </div>
 
       <div className="mx-3 h-px bg-[var(--border)] shrink-0" />
 
       {/* File Upload */}
-      <div className="px-3 pt-2.5 pb-2 shrink-0">
-        <SectionLabel>DATA</SectionLabel>
+      <div className="px-3 pt-2 pb-1.5 shrink-0">
+        <SectionLabel>{funText.sectionData}</SectionLabel>
         <FileUpload />
       </div>
 
       {/* Dataset List */}
-      <div className="flex-1 overflow-y-auto px-2 pb-3 min-h-0">
+      <div className="flex-1 overflow-y-auto px-2 pb-2 min-h-0">
         <DatasetList />
+      </div>
+
+      {/* Keyboard shortcut reference */}
+      <div className="px-3 pb-2.5 pt-1.5 shrink-0 border-t border-[var(--border)]">
+        <p className="text-[9px] text-[var(--text-dim)] font-mono leading-[1.8] tracking-wide">
+          <span className="text-[var(--text-muted)]">⌘K</span> new
+          {" · "}
+          <span className="text-[var(--text-muted)]">Esc</span> stop
+          {" · "}
+          <span className="text-[var(--text-muted)]">⌥1-3</span> panels
+        </p>
       </div>
     </aside>
   );
@@ -50,7 +56,7 @@ export function LeftPanel() {
 
 function SectionLabel({ children }: { children: string }) {
   return (
-    <p className="text-[9px] font-semibold text-[var(--text-muted)] uppercase tracking-[1.2px] mb-1.5 px-0.5">
+    <p className="text-[9px] font-bold text-[var(--text-dim)] uppercase tracking-[1.5px] mb-1 px-0.5">
       {children}
     </p>
   );

@@ -1,0 +1,1066 @@
+{
+  "session_id": "88c27787-a1c3-4f2b-8e91-9b88bdd9bb72",
+  "timestamp": "2026-03-28T14:39:55.806547+00:00",
+  "question": "Top 10 quarters by GDP growth",
+  "response": "Here are the ten quarters with the highest\u202fGDP\u202fgrowth rates.\u202fAll of them posted an\u202f8.0\u202f% quarterly increase, spanning the period from\u202fQ3\u202f2001\u202fthrough\u202fQ4\u202f2003. This cluster reflects a sustained expansion phase in the early\u20112000s, with no single quarter standing out above the others.",
+  "total_elapsed_s": 9.728,
+  "event_count": 94,
+  "events": [
+    {
+      "timestamp": 1774708795.9024692,
+      "elapsed_s": 0.096,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-5f2550f0",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774708795.901661,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708795.903174,
+      "elapsed_s": 0.097,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Top 10 quarters by GDP growth",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "88c27787-a1c3-4f2b-8e91-9b88bdd9bb72",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708795.903768,
+      "elapsed_s": 0.097,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Top 10 quarters by GDP growth",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "88c27787-a1c3-4f2b-8e91-9b88bdd9bb72",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708795.9040792,
+      "elapsed_s": 0.098,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "88c27787-a1c3-4f2b-8e91-9b88bdd9bb72",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708800.355007,
+      "elapsed_s": 4.548,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-5f2550f0",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Querying database: SELECT quarter, gdp_growth_pct FROM us_quarterly_macro_00477...",
+        "started_at": 1774708795.901661,
+        "finished_at": 1774708800.353512,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708800.355192,
+      "elapsed_s": 4.549,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-d8b7746f",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774708800.353659,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708800.355241,
+      "elapsed_s": 4.549,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "query_duckdb",
+                  "args": {
+                    "sql": "SELECT quarter, gdp_growth_pct FROM us_quarterly_macro_0047798b ORDER BY gdp_growth_pct DESC LIMIT 10"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "88c27787-a1c3-4f2b-8e91-9b88bdd9bb72",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708800.356864,
+      "elapsed_s": 4.55,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "88c27787-a1c3-4f2b-8e91-9b88bdd9bb72",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708800.359071,
+      "elapsed_s": 4.553,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "args_preview": "SQL: SELECT quarter, gdp_growth_pct FROM us_quarterly_macro_0047798b ORDER BY gdp_gro...",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708800.3624818,
+      "elapsed_s": 4.556,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "elapsed_s": 0.0,
+        "result_preview": "Columns: ['quarter', 'gdp_growth_pct']\nRows returned: 10\n\n{'quarter': datetime.date(2001, 7, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2001, 10, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datet",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708800.366465,
+      "elapsed_s": 4.56,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-d8b7746f",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774708800.353659,
+        "finished_at": 1774708800.365816,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708800.366536,
+      "elapsed_s": 4.56,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-95779c20",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774708800.365847,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708800.366566,
+      "elapsed_s": 4.56,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "b08791e1",
+        "type": "table",
+        "title": "Quarter, Gdp Growth Pct \u2014 Us Quarterly Macro (10 rows)",
+        "content": "{\"columns\": [\"quarter\", \"gdp_growth_pct\"], \"rows\": [[\"2001-07-01\", 8.0], [\"2001-10-01\", 8.0], [\"2002-01-01\", 8.0], [\"2002-04-01\", 8.0], [\"2002-07-01\", 8.0], [\"2002-10-01\", 8.0], [\"2003-01-01\", 8.0], [\"2003-04-01\", 8.0], [\"2003-07-01\", 8.0], [\"2003-10-01\", 8.0]], \"total_rows\": 10}",
+        "format": "table-json",
+        "created_at": 1774708800.362145,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708800.3665972,
+      "elapsed_s": 4.56,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Columns: ['quarter', 'gdp_growth_pct']\nRows returned: 10\n\n{'quarter': datetime.date(2001, 7, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2001, 10, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2002, 1, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2002, 4, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2002, 7, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2002, 10, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2003, 1, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2003, 4, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2003, 7, 1), 'gdp_growth_pct': 8.0}\n{'quarter': datetime.date(2003, 10, 1), 'gdp_growth_pct': 8.0}\n\n[Table auto-saved as artifact b08791e1]",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "88c27787-a1c3-4f2b-8e91-9b88bdd9bb72",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708802.991616,
+      "elapsed_s": 7.185,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-95779c20",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774708800.365847,
+        "finished_at": 1774708802.99137,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708802.991742,
+      "elapsed_s": 7.185,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-bc7f4ead",
+        "label": "Composing response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774708802.9914749,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708802.991791,
+      "elapsed_s": 7.185,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Here",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708802.998865,
+      "elapsed_s": 7.192,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " are",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.008045,
+      "elapsed_s": 7.201,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.017331,
+      "elapsed_s": 7.211,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " ten",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.025857,
+      "elapsed_s": 7.219,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " quarters",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.035657,
+      "elapsed_s": 7.229,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " with",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.0444758,
+      "elapsed_s": 7.238,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.0549078,
+      "elapsed_s": 7.248,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " highest",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.062769,
+      "elapsed_s": 7.256,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.071239,
+      "elapsed_s": 7.265,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.081066,
+      "elapsed_s": 7.275,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.0895202,
+      "elapsed_s": 7.283,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.098561,
+      "elapsed_s": 7.292,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " rates",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.10757,
+      "elapsed_s": 7.301,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.11647,
+      "elapsed_s": 7.31,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.127122,
+      "elapsed_s": 7.321,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "All",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.134874,
+      "elapsed_s": 7.328,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " of",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.144118,
+      "elapsed_s": 7.338,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " them",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.152908,
+      "elapsed_s": 7.346,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " posted",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.162545,
+      "elapsed_s": 7.356,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " an",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.1710231,
+      "elapsed_s": 7.364,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.181296,
+      "elapsed_s": 7.375,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "8",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.192405,
+      "elapsed_s": 7.386,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.200541,
+      "elapsed_s": 7.394,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "0",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.207602,
+      "elapsed_s": 7.401,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.237068,
+      "elapsed_s": 7.431,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.239158,
+      "elapsed_s": 7.433,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " quarterly",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.239226,
+      "elapsed_s": 7.433,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " increase",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.243671,
+      "elapsed_s": 7.437,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ",",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.2531981,
+      "elapsed_s": 7.447,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " spanning",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.26312,
+      "elapsed_s": 7.457,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.296789,
+      "elapsed_s": 7.49,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " period",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.298383,
+      "elapsed_s": 7.492,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " from",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.2984488,
+      "elapsed_s": 7.492,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.300288,
+      "elapsed_s": 7.494,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Q",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.3073258,
+      "elapsed_s": 7.501,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708803.316382,
+      "elapsed_s": 7.51,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.511595,
+      "elapsed_s": 9.705,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "200",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5117528,
+      "elapsed_s": 9.705,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.511798,
+      "elapsed_s": 9.705,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.511831,
+      "elapsed_s": 9.705,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "through",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.511858,
+      "elapsed_s": 9.705,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.511884,
+      "elapsed_s": 9.705,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Q",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5119061,
+      "elapsed_s": 9.705,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.511935,
+      "elapsed_s": 9.705,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529678,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "200",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529771,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5297868,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529799,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " This",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529811,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " cluster",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5298219,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " reflects",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529832,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " a",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529842,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " sustained",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5298529,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " expansion",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5298629,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " phase",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529873,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " in",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5298822,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5298922,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " early",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529902,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u2011",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529912,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "200",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529921,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "0",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529932,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "s",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529942,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ",",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529952,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " with",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529962,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " no",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.529972,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " single",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5299819,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " quarter",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5299919,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " standing",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5300019,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " out",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.530011,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " above",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5300212,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5300312,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " others",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.530041,
+      "elapsed_s": 9.723,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5328052,
+      "elapsed_s": 9.726,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-bc7f4ead",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Summarizing findings...",
+        "started_at": 1774708802.9914749,
+        "finished_at": 1774708805.531957,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.532884,
+      "elapsed_s": 9.726,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "Here are the ten quarters with the highest\u202fGDP\u202fgrowth rates.\u202fAll of them posted an\u202f8.0\u202f% quarterly increase, spanning the period from\u202fQ3\u202f2001\u202fthrough\u202fQ4\u202f2003. This cluster reflects a sustained expansion phase in the early\u20112000s, with no single quarter standing out above the others.",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "88c27787-a1c3-4f2b-8e91-9b88bdd9bb72",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.5336199,
+      "elapsed_s": 9.727,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "88c27787-a1c3-4f2b-8e91-9b88bdd9bb72",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.533874,
+      "elapsed_s": 9.727,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774708805.533809,
+        "finished_at": 1774708805.533809,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708805.533918,
+      "elapsed_s": 9.727,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "88c27787-a1c3-4f2b-8e91-9b88bdd9bb72",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "session_id": "e2e-lean-skill-test-2",
+  "timestamp": "2026-03-29T00:51:03.813916+00:00",
+  "question": "Chart comparing GDP growth vs inflation",
+  "response": "",
+  "total_elapsed_s": 3.577,
+  "event_count": 6,
+  "events": [
+    {
+      "timestamp": 1774745463.873183,
+      "elapsed_s": 0.059,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-5c259b7f",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774745463.872409,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774745463.873877,
+      "elapsed_s": 0.06,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Chart comparing GDP growth vs inflation",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-lean-skill-test-2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774745463.874366,
+      "elapsed_s": 0.06,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Chart comparing GDP growth vs inflation",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-lean-skill-test-2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774745463.8746471,
+      "elapsed_s": 0.061,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-lean-skill-test-2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774745467.389983,
+      "elapsed_s": 3.576,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-5c259b7f",
+        "label": "Error",
+        "status": "error",
+        "detail": "Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'openai/gpt-oss-120b:free is temporarily rate-limited upstream. Please retry shortly, or add your ow",
+        "started_at": 1774745463.872409,
+        "finished_at": 1774745467.389911,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774745467.3900821,
+      "elapsed_s": 3.576,
+      "event_type": "error",
+      "agent_id": "orchestrator",
+      "data": {
+        "error": "Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'openai/gpt-oss-120b:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'OpenInference', 'is_byok': False}}, 'user_id': 'user_3BEuNaNrFfWcrzl8GU5n4B1CpQU'}",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

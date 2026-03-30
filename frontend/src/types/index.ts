@@ -7,6 +7,8 @@ export interface Message {
   isStreaming?: boolean;
   /** IDs of artifacts created during this message's generation */
   artifactIds?: string[];
+  /** Inline A2UI component groups rendered inside this message bubble */
+  inlineComponentGroups?: InlineComponentGroup[];
   /** Chain of thought reasoning produced by the agent */
   thoughtProcess?: string;
 }
@@ -80,6 +82,8 @@ export interface ProgressStep {
   agent_id?: string;
   parent_agent_id?: string | null;
   result_preview?: string;
+  /** Preserved original args_preview (survives tool_end detail overwrite) */
+  args_preview?: string;
   type?: "node" | "agent" | "tool";
   /** What the model decided to do after thinking (e.g., "Calling run_python") */
   decision?: string;
@@ -91,7 +95,7 @@ export interface Artifact {
   type: "table" | "chart" | "diagram" | "dashboard_component";
   title: string;
   content: string;
-  format: "html" | "vega-lite" | "mermaid";
+  format: "html" | "vega-lite" | "mermaid" | "table-json";
   created_at: number;
   metadata: Record<string, unknown>;
 }
@@ -101,6 +105,12 @@ export interface DashboardComponent {
   _title?: string;
   type: string;
   [key: string]: unknown;
+}
+
+export interface InlineComponentGroup {
+  id: string;
+  title?: string;
+  components: DashboardComponent[];
 }
 
 // A2A: Agent status events (sub-agent lifecycle)

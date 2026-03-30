@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useChatStore } from "@/stores/chatStore";
 import { MessageBubble } from "./MessageBubble";
 import { SubagentBubble } from "./SubagentBubble";
+import type { Message } from "@/types";
 
 const messageVariants = {
   hidden: { opacity: 0, y: 14, scale: 0.98 },
@@ -14,10 +15,14 @@ const messageVariants = {
   },
 };
 
-export const MessageList = memo(function MessageList() {
+interface Props {
+  onRetry?: (text: string) => void;
+}
+
+export const MessageList = memo(function MessageList({ onRetry }: Props) {
   const messages = useChatStore((s) => s.messages);
   const subagentMessages = useChatStore((s) => s.subagentMessages);
-  
+
   const containerRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const isNearBottomRef = useRef(true);
@@ -54,6 +59,20 @@ export const MessageList = memo(function MessageList() {
     (a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
   );
 
+  // Build retry handler for each assistant message
+  const getRetryHandler = (msgId: string) => {
+    if (!onRetry) return undefined;
+    return () => {
+      const idx = messages.findIndex((m) => m.id === msgId);
+      for (let i = idx - 1; i >= 0; i--) {
+        if (messages[i].role === "user") {
+          onRetry(messages[i].content);
+          return;
+        }
+      }
+    };
+  };
+
   return (
     <div
       ref={containerRef}
@@ -71,7 +90,14 @@ export const MessageList = memo(function MessageList() {
               layout={false}
             >
               {"role" in item ? (
-                <MessageBubble message={item} />
+                <MessageBubble
+                  message={item as Message}
+                  onRetry={
+                    (item as Message).role === "assistant"
+                      ? getRetryHandler(item.id)
+                      : undefined
+                  }
+                />
               ) : (
                 <SubagentBubble message={item} />
               )}

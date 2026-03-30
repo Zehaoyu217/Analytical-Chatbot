@@ -1,0 +1,423 @@
+{
+  "session_id": "e2e-chart2-1774569515",
+  "timestamp": "2026-03-26T23:58:35.317312+00:00",
+  "question": "Plot fed_funds_rate over time as a line chart",
+  "response": "Sorry, I encountered an error while processing your request. Please try rephrasing your question.",
+  "total_elapsed_s": 52.191,
+  "event_count": 27,
+  "events": [
+    {
+      "timestamp": 1774569515.396255,
+      "elapsed_s": 0.079,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-c473447b",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569515.395467,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569515.398348,
+      "elapsed_s": 0.081,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Plot fed_funds_rate over time as a line chart",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569515.3989398,
+      "elapsed_s": 0.082,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Plot fed_funds_rate over time as a line chart",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569515.3992589,
+      "elapsed_s": 0.082,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569515.399518,
+      "elapsed_s": 0.082,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ComplexityAdaptiveMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569515.399751,
+      "elapsed_s": 0.082,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "NagReminderMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569515.400078,
+      "elapsed_s": 0.083,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "EvaluatorMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.9732878,
+      "elapsed_s": 30.656,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-c473447b",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Loading skill: altair_charts",
+        "started_at": 1774569515.395467,
+        "finished_at": 1774569545.972308,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.973402,
+      "elapsed_s": 30.656,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-704d020f",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569545.972382,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.973448,
+      "elapsed_s": 30.656,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "load_skill",
+                  "args": {
+                    "skill_name": "altair_charts"
+                  }
+                },
+                {
+                  "name": "run_python",
+                  "args": {
+                    "code": "import altair as alt\nimport _db\n\n# Query the data\ndf = _db.execute(\"\"\"\n    SELECT quarter, fed_funds_rate \n    FROM us_quarterly_macro_0047798b \n    ORDER BY quarter\n\"\"\").df()\n\n# Create line chart\nchart = alt.Chart(df).mark_line().encode(\n    x=alt.x(\"quarter:T\", title=\"Quarter\"),\n    y=alt.y(\"fed_funds_rate:Q\", title=\"Fed Funds Rate (%)\")\n)\n\n# Apply theme and save\nstyled_chart = gs_theme(chart, \"Fed Funds Rate Over Time\", 600, 400)\nsave_artifact(styled_chart.to_json(), \"Fed Funds Rate Over Time\", artifact_type=\"chart\", format=\"vega-lite\")"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.974957,
+      "elapsed_s": 30.658,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.976834,
+      "elapsed_s": 30.66,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "args_preview": "Query the data",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.978805,
+      "elapsed_s": 30.661,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "elapsed_s": 0.0,
+        "result_preview": "Error: Module not in whitelist: _db. Allowed: ['altair', 'arch', 'collections', 'copy', 'csv', 'dataclasses', 'datetime', 'decimal', 'duckdb', 'enum', 'fractions', 'functools', 'io', 'itertools', 'jso",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.978896,
+      "elapsed_s": 30.662,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "load_skill",
+        "args_preview": "Skill: altair_charts",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.9811158,
+      "elapsed_s": 30.664,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "load_skill",
+        "elapsed_s": 0.0,
+        "result_preview": "# altair_charts\nProfessional Altair chart templates with financial-industry chart selection logic, fixed aspect ratios, and OneGS styling\n\n# Professional Altair Charts (OneGS Theme)\n\nAll charting cons",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.983694,
+      "elapsed_s": 30.666,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-704d020f",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774569545.972382,
+        "finished_at": 1774569545.9835799,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.9837608,
+      "elapsed_s": 30.666,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-16a3e3cf",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569545.983608,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.983788,
+      "elapsed_s": 30.666,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Error: Module not in whitelist: _db. Allowed: ['altair', 'arch', 'collections', 'copy', 'csv', 'dataclasses', 'datetime', 'decimal', 'duckdb', 'enum', 'fractions', 'functools', 'io', 'itertools', 'json', 'linearmodels', 'math', 'matplotlib', 'numpy', 'operator', 'os.path', 'pandas', 'pathlib', 'plotly', 'pprint', 're', 'scikit-learn', 'scipy', 'seaborn', 'statistics', 'statsmodels', 'string', 'textwrap', 'typing', 'vl_convert', 'warnings']\nIMPORT ERROR. Available packages: pandas, numpy, matplotlib, seaborn, plotly, scipy, scikit-learn, statsmodels, duckdb, altair.",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.9845529,
+      "elapsed_s": 30.667,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-16a3e3cf",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774569545.983608,
+        "finished_at": 1774569545.984032,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.984595,
+      "elapsed_s": 30.667,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-d639ef8c",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569545.9840581,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569545.984619,
+      "elapsed_s": 30.667,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "# altair_charts\nProfessional Altair chart templates with financial-industry chart selection logic, fixed aspect ratios, and OneGS styling\n\n# Professional Altair Charts (OneGS Theme)\n\nAll charting constants and `gs_theme()` are **built-in** \u2014 they are pre-imported in every `run_python` call. Do not define or copy them. Just use them.\n\n**CRITICAL: All chart code, data query, and `save_artifact()` must be in a SINGLE `run_python` call.**\n**CRITICAL: NEVER USE `.interactive()`. It is dangerous and disabled.**\n\n## Built-in Constants & Function\n\n| Symbol | Value | Purpose |\n|---|---|---|\n| `PRIMARY` | `#6366f1` | Indigo \u2014 primary lines/bars |\n| `ACCENT_PURPLE` | `#a78bfa` | Violet \u2014 second series |\n| `ACCENT_CYAN` | `#22d3ee` | Cyan \u2014 third series |\n| `ACCENT_AMBER` | `#f59e0b` | Amber \u2014 fourth series / warnings |\n| `POSITIVE` | `#10b981` | Emerald \u2014 gains |\n| `NEGATIVE` | `#f43f5e` | Rose \u2014 losses |\n| `NEUTRAL` | `#5c6278` | Muted \u2014 baselines, reference lines |\n| `CAT_PALETTE` | 6-color list | Multi-series (indigo \u2192 violet \u2192 cyan \u2192 emerald \u2192 amber \u2192 rose) |\n| `W_STANDARD, H_STANDARD` | `640 \u00d7 400` | Default chart size |\n| `W_WIDE, H_WIDE` | `720 \u00d7 405` | Time series / dashboards |\n| `W_SQUARE, H_SQUARE` | `400 \u00d7 400` | Donut / radial |\n| `LINE_WIDTH` | `2` | Line stroke |\n| `POINT_SIZE, POINT_FILL, POINT_STROKE_W` | Point mark config | |\n| `AREA_OPACITY` | `0.10` | Subtle area fill |\n| `BAR_CORNER_RADIUS, BAR_OPACITY` | Bar mark config | |\n| `DONUT_INNER, DONUT_OUTER` | `80, 150` | |\n| `gs_theme(chart, title, width, height)` | Apply OneGS dark theme | **Always call before saving** |\n\n## 1. Chart Type Selection\n\n| Data Pattern | Chart Type |\n|---|---|\n| Single time series (GDP, rates over time) | **Connected-dot line** (line + point + area fill) |\n| Multiple time series | **Multi-line** with `color` encoding |\n| Category comparison | **Vertical bar** sorted desc |\n| Ranked list / long labels | **Horizontal bar** |\n| Part-of-whole composition | **Donut** \u2014 NEVER pie |\n| Grouped comparison | **Grouped bar** with `xOffset` |\n| Correlation | **Scatter** |\n| Distribution | **Histogram / KDE** |\n\n**Rules:**\n- Time series \u2192 line chart, not bar\n- \u2264 7 categories \u2192 vertical bar; > 7 \u2192 horizontal bar\n- NEVER pie charts \u2014 use donut\n\n## 2. Templates\n\n### Connected-Dot Line (Time Series \u2014 DEFAULT)\n```python\nimport altair as alt\ndf = _db.execute(\"SELECT date, value FROM table ORDER BY date\").df()\n\nbase = alt.Chart(df).encode(\n    x=alt.X('date:T', axis=alt.Axis(grid=False, title=None, format='%Y')),\n    y=alt.Y('value:Q', axis=alt.Axis(title='GDP Growth (%)')),\n    tooltip=[alt.Tooltip('date:T', title='Date', format='%b %Y'),\n             alt.Tooltip('value:Q', title='Value', format=',.2f')]\n)\narea   = base.mark_area(color=PRIMARY, opacity=AREA_OPACITY, interpolate='monotone')\nline   = base.mark_line(color=PRIMARY, strokeWidth=LINE_WIDTH, interpolate='monotone')\npoints = base.mark_point(filled=True, fill=POINT_FILL, stroke=PRIMARY, strokeWidth=POINT_STROKE_W, size=POINT_SIZE)\n\nchart = gs_theme(area + line + points, \"GDP Growth Rate\")\nsave_artifact(chart, \"GDP Growth Rate\")\n```\n\n### Connected-Dot Line WITH Top-N Labels\nWhen the user asks to label specific points (e.g., \"label the top 3 highest\"):\n```python\nimport altair as alt\ndf = _db.execute(\"SELECT date, value FROM table ORDER BY date\").df()\n\n# Mark top N points for labeling\nN = 3\ntop_idx = df['value'].nlargest(N).index\ndf['_label'] = df.apply(\n    lambda r: f\"{r['value']:.1f}\" if r.name in top_idx else None, axis=1\n)\ndf['_is_top'] = df.index.isin(top_idx)\n\nbase = alt.Chart(df).encode(\n    x=alt.X('date:T', axis=alt.Axis(grid=False, title=None, format='%Y')),\n    y=alt.Y('value:Q', axis=alt.Axis(title='Value')),\n)\n\narea   = base.mark_area(color=PRIMARY, opacity=AREA_OPACITY, interpolate='monotone')\nline   = base.mark_line(color=PRIMARY, strokeWidth=LINE_WIDTH, interpolate='monotone')\npoints = base.mark_point(filled=True, fill=POINT_FILL, stroke=PRIMARY, strokeWidth=POINT_STROKE_W, size=POINT_SIZE)\n\n# Highlight top points in a contrasting color\ntop_points = alt.Chart(df[df['_is_top']]).mark_point(\n    filled=True, fill=ACCENT_AMBER, stroke=ACCENT_AMBER,\n    strokeWidth=2, size=80\n).encode(\n    x=alt.X('date:T'),\n    y=alt.Y('value:Q'),\n    tooltip=[alt.Tooltip('date:T', title='Date', format='%b %Y'),\n             alt.Tooltip('value:Q', title='Value', format=',.2f')]\n)\n\n# Labels offset above the highlighted points\nlabels = alt.Chart(df[df['_is_top']]).mark_text(\n    align='center', dy=-14, fontSize=11, fontWeight=700,\n    color=ACCENT_AMBER\n).encode(\n    x=alt.X('date:T'),\n    y=alt.Y('value:Q'),\n    text=alt.Text('value:Q', format=',.1f'),\n    tooltip=[alt.Tooltip('date:T', format='%b %Y'),\n             alt.Tooltip('value:Q', format=',.2f')]\n)\n\nchart = gs_theme(area + line + points + top_points + labels, \"GDP Growth Rate \u2014 Top 3 Highlighted\")\nsave_artifact(chart, \"GDP Growth Rate\")\n```\n\n### Multi-Series Line\n```python\nimport altair as alt\nbase = alt.Chart(df).encode(\n    x=alt.X('date:T', axis=alt.Axis(grid=False, title=None)),\n    y=alt.Y('value:Q', axis=alt.Axis(title='Rate (%)')),\n    color=alt.Color('series:N', scale=alt.Scale(range=CAT_PALETTE[:3]), legend=alt.Legend(title=None)),\n    tooltip=['date:T', alt.Tooltip('value:Q', format=',.2f'), 'series:N']\n)\nchart = gs_theme(\n    base.mark_line(strokeWidth=LINE_WIDTH) + base.mark_point(filled=True, fill=POINT_FILL, strokeWidth=POINT_STROKE_W, size=POINT_SIZE),\n    \"Rate Comparison\"\n)\nsave_artifact(chart, \"Rate Comparison\")\n```\n\n### Vertical Bar\n```python\nimport altair as alt\nchart = alt.Chart(df).mark_bar(\n    cornerRadiusTopLeft=BAR_CORNER_RADIUS, cornerRadiusTopRight=BAR_CORNER_RADIUS,\n    color=PRIMARY, opacity=BAR_OPACITY\n).encode(\n    x=alt.X('category:N', sort='-y', axis=alt.Axis(labelAngle=-30, title=None)),\n    y=alt.Y('value:Q', axis=alt.Axis(title='Amount')),\n    tooltip=['category:N', alt.Tooltip('value:Q', format=',.1f')]\n)\nchart = gs_theme(chart, \"Revenue by Segment\")\nsave_artifact(chart, \"Revenue by Segment\")\n```\n\n### Positive/Negative Bar (diverging colors)\n```python\nimport altair as alt\ndf['_color'] = df['value'].apply(lambda v: POSITIVE if v >= 0 else NEGATIVE)\nchart = alt.Chart(df).mark_bar(\n    cornerRadiusTopLeft=BAR_CORNER_RADIUS, cornerRadiusTopRight=BAR_CORNER_RADIUS,\n    opacity=BAR_OPACITY\n).encode(\n    x=alt.X('date:T', axis=alt.Axis(grid=False, title=None, format='%Y')),\n    y=alt.Y('value:Q', axis=alt.Axis(title='Return (%)')),\n    color=alt.Color('_color:N', scale=None, legend=None),\n    tooltip=[alt.Tooltip('date:T', format='%b %Y'), alt.Tooltip('value:Q', format=',.2f')]\n)\nchart = gs_theme(chart, \"Annual Returns\")\nsave_artifact(chart, \"Annual Returns\")\n```\n\n### Donut\n```python\nimport altair as alt\nchart = alt.Chart(df).mark_arc(innerRadius=DONUT_INNER, outerRadius=DONUT_OUTER, padAngle=0.02).encode(\n    theta=alt.Theta('value:Q'),\n    color=alt.Color('category:N', scale=alt.Scale(range=CAT_PALETTE[:5]), legend=alt.Legend(title=None)),\n    tooltip=['category:N', alt.Tooltip('value:Q', format=',.1f')]\n)\nchart = gs_theme(chart, \"Allocation\", width=W_SQUARE, height=H_SQUARE)\nsave_artifact(chart, \"Portfolio Allocation\")\n```\n\n### Scatter with Reference Line\n```python\nimport altair as alt\nscatter = alt.Chart(df).mark_point(filled=True, color=PRIMARY, size=SCATTER_SIZE, opacity=SCATTER_OPACITY).encode(\n    x=alt.X('x_col:Q', axis=alt.Axis(title='X')),\n    y=alt.Y('y_col:Q', axis=alt.Axis(title='Y')),\n    tooltip=['x_col:Q', 'y_col:Q']\n)\n# Regression line\nreg = scatter.transform_regression('x_col', 'y_col').mark_line(\n    color=ACCENT_AMBER, strokeWidth=1.5, strokeDash=[4, 3]\n)\nchart = gs_theme(scatter + reg, \"Correlation\")\nsave_artifact(chart, \"Correlation\")\n```\n\n## 3. Visual Design Rules\n\n**Color hierarchy:**\n- Single-series charts \u2192 always use `PRIMARY` (indigo `#6366f1`)\n- Two series \u2192 `PRIMARY` + `ACCENT_PURPLE`\n- Three+ series \u2192 `CAT_PALETTE[:N]`\n- Positive/negative divergence \u2192 `POSITIVE` (emerald) / `NEGATIVE` (rose)\n- Reference / baseline lines \u2192 `NEUTRAL` (muted gray), `strokeDash=[4, 3]`\n- Highlighted annotations \u2192 `ACCENT_AMBER` (high contrast against dark bg)\n\n**Do NOT:**\n- Use plain `#3b82f6` blue (old PRIMARY) \u2014 it clashes with the indigo design system\n- Use `.interactive()` \u2014 crashes the sandbox\n- Use pie charts \u2014 use donut\n- Omit tooltips \u2014 always include with formatted values\n\n**Labeling top/bottom N points:**\n- Filter df to the N points, then layer a `mark_text(dy=-14, color=ACCENT_AMBER)` on top\n- Use `format=',.1f'` or `format=',.2f'` in `alt.Text()`\n- Highlight the labeled points with a separate `mark_point` in `ACCENT_AMBER`\n\n**Reference / threshold lines:**\n```python\nrule = alt.Chart(alt.Data(values=[{'y': 2.0}])).mark_rule(\n    color=NEUTRAL, strokeWidth=1, strokeDash=[4, 3]\n).encode(y=alt.Y('y:Q'))\nchart = gs_theme(base_chart + rule, \"Inflation Rate with 2% Target\")\n```\n\n## 4. Financial Variable Conventions\n\n| Variable | Chart | Notes |\n|---|---|---|\n| GDP growth | Connected-dot line | Axis format `,.1f` |\n| Interest rates | Multi-line | Compare Fed Funds, 10Y, 2Y |\n| Inflation | Connected-dot line | Add 2% target rule |\n| Unemployment | Area + line | Area fill for magnitude |\n| Stock returns | Diverging bar | Green/red with `POSITIVE`/`NEGATIVE` |\n| Sector allocation | Donut | Max 6\u20138 slices |\n\n## 5. Rules Summary\n\n1. NEVER `.interactive()`\n2. ALWAYS include tooltips with formatted values\n3. ALWAYS apply `gs_theme()` before saving\n4. ALWAYS end with `save_artifact(chart, \"Descriptive Title\")`\n5. Fixed dimensions \u2014 `gs_theme` defaults to `W_STANDARD \u00d7 H_STANDARD`\n6. NEVER pie charts\n7. Max 6 colors \u2014 use `CAT_PALETTE[:N]`\n8. Label angles: 0\u00b0 for \u2264 5 categories, -30\u00b0 for 6\u201310, -45\u00b0 for 10+\n9. Use `ACCENT_AMBER` for annotations, highlighted points, reference labels\n10. Use `POSITIVE`/`NEGATIVE` for diverging color encoding, not PRIMARY",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569567.507138,
+      "elapsed_s": 52.19,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-d639ef8c",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Summarizing findings...",
+        "started_at": 1774569545.9840581,
+        "finished_at": 1774569567.50655,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569567.507211,
+      "elapsed_s": 52.19,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569567.50781,
+      "elapsed_s": 52.19,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569567.508024,
+      "elapsed_s": 52.191,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "Sorry, I encountered an error while processing your request. Please try rephrasing your question.",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569567.508066,
+      "elapsed_s": 52.191,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774569567.5079849,
+        "finished_at": 1774569567.5079849,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569567.508088,
+      "elapsed_s": 52.191,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "e2e-chart2-1774569515",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

@@ -8,8 +8,8 @@ agent:
   max_tool_results_kept: 10   # Keep full results for latest N tool calls, compress older ones
 
 llm:
-  provider: "ollama"
-  model: "120b"
+  provider: "openrouter"
+  model: "openai/gpt-oss-120b:free"
   base_url: "http://localhost:11434"
   api_key: null
   temperature: 0.1

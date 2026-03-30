@@ -1,0 +1,99 @@
+skill_name: line_chart
+skill_description: "Line, area, and connected-dot charts for time series and trends"
+
+content: |
+  # Line & Area Charts — Templates
+
+  For time series/trends. All constants pre-imported. NEVER `.interactive()`. ALWAYS `gs_theme()` + `save_artifact()`.
+
+  ## A — Connected-Dot Line (single series, DEFAULT)
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT date, value FROM your_table ORDER BY date").df()
+  base = alt.Chart(df).encode(
+      x=alt.X('date:T', axis=alt.Axis(grid=False, title=None, format='%Y')),
+      y=alt.Y('value:Q', axis=alt.Axis(title='Value')),
+      tooltip=[alt.Tooltip('date:T', title='Date', format='%b %Y'),
+               alt.Tooltip('value:Q', title='Value', format=',.2f')]
+  )
+  area   = base.mark_area(color=PRIMARY, opacity=AREA_OPACITY, interpolate='monotone')
+  line   = base.mark_line(color=PRIMARY, strokeWidth=LINE_WIDTH, interpolate='monotone')
+  points = base.mark_point(filled=True, fill=POINT_FILL, stroke=PRIMARY,
+                            strokeWidth=POINT_STROKE_W, size=POINT_SIZE)
+  chart = gs_theme(area + line + points, "Metric Over Time", width=W_WIDE, height=H_STANDARD)
+  save_artifact(chart, "Metric Over Time")
+  ```
+
+  ## B — Multi-Series Line (up to 5 series)
+  ```python
+  import altair as alt
+  df = _db.execute("""
+      SELECT date, value, series_name AS series FROM your_table ORDER BY date
+  """).df()
+  n_series = df['series'].nunique()
+  base = alt.Chart(df).encode(
+      x=alt.X('date:T', axis=alt.Axis(grid=False, title=None, format='%Y')),
+      y=alt.Y('value:Q', axis=alt.Axis(title='Rate (%)')),
+      color=alt.Color('series:N', scale=alt.Scale(range=CAT_PALETTE[:n_series]),
+                       legend=alt.Legend(title=None, orient='bottom', columns=3)),
+      tooltip=[alt.Tooltip('date:T', title='Date', format='%b %Y'),
+               alt.Tooltip('value:Q', title='Value', format=',.2f'),
+               alt.Tooltip('series:N', title='Series')]
+  )
+  chart = gs_theme(
+      base.mark_line(strokeWidth=LINE_WIDTH) +
+      base.mark_point(filled=True, fill=POINT_FILL, strokeWidth=POINT_STROKE_W, size=POINT_SIZE),
+      "Series Comparison", width=W_WIDE, height=H_STANDARD
+  )
+  save_artifact(chart, "Series Comparison")
+  ```
+
+  ## C — Area Chart (magnitude emphasis)
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT date, value FROM your_table ORDER BY date").df()
+  chart = alt.Chart(df).mark_area(
+      color=PRIMARY, opacity=0.30, interpolate='monotone',
+      line={'color': PRIMARY, 'strokeWidth': LINE_WIDTH}
+  ).encode(
+      x=alt.X('date:T', axis=alt.Axis(grid=False, title=None, format='%Y')),
+      y=alt.Y('value:Q', axis=alt.Axis(title='Value'), stack=False),
+      tooltip=[alt.Tooltip('date:T', format='%b %Y'),
+               alt.Tooltip('value:Q', format=',.2f')]
+  )
+  chart = gs_theme(chart, "Area Chart Title", width=W_WIDE, height=H_STANDARD)
+  save_artifact(chart, "Area Chart Title")
+  ```
+
+  ## D — Peak/Valley Labels (Top-N annotation)
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT date, value FROM your_table ORDER BY date").df()
+  N = 3
+  top_idx = df['value'].nlargest(N).index
+  df['_is_top'] = df.index.isin(top_idx)
+  base = alt.Chart(df).encode(
+      x=alt.X('date:T', axis=alt.Axis(grid=False, title=None, format='%Y')),
+      y=alt.Y('value:Q'),
+  )
+  area   = base.mark_area(color=PRIMARY, opacity=AREA_OPACITY, interpolate='monotone')
+  line   = base.mark_line(color=PRIMARY, strokeWidth=LINE_WIDTH, interpolate='monotone')
+  points = base.mark_point(filled=True, fill=POINT_FILL, stroke=PRIMARY,
+                            strokeWidth=POINT_STROKE_W, size=POINT_SIZE)
+  top_df = df[df['_is_top']]
+  callout_pts = alt.Chart(top_df).mark_point(
+      filled=True, fill=ACCENT_AMBER, stroke=ACCENT_AMBER, strokeWidth=2, size=80
+  ).encode(x='date:T', y='value:Q',
+           tooltip=[alt.Tooltip('date:T', format='%b %Y'), alt.Tooltip('value:Q', format=',.2f')])
+  callout_txt = alt.Chart(top_df).mark_text(
+      align='center', dy=-14, fontSize=11, fontWeight=700, color=ACCENT_AMBER
+  ).encode(x='date:T', y='value:Q', text=alt.Text('value:Q', format=',.1f'))
+  chart = gs_theme(area + line + points + callout_pts + callout_txt,
+                   "Top 3 Peaks Highlighted", width=W_WIDE, height=H_STANDARD)
+  save_artifact(chart, "Top 3 Peaks Highlighted")
+  ```
+
+  ## Key Rules
+  - Always `:T` for dates (never `:O`), always `ORDER BY date`, always `interpolate='monotone'`
+  - Set `grid=False` on X axis for cleaner time series
+  - Axis formats: Annual `'%Y'`, Monthly `'%b %Y'`, Daily `'%b %d, %Y'`

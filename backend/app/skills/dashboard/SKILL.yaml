@@ -1,0 +1,80 @@
+skill_name: dashboard
+skill_description: "Build premium enterprise-level interactive dashboards with A2UI components and GS themes"
+
+content: |
+  # Enterprise Dashboards (A2UI)
+
+  ## CRITICAL: Two separate tool paths
+  | Tool | Where | Appears |
+  |------|-------|---------|
+  | `save_dashboard_component(json_str, title)` | **DIRECT TOOL CALL only** — NEVER inside `run_python` | Workspace tab |
+  | `show_component(dict_or_list, title)` | **Inside `run_python`** | Chat bubble inline |
+
+  ## Build Order
+  1. `run_python` — query data, compute metrics, print values
+  2. `save_dashboard_component` — KPI grid JSON (direct tool call)
+  3. `run_python` — chart via `save_artifact(gs_theme(chart), ...)`
+  4. `save_dashboard_component` — insight text block (direct tool call)
+  5. `run_python` — styled table via `save_artifact(styled_table_html(df, title), ...)`
+
+  ## Component Schemas
+
+  ### Metric Grid
+  ```json
+  {"type": "grid", "columns": 3, "children": [
+    {"type": "metric", "title": "Revenue", "value": "$4.2M", "icon": "account_balance",
+     "change": "+12%", "changeType": "positive"},
+    {"type": "metric", "title": "Users", "value": "12,400", "icon": "group", "subtitle": "Daily avg"}
+  ]}
+  ```
+
+  ### Metric with Sparkline
+  ```json
+  {"type": "metric", "title": "GDP Growth", "value": "3.2%", "change": "+0.4pp",
+   "changeType": "positive", "sparkline": [2.1, 2.4, 1.9, 2.8, 3.2]}
+  ```
+
+  ### Text / Alert / Progress / Comparison / List / Divider
+  ```json
+  {"type": "text", "icon": "lightbulb", "content": "Key insight here."}
+  {"type": "alert", "severity": "warning", "title": "Above target", "content": "CPI at 4.1%."}
+  {"type": "progress", "title": "Budget Used", "value": 74, "max": 100,
+   "changeType": "negative", "subtitle": "$740K of $1M"}
+  {"type": "comparison", "title": "GDP", "current": "3.2%", "prior": "2.8%",
+   "label": "QoQ", "changeType": "positive"}
+  {"type": "list", "title": "Top Sectors", "icon": "bar_chart",
+   "items": [{"label": "Tech", "value": "+8.2%"}, {"label": "Health", "value": "+3.1%"}]}
+  {"type": "divider", "title": "Section Name"}
+  ```
+
+  ### Two-Column Layout
+  ```json
+  {"type": "cols_2",
+   "left": {"type": "metric", "title": "GDP", "value": "3.2%", "changeType": "positive"},
+   "right": {"type": "metric", "title": "Unemployment", "value": "4.1%", "changeType": "neutral"}}
+  ```
+  Do NOT nest `cols_2`/`grid` inside each other.
+
+  ### Inline Table
+  ```json
+  {"type": "table", "title": "Summary", "columns": ["Quarter", "GDP", "CPI"],
+   "rows": [["Q1", "3.2%", "2.9%"], ["Q2", "2.8%", "3.1%"]]}
+  ```
+  Keep ≤8 rows; larger data → `styled_table_html`.
+
+  ## `changeType`: `"positive"` | `"negative"` | `"neutral"`
+  ## `severity`: `"info"` (blue) | `"warning"` (amber) | `"critical"` (red)
+  ## Icons: `account_balance`, `group`, `trending_up`, `payments`, `analytics`, `lightbulb`, `warning`, `bar_chart`
+
+  ## Inline Chat: `show_component()`
+  ```python
+  show_component({"type": "metric", "title": "GDP 2024", "value": "3.2%",
+                   "icon": "trending_up", "changeType": "positive"}, "Snapshot")
+  show_component([comp1, comp2, comp3], "Multi Snapshot")  # list for multiple
+  ```
+
+  ## Rules
+  1. Always `json.dumps()` for `save_dashboard_component` — never raw dicts
+  2. Match schemas exactly — unsupported fields silently break rendering
+  3. `gs_theme()` for charts, `styled_table_html()` for tables
+  4. `divider` to group sections, `alert` for notable thresholds

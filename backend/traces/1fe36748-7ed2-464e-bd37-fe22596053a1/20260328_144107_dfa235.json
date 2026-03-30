@@ -1,0 +1,104 @@
+{
+  "session_id": "1fe36748-7ed2-464e-bd37-fe22596053a1",
+  "timestamp": "2026-03-28T14:41:07.392550+00:00",
+  "question": "Chart comparing GDP growth vs inflation",
+  "response": "",
+  "total_elapsed_s": 10.914,
+  "event_count": 6,
+  "events": [
+    {
+      "timestamp": 1774708867.3964732,
+      "elapsed_s": 0.004,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-68f2c13d",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774708867.395145,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708867.3980742,
+      "elapsed_s": 0.006,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Chart comparing GDP growth vs inflation",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "1fe36748-7ed2-464e-bd37-fe22596053a1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708867.399713,
+      "elapsed_s": 0.007,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Chart comparing GDP growth vs inflation",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "1fe36748-7ed2-464e-bd37-fe22596053a1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708867.400505,
+      "elapsed_s": 0.008,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "1fe36748-7ed2-464e-bd37-fe22596053a1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708878.305412,
+      "elapsed_s": 10.913,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-68f2c13d",
+        "label": "Error",
+        "status": "error",
+        "detail": "Provider returned error",
+        "started_at": 1774708867.395145,
+        "finished_at": 1774708878.30531,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774708878.30554,
+      "elapsed_s": 10.913,
+      "event_type": "error",
+      "agent_id": "orchestrator",
+      "data": {
+        "error": "Provider returned error",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

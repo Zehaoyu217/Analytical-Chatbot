@@ -1,0 +1,103 @@
+skill_name: advanced_charts
+skill_description: "Reference lines, annotations, grouped bars, heatmaps, and waterfall charts"
+
+content: |
+  # Advanced Chart Patterns — Templates
+
+  NEVER `.interactive()`. ALWAYS `gs_theme()` + `save_artifact()`.
+
+  ## A — Reference/Threshold Line
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT date, inflation FROM macro ORDER BY date").df()
+  base = alt.Chart(df).encode(
+      x=alt.X('date:T', axis=alt.Axis(grid=False, title=None, format='%Y')),
+      y=alt.Y('inflation:Q', axis=alt.Axis(title='Inflation (%)')),
+  )
+  area   = base.mark_area(color=PRIMARY, opacity=AREA_OPACITY, interpolate='monotone')
+  line   = base.mark_line(color=PRIMARY, strokeWidth=LINE_WIDTH, interpolate='monotone')
+  points = base.mark_point(filled=True, fill=POINT_FILL, stroke=PRIMARY,
+                            strokeWidth=POINT_STROKE_W, size=POINT_SIZE)
+  threshold = 2.0
+  rule = alt.Chart({'values': [{'y': threshold}]}).mark_rule(
+      color=NEUTRAL, strokeWidth=1, strokeDash=[4, 3]).encode(y=alt.Y('y:Q'))
+  rule_label = alt.Chart({'values': [{'y': threshold, 'x': df['date'].max()}]}).mark_text(
+      align='right', dx=-4, dy=-8, fontSize=10, fontWeight=600, color=NEUTRAL
+  ).encode(x='x:T', y='y:Q', text=alt.value(f'{threshold}% target'))
+  chart = gs_theme(area + line + points + rule + rule_label,
+                   "Inflation vs. Fed Target", width=W_WIDE, height=H_STANDARD)
+  save_artifact(chart, "Inflation vs. Fed Target")
+  ```
+
+  ## B — Grouped Bar Chart
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT category, metric, value FROM your_table").df()
+  n_metrics = df['metric'].nunique()
+  chart = alt.Chart(df).mark_bar(
+      cornerRadiusTopLeft=BAR_CORNER_RADIUS, cornerRadiusTopRight=BAR_CORNER_RADIUS,
+      opacity=BAR_OPACITY,
+  ).encode(
+      x=alt.X('category:N', axis=alt.Axis(title=None, labelAngle=-30)),
+      xOffset=alt.XOffset('metric:N'),
+      y=alt.Y('value:Q', axis=alt.Axis(title='Value')),
+      color=alt.Color('metric:N', scale=alt.Scale(range=CAT_PALETTE[:n_metrics]),
+                       legend=alt.Legend(title=None, orient='bottom')),
+      tooltip=[alt.Tooltip('category:N', title='Category'),
+               alt.Tooltip('metric:N', title='Metric'),
+               alt.Tooltip('value:Q', title='Value', format=',.1f')]
+  )
+  chart = gs_theme(chart, "Grouped Comparison", width=W_WIDE, height=H_STANDARD)
+  save_artifact(chart, "Grouped Comparison")
+  ```
+
+  ## C — Heatmap
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT row_label, col_label, value FROM your_table").df()
+  chart = alt.Chart(df).mark_rect().encode(
+      x=alt.X('col_label:O', axis=alt.Axis(title=None, labelAngle=-30)),
+      y=alt.Y('row_label:O', axis=alt.Axis(title=None)),
+      color=alt.Color('value:Q', scale=alt.Scale(scheme='blues'),
+                       legend=alt.Legend(title='Value')),
+      tooltip=[alt.Tooltip('row_label:O', title='Row'),
+               alt.Tooltip('col_label:O', title='Column'),
+               alt.Tooltip('value:Q', title='Value', format=',.2f')]
+  )
+  text = chart.mark_text(fontSize=10, fontWeight=600).encode(
+      text=alt.Text('value:Q', format='.1f'),
+      color=alt.condition(alt.datum.value > df['value'].median(),
+                          alt.value('#ffffff'), alt.value('#a8b4c8'))
+  )
+  chart = gs_theme(chart + text, "Heatmap Title",
+      width=max(W_STANDARD, df['col_label'].nunique() * 60),
+      height=max(H_STANDARD, df['row_label'].nunique() * 40))
+  save_artifact(chart, "Heatmap Title")
+  ```
+  For diverging values: `scheme='redblue'` with `domainMid=0`.
+
+  ## D — Waterfall Chart
+  ```python
+  import altair as alt, pandas as pd
+  df = _db.execute("SELECT label, value FROM your_table ORDER BY sort_order").df()
+  df = df.copy()
+  df['end'] = df['value'].cumsum()
+  df['start'] = df['end'] - df['value']
+  df['_color'] = df['value'].apply(lambda v: POSITIVE if v >= 0 else NEGATIVE)
+  chart = alt.Chart(df).mark_bar(opacity=BAR_OPACITY).encode(
+      x=alt.X('label:O', sort=None, axis=alt.Axis(title=None, labelAngle=-30)),
+      y=alt.Y('start:Q', axis=alt.Axis(title='Value')),
+      y2=alt.Y2('end:Q'),
+      color=alt.Color('_color:N', scale=None, legend=None),
+      tooltip=[alt.Tooltip('label:O', title='Item'),
+               alt.Tooltip('value:Q', title='Change', format='+,.1f'),
+               alt.Tooltip('end:Q', title='Running Total', format=',.1f')]
+  )
+  chart = gs_theme(chart, "Waterfall")
+  save_artifact(chart, "Waterfall")
+  ```
+
+  ## Rules
+  - Zero baseline rule for diverging/waterfall. `NEUTRAL` + `strokeDash=[4,3]` for thresholds.
+  - Label refs with `mark_text` at right edge. Heatmap >100 cells: drop text labels.
+  - Grouped bars: max 3-4 metric groups; more → switch to heatmap.

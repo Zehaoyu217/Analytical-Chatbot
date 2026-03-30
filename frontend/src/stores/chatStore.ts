@@ -4,6 +4,7 @@ import type {
   ProgressStep,
   Artifact,
   DashboardComponent,
+  InlineComponentGroup,
   AgentStatusEvent,
   ToolEvent,
   ThinkingEvent,
@@ -70,6 +71,9 @@ interface ChatState {
   // Suggestions
   setSuggestions: (chips: SuggestionChip[]) => void;
   clearSuggestions: () => void;
+
+  // Inline components
+  addInlineComponents: (group: Omit<InlineComponentGroup, "id">) => void;
 
   // Subagents
   addSubagentMessageStart: (agent_name: string) => void;
@@ -278,6 +282,7 @@ export const useChatStore = create<ChatState>((set) => ({
           label: event.tool,
           status: "running",
           detail: event.args_preview || "",
+          args_preview: event.args_preview || "",
           started_at: Date.now() / 1000,
           finished_at: null,
           agent_id: event.agent_id,
@@ -314,22 +319,24 @@ export const useChatStore = create<ChatState>((set) => ({
   // Thinking/planning transparency
   addThinking: (event) =>
     set((state) => {
-      // For todo_update events, replace the existing plan entry to create a live-updating list
-      if (event.kind === "todo_update") {
+      // For both plan and todo_update events, replace the existing plan entry to create a live-updating list
+      if (event.kind === "plan" || event.kind === "todo_update") {
         const planIdx = state.thinkingSteps.findIndex((s) => s.kind === "plan" || s.kind === "todo_update");
+        let todoItems = event.todoItems;
+        if (!todoItems && event.items) {
+          todoItems = event.items.map((text) => ({ text, status: "pending" as const }));
+        }
+
         if (planIdx >= 0) {
           const updated = [...state.thinkingSteps];
-          updated[planIdx] = { ...updated[planIdx], kind: "todo_update", todoItems: event.todoItems };
+          updated[planIdx] = { ...updated[planIdx], kind: event.kind, todoItems: todoItems || updated[planIdx].todoItems };
           return { thinkingSteps: updated };
         }
         // No existing plan — treat as new plan
-        return { thinkingSteps: [...state.thinkingSteps, { ...event, kind: "plan" }] };
-      }
-      // For plan events, also populate todoItems from items if not present
-      if (event.kind === "plan" && event.items && !event.todoItems) {
-        const todoItems = event.items.map((text) => ({ text, status: "pending" as const }));
         return { thinkingSteps: [...state.thinkingSteps, { ...event, todoItems }] };
       }
+      // For plan events, also populate todoItems from items if not present
+
       return { thinkingSteps: [...state.thinkingSteps, event] };
     }),
 
@@ -338,6 +345,27 @@ export const useChatStore = create<ChatState>((set) => ({
   // Suggestion chips
   setSuggestions: (suggestions) => set({ suggestions }),
   clearSuggestions: () => set({ suggestions: [] }),
+
+  // Inline components — attach group to the current streaming assistant message
+  addInlineComponents: (group) =>
+    set((state) => {
+      const newGroup: InlineComponentGroup = {
+        ...group,
+        id: crypto.randomUUID(),
+      };
+      const messages = [...state.messages];
+      const lastIdx = messages.findLastIndex(
+        (m) => m.role === "assistant" && m.isStreaming
+      );
+      if (lastIdx >= 0) {
+        const msg = messages[lastIdx];
+        messages[lastIdx] = {
+          ...msg,
+          inlineComponentGroups: [...(msg.inlineComponentGroups || []), newGroup],
+        };
+      }
+      return { messages };
+    }),
   // Subagents
   addSubagentMessageStart: (agent_name) =>
     set((state) => {

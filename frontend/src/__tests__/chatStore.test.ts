@@ -197,4 +197,47 @@ describe("chatStore", () => {
       expect(useChatStore.getState().artifacts).toHaveLength(1);
     });
   });
+
+  describe("addInlineComponents", () => {
+    it("attaches inline component group to current streaming assistant message", () => {
+      const store = useChatStore.getState();
+
+      // Add a streaming assistant message
+      store.addMessage({
+        id: "msg-1",
+        role: "assistant",
+        content: "",
+        timestamp: new Date(),
+        isStreaming: true,
+      });
+
+      store.addInlineComponents({
+        title: "Macro Snapshot",
+        components: [
+          { type: "metric", title: "GDP", value: "3.2%" },
+          { type: "alert", severity: "info", title: "Note", content: "Q3 2024 data." },
+        ],
+      });
+
+      const messages = useChatStore.getState().messages;
+      const assistantMsg = messages.find((m) => m.role === "assistant");
+      expect(assistantMsg?.inlineComponentGroups).toHaveLength(1);
+      expect(assistantMsg?.inlineComponentGroups?.[0].title).toBe("Macro Snapshot");
+      expect(assistantMsg?.inlineComponentGroups?.[0].components).toHaveLength(2);
+      expect(assistantMsg?.inlineComponentGroups?.[0].id).toBeTruthy();
+    });
+
+    it("does not attach if no streaming assistant message exists", () => {
+      const store = useChatStore.getState();
+
+      // No messages at all
+      store.addInlineComponents({
+        title: "Orphan group",
+        components: [{ type: "metric", title: "X", value: "0" }],
+      });
+
+      // Should not throw; messages array remains empty
+      expect(useChatStore.getState().messages).toHaveLength(0);
+    });
+  });
 });

@@ -1,0 +1,361 @@
+{
+  "session_id": "e2e-stats-1774569392",
+  "timestamp": "2026-03-26T23:56:32.275228+00:00",
+  "question": "Describe the fed_funds_rate distribution",
+  "response": "Here's **Count, Min Rate, Max Rate \u2014 Us Quarterly Macro (1 rows)**:",
+  "total_elapsed_s": 15.654,
+  "event_count": 23,
+  "events": [
+    {
+      "timestamp": 1774569392.276455,
+      "elapsed_s": 0.001,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-fc94fa34",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569392.276052,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569392.2771719,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Describe the fed_funds_rate distribution",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569392.277757,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Describe the fed_funds_rate distribution",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569392.2781298,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569392.27852,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ComplexityAdaptiveMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569392.278835,
+      "elapsed_s": 0.004,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "NagReminderMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569392.279156,
+      "elapsed_s": 0.004,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "EvaluatorMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569400.886058,
+      "elapsed_s": 8.611,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-fc94fa34",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Querying database: SELECT    COUNT(*) as count,   MIN(fed_funds_rate) as min_ra...",
+        "started_at": 1774569392.276052,
+        "finished_at": 1774569400.885199,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569400.8861492,
+      "elapsed_s": 8.611,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-f3c792c8",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569400.88527,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569400.886181,
+      "elapsed_s": 8.611,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "query_duckdb",
+                  "args": {
+                    "sql": "SELECT \n  COUNT(*) as count,\n  MIN(fed_funds_rate) as min_rate,\n  MAX(fed_funds_rate) as max_rate,\n  AVG(fed_funds_rate) as mean_rate,\n  MEDIAN(fed_funds_rate) as median_rate,\n  STDDEV_SAMP(fed_funds_rate) as stddev_rate,\n  QUANTILE_CONT(fed_funds_rate, 0.25) as q1,\n  QUANTILE_CONT(fed_funds_rate, 0.75) as q3\nFROM us_quarterly_macro_0047798b"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569400.8870668,
+      "elapsed_s": 8.612,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569400.8884869,
+      "elapsed_s": 8.613,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "args_preview": "SQL: SELECT \n  COUNT(*) as count,\n  MIN(fed_funds_rate) as min_rate,\n  MAX(fed_funds_...",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569400.889745,
+      "elapsed_s": 8.615,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "elapsed_s": 0.0,
+        "result_preview": "Columns: ['count', 'min_rate', 'max_rate', 'mean_rate', 'median_rate', 'stddev_rate', 'q1', 'q3']\nRows returned: 1\n\n{'count': 100, 'min_rate': 1.79, 'max_rate': 3.8, 'mean_rate': 2.8434000000000004, '",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569400.892819,
+      "elapsed_s": 8.618,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-f3c792c8",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774569400.88527,
+        "finished_at": 1774569400.89229,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569400.8928971,
+      "elapsed_s": 8.618,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-59034f75",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569400.892328,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569400.8929222,
+      "elapsed_s": 8.618,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "5439c8ce",
+        "type": "table",
+        "title": "Count, Min Rate, Max Rate \u2014 Us Quarterly Macro (1 rows)",
+        "content": "<table class=\"artifact-table\"><thead><tr><th>count</th><th>min_rate</th><th>max_rate</th><th>mean_rate</th><th>median_rate</th><th>stddev_rate</th><th>q1</th><th>q3</th></tr></thead><tbody><tr><td>100</td><td>1.79</td><td>3.8</td><td>2.8434000000000004</td><td>2.8449999999999998</td><td>0.4504570518435199</td><td>2.5774999999999997</td><td>3.155</td></tr></tbody></table>",
+        "format": "html",
+        "created_at": 1774569400.889534,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569400.892947,
+      "elapsed_s": 8.618,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Columns: ['count', 'min_rate', 'max_rate', 'mean_rate', 'median_rate', 'stddev_rate', 'q1', 'q3']\nRows returned: 1\n\n{'count': 100, 'min_rate': 1.79, 'max_rate': 3.8, 'mean_rate': 2.8434000000000004, 'median_rate': 2.8449999999999998, 'stddev_rate': 0.4504570518435199, 'q1': 2.5774999999999997, 'q3': 3.155}\n\n[Table auto-saved as artifact 5439c8ce]",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569407.928094,
+      "elapsed_s": 15.653,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-59034f75",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Summarizing findings...",
+        "started_at": 1774569400.892328,
+        "finished_at": 1774569407.9275231,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569407.928172,
+      "elapsed_s": 15.653,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569407.928749,
+      "elapsed_s": 15.654,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569407.928979,
+      "elapsed_s": 15.654,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "Here's **Count, Min Rate, Max Rate \u2014 Us Quarterly Macro (1 rows)**:",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569407.9290261,
+      "elapsed_s": 15.654,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774569407.928941,
+        "finished_at": 1774569407.928941,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569407.929055,
+      "elapsed_s": 15.654,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "e2e-stats-1774569392",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

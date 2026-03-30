@@ -1,0 +1,79 @@
+{
+  "session_id": "b8218e0b-bdc6-4b3a-ae47-d19ea392293b",
+  "timestamp": "2026-03-29T00:43:47.866598+00:00",
+  "question": "Top 10 quarters by GDP growth",
+  "response": "",
+  "total_elapsed_s": 10.744,
+  "event_count": 4,
+  "events": [
+    {
+      "timestamp": 1774745027.869697,
+      "elapsed_s": 0.003,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-f08c2d98",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774745027.8684,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774745027.871397,
+      "elapsed_s": 0.005,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Top 10 quarters by GDP growth",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "b8218e0b-bdc6-4b3a-ae47-d19ea392293b",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774745027.873214,
+      "elapsed_s": 0.007,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Top 10 quarters by GDP growth",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "b8218e0b-bdc6-4b3a-ae47-d19ea392293b",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774745027.873813,
+      "elapsed_s": 0.007,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "b8218e0b-bdc6-4b3a-ae47-d19ea392293b",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

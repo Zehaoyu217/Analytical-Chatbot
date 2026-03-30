@@ -20,14 +20,11 @@ export function CodeBlock({ language, children }: Props) {
     <div className="my-3 rounded-[var(--radius-md)] overflow-hidden border border-[var(--border)] bg-[#0d0f14]">
       <div className="flex items-center justify-between px-3 py-1.5 bg-[var(--surface-2)] border-b border-[var(--border)]">
         <div className="flex items-center gap-1.5">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#28c940]" />
-          <span className="ml-2 text-[11px] font-mono text-[var(--text-muted)]">{language}</span>
+          <span className="text-[10px] font-mono font-medium text-[var(--text-muted)] uppercase tracking-[0.5px]">{language}</span>
         </div>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--surface-3)] transition-all duration-150"
+          className="flex items-center gap-1 px-2 py-0.5 rounded-[var(--radius-sm)] text-[11px] text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--surface-3)] transition-all duration-150"
         >
           <span className="material-symbols-rounded text-[var(--icon-xs)]">
             {copied ? "check" : "content_copy"}

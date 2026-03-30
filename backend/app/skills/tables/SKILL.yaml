@@ -1,0 +1,34 @@
+skill_name: tables
+skill_description: "Display data as clean enterprise tables — via query_duckdb (simple) or styled HTML via run_python (complex)"
+
+content: |
+  # Tables — When to Use What
+
+  | Request | Approach |
+  |---|---|
+  | "Show me", "list", "display", "get" data | `query_duckdb` — auto-saves table artifact |
+  | Complex styling, computed columns, formatting | `run_python` with `styled_table_html()` |
+  | Brief summary in chat text | Inline markdown table — max 10 rows |
+
+  ## Built-in: `styled_table_html(df, title)`
+  Pre-imported. Builds enterprise dark-themed HTML table matching the UI.
+  ```python
+  df = _db.execute("SELECT * FROM my_table LIMIT 30").df()
+  html = styled_table_html(df, "Latest Results")
+  save_artifact(html, "Latest Results")
+  ```
+
+  ## Inline Markdown (chat responses only)
+  ```
+  | Quarter | GDP Growth | Inflation |
+  |:--------|:----------:|----------:|
+  | 2024-Q4 | +8.0%      | 3.1%      |
+  ```
+  Max 10 rows. Right-align numerics (`---:`). Use `%`, `$`, commas. NEVER raw `<table>` in chat.
+
+  ## Rules
+  1. Simple retrieval → `query_duckdb`, skip `run_python`
+  2. Descriptive artifact titles — not "Query Result"
+  3. `styled_table_html` output → `save_artifact()`, never `print()`
+  4. Limit ≤50 rows; summarise if more
+  5. Never show null as "None" — use `COALESCE(col, '—')` in SQL

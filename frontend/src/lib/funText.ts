@@ -21,6 +21,9 @@ export const CHAT_TITLES = [
   "Ask Me Anything (about data)",
   "Spreadsheet Therapy",
   "The Data Bar",
+  "Stat Attack HQ",
+  "The Regression Room",
+  "SQL: The Musical",
 ];
 
 // ── Empty State Headings ─────────────────────────────────
@@ -37,6 +40,10 @@ export const EMPTY_HEADINGS = [
   "I eat datasets for breakfast.",
   "Time to make your spreadsheets useful.",
   "Let's give your data the attention it deserves.",
+  "Your data is crying out for attention.",
+  "Let the interrogation begin.",
+  "Numbers don't lie. Let's hear them.",
+  "Ready to make your data sweat.",
 ];
 
 // ── Empty State Subtext ──────────────────────────────────
@@ -49,6 +56,9 @@ export const EMPTY_SUBTEXTS = [
   "Your CSV is safe with me. I only judge the data, not the formatting.",
   "I speak fluent CSV, Excel, and Parquet. Upload and let's chat.",
   "Think of me as your data therapist. The first session is free.",
+  "Rows and columns never stood a chance.",
+  "I've seen worse data. Probably. Upload anyway.",
+  "Every great insight starts with a humble upload.",
 ];
 
 // ── Input Placeholder ────────────────────────────────────
@@ -65,6 +75,10 @@ export const INPUT_PLACEHOLDERS = [
   "Hit me with a question...",
   "SQL me softly...",
   "Chart me up, Scotty...",
+  "What's lurking in the data?",
+  "Ask anything. No dumb questions (well, maybe one).",
+  "I'm listening. The DuckDB is too.",
+  "Ready for a data adventure?",
 ];
 
 // ── Input Helper Text ────────────────────────────────────
@@ -74,6 +88,7 @@ export const INPUT_HELPERS = [
   "Enter = go, Shift+Enter = breathe",
   "Smash Enter to send, hold Shift for a new line",
   "Enter to fire, Shift+Enter to reload",
+  "Enter: transmit thought to machine",
 ];
 
 // ── Suggestion Pills ─────────────────────────────────────
@@ -112,6 +127,8 @@ export const APP_TITLES = [
   "Jay's Number Whisperer",
   "Jay's Chart Factory",
   "Jay's Query Lab",
+  "Jay's Data Sommelier",
+  "Jay's Spreadsheet Therapist",
 ];
 
 // ── Taglines ─────────────────────────────────────────────
@@ -123,6 +140,9 @@ export const TAGLINES = [
   "Crunching numbers since today",
   "Your friendly data nerd",
   "Charts on demand",
+  "DuckDB is bae",
+  "SELECT * FROM insights",
+  "Less pivot tables, more revelations",
 ];
 
 // ── File Upload ──────────────────────────────────────────
@@ -133,6 +153,8 @@ export const UPLOAD_TEXTS = [
   "Drop files like it's hot",
   "Toss your data this way",
   "CSV? Excel? Parquet? Yes please.",
+  "The database is hungry",
+  "Data goes here →",
 ];
 
 export const UPLOAD_SUBTEXTS = [
@@ -141,6 +163,7 @@ export const UPLOAD_SUBTEXTS = [
   "or tap to select",
   "or browse your files",
   "or go old-school and click",
+  "or just click like a normal person",
 ];
 
 export const UPLOADING_TEXTS = [
@@ -150,6 +173,8 @@ export const UPLOADING_TEXTS = [
   "Om nom nom...",
   "Feeding the database...",
   "Loading the goods...",
+  "DuckDB is eating...",
+  "Parsing your life choices...",
 ];
 
 // ── New Chat Button ──────────────────────────────────────
@@ -159,16 +184,19 @@ export const NEW_CHAT_LABELS = [
   "Reset",
   "Clean slate",
   "New chat",
+  "Nuke & restart",
 ];
 
 // ── Empty States ─────────────────────────────────────────
 export const PROGRESS_EMPTY = [
   "Agent steps will appear here",
   "Waiting for the magic to happen...",
-  "The progress bar is on standby",
+  "Standing by. Sipping virtual coffee.",
   "Nothing cooking yet...",
   "Steps? What steps? We haven't started!",
   "Your agent is stretching before the run",
+  "All systems nominal. Awaiting orders.",
+  "Idle. Contemplating the nature of data.",
 ];
 
 export const ARTIFACTS_EMPTY = [
@@ -178,6 +206,7 @@ export const ARTIFACTS_EMPTY = [
   "No artifacts yet. Ask something cool!",
   "This space reserved for beautiful data art",
   "Empty canvas. Let's paint with data!",
+  "Waiting for the first chart. No pressure.",
 ];
 
 export const WORKSPACE_EMPTY = [
@@ -187,6 +216,7 @@ export const WORKSPACE_EMPTY = [
   "The workspace is ready. The data is not.",
   "This is where dashboards come to life",
   "Reserved for KPI cards and data magic",
+  "Future home of your masterpiece dashboard",
 ];
 
 export const TRACE_EMPTY = [
@@ -196,6 +226,7 @@ export const TRACE_EMPTY = [
   "Debug log: nothing to debug yet",
   "No events recorded. Boredom detected.",
   "Trace: *cricket sounds*",
+  "Event horizon: empty",
 ];
 
 export const NO_DATASETS = [
@@ -205,6 +236,16 @@ export const NO_DATASETS = [
   "The database is lonely",
   "No tables. Very sad.",
   "Empty. Upload a CSV to get started!",
+  "Tabula rasa. Upload a file.",
+];
+
+// ── Section labels (rotating per session) ───────────────
+export const SECTION_MODEL_LABELS = [
+  "MODEL", "ENGINE", "BRAIN", "LLM", "ORACLE", "RUNTIME",
+];
+
+export const SECTION_DATA_LABELS = [
+  "DATA", "DATASETS", "TABLES", "SOURCES", "WAREHOUSE", "INPUTS",
 ];
 
 // ── Pre-picked values (stable for the session) ──────────
@@ -226,4 +267,6 @@ export const funText = {
   workspaceEmpty: pick(WORKSPACE_EMPTY),
   traceEmpty: pick(TRACE_EMPTY),
   noDatasets: pick(NO_DATASETS),
+  sectionModel: pick(SECTION_MODEL_LABELS),
+  sectionData: pick(SECTION_DATA_LABELS),
 };

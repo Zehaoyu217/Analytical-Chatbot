@@ -44,9 +44,16 @@ export function ChatInput({ onSend, isStreaming, onStop }: Props) {
   };
 
   return (
-    <div className="px-6 pb-5 pt-2 shrink-0">
+    <div className="px-5 pb-4 pt-1.5 shrink-0">
       <div className="max-w-3xl mx-auto">
-        <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-[var(--surface-2)] border border-[var(--border)] focus-within:border-[var(--border-accent)] focus-within:shadow-[0_0_0_1px_rgba(99,102,241,0.15)] transition-all duration-150 min-h-[44px]">
+        <div className={`flex items-center gap-2 px-3 py-2 rounded-[var(--radius-sm)] bg-[var(--surface-2)] border transition-all duration-200 min-h-[40px] ${
+            isStreaming
+              ? "input-streaming border-[var(--border)]"
+              : "border-[var(--border)] focus-within:border-[var(--border-accent)]"
+          }`}>
+          <span className={`text-[13px] font-mono font-medium shrink-0 self-center select-none ${isStreaming ? "text-amber-400/40 animate-pulse" : "text-amber-400/60"}`}>
+            &gt;
+          </span>
           <textarea
             ref={textareaRef}
             value={input}
@@ -56,32 +63,30 @@ export function ChatInput({ onSend, isStreaming, onStop }: Props) {
             placeholder={funText.inputPlaceholder}
             rows={1}
             disabled={isStreaming}
-            className="flex-1 bg-transparent resize-none text-[14px] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none leading-[1.5] max-h-48 self-center disabled:opacity-50"
+            className="flex-1 bg-transparent resize-none text-[14px] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none leading-[1.5] max-h-48 self-center disabled:opacity-40"
             style={{ minHeight: '24px', paddingTop: 0, paddingBottom: 0, marginTop: 0, marginBottom: 0 }}
           />
 
           {isStreaming ? (
-            /* Stop generation button */
             <button
               onClick={onStop}
-              className="w-8 h-8 rounded-lg flex items-center justify-center bg-rose-500/15 text-rose-400 hover:bg-rose-500/25 active:scale-95 transition-all duration-150 shrink-0 self-center ring-1 ring-rose-500/30"
+              className="w-7 h-7 rounded-[var(--radius-sm)] flex items-center justify-center bg-rose-500/12 text-rose-400 hover:bg-rose-500/20 active:scale-95 transition-all duration-150 shrink-0 self-center border border-rose-500/25"
               title="Stop generation (Esc)"
             >
-              <span className="material-symbols-rounded text-[var(--icon-md)]">stop</span>
+              <span className="material-symbols-rounded text-[var(--icon-sm)]">stop</span>
             </button>
           ) : (
-            /* Send button */
             <button
               onClick={handleSend}
               disabled={!input.trim()}
-              className="w-8 h-8 rounded-lg flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-sm hover:shadow-[0_2px_12px_rgba(99,102,241,0.4)] hover:scale-105 active:scale-95 transition-all duration-150 disabled:opacity-25 disabled:hover:scale-100 shrink-0 self-center"
+              className="w-7 h-7 rounded-[var(--radius-sm)] flex items-center justify-center text-amber-400 border border-amber-500/30 bg-amber-500/8 hover:bg-amber-500/18 hover:border-amber-500/50 active:scale-95 transition-all duration-150 disabled:opacity-20 disabled:hover:bg-amber-500/8 shrink-0 self-center"
             >
-              <span className="material-symbols-rounded text-[var(--icon-md)]">send</span>
+              <span className="material-symbols-rounded text-[var(--icon-sm)]">arrow_upward</span>
             </button>
           )}
         </div>
-        <p className="text-center text-[10px] text-[var(--text-muted)] mt-1.5 opacity-60">
-          {isStreaming ? "Press Esc to stop · Streaming..." : funText.inputHelper}
+        <p className="text-center text-[10px] text-[var(--text-muted)] mt-1 opacity-50 font-mono">
+          {isStreaming ? "esc to stop · streaming" : funText.inputHelper}
         </p>
       </div>
     </div>

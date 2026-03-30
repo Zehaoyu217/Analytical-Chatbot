@@ -1,0 +1,116 @@
+{
+  "session_id": "11837d75-f81c-46f6-8058-2993f9791905",
+  "timestamp": "2026-03-28T05:59:35.925139+00:00",
+  "question": "Show the latest 5 quarters in a table",
+  "response": "",
+  "total_elapsed_s": 3.662,
+  "event_count": 6,
+  "events": [
+    {
+      "timestamp": 1774677575.9263139,
+      "elapsed_s": 0.001,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-c26c0f25",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774677575.9258811,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677575.926892,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Show the latest 5 quarters in a table",
+              "type": "human"
+            },
+            {
+              "content": "Show the latest 5 quarters in a table",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "11837d75-f81c-46f6-8058-2993f9791905",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677575.927549,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Show the latest 5 quarters in a table",
+              "type": "human"
+            },
+            {
+              "content": "Show the latest 5 quarters in a table",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "11837d75-f81c-46f6-8058-2993f9791905",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677575.9279208,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "11837d75-f81c-46f6-8058-2993f9791905",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677579.5863638,
+      "elapsed_s": 3.661,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-c26c0f25",
+        "label": "Error",
+        "status": "error",
+        "detail": "Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'openai/gpt-oss-120b:free is temporarily rate-limited upstream. Please retry shortly, or add your ow",
+        "started_at": 1774677575.9258811,
+        "finished_at": 1774677579.584929,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774677579.586505,
+      "elapsed_s": 3.661,
+      "event_type": "error",
+      "agent_id": "orchestrator",
+      "data": {
+        "error": "Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'openai/gpt-oss-120b:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations', 'provider_name': 'OpenInference', 'is_byok': False}}, 'user_id': 'user_3BEuNaNrFfWcrzl8GU5n4B1CpQU'}",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

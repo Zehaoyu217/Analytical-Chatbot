@@ -1,0 +1,84 @@
+skill_name: bar_chart
+skill_description: "Vertical, horizontal, diverging, and stacked bar charts for category comparison"
+
+content: |
+  # Bar Charts — Templates
+
+  ≤7 categories → vertical; >7 or long labels → horizontal. NEVER `.interactive()`. ALWAYS `gs_theme()` + `save_artifact()`.
+
+  ## A — Vertical Bar (≤7 categories)
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT category, value FROM your_table ORDER BY value DESC").df()
+  chart = alt.Chart(df).mark_bar(
+      cornerRadiusTopLeft=BAR_CORNER_RADIUS, cornerRadiusTopRight=BAR_CORNER_RADIUS,
+      color=PRIMARY, opacity=BAR_OPACITY,
+  ).encode(
+      x=alt.X('category:N', sort=None, axis=alt.Axis(title=None, labelAngle=-30)),
+      y=alt.Y('value:Q', axis=alt.Axis(title='Value')),
+      tooltip=[alt.Tooltip('category:N', title='Category'),
+               alt.Tooltip('value:Q', title='Value', format=',.1f')]
+  )
+  chart = gs_theme(chart, "Category Comparison")
+  save_artifact(chart, "Category Comparison")
+  ```
+  Label angles: 0° (≤5 cats), -30° (6-10), switch to horizontal for 10+.
+
+  ## B — Horizontal Bar (>7 categories or long labels)
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT category, value FROM your_table ORDER BY value DESC").df()
+  row_height = max(300, len(df) * 28)
+  chart = alt.Chart(df).mark_bar(
+      cornerRadiusTopRight=BAR_CORNER_RADIUS, cornerRadiusBottomRight=BAR_CORNER_RADIUS,
+      color=PRIMARY, opacity=BAR_OPACITY,
+  ).encode(
+      y=alt.Y('category:N', sort=None, axis=alt.Axis(title=None)),
+      x=alt.X('value:Q', axis=alt.Axis(title='Value')),
+      tooltip=[alt.Tooltip('category:N', title='Category'),
+               alt.Tooltip('value:Q', title='Value', format=',.1f')]
+  )
+  chart = gs_theme(chart, "Ranking", width=W_STANDARD, height=row_height)
+  save_artifact(chart, "Ranking")
+  ```
+
+  ## C — Diverging Bar (positive & negative values)
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT period, change_pct FROM your_table ORDER BY period").df()
+  df['_color'] = df['change_pct'].apply(lambda v: POSITIVE if v >= 0 else NEGATIVE)
+  chart = alt.Chart(df).mark_bar(
+      cornerRadiusTopLeft=BAR_CORNER_RADIUS, cornerRadiusTopRight=BAR_CORNER_RADIUS,
+      opacity=BAR_OPACITY,
+  ).encode(
+      x=alt.X('period:O', axis=alt.Axis(title=None, labelAngle=-30)),
+      y=alt.Y('change_pct:Q', axis=alt.Axis(title='Change (%)')),
+      color=alt.Color('_color:N', scale=None, legend=None),
+      tooltip=[alt.Tooltip('period:O', title='Period'),
+               alt.Tooltip('change_pct:Q', title='Change', format='+,.2f')]
+  )
+  rule = alt.Chart({'values': [{'y': 0}]}).mark_rule(color=NEUTRAL, strokeWidth=1).encode(y='y:Q')
+  chart = gs_theme(chart + rule, "Annual Returns")
+  save_artifact(chart, "Annual Returns")
+  ```
+
+  ## D — Stacked Bar (proportional comparison)
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT period, segment, value FROM your_table ORDER BY period").df()
+  n_segments = df['segment'].nunique()
+  chart = alt.Chart(df).mark_bar(opacity=BAR_OPACITY).encode(
+      x=alt.X('period:O', axis=alt.Axis(title=None, labelAngle=-30)),
+      y=alt.Y('value:Q', stack='normalize', axis=alt.Axis(title='Share (%)', format='.0%')),
+      color=alt.Color('segment:N', scale=alt.Scale(range=CAT_PALETTE[:n_segments]),
+                       legend=alt.Legend(title=None, orient='bottom')),
+      tooltip=[alt.Tooltip('period:O', title='Period'),
+               alt.Tooltip('segment:N', title='Segment'),
+               alt.Tooltip('value:Q', title='Value', format=',.1f')]
+  )
+  chart = gs_theme(chart, "Segment Breakdown")
+  save_artifact(chart, "Segment Breakdown")
+  ```
+  For absolute stacked: `stack=True` and `format=',.0f'` on Y axis.
+
+  ## Decision: ≤7 short→A, >7/long→B, crosses zero→C, breakdown per group→D, single-group part-of-whole→donut_chart.

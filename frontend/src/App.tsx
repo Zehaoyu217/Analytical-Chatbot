@@ -43,7 +43,7 @@ function ResizeHandle({ onDrag }: { onDrag: (deltaX: number) => void }) {
   return (
     <div
       onMouseDown={onMouseDown}
-      className="w-1 cursor-col-resize hover:bg-indigo-500/30 active:bg-indigo-500/50 transition-colors shrink-0 relative group"
+      className="w-1 cursor-col-resize hover:bg-amber-500/30 active:bg-amber-500/50 transition-colors shrink-0 relative group"
     >
       <div className="absolute inset-y-0 -left-1 -right-1" />
     </div>

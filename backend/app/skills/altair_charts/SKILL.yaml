@@ -1,0 +1,90 @@
+skill_name: altair_charts
+skill_description: "Professional data visualization with Altair/Vega-Lite — chart selection, design system, color rules, and artifact ops"
+
+sub_skills:
+  - path: altair_charts/line_chart
+    description: "Line, area, and connected-dot charts for time series and trends"
+    when: "time series, trend over time, rates, GDP, inflation, multi-series comparison"
+  - path: altair_charts/bar_chart
+    description: "Vertical, horizontal, diverging, and stacked bar charts"
+    when: "category comparison, rankings, positive/negative values, returns"
+  - path: altair_charts/donut_chart
+    description: "Donut charts for part-of-whole composition (NEVER pie)"
+    when: "allocation, portfolio composition, share breakdown, percentage split"
+  - path: altair_charts/scatter_chart
+    description: "Scatter plots, bubble charts, and correlation with regression line"
+    when: "correlation, two-variable relationship, distribution across dimensions"
+  - path: altair_charts/distribution
+    description: "Histogram, KDE density, and box plots for statistical distributions"
+    when: "distribution, spread, frequency, quartiles, outliers"
+  - path: altair_charts/advanced
+    description: "Reference lines, annotations, grouped bars, heatmaps, and waterfall"
+    when: "thresholds, callouts, highlight peaks, grouped comparison, heatmap, waterfall"
+
+content: |
+  # Chart Design System & Rules
+
+  All constants/helpers pre-imported in `run_python`. Do NOT redefine them.
+
+  ## CRITICAL Rules (every chart, no exceptions)
+  - NEVER call `.interactive()` — crashes sandbox
+  - NEVER use `selection_single()`, `selection_multi()`, `.add_selection()` — removed in Altair 5. Use `selection_point()`/`selection_interval()` + `.add_params()` if needed, but prefer NO selections.
+  - NEVER use pie charts — always donut
+  - ALWAYS include tooltips with formatted numeric values
+  - ALWAYS call `gs_theme(chart, title)` before saving
+  - ALWAYS call `save_artifact(chart, "Title")` at the end
+  - ALL code in ONE `run_python` call
+
+  ## Color Palette
+  | Constant | Hex | Role |
+  |---|---|---|
+  | `PRIMARY` | `#3d7be8` | Main series |
+  | `ACCENT_TEAL` | `#2eb89a` | 2nd series |
+  | `ACCENT_AMBER` | `#e8a820` | 3rd / annotations |
+  | `ACCENT_ROSE` | `#e05c7c` | 4th series |
+  | `ACCENT_PURPLE` | `#9b5de5` | 5th series |
+  | `ACCENT_CYAN` | `#38bdf8` | 6th series |
+  | `POSITIVE` | `#22c55e` | Gains |
+  | `NEGATIVE` | `#f43f5e` | Losses |
+  | `NEUTRAL` | `#5c6278` | Baselines |
+  | `CAT_PALETTE` | 6-color list | `[PRIMARY..ACCENT_CYAN]` |
+
+  ## Canvas Sizes
+  `W_STANDARD, H_STANDARD` = 640x400 (default), `W_WIDE, H_WIDE` = 720x405 (time series), `W_COMPACT, H_COMPACT` = 400x300, `W_SQUARE, H_SQUARE` = 400x400 (donut)
+
+  ## Mark Constants
+  `LINE_WIDTH=2`, `AREA_OPACITY=0.10`, `BAR_CORNER_RADIUS=3`, `BAR_OPACITY=0.85`, `POINT_SIZE=50`, `POINT_FILL="#0d1117"`, `POINT_STROKE_W=2`, `SCATTER_SIZE=60`, `SCATTER_OPACITY=0.75`, `DONUT_INNER=80`, `DONUT_OUTER=150`
+
+  ## Chart Type Selection
+  | Data Shape | Chart | Sub-Skill |
+  |---|---|---|
+  | Metric over time | Connected-dot line + area | `altair_charts/line_chart` |
+  | Multi metrics over time | Multi-series line | `altair_charts/line_chart` |
+  | ≤7 categories | Vertical bar (sorted desc) | `altair_charts/bar_chart` |
+  | >7 cats or long labels | Horizontal bar | `altair_charts/bar_chart` |
+  | Values span ±zero | Diverging bar (green/red) | `altair_charts/bar_chart` |
+  | Part-of-whole | Donut (NEVER pie) | `altair_charts/donut_chart` |
+  | Two-variable relationship | Scatter + regression | `altair_charts/scatter_chart` |
+  | Distribution/frequency | Histogram or KDE | `altair_charts/distribution` |
+  | Multi-group comparison | Grouped bar or heatmap | `altair_charts/advanced` |
+  | Threshold/benchmark | Rule layer on any chart | `altair_charts/advanced` |
+
+  ## Color Rules
+  Single series: `PRIMARY`. Two: `PRIMARY` + `ACCENT_TEAL`. 3+: `CAT_PALETTE[:N]` (max 6).
+  Positive: `POSITIVE`. Negative: `NEGATIVE`. Reference: `NEUTRAL` + `strokeDash=[4,3]`.
+  Do NOT mix `CAT_PALETTE` with `POSITIVE`/`NEGATIVE`. Do NOT use `PRIMARY` for diverging.
+
+  ## Format Strings
+  Percentage: `",.2f"`, Currency: `"$,.0f"`, Counts: `",.0f"`, Yearly: `"%Y"`, Monthly: `"%b %Y"`, Daily: `"%b %d, %Y"`.
+  NEVER `format=None` on numeric tooltips. Label angles: 0° (≤5), -30° (6-10), -45° (10+).
+
+  ## Theming & Saving
+  ```python
+  chart = gs_theme(chart, "Title")                                    # standard
+  chart = gs_theme(chart, "Title", width=W_WIDE)                     # wide
+  chart = gs_theme(chart, "Title", width=W_SQUARE, height=H_SQUARE)  # donut
+  save_artifact(chart, "Title")        # new chart
+  update_artifact("ID", chart)         # refinement (pass chart object, NOT .to_dict())
+  ```
+
+  After loading this skill, load the matching sub-skill for templates.

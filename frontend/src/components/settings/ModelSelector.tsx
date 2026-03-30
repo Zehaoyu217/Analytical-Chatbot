@@ -1,14 +1,18 @@
 import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useModels, useSetActiveModel } from "@/hooks/useModels";
 import { useSettingsStore } from "@/stores/settingsStore";
 
+// Colors mapped to actual design system tokens
+// --success: #10b981  --text-accent/--primary: #d4a017  --info: #38bdf8  --text-secondary: #8494ad
 const providerColors: Record<string, string> = {
-  ollama: "#10b981",
-  openai: "#10b981",
-  anthropic: "#f59e0b",
-  google: "#38bdf8",
-  openrouter: "#a78bfa",
+  ollama:      "#10b981",  // emerald — local/running (--success)
+  openai:      "#10b981",  // emerald — same family
+  anthropic:   "#d4a017",  // amber   — (--primary / --text-accent)
+  google:      "#38bdf8",  // sky     — (--info)
+  openrouter:  "#8494ad",  // muted   — (--text-secondary, neutral routing layer)
 };
+const FALLBACK_COLOR = "#8494ad"; // --text-secondary
 
 export function ModelSelector() {
   const { data } = useModels();
@@ -52,58 +56,71 @@ export function ModelSelector() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-[var(--radius-md)] bg-[var(--surface-3)] border border-[var(--border)] hover:border-[var(--border-strong)] transition-all duration-150 group"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label={`Model selector: ${currentModel?.name || model}`}
+        className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-[var(--radius-sm)] bg-[var(--surface-3)] border border-[var(--border)] hover:border-[var(--border-strong)] transition-all duration-150 group"
       >
         <div
-          className="w-2 h-2 rounded-full shrink-0"
-          style={{
-            background: providerColors[provider] || "#6366f1",
-            boxShadow: `0 0 6px ${providerColors[provider] || "#6366f1"}99`,
-          }}
+          className="w-1.5 h-1.5 rounded-full shrink-0"
+          style={{ background: providerColors[provider] || FALLBACK_COLOR }}
         />
-        <span className="text-[13px] font-medium text-[var(--text-primary)] flex-1 text-left truncate">
+        <span className="text-[12px] font-mono font-medium text-[var(--text-primary)] flex-1 text-left truncate">
           {currentModel?.name || model}
         </span>
-        <span className="material-symbols-rounded text-[var(--icon-md)] text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors">
+        <motion.span
+          className="material-symbols-rounded text-[var(--icon-md)] text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors"
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.15 }}
+        >
           expand_more
-        </span>
+        </motion.span>
       </button>
 
-      {open && (
-        <div
-          className="absolute z-50 mt-1.5 w-full rounded-[var(--radius-md)] bg-[var(--surface-2)] backdrop-blur-xl border border-[var(--border-strong)] shadow-[var(--glow-card)] overflow-hidden animate-in fade-in slide-in-from-top-1 duration-150"
-        >
-          <div className="py-1 max-h-64 overflow-y-auto">
-            {data?.models?.map((m: any) => {
-              const isActive = m.model === model && m.provider === provider;
-              return (
-                <button
-                  key={`${m.provider}/${m.model}`}
-                  onClick={() => handleSelect(m)}
-                  className={`w-full flex items-center gap-2.5 px-3 py-2 text-left transition-all duration-100 ${
-                    isActive
-                      ? "bg-indigo-500/10 border-l-2 border-l-indigo-400"
-                      : "hover:bg-[var(--surface-3)] border-l-2 border-l-transparent"
-                  }`}
-                >
-                  <div
-                    className="w-1.5 h-1.5 rounded-full shrink-0"
-                    style={{ background: providerColors[m.provider] || "#6366f1" }}
-                  />
-                  <div className="flex-1 min-w-0">
-                    <span className={`text-[12px] font-medium truncate block ${isActive ? "text-[var(--text-accent)]" : "text-[var(--text-primary)]"}`}>
-                      {m.name}
-                    </span>
-                    <span className="text-[10px] text-[var(--text-muted)]">
-                      {m.provider} {m.local ? "\u00b7 local" : "\u00b7 cloud"}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -4, scaleY: 0.96 }}
+            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+            exit={{ opacity: 0, y: -4, scaleY: 0.96 }}
+            transition={{ duration: 0.12, ease: "easeOut" }}
+            style={{ transformOrigin: "top center" }}
+            className="absolute z-50 mt-1 w-full rounded-[var(--radius-sm)] bg-[var(--surface-2)] border border-[var(--border-strong)] shadow-[var(--shadow-md)] overflow-hidden"
+          >
+            <div role="listbox" aria-label="Available models" className="py-0.5 max-h-60 overflow-y-auto">
+              {data?.models?.map((m: any) => {
+                const isActive = m.model === model && m.provider === provider;
+                return (
+                  <button
+                    key={`${m.provider}/${m.model}`}
+                    role="option"
+                    aria-selected={isActive}
+                    onClick={() => handleSelect(m)}
+                    className={`w-full flex items-center gap-2 px-2.5 py-1.5 text-left transition-all duration-100 ${
+                      isActive
+                        ? "bg-amber-500/8 border-l border-l-amber-400"
+                        : "hover:bg-[var(--surface-3)] border-l border-l-transparent"
+                    }`}
+                  >
+                    <div
+                      className="w-1.5 h-1.5 rounded-full shrink-0"
+                      style={{ background: providerColors[m.provider] || FALLBACK_COLOR }}
+                    />
+                    <div className="flex-1 min-w-0">
+                      <span className={`text-[11px] font-mono font-medium truncate block ${isActive ? "text-[var(--text-accent)]" : "text-[var(--text-primary)]"}`}>
+                        {m.name}
+                      </span>
+                      <span className="text-[9px] font-mono text-[var(--text-dim)]">
+                        {m.provider} {m.local ? "\u00b7 local" : "\u00b7 cloud"}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

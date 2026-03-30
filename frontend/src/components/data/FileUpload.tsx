@@ -21,6 +21,9 @@ export function FileUpload() {
   return (
     <div>
       <div
+        role="button"
+        tabIndex={0}
+        aria-label="Upload data file — CSV, Excel, TSV, or Parquet"
         onDragOver={(e) => {
           e.preventDefault();
           setDragOver(true);
@@ -28,33 +31,39 @@ export function FileUpload() {
         onDragLeave={() => setDragOver(false)}
         onDrop={handleDrop}
         onClick={() => inputRef.current?.click()}
-        className={`flex flex-col items-center gap-1.5 rounded-[var(--radius-md)] border-2 border-dashed p-4 cursor-pointer transition-all duration-150
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            inputRef.current?.click();
+          }
+        }}
+        className={`flex items-center gap-2.5 rounded-[var(--radius-sm)] border border-dashed px-3 py-2.5 cursor-pointer transition-all duration-150
           ${
             dragOver
-              ? "border-[var(--border-accent)] bg-gradient-to-b from-indigo-500/5 to-transparent"
-              : "border-[var(--border-strong)] hover:border-[var(--border-accent)] hover:bg-gradient-to-b hover:from-indigo-500/5 hover:to-transparent"
+              ? "border-[var(--border-accent)] bg-amber-500/5"
+              : "border-[var(--border-strong)] hover:border-[var(--border-accent)] hover:bg-amber-500/3"
           }
           ${isPending ? "opacity-50 pointer-events-none" : ""}
         `}
       >
         {isPending ? (
           <>
-            <div className="w-8 h-8 rounded-full border-2 border-indigo-400 border-t-transparent animate-spin" />
-            <span className="text-[12px] font-medium text-[var(--text-secondary)]">
+            <div className="w-5 h-5 rounded-full border-[1.5px] border-amber-400 border-t-transparent animate-spin shrink-0" />
+            <span className="text-[11px] font-mono text-[var(--text-secondary)]">
               {funText.uploadingText}
             </span>
           </>
         ) : (
           <>
-            <span className="material-symbols-rounded text-[var(--icon-xl)] text-[var(--text-muted)]">
+            <span className="material-symbols-rounded text-[var(--icon-lg)] text-[var(--text-muted)]">
               upload_file
             </span>
-            <div className="text-center">
-              <p className="text-[12px] font-medium text-[var(--text-secondary)]">
+            <div>
+              <p className="text-[11px] font-medium text-[var(--text-secondary)]">
                 {funText.uploadText}
               </p>
-              <p className="text-[11px] text-[var(--text-muted)] mt-0.5">
-                {funText.uploadSubtext}
+              <p className="text-[10px] text-[var(--text-dim)] mt-0.5 font-mono">
+                csv · xlsx · tsv · parquet
               </p>
             </div>
           </>

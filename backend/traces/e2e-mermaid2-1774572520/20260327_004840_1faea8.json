@@ -1,0 +1,1833 @@
+{
+  "session_id": "e2e-mermaid2-1774572520",
+  "timestamp": "2026-03-27T00:48:40.981758+00:00",
+  "question": "Mermaid diagram of macro relationships",
+  "response": "The diagram shows the key relationships between the four macroeconomic variables in your dataset:\n\n**Core Relationships:**\n- **GDP Growth \u2192 Inflation**: Economic expansion can drive up prices\n- **GDP Growth \u2192 Unemployment**: Strong growth typically reduces joblessness (Okun's Law)\n- **Inflation \u2192 Fed Funds Rate**: High inflation prompts the Fed to raise rates\n- **Unemployment \u2192 Fed Funds Rate**: High unemployment may prompt rate cuts\n- **Fed Funds Rate \u2192 GDP/Inflation/Unemployment**: Interest rates feed back into all three indicators\n\nThis creates a feedback loop where monetary policy (Fed Funds Rate) responds to economic conditions while simultaneously influencing them.",
+  "total_elapsed_s": 209.981,
+  "event_count": 165,
+  "events": [
+    {
+      "timestamp": 1774572521.073431,
+      "elapsed_s": 0.092,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-9e4cec0e",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774572521.068198,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572521.075526,
+      "elapsed_s": 0.094,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Mermaid diagram of macro relationships",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572521.076072,
+      "elapsed_s": 0.094,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Mermaid diagram of macro relationships",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572521.076468,
+      "elapsed_s": 0.095,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572521.076769,
+      "elapsed_s": 0.095,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ComplexityAdaptiveMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572521.0770948,
+      "elapsed_s": 0.095,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "NagReminderMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572521.0773828,
+      "elapsed_s": 0.096,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "EvaluatorMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572655.718173,
+      "elapsed_s": 134.736,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-9e4cec0e",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Loading skill: mermaid",
+        "started_at": 1774572521.068198,
+        "finished_at": 1774572655.717351,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572655.718276,
+      "elapsed_s": 134.737,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-9c291d8d",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774572655.717406,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572655.718304,
+      "elapsed_s": 134.737,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "load_skill",
+                  "args": {
+                    "skill_name": "mermaid"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572655.719501,
+      "elapsed_s": 134.738,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572655.720883,
+      "elapsed_s": 134.739,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "load_skill",
+        "args_preview": "Skill: mermaid",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572655.728669,
+      "elapsed_s": 134.747,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "load_skill",
+        "elapsed_s": 0.01,
+        "result_preview": "# mermaid\nCreate fancy, spacious, and professional Mermaid diagrams using the GS color palette\n\n# Mermaid Diagrams (OneGS Theme)\n\n## Built-in: `GS_MERMAID_THEME`\n\nPre-imported in every `run_python` ca",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572655.7319522,
+      "elapsed_s": 134.75,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-9c291d8d",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774572655.717406,
+        "finished_at": 1774572655.731481,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572655.732001,
+      "elapsed_s": 134.75,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-25a0fe9a",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774572655.731502,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572655.732021,
+      "elapsed_s": 134.75,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "# mermaid\nCreate fancy, spacious, and professional Mermaid diagrams using the GS color palette\n\n# Mermaid Diagrams (OneGS Theme)\n\n## Built-in: `GS_MERMAID_THEME`\n\nPre-imported in every `run_python` call. Prepend it to any Mermaid string for the GS dark theme \u2014 no copy-pasting required.\n\n```python\ndiagram = GS_MERMAID_THEME + \"\"\"\ngraph TD\n    A[Start] --> B[Process]\n    B --> C[End]\n\"\"\"\nsave_artifact(diagram, \"My Diagram\", artifact_type=\"diagram\")\n```\n\n## Node Shapes\n\n| Shape | Syntax | Use for |\n|---|---|---|\n| Rectangle | `A[Label]` | Processes, steps |\n| Rounded | `A(Label)` | Start/end, data stores |\n| Diamond | `A{Label}` | Decisions |\n| Database | `A[(Label)]` | Databases |\n\n## Styling Rules\n\n1. Always use `GS_MERMAID_THEME` \u2014 never raw unstyled Mermaid\n2. Use `TD` (top-down) or `LR` (left-right) layouts \u2014 never cramped default\n3. Add `style NodeName fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff` for emphasis nodes\n4. Use `subgraph` blocks to group related nodes\n5. FontAwesome icons in nodes where meaningful: `A[fa:fa-database Database]`\n\n## Example \u2014 System Architecture\n\n```python\ndiagram = GS_MERMAID_THEME + \"\"\"\ngraph TD\n    User([fa:fa-user User]) -->|Uploads| API[fa:fa-server FastAPI]\n    API --> DB[(fa:fa-database DuckDB)]\n    DB --> Agent{fa:fa-robot AI Agent}\n    Agent --> UI[fa:fa-desktop Dashboard]\n\n    style User fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n    style Agent fill:#3b82f6,stroke:#93c5fd,stroke-width:2px,color:#fff\n\"\"\"\nsave_artifact(diagram, \"System Architecture\", artifact_type=\"diagram\")\n```",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572699.892576,
+      "elapsed_s": 178.911,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-25a0fe9a",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Running Python: diagram = GS_MERMAID_THEME + \"\"\"...",
+        "started_at": 1774572655.731502,
+        "finished_at": 1774572699.891675,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572699.892716,
+      "elapsed_s": 178.911,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-b87d8cea",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774572699.891735,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572699.89276,
+      "elapsed_s": 178.911,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "run_python",
+                  "args": {
+                    "code": "diagram = GS_MERMAID_THEME + \"\"\"\ngraph TD\n    subgraph Economic Indicators\n        GDP[GDP Growth<br/>Economic Expansion]\n        INF[Inflation Rate<br/>Price Stability]\n        UNEMP[Unemployment Rate<br/>Labor Market]\n    end\n    \n    subgraph Monetary Policy\n        FED[Fed Funds Rate<br/>Interest Rates]\n    end\n    \n    GDP -->|Higher growth may increase| INF\n    GDP -->|Strong growth reduces| UNEMP\n    INF -->|High inflation prompts| FED\n    UNEMP -->|High unemployment lowers| FED\n    FED -->|Higher rates reduce| GDP\n    FED -->|Higher rates reduce| INF\n    FED -->|Higher rates increase| UNEMP\n    \n    style GDP fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n    style INF fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n    style UNEMP fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n    style FED fill:#3b82f6,stroke:#93c5fd,stroke-width:2px,color:#fff\n\"\"\"\n\nsave_artifact(diagram, \"Macroeconomic Relationships Diagram\", artifact_type=\"diagram\")"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572699.8943622,
+      "elapsed_s": 178.913,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572699.89606,
+      "elapsed_s": 178.914,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "args_preview": "diagram = GS_MERMAID_THEME + \"\"\"",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572700.634152,
+      "elapsed_s": 179.652,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "elapsed_s": 0.74,
+        "result_preview": "Saved diagram artifact: Macroeconomic Relationships Diagram (id=5afea5d7). Diagram is visible in Artifacts panel and inline in the chat.",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572700.636724,
+      "elapsed_s": 179.655,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-b87d8cea",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774572699.891735,
+        "finished_at": 1774572700.636349,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572700.6367528,
+      "elapsed_s": 179.655,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-9ace75b0",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774572700.6363661,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572700.6367621,
+      "elapsed_s": 179.655,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "5afea5d7",
+        "type": "diagram",
+        "title": "Macroeconomic Relationships Diagram",
+        "content": "%%{init: {\n  'theme': 'base',\n  'themeVariables': {\n    'primaryColor': '#1e293b',\n    'primaryTextColor': '#f8fafc',\n    'primaryBorderColor': '#3b82f6',\n    'lineColor': '#94a3b8',\n    'secondaryColor': '#0055b8',\n    'tertiaryColor': '#0f172a',\n    'fontFamily': 'Google Sans, sans-serif'\n  }\n}}%%\n    graph TD\n        subgraph Economic Indicators\n            GDP[GDP Growth<br/>Economic Expansion]\n            INF[Inflation Rate<br/>Price Stability]\n            UNEMP[Unemployment Rate<br/>Labor Market]\n        end\n    \n        subgraph Monetary Policy\n            FED[Fed Funds Rate<br/>Interest Rates]\n        end\n    \n        GDP -->|Higher growth may increase| INF\n        GDP -->|Strong growth reduces| UNEMP\n        INF -->|High inflation prompts| FED\n        UNEMP -->|High unemployment lowers| FED\n        FED -->|Higher rates reduce| GDP\n        FED -->|Higher rates reduce| INF\n        FED -->|Higher rates increase| UNEMP\n    \n        style GDP fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n        style INF fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n        style UNEMP fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n        style FED fill:#3b82f6,stroke:#93c5fd,stroke-width:2px,color:#fff\n    ",
+        "format": "mermaid",
+        "created_at": 1774572700.633748,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572700.636781,
+      "elapsed_s": 179.655,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Saved diagram artifact: Macroeconomic Relationships Diagram (id=5afea5d7). Diagram is visible in Artifacts panel and inline in the chat.",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.212081,
+      "elapsed_s": 196.23,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-9ace75b0",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774572700.6363661,
+        "finished_at": 1774572717.2118962,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.212192,
+      "elapsed_s": 196.23,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-83e5c1d7",
+        "label": "Composing response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774572717.2119749,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.212246,
+      "elapsed_s": 196.23,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "The",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.308696,
+      "elapsed_s": 196.327,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " diagram",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.4053051,
+      "elapsed_s": 196.424,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " shows",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.5025432,
+      "elapsed_s": 196.521,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.5991008,
+      "elapsed_s": 196.617,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " key",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.6968708,
+      "elapsed_s": 196.715,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " relationships",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.794492,
+      "elapsed_s": 196.813,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " between",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.8916621,
+      "elapsed_s": 196.91,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572717.988833,
+      "elapsed_s": 197.007,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " four",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572718.0863721,
+      "elapsed_s": 197.105,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " macro",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572718.183142,
+      "elapsed_s": 197.201,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "economic",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572718.281434,
+      "elapsed_s": 197.3,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " variables",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572718.379319,
+      "elapsed_s": 197.398,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " in",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572718.4767869,
+      "elapsed_s": 197.495,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " your",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572718.574108,
+      "elapsed_s": 197.592,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " dataset",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572718.672076,
+      "elapsed_s": 197.69,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ":",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572718.866747,
+      "elapsed_s": 197.885,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n\n**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572718.96408,
+      "elapsed_s": 197.982,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Core",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572719.061141,
+      "elapsed_s": 198.079,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Relationships",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572719.158219,
+      "elapsed_s": 198.176,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ":**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572719.352879,
+      "elapsed_s": 198.371,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n-",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572719.44969,
+      "elapsed_s": 198.468,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572719.54656,
+      "elapsed_s": 198.565,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "G",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572719.644028,
+      "elapsed_s": 198.662,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "DP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572719.740932,
+      "elapsed_s": 198.759,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572719.8379278,
+      "elapsed_s": 198.856,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2192",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572719.9357388,
+      "elapsed_s": 198.954,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " In",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572720.0335748,
+      "elapsed_s": 199.052,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "flation",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572720.130547,
+      "elapsed_s": 199.149,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**:",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572720.227854,
+      "elapsed_s": 199.246,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Economic",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572720.325367,
+      "elapsed_s": 199.344,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " expansion",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572720.422763,
+      "elapsed_s": 199.441,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " can",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572720.5201101,
+      "elapsed_s": 199.538,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " drive",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572720.617146,
+      "elapsed_s": 199.635,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " up",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572720.714725,
+      "elapsed_s": 199.733,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " prices",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572720.910197,
+      "elapsed_s": 199.928,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n-",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.007874,
+      "elapsed_s": 200.026,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.104948,
+      "elapsed_s": 200.123,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "G",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.201898,
+      "elapsed_s": 200.22,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "DP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.299765,
+      "elapsed_s": 200.318,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.397321,
+      "elapsed_s": 200.416,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2192",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.496351,
+      "elapsed_s": 200.515,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Un",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.593156,
+      "elapsed_s": 200.611,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "employment",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.6924858,
+      "elapsed_s": 200.711,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**:",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.7920089,
+      "elapsed_s": 200.81,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Strong",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.891456,
+      "elapsed_s": 200.91,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572721.991355,
+      "elapsed_s": 201.01,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " typically",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572722.091695,
+      "elapsed_s": 201.11,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " reduces",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572722.19119,
+      "elapsed_s": 201.209,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " job",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572722.292,
+      "elapsed_s": 201.31,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "lessness",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572722.3913999,
+      "elapsed_s": 201.41,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " (",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572722.4889688,
+      "elapsed_s": 201.507,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Ok",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572722.586462,
+      "elapsed_s": 201.605,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "un",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572722.6840398,
+      "elapsed_s": 201.702,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "'s",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572722.7812428,
+      "elapsed_s": 201.799,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Law",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572722.8791611,
+      "elapsed_s": 201.897,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ")",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572723.07536,
+      "elapsed_s": 202.094,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n-",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572723.172585,
+      "elapsed_s": 202.191,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572723.2697668,
+      "elapsed_s": 202.288,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "In",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572723.3670669,
+      "elapsed_s": 202.385,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "flation",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572723.464674,
+      "elapsed_s": 202.483,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2192",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572723.5617971,
+      "elapsed_s": 202.58,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Fed",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572723.659474,
+      "elapsed_s": 202.678,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Funds",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572723.7566478,
+      "elapsed_s": 202.775,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Rate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572723.853756,
+      "elapsed_s": 202.872,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**:",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572723.9507258,
+      "elapsed_s": 202.969,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " High",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572724.04793,
+      "elapsed_s": 203.066,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " inflation",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572724.144953,
+      "elapsed_s": 203.163,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " prompts",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572724.241996,
+      "elapsed_s": 203.26,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572724.339273,
+      "elapsed_s": 203.358,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Fed",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572724.4368708,
+      "elapsed_s": 203.455,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " to",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572724.534571,
+      "elapsed_s": 203.553,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " raise",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572724.6320581,
+      "elapsed_s": 203.65,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " rates",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572724.828821,
+      "elapsed_s": 203.847,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n-",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572724.926827,
+      "elapsed_s": 203.945,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572725.02511,
+      "elapsed_s": 204.043,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Un",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572725.123651,
+      "elapsed_s": 204.142,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "employment",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572725.2270951,
+      "elapsed_s": 204.245,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2192",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572725.33037,
+      "elapsed_s": 204.349,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Fed",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572725.434446,
+      "elapsed_s": 204.453,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Funds",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572725.539062,
+      "elapsed_s": 204.557,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Rate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572725.6438222,
+      "elapsed_s": 204.662,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**:",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572725.7484229,
+      "elapsed_s": 204.767,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " High",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572725.853164,
+      "elapsed_s": 204.871,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " unemployment",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572725.958397,
+      "elapsed_s": 204.977,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " may",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572726.0640872,
+      "elapsed_s": 205.082,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " prompt",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572726.169746,
+      "elapsed_s": 205.188,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " rate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572726.274129,
+      "elapsed_s": 205.292,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " cuts",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572726.4835,
+      "elapsed_s": 205.502,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n-",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572726.587637,
+      "elapsed_s": 205.606,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572726.6914198,
+      "elapsed_s": 205.71,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Fed",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572726.794283,
+      "elapsed_s": 205.813,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Funds",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572726.898093,
+      "elapsed_s": 205.916,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Rate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572727.001467,
+      "elapsed_s": 206.02,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2192",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572727.1050181,
+      "elapsed_s": 206.123,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572727.2085881,
+      "elapsed_s": 206.227,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "/",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572727.311699,
+      "elapsed_s": 206.33,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "In",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572727.415267,
+      "elapsed_s": 206.434,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "flation",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572727.518324,
+      "elapsed_s": 206.537,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "/",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572727.62143,
+      "elapsed_s": 206.64,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Un",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572727.724381,
+      "elapsed_s": 206.743,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "employment",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572727.823936,
+      "elapsed_s": 206.842,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**:",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572727.924167,
+      "elapsed_s": 206.942,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Interest",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572728.024253,
+      "elapsed_s": 207.042,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " rates",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572728.12432,
+      "elapsed_s": 207.143,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " feed",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572728.2247198,
+      "elapsed_s": 207.243,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " back",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572728.324033,
+      "elapsed_s": 207.342,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " into",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572728.422549,
+      "elapsed_s": 207.441,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " all",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572728.520434,
+      "elapsed_s": 207.539,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " three",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572728.617643,
+      "elapsed_s": 207.636,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " indicators",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572728.812476,
+      "elapsed_s": 207.831,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n\nThis",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572728.909628,
+      "elapsed_s": 207.928,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " creates",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.007412,
+      "elapsed_s": 208.026,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " a",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.10479,
+      "elapsed_s": 208.123,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " feedback",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.2024431,
+      "elapsed_s": 208.221,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " loop",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.299971,
+      "elapsed_s": 208.318,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " where",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.3976169,
+      "elapsed_s": 208.416,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " monetary",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.49506,
+      "elapsed_s": 208.513,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " policy",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.592523,
+      "elapsed_s": 208.611,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " (",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.690051,
+      "elapsed_s": 208.708,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Fed",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.787743,
+      "elapsed_s": 208.806,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Funds",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.885084,
+      "elapsed_s": 208.903,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Rate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572729.9824681,
+      "elapsed_s": 209.001,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ")",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.079432,
+      "elapsed_s": 209.098,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " responds",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.1767948,
+      "elapsed_s": 209.195,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " to",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.2741802,
+      "elapsed_s": 209.292,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " economic",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.371728,
+      "elapsed_s": 209.39,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " conditions",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.468947,
+      "elapsed_s": 209.487,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " while",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.566373,
+      "elapsed_s": 209.585,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " simultaneously",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.6644459,
+      "elapsed_s": 209.683,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " influencing",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.7614179,
+      "elapsed_s": 209.78,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " them",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.858646,
+      "elapsed_s": 209.877,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.960843,
+      "elapsed_s": 209.979,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-83e5c1d7",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Summarizing findings...",
+        "started_at": 1774572717.2119749,
+        "finished_at": 1774572730.959957,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.9609568,
+      "elapsed_s": 209.979,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "The diagram shows the key relationships between the four macroeconomic variables in your dataset:\n\n**Core Relationships:**\n- **GDP Growth \u2192 Inflation**: Economic expansion can drive up prices\n- **GDP Growth \u2192 Unemployment**: Strong growth typically reduces joblessness (Okun's Law)\n- **Inflation \u2192 Fed Funds Rate**: High inflation prompts the Fed to raise rates\n- **Unemployment \u2192 Fed Funds Rate**: High unemployment may prompt rate cuts\n- **Fed Funds Rate \u2192 GDP/Inflation/Unemployment**: Interest rates feed back into all three indicators\n\nThis creates a feedback loop where monetary policy (Fed Funds Rate) responds to economic conditions while simultaneously influencing them.",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.961736,
+      "elapsed_s": 209.98,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.961996,
+      "elapsed_s": 209.98,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774572730.961922,
+        "finished_at": 1774572730.961922,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774572730.9620621,
+      "elapsed_s": 209.98,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "e2e-mermaid2-1774572520",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

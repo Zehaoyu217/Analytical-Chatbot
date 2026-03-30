@@ -1,0 +1,2396 @@
+{
+  "session_id": "9d574377-6c0f-4483-a2eb-fcf0606e0174",
+  "timestamp": "2026-03-28T05:17:36.917805+00:00",
+  "question": "Show the latest 5 quarters in a table",
+  "response": "Here are the most recent five quarters:\n\n- **GDP growth** has been flat at **8.0\u202f%** for each of the last five quarters.  \n- **Inflation** has risen slightly from **2.89\u202f%** (Q4\u202f2023) to **3.28\u202f%** (Q2\u202f2024), then dipped to **3.05\u202f%** in Q4\u202f2024.  \n- **Unemployment** has edged upward from **5.8\u202f%** (Q4\u202f2023) to **6.3\u202f%** (Q4\u202f2024).  \n- **Fed funds rate** has increased overall, from **3.49\u202f%** (Q4\u202f2023) to **3.60\u202f%** (Q4\u202f2024), with a small dip in Q2\u202f2024.\n\nThe data suggest a stable but high GDP growth rate while inflation and unemployment show modest upward trends, and monetary policy has been tightening gradually.",
+  "total_elapsed_s": 7.637,
+  "event_count": 227,
+  "events": [
+    {
+      "timestamp": 1774675057.00861,
+      "elapsed_s": 0.091,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-c6a57357",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774675057.0077481,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675057.009491,
+      "elapsed_s": 0.092,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Show the latest 5 quarters in a table",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "9d574377-6c0f-4483-a2eb-fcf0606e0174",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675057.012414,
+      "elapsed_s": 0.095,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Show the latest 5 quarters in a table",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "9d574377-6c0f-4483-a2eb-fcf0606e0174",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675057.012743,
+      "elapsed_s": 0.095,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "9d574377-6c0f-4483-a2eb-fcf0606e0174",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675059.767401,
+      "elapsed_s": 2.85,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-c6a57357",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Querying database: SELECT * FROM us_quarterly_macro_0047798b ORDER BY quarter D...",
+        "started_at": 1774675057.0077481,
+        "finished_at": 1774675059.766071,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675059.76755,
+      "elapsed_s": 2.85,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-25d3de2a",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774675059.766211,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675059.7675798,
+      "elapsed_s": 2.85,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "query_duckdb",
+                  "args": {
+                    "sql": "SELECT * FROM us_quarterly_macro_0047798b ORDER BY quarter DESC LIMIT 5"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "9d574377-6c0f-4483-a2eb-fcf0606e0174",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675059.7686799,
+      "elapsed_s": 2.851,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "9d574377-6c0f-4483-a2eb-fcf0606e0174",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675059.770443,
+      "elapsed_s": 2.853,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "args_preview": "SQL: SELECT * FROM us_quarterly_macro_0047798b ORDER BY quarter DESC LIMIT 5",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675059.7742138,
+      "elapsed_s": 2.856,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "elapsed_s": 0.0,
+        "result_preview": "Columns: ['quarter', 'gdp_growth_pct', 'inflation_rate', 'unemployment_rate', 'fed_funds_rate']\nRows returned: 5\n\n{'quarter': datetime.date(2024, 10, 1), 'gdp_growth_pct': 8.0, 'inflation_rate': 3.17,",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675059.7808309,
+      "elapsed_s": 2.863,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-25d3de2a",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774675059.766211,
+        "finished_at": 1774675059.780084,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675059.78092,
+      "elapsed_s": 2.863,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-601e2754",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774675059.780115,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675059.780947,
+      "elapsed_s": 2.863,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "ac97946d",
+        "type": "table",
+        "title": "Quarter, Gdp Growth Pct, Inflation Rate \u2014 Us Quarterly Macro (5 rows)",
+        "content": "<table class=\"artifact-table\"><thead><tr><th>quarter</th><th>gdp_growth_pct</th><th>inflation_rate</th><th>unemployment_rate</th><th>fed_funds_rate</th></tr></thead><tbody><tr><td>2024-10-01</td><td>8.0</td><td>3.17</td><td>6.3</td><td>3.6</td></tr><tr><td>2024-07-01</td><td>8.0</td><td>3.28</td><td>6.2</td><td>3.42</td></tr><tr><td>2024-04-01</td><td>8.0</td><td>3.05</td><td>6.0</td><td>3.43</td></tr><tr><td>2024-01-01</td><td>8.0</td><td>2.8</td><td>5.9</td><td>3.23</td></tr><tr><td>2023-10-01</td><td>8.0</td><td>2.89</td><td>5.8</td><td>3.49</td></tr></tbody></table>",
+        "format": "html",
+        "created_at": 1774675059.773855,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675059.7809799,
+      "elapsed_s": 2.863,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Columns: ['quarter', 'gdp_growth_pct', 'inflation_rate', 'unemployment_rate', 'fed_funds_rate']\nRows returned: 5\n\n{'quarter': datetime.date(2024, 10, 1), 'gdp_growth_pct': 8.0, 'inflation_rate': 3.17, 'unemployment_rate': 6.3, 'fed_funds_rate': 3.6}\n{'quarter': datetime.date(2024, 7, 1), 'gdp_growth_pct': 8.0, 'inflation_rate': 3.28, 'unemployment_rate': 6.2, 'fed_funds_rate': 3.42}\n{'quarter': datetime.date(2024, 4, 1), 'gdp_growth_pct': 8.0, 'inflation_rate': 3.05, 'unemployment_rate': 6.0, 'fed_funds_rate': 3.43}\n{'quarter': datetime.date(2024, 1, 1), 'gdp_growth_pct': 8.0, 'inflation_rate': 2.8, 'unemployment_rate': 5.9, 'fed_funds_rate': 3.23}\n{'quarter': datetime.date(2023, 10, 1), 'gdp_growth_pct': 8.0, 'inflation_rate': 2.89, 'unemployment_rate': 5.8, 'fed_funds_rate': 3.49}\n\n[Table auto-saved as artifact ac97946d]",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "9d574377-6c0f-4483-a2eb-fcf0606e0174",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.6625059,
+      "elapsed_s": 5.745,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-601e2754",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774675059.780115,
+        "finished_at": 1774675062.6623092,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.662645,
+      "elapsed_s": 5.745,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-e0ba243a",
+        "label": "Composing response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774675062.6624,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.662693,
+      "elapsed_s": 5.745,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Here",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.671726,
+      "elapsed_s": 5.754,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " are",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.679771,
+      "elapsed_s": 5.762,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.758614,
+      "elapsed_s": 5.841,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " most",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.758689,
+      "elapsed_s": 5.841,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " recent",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.758711,
+      "elapsed_s": 5.841,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " five",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.7587268,
+      "elapsed_s": 5.841,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " quarters",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.75874,
+      "elapsed_s": 5.841,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ":\n\n",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.758753,
+      "elapsed_s": 5.841,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "-",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.7587662,
+      "elapsed_s": 5.841,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.7587788,
+      "elapsed_s": 5.841,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.775261,
+      "elapsed_s": 5.857,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.777803,
+      "elapsed_s": 5.86,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.7803469,
+      "elapsed_s": 5.863,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " has",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.7919822,
+      "elapsed_s": 5.874,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " been",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.7994392,
+      "elapsed_s": 5.882,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " flat",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.80907,
+      "elapsed_s": 5.891,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " at",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.819648,
+      "elapsed_s": 5.902,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.828089,
+      "elapsed_s": 5.91,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "8",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.8369331,
+      "elapsed_s": 5.919,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.846276,
+      "elapsed_s": 5.928,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "0",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.8554392,
+      "elapsed_s": 5.938,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.864028,
+      "elapsed_s": 5.946,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.874135,
+      "elapsed_s": 5.956,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.88225,
+      "elapsed_s": 5.964,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " for",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.8925261,
+      "elapsed_s": 5.975,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " each",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.9005702,
+      "elapsed_s": 5.983,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " of",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.911535,
+      "elapsed_s": 5.994,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.9204538,
+      "elapsed_s": 6.003,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " last",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.929489,
+      "elapsed_s": 6.012,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " five",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.94221,
+      "elapsed_s": 6.024,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " quarters",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.947938,
+      "elapsed_s": 6.03,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.9611242,
+      "elapsed_s": 6.043,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "  \n",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.9680908,
+      "elapsed_s": 6.05,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "-",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.9767082,
+      "elapsed_s": 6.059,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675062.99772,
+      "elapsed_s": 6.08,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Infl",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.002057,
+      "elapsed_s": 6.084,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "ation",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.0067031,
+      "elapsed_s": 6.089,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.01305,
+      "elapsed_s": 6.095,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " has",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.02109,
+      "elapsed_s": 6.103,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " risen",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.0312371,
+      "elapsed_s": 6.113,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " slightly",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.040247,
+      "elapsed_s": 6.122,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " from",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.0488472,
+      "elapsed_s": 6.131,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.058325,
+      "elapsed_s": 6.141,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.0676029,
+      "elapsed_s": 6.15,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.0763662,
+      "elapsed_s": 6.159,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "89",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.086345,
+      "elapsed_s": 6.169,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.0951512,
+      "elapsed_s": 6.177,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.1218472,
+      "elapsed_s": 6.204,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.133045,
+      "elapsed_s": 6.215,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " (",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.1366248,
+      "elapsed_s": 6.219,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Q",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.1367118,
+      "elapsed_s": 6.219,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.140836,
+      "elapsed_s": 6.223,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.150259,
+      "elapsed_s": 6.232,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "202",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.1597729,
+      "elapsed_s": 6.242,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.169869,
+      "elapsed_s": 6.252,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ")",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.178248,
+      "elapsed_s": 6.26,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " to",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.1891682,
+      "elapsed_s": 6.271,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.197917,
+      "elapsed_s": 6.28,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.2052639,
+      "elapsed_s": 6.287,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.2845938,
+      "elapsed_s": 6.367,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "28",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.284686,
+      "elapsed_s": 6.367,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.2847161,
+      "elapsed_s": 6.367,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.284737,
+      "elapsed_s": 6.367,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.2847528,
+      "elapsed_s": 6.367,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " (",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.284768,
+      "elapsed_s": 6.367,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Q",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.2847831,
+      "elapsed_s": 6.367,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.284797,
+      "elapsed_s": 6.367,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.290366,
+      "elapsed_s": 6.373,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "202",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.303351,
+      "elapsed_s": 6.386,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.311018,
+      "elapsed_s": 6.393,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "),",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.3167229,
+      "elapsed_s": 6.399,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " then",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.326188,
+      "elapsed_s": 6.408,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " dipped",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.3378,
+      "elapsed_s": 6.42,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " to",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.3500202,
+      "elapsed_s": 6.432,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.361862,
+      "elapsed_s": 6.444,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.369416,
+      "elapsed_s": 6.452,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.378113,
+      "elapsed_s": 6.46,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "05",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.391808,
+      "elapsed_s": 6.474,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.3967009,
+      "elapsed_s": 6.479,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.4076731,
+      "elapsed_s": 6.49,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.416617,
+      "elapsed_s": 6.499,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " in",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.427938,
+      "elapsed_s": 6.51,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Q",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.438459,
+      "elapsed_s": 6.521,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.447644,
+      "elapsed_s": 6.53,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.483854,
+      "elapsed_s": 6.566,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "202",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.485695,
+      "elapsed_s": 6.568,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.490607,
+      "elapsed_s": 6.573,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.490669,
+      "elapsed_s": 6.573,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "  \n",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.496054,
+      "elapsed_s": 6.578,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "-",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.506172,
+      "elapsed_s": 6.588,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.5195038,
+      "elapsed_s": 6.602,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Un",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.525271,
+      "elapsed_s": 6.607,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "employment",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.5346382,
+      "elapsed_s": 6.617,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.543832,
+      "elapsed_s": 6.626,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " has",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.5534122,
+      "elapsed_s": 6.636,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " edged",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.563245,
+      "elapsed_s": 6.645,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " upward",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.573616,
+      "elapsed_s": 6.656,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " from",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.595201,
+      "elapsed_s": 6.677,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.597245,
+      "elapsed_s": 6.679,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "5",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.600277,
+      "elapsed_s": 6.682,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.6111958,
+      "elapsed_s": 6.693,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "8",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.622016,
+      "elapsed_s": 6.704,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.6294699,
+      "elapsed_s": 6.712,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.6394272,
+      "elapsed_s": 6.722,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.65421,
+      "elapsed_s": 6.736,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " (",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.657676,
+      "elapsed_s": 6.74,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Q",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.666806,
+      "elapsed_s": 6.749,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.6768892,
+      "elapsed_s": 6.759,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.686909,
+      "elapsed_s": 6.769,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "202",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.6962602,
+      "elapsed_s": 6.778,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.705389,
+      "elapsed_s": 6.788,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ")",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.724463,
+      "elapsed_s": 6.807,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " to",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.727712,
+      "elapsed_s": 6.81,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.7320478,
+      "elapsed_s": 6.814,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "6",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.807797,
+      "elapsed_s": 6.89,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.80798,
+      "elapsed_s": 6.89,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.808033,
+      "elapsed_s": 6.89,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.808061,
+      "elapsed_s": 6.89,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.808087,
+      "elapsed_s": 6.89,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.808108,
+      "elapsed_s": 6.89,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " (",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.808139,
+      "elapsed_s": 6.89,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Q",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.8081548,
+      "elapsed_s": 6.89,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.8081741,
+      "elapsed_s": 6.89,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.817307,
+      "elapsed_s": 6.9,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "202",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.825669,
+      "elapsed_s": 6.908,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.833958,
+      "elapsed_s": 6.916,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ").",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.845406,
+      "elapsed_s": 6.928,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "  \n",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.851522,
+      "elapsed_s": 6.934,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "-",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.85997,
+      "elapsed_s": 6.942,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.873902,
+      "elapsed_s": 6.956,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Fed",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.876033,
+      "elapsed_s": 6.958,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " funds",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.885372,
+      "elapsed_s": 6.968,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " rate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.893158,
+      "elapsed_s": 6.975,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.900631,
+      "elapsed_s": 6.983,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " has",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.909054,
+      "elapsed_s": 6.991,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " increased",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.917193,
+      "elapsed_s": 6.999,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " overall",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.925775,
+      "elapsed_s": 7.008,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ",",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.934431,
+      "elapsed_s": 7.017,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " from",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.9425359,
+      "elapsed_s": 7.025,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.9513621,
+      "elapsed_s": 7.034,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.960572,
+      "elapsed_s": 7.043,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.967906,
+      "elapsed_s": 7.05,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "49",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.976293,
+      "elapsed_s": 7.058,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.9863622,
+      "elapsed_s": 7.069,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675063.9931982,
+      "elapsed_s": 7.075,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.0029151,
+      "elapsed_s": 7.085,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " (",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.010697,
+      "elapsed_s": 7.093,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Q",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.023502,
+      "elapsed_s": 7.106,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.027058,
+      "elapsed_s": 7.109,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.03719,
+      "elapsed_s": 7.119,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "202",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.043872,
+      "elapsed_s": 7.126,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.052686,
+      "elapsed_s": 7.135,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ")",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.061142,
+      "elapsed_s": 7.143,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " to",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.069349,
+      "elapsed_s": 7.152,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.077755,
+      "elapsed_s": 7.16,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.086596,
+      "elapsed_s": 7.169,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.0946538,
+      "elapsed_s": 7.177,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "60",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.119135,
+      "elapsed_s": 7.201,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.121344,
+      "elapsed_s": 7.204,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "%",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.1244428,
+      "elapsed_s": 7.207,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.127193,
+      "elapsed_s": 7.209,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " (",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.1379032,
+      "elapsed_s": 7.22,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Q",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.1457899,
+      "elapsed_s": 7.228,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.153909,
+      "elapsed_s": 7.236,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.161833,
+      "elapsed_s": 7.244,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "202",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.170542,
+      "elapsed_s": 7.253,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.183599,
+      "elapsed_s": 7.266,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "),",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.1868758,
+      "elapsed_s": 7.269,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " with",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.1962528,
+      "elapsed_s": 7.278,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " a",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.204237,
+      "elapsed_s": 7.286,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " small",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.2137651,
+      "elapsed_s": 7.296,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " dip",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.221087,
+      "elapsed_s": 7.303,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " in",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.2298298,
+      "elapsed_s": 7.312,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Q",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.237491,
+      "elapsed_s": 7.32,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.2466078,
+      "elapsed_s": 7.329,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\u202f",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.2551491,
+      "elapsed_s": 7.337,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "202",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.263426,
+      "elapsed_s": 7.346,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.2713642,
+      "elapsed_s": 7.354,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".\n\n",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.2801101,
+      "elapsed_s": 7.362,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "The",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.288196,
+      "elapsed_s": 7.37,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " data",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.29824,
+      "elapsed_s": 7.38,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " suggest",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.306112,
+      "elapsed_s": 7.388,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " a",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.315566,
+      "elapsed_s": 7.398,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " stable",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.323245,
+      "elapsed_s": 7.405,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " but",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.331876,
+      "elapsed_s": 7.414,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " high",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.3450692,
+      "elapsed_s": 7.427,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " GDP",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.367071,
+      "elapsed_s": 7.449,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " growth",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.367147,
+      "elapsed_s": 7.449,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " rate",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.397808,
+      "elapsed_s": 7.48,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " while",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.3979251,
+      "elapsed_s": 7.48,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " inflation",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.4836879,
+      "elapsed_s": 7.566,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " and",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.483797,
+      "elapsed_s": 7.566,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " unemployment",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.4838269,
+      "elapsed_s": 7.566,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " show",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.483849,
+      "elapsed_s": 7.566,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " modest",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.483868,
+      "elapsed_s": 7.566,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " upward",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.483886,
+      "elapsed_s": 7.566,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " trends",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.483903,
+      "elapsed_s": 7.566,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ",",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.4891589,
+      "elapsed_s": 7.571,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " and",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.489245,
+      "elapsed_s": 7.571,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " monetary",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.491328,
+      "elapsed_s": 7.574,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " policy",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.4913971,
+      "elapsed_s": 7.574,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " has",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.491452,
+      "elapsed_s": 7.574,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " been",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.492279,
+      "elapsed_s": 7.574,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " tightening",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.497764,
+      "elapsed_s": 7.58,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " gradually",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.50504,
+      "elapsed_s": 7.587,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.5529659,
+      "elapsed_s": 7.635,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-e0ba243a",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Summarizing findings...",
+        "started_at": 1774675062.6624,
+        "finished_at": 1774675064.552089,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.553083,
+      "elapsed_s": 7.635,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "Here are the most recent five quarters:\n\n- **GDP growth** has been flat at **8.0\u202f%** for each of the last five quarters.  \n- **Inflation** has risen slightly from **2.89\u202f%** (Q4\u202f2023) to **3.28\u202f%** (Q2\u202f2024), then dipped to **3.05\u202f%** in Q4\u202f2024.  \n- **Unemployment** has edged upward from **5.8\u202f%** (Q4\u202f2023) to **6.3\u202f%** (Q4\u202f2024).  \n- **Fed funds rate** has increased overall, from **3.49\u202f%** (Q4\u202f2023) to **3.60\u202f%** (Q4\u202f2024), with a small dip in Q2\u202f2024.\n\nThe data suggest a stable but high GDP growth rate while inflation and unemployment show modest upward trends, and monetary policy has been tightening gradually.",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "9d574377-6c0f-4483-a2eb-fcf0606e0174",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.553947,
+      "elapsed_s": 7.636,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "9d574377-6c0f-4483-a2eb-fcf0606e0174",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.554231,
+      "elapsed_s": 7.636,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774675064.554157,
+        "finished_at": 1774675064.554157,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774675064.5542772,
+      "elapsed_s": 7.636,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "9d574377-6c0f-4483-a2eb-fcf0606e0174",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

@@ -1,0 +1,361 @@
+{
+  "session_id": "e2e-table-1774569355",
+  "timestamp": "2026-03-26T23:55:55.191466+00:00",
+  "question": "Show me the top 5 rows from us_quarterly_macro_0047798b",
+  "response": "Here's **Quarter, Gdp Growth Pct, Inflation Rate \u2014 Us Quarterly Macro (5 rows)**:",
+  "total_elapsed_s": 30.928,
+  "event_count": 23,
+  "events": [
+    {
+      "timestamp": 1774569355.278667,
+      "elapsed_s": 0.087,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-8829f857",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569355.278263,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569355.2792451,
+      "elapsed_s": 0.088,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Show me the top 5 rows from us_quarterly_macro_0047798b",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569355.2797818,
+      "elapsed_s": 0.088,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Show me the top 5 rows from us_quarterly_macro_0047798b",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569355.280163,
+      "elapsed_s": 0.089,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569355.280527,
+      "elapsed_s": 0.089,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ComplexityAdaptiveMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569355.2808452,
+      "elapsed_s": 0.089,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "NagReminderMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569355.2811189,
+      "elapsed_s": 0.09,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "EvaluatorMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569373.602531,
+      "elapsed_s": 18.411,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-8829f857",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Querying database: SELECT * FROM us_quarterly_macro_0047798b LIMIT 5...",
+        "started_at": 1774569355.278263,
+        "finished_at": 1774569373.601751,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569373.6026082,
+      "elapsed_s": 18.411,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-622872af",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569373.6018078,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569373.6026418,
+      "elapsed_s": 18.411,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "query_duckdb",
+                  "args": {
+                    "sql": "SELECT * FROM us_quarterly_macro_0047798b LIMIT 5"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569373.60361,
+      "elapsed_s": 18.412,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569373.60507,
+      "elapsed_s": 18.414,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "args_preview": "SQL: SELECT * FROM us_quarterly_macro_0047798b LIMIT 5",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569373.607064,
+      "elapsed_s": 18.416,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "query_duckdb",
+        "elapsed_s": 0.0,
+        "result_preview": "Columns: ['quarter', 'gdp_growth_pct', 'inflation_rate', 'unemployment_rate', 'fed_funds_rate']\nRows returned: 5\n\n{'quarter': datetime.date(2000, 1, 1), 'gdp_growth_pct': 1.0, 'inflation_rate': 2.08, ",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569373.6105752,
+      "elapsed_s": 18.419,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-622872af",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774569373.6018078,
+        "finished_at": 1774569373.609983,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569373.6106691,
+      "elapsed_s": 18.419,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-ce15ea6e",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569373.610013,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569373.6106932,
+      "elapsed_s": 18.419,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "38a361aa",
+        "type": "table",
+        "title": "Quarter, Gdp Growth Pct, Inflation Rate \u2014 Us Quarterly Macro (5 rows)",
+        "content": "<table class=\"artifact-table\"><thead><tr><th>quarter</th><th>gdp_growth_pct</th><th>inflation_rate</th><th>unemployment_rate</th><th>fed_funds_rate</th></tr></thead><tbody><tr><td>2000-01-01</td><td>1.0</td><td>2.08</td><td>5.1</td><td>1.88</td></tr><tr><td>2000-04-01</td><td>1.86</td><td>2.18</td><td>5.2</td><td>1.79</td></tr><tr><td>2000-07-01</td><td>3.33</td><td>2.29</td><td>5.4</td><td>1.9</td></tr><tr><td>2000-10-01</td><td>5.46</td><td>2.25</td><td>5.6</td><td>2.0</td></tr><tr><td>2001-01-01</td><td>6.11</td><td>2.39</td><td>5.3</td><td>1.99</td></tr></tbody></table>",
+        "format": "html",
+        "created_at": 1774569373.606747,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569373.610718,
+      "elapsed_s": 18.419,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Columns: ['quarter', 'gdp_growth_pct', 'inflation_rate', 'unemployment_rate', 'fed_funds_rate']\nRows returned: 5\n\n{'quarter': datetime.date(2000, 1, 1), 'gdp_growth_pct': 1.0, 'inflation_rate': 2.08, 'unemployment_rate': 5.1, 'fed_funds_rate': 1.88}\n{'quarter': datetime.date(2000, 4, 1), 'gdp_growth_pct': 1.86, 'inflation_rate': 2.18, 'unemployment_rate': 5.2, 'fed_funds_rate': 1.79}\n{'quarter': datetime.date(2000, 7, 1), 'gdp_growth_pct': 3.33, 'inflation_rate': 2.29, 'unemployment_rate': 5.4, 'fed_funds_rate': 1.9}\n{'quarter': datetime.date(2000, 10, 1), 'gdp_growth_pct': 5.46, 'inflation_rate': 2.25, 'unemployment_rate': 5.6, 'fed_funds_rate': 2.0}\n{'quarter': datetime.date(2001, 1, 1), 'gdp_growth_pct': 6.11, 'inflation_rate': 2.39, 'unemployment_rate': 5.3, 'fed_funds_rate': 1.99}\n\n[Table auto-saved as artifact 38a361aa]",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569386.1174772,
+      "elapsed_s": 30.926,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-ce15ea6e",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Summarizing findings...",
+        "started_at": 1774569373.610013,
+        "finished_at": 1774569386.116838,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569386.1175559,
+      "elapsed_s": 30.926,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569386.11844,
+      "elapsed_s": 30.927,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569386.1186922,
+      "elapsed_s": 30.927,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "Here's **Quarter, Gdp Growth Pct, Inflation Rate \u2014 Us Quarterly Macro (5 rows)**:",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569386.118727,
+      "elapsed_s": 30.927,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774569386.118656,
+        "finished_at": 1774569386.118656,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569386.1187499,
+      "elapsed_s": 30.927,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "e2e-table-1774569355",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

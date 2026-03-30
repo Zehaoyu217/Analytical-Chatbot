@@ -12,142 +12,115 @@ import type { ProgressStep } from "@/types";
 interface Toast {
   id: string;
   icon: string;
-  emoji: string;
   message: string;
-  color: string;
+  accent: string;
   type: "thinking" | "tool" | "done" | "artifact";
 }
 
-const TOOL_TOASTS: Record<string, { emoji: string; icon: string; color: string; messages: string[] }> = {
+const TOOL_TOASTS: Record<string, { icon: string; accent: string; messages: string[] }> = {
   query_duckdb: {
-    emoji: "🦆",
     icon: "database",
-    color: "from-cyan-500/20 to-blue-500/10 border-cyan-500/30",
+    accent: "text-teal-400 border-teal-500/20",
     messages: [
-      "Quack! Running your query...",
-      "The ducks are on it!",
-      "SQL magic incoming...",
-      "Diving into the data pond...",
-      "SELECT * FROM brilliance...",
+      "Running query...",
+      "Querying data...",
+      "SQL executing...",
+      "Reading tables...",
     ],
   },
   run_python: {
-    emoji: "🐍",
-    icon: "code",
-    color: "from-emerald-500/20 to-green-500/10 border-emerald-500/30",
+    icon: "terminal",
+    accent: "text-emerald-400 border-emerald-500/20",
     messages: [
-      "Python is computing...",
-      "Snek goes brrr...",
-      "import awesome_results",
-      "Running the numbers...",
-      "Crunching data Pythonically...",
+      "Executing code...",
+      "Computing...",
+      "Running analysis...",
+      "Processing...",
     ],
   },
   save_artifact: {
-    emoji: "💎",
-    icon: "diamond",
-    color: "from-violet-500/20 to-purple-500/10 border-violet-500/30",
+    icon: "add_chart",
+    accent: "text-violet-400 border-violet-500/20",
     messages: [
-      "Saving something shiny!",
-      "Treasure secured!",
-      "Artifact crafted!",
-      "Locking in the goods...",
+      "Saving artifact...",
+      "Output saved.",
+      "Artifact created.",
     ],
   },
   save_dashboard_component: {
-    emoji: "📊",
-    icon: "dashboard",
-    color: "from-amber-500/20 to-orange-500/10 border-amber-500/30",
+    icon: "space_dashboard",
+    accent: "text-amber-400 border-amber-500/20",
     messages: [
-      "Dashboard piece ready!",
-      "Widget deployed!",
-      "Building Bloomberg 2.0...",
-      "Making it look fancy...",
+      "Component ready.",
+      "Widget saved.",
+      "Dashboard updated.",
     ],
   },
   delegate_to_agent: {
-    emoji: "🤖",
     icon: "smart_toy",
-    color: "from-indigo-500/20 to-purple-500/10 border-indigo-500/30",
+    accent: "text-amber-400 border-amber-500/20",
     messages: [
-      "Calling in the specialist!",
-      "Assembling the A-team...",
-      "Tag team activated!",
-      "Expert agent deployed...",
+      "Delegating task...",
+      "Sub-agent dispatched.",
+      "Specialist engaged.",
     ],
   },
   get_schema: {
-    emoji: "🔍",
     icon: "schema",
-    color: "from-teal-500/20 to-cyan-500/10 border-teal-500/30",
+    accent: "text-sky-400 border-sky-500/20",
     messages: [
-      "Inspecting the blueprint...",
-      "X-raying the table...",
-      "Reading the schema DNA...",
+      "Reading schema...",
+      "Inspecting table...",
     ],
   },
   list_datasets: {
-    emoji: "📋",
     icon: "list_alt",
-    color: "from-sky-500/20 to-blue-500/10 border-sky-500/30",
+    accent: "text-sky-400 border-sky-500/20",
     messages: [
+      "Listing datasets...",
       "Taking inventory...",
-      "Surveying the data lake...",
-      "Counting the tables...",
     ],
   },
 };
 
 const THINKING_TOASTS = {
-  emoji: "🧠",
   icon: "psychology",
-  color: "from-indigo-500/20 to-violet-500/10 border-indigo-500/30",
+  accent: "text-amber-400 border-amber-500/20",
   messages: [
-    "Neurons firing...",
-    "Big brain mode activated!",
-    "Thinking really hard...",
-    "The AI is cooking...",
-    "Assembling infinite wisdom...",
-    "Galaxy brain engaged...",
-    "Consulting the oracle...",
-    "Synapses sparking...",
+    "Planning approach...",
+    "Analyzing request...",
+    "Thinking...",
+    "Reasoning...",
   ],
 };
 
 const RESPONDING_TOASTS = {
-  emoji: "✍️",
   icon: "edit_note",
-  color: "from-purple-500/20 to-pink-500/10 border-purple-500/30",
+  accent: "text-amber-400 border-amber-500/20",
   messages: [
-    "Writing something brilliant...",
-    "Crafting the perfect response...",
-    "Words are flowing...",
-    "Poetry in motion...",
+    "Composing response...",
+    "Writing...",
+    "Generating output...",
   ],
 };
 
 const DONE_TOASTS = {
-  emoji: "🎉",
-  icon: "celebration",
-  color: "from-emerald-500/20 to-green-500/10 border-emerald-500/30",
+  icon: "check_circle",
+  accent: "text-emerald-400 border-emerald-500/20",
   messages: [
-    "All done! Nailed it!",
-    "Mission accomplished!",
-    "Boom! Results are in!",
-    "That was satisfying!",
-    "Chef's kiss!",
+    "Complete.",
+    "Done.",
+    "Finished.",
   ],
 };
 
 const ARTIFACT_TOASTS = {
-  emoji: "✨",
   icon: "auto_awesome",
-  color: "from-amber-500/20 to-yellow-500/10 border-amber-500/30",
+  accent: "text-amber-400 border-amber-500/20",
   messages: [
-    "New artifact created!",
-    "Something cool just appeared!",
-    "Fresh results ready!",
-    "Check out this beauty!",
+    "Artifact created.",
+    "New output ready.",
+    "Results saved.",
   ],
 };
 
@@ -202,9 +175,8 @@ export function AgentActivityToasts() {
         shownStepsRef.current.add(doneKey);
         addToast({
           icon: DONE_TOASTS.icon,
-          emoji: DONE_TOASTS.emoji,
           message: pickRandom(DONE_TOASTS.messages),
-          color: DONE_TOASTS.color,
+          accent: DONE_TOASTS.accent,
           type: "done",
         });
       }
@@ -218,9 +190,8 @@ export function AgentActivityToasts() {
     if (artifacts.length > lastArtifactCountRef.current) {
       addToast({
         icon: ARTIFACT_TOASTS.icon,
-        emoji: ARTIFACT_TOASTS.emoji,
         message: pickRandom(ARTIFACT_TOASTS.messages),
-        color: ARTIFACT_TOASTS.color,
+        accent: ARTIFACT_TOASTS.accent,
         type: "artifact",
       });
     }
@@ -239,60 +210,35 @@ export function AgentActivityToasts() {
   if (toasts.length === 0) return null;
 
   return (
-    <div className="fixed bottom-24 right-6 z-50 flex flex-col-reverse gap-2 pointer-events-none">
+    <div
+      role="status"
+      aria-live="polite"
+      aria-label="Agent activity notifications"
+      className="fixed bottom-20 right-5 z-50 flex flex-col-reverse gap-1.5 pointer-events-none"
+    >
       <AnimatePresence mode="popLayout">
         {toasts.map((toast) => (
           <motion.div
             key={toast.id}
             layout
-            initial={{ opacity: 0, y: 30, scale: 0.85, filter: "blur(4px)" }}
-            animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, x: 80, scale: 0.9, filter: "blur(2px)" }}
-            transition={{
-              type: "spring",
-              stiffness: 400,
-              damping: 25,
-              mass: 0.8,
-            }}
-            className={`pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-xl
-              bg-gradient-to-r ${toast.color} border backdrop-blur-xl
-              shadow-lg shadow-black/20 min-w-[240px] max-w-[340px]`}
+            initial={{ opacity: 0, y: 12, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, x: 40, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className={`pointer-events-auto relative flex items-center gap-2 px-3 py-2 rounded-[var(--radius-sm)]
+              bg-[var(--surface-2)] border ${toast.accent}
+              shadow-[var(--shadow-md)] min-w-[200px] max-w-[280px]`}
           >
-            {/* Animated emoji */}
-            <motion.span
-              className="text-xl shrink-0"
-              initial={{ rotate: -20, scale: 0 }}
-              animate={{ rotate: 0, scale: 1 }}
-              transition={{ type: "spring", stiffness: 500, damping: 15, delay: 0.1 }}
-            >
-              {toast.emoji}
-            </motion.span>
-
-            {/* Message */}
-            <div className="flex-1 min-w-0">
-              <p className="text-[12px] font-medium text-[var(--text-primary)] leading-snug truncate">
-                {toast.message}
-              </p>
-            </div>
-
-            {/* Animated icon */}
-            <motion.span
-              className="material-symbols-rounded text-[16px] text-[var(--text-muted)] shrink-0"
-              animate={{
-                rotate: toast.type === "thinking" ? [0, 10, -10, 0] : 0,
-                scale: toast.type === "done" ? [1, 1.3, 1] : 1,
-              }}
-              transition={{
-                duration: toast.type === "thinking" ? 2 : 0.5,
-                repeat: toast.type === "thinking" ? Infinity : 0,
-              }}
-            >
+            <span className={`material-symbols-rounded text-[14px] shrink-0 ${toast.accent.split(' ')[0]}`}>
               {toast.icon}
-            </motion.span>
+            </span>
+            <p className="text-[11px] font-mono text-[var(--text-secondary)] leading-snug truncate">
+              {toast.message}
+            </p>
 
-            {/* Progress bar that drains */}
+            {/* Drain bar */}
             <motion.div
-              className="absolute bottom-0 left-0 h-[2px] rounded-b-xl bg-white/20"
+              className="absolute bottom-0 left-0 h-[1px] bg-white/10"
               initial={{ width: "100%" }}
               animate={{ width: "0%" }}
               transition={{ duration: TOAST_DURATION / 1000, ease: "linear" }}
@@ -313,9 +259,8 @@ function toastForStep(step: ProgressStep, addToast: (t: Omit<Toast, "id">) => vo
     if (config) {
       addToast({
         icon: config.icon,
-        emoji: config.emoji,
         message: pickRandom(config.messages),
-        color: config.color,
+        accent: config.accent,
         type: "tool",
       });
       return;
@@ -326,9 +271,8 @@ function toastForStep(step: ProgressStep, addToast: (t: Omit<Toast, "id">) => vo
   if (label.includes("Thinking")) {
     addToast({
       icon: THINKING_TOASTS.icon,
-      emoji: THINKING_TOASTS.emoji,
       message: pickRandom(THINKING_TOASTS.messages),
-      color: THINKING_TOASTS.color,
+      accent: THINKING_TOASTS.accent,
       type: "thinking",
     });
     return;
@@ -338,9 +282,8 @@ function toastForStep(step: ProgressStep, addToast: (t: Omit<Toast, "id">) => vo
   if (label.includes("Generating") || label.includes("Responding")) {
     addToast({
       icon: RESPONDING_TOASTS.icon,
-      emoji: RESPONDING_TOASTS.emoji,
       message: pickRandom(RESPONDING_TOASTS.messages),
-      color: RESPONDING_TOASTS.color,
+      accent: RESPONDING_TOASTS.accent,
       type: "thinking",
     });
     return;
@@ -350,9 +293,8 @@ function toastForStep(step: ProgressStep, addToast: (t: Omit<Toast, "id">) => vo
   if (label.includes("Running tools")) {
     addToast({
       icon: "build",
-      emoji: "⚡",
-      message: "Tools are firing up!",
-      color: "from-amber-500/20 to-orange-500/10 border-amber-500/30",
+      message: "Executing tools...",
+      accent: "text-amber-400 border-amber-500/20",
       type: "tool",
     });
   }

@@ -1,0 +1,1593 @@
+{
+  "session_id": "e2e-mermaid-1774569969",
+  "timestamp": "2026-03-27T00:06:09.073964+00:00",
+  "question": "Draw a mermaid diagram showing the data pipeline: CSV upload \u2192 DuckDB ingestion \u2192 query \u2192 visualization",
+  "response": "Here is the Mermaid diagram showing the data pipeline flow:\n\n**Data Pipeline: CSV \u2192 DuckDB \u2192 Query \u2192 Visualization**\n\nThe diagram illustrates the four-stage pipeline:\n1. **CSV Upload** \u2014 Raw data files are uploaded\n2. **DuckDB Ingestion** \u2014 Data is stored in the DuckDB database\n3. **Query Execution** \u2014 SQL queries are executed against the stored data\n4. **Visualization** \u2014 Query results are rendered as charts or tables\n\nThe diagram uses FontAwesome icons and the OneGS dark theme for a professional appearance.",
+  "total_elapsed_s": 83.894,
+  "event_count": 141,
+  "events": [
+    {
+      "timestamp": 1774569969.0754719,
+      "elapsed_s": 0.002,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-01286094",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569969.075079,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569969.0760589,
+      "elapsed_s": 0.002,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Draw a mermaid diagram showing the data pipeline: CSV upload \u2192 DuckDB ingestion \u2192 query \u2192 visualization",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569969.0769112,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Draw a mermaid diagram showing the data pipeline: CSV upload \u2192 DuckDB ingestion \u2192 query \u2192 visualization",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569969.0771892,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569969.0774279,
+      "elapsed_s": 0.003,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ComplexityAdaptiveMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569969.077653,
+      "elapsed_s": 0.004,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "NagReminderMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569969.077874,
+      "elapsed_s": 0.004,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "EvaluatorMiddleware.before_agent",
+        "data": null,
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569981.7971342,
+      "elapsed_s": 12.723,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-01286094",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Loading skill: mermaid",
+        "started_at": 1774569969.075079,
+        "finished_at": 1774569981.796414,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569981.797215,
+      "elapsed_s": 12.723,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-7f977dac",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569981.796496,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569981.7972422,
+      "elapsed_s": 12.723,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "load_skill",
+                  "args": {
+                    "skill_name": "mermaid"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569981.798102,
+      "elapsed_s": 12.724,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569981.799314,
+      "elapsed_s": 12.725,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "load_skill",
+        "args_preview": "Skill: mermaid",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569981.803951,
+      "elapsed_s": 12.73,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "load_skill",
+        "elapsed_s": 0.01,
+        "result_preview": "# mermaid\nCreate fancy, spacious, and professional Mermaid diagrams using the GS color palette\n\n# Mermaid Diagrams (OneGS Theme)\n\n## Built-in: `GS_MERMAID_THEME`\n\nPre-imported in every `run_python` ca",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569981.806844,
+      "elapsed_s": 12.733,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-7f977dac",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774569981.796496,
+        "finished_at": 1774569981.8063731,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569981.8068962,
+      "elapsed_s": 12.733,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-6e8dde83",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774569981.806396,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774569981.8069172,
+      "elapsed_s": 12.733,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "# mermaid\nCreate fancy, spacious, and professional Mermaid diagrams using the GS color palette\n\n# Mermaid Diagrams (OneGS Theme)\n\n## Built-in: `GS_MERMAID_THEME`\n\nPre-imported in every `run_python` call. Prepend it to any Mermaid string for the GS dark theme \u2014 no copy-pasting required.\n\n```python\ndiagram = GS_MERMAID_THEME + \"\"\"\ngraph TD\n    A[Start] --> B[Process]\n    B --> C[End]\n\"\"\"\nsave_artifact(diagram, \"My Diagram\", artifact_type=\"diagram\")\n```\n\n## Node Shapes\n\n| Shape | Syntax | Use for |\n|---|---|---|\n| Rectangle | `A[Label]` | Processes, steps |\n| Rounded | `A(Label)` | Start/end, data stores |\n| Diamond | `A{Label}` | Decisions |\n| Database | `A[(Label)]` | Databases |\n\n## Styling Rules\n\n1. Always use `GS_MERMAID_THEME` \u2014 never raw unstyled Mermaid\n2. Use `TD` (top-down) or `LR` (left-right) layouts \u2014 never cramped default\n3. Add `style NodeName fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff` for emphasis nodes\n4. Use `subgraph` blocks to group related nodes\n5. FontAwesome icons in nodes where meaningful: `A[fa:fa-database Database]`\n\n## Example \u2014 System Architecture\n\n```python\ndiagram = GS_MERMAID_THEME + \"\"\"\ngraph TD\n    User([fa:fa-user User]) -->|Uploads| API[fa:fa-server FastAPI]\n    API --> DB[(fa:fa-database DuckDB)]\n    DB --> Agent{fa:fa-robot AI Agent}\n    Agent --> UI[fa:fa-desktop Dashboard]\n\n    style User fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n    style Agent fill:#3b82f6,stroke:#93c5fd,stroke-width:2px,color:#fff\n\"\"\"\nsave_artifact(diagram, \"System Architecture\", artifact_type=\"diagram\")\n```",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570023.199486,
+      "elapsed_s": 54.126,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-1-6e8dde83",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Running Python: diagram = GS_MERMAID_THEME + \"\"\"...",
+        "started_at": 1774569981.806396,
+        "finished_at": 1774570023.199172,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570023.1995242,
+      "elapsed_s": 54.126,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-c45c72f7",
+        "label": "Running tools...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774570023.1991959,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570023.1995351,
+      "elapsed_s": 54.126,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "",
+              "type": "ai",
+              "tool_calls": [
+                {
+                  "name": "run_python",
+                  "args": {
+                    "code": "diagram = GS_MERMAID_THEME + \"\"\"\ngraph TD\n    CSV[fa:fa-file-csv CSV Upload] -->|File Ingestion| DUCKDB[(fa:fa-database DuckDB)]\n    DUCKDB -->|Data Stored| QUERY{fa:fa-search Query Execution}\n    QUERY -->|Results| VIZ[fa:fa-chart-bar Visualization]\n    \n    style CSV fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n    style DUCKDB fill:#3b82f6,stroke:#93c5fd,stroke-width:2px,color:#fff\n    style QUERY fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n    style VIZ fill:#3b82f6,stroke:#93c5fd,stroke-width:2px,color:#fff\n\"\"\"\n\nsave_artifact(diagram, \"Data Pipeline: CSV \u2192 DuckDB \u2192 Query \u2192 Visualization\", artifact_type=\"diagram\")"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570023.199999,
+      "elapsed_s": 54.126,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570023.200597,
+      "elapsed_s": 54.127,
+      "event_type": "tool_start",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "args_preview": "diagram = GS_MERMAID_THEME + \"\"\"",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570023.663819,
+      "elapsed_s": 54.59,
+      "event_type": "tool_end",
+      "agent_id": "orchestrator",
+      "data": {
+        "tool": "run_python",
+        "elapsed_s": 0.46,
+        "result_preview": "Saved diagram artifact: Data Pipeline: CSV \u2192 DuckDB \u2192 Query \u2192 Visualization (id=55d41146). Diagram is visible in Artifacts panel and inline in the chat.",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570023.665807,
+      "elapsed_s": 54.592,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "tools-c45c72f7",
+        "label": "Running tools...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774570023.1991959,
+        "finished_at": 1774570023.66544,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570023.665832,
+      "elapsed_s": 54.592,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-63c038a1",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774570023.665453,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570023.665843,
+      "elapsed_s": 54.592,
+      "event_type": "artifact",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "55d41146",
+        "type": "diagram",
+        "title": "Data Pipeline: CSV \u2192 DuckDB \u2192 Query \u2192 Visualization",
+        "content": "%%{init: {\n  'theme': 'base',\n  'themeVariables': {\n    'primaryColor': '#1e293b',\n    'primaryTextColor': '#f8fafc',\n    'primaryBorderColor': '#3b82f6',\n    'lineColor': '#94a3b8',\n    'secondaryColor': '#0055b8',\n    'tertiaryColor': '#0f172a',\n    'fontFamily': 'Google Sans, sans-serif'\n  }\n}}%%\n    graph TD\n        CSV[fa:fa-file-csv CSV Upload] -->|File Ingestion| DUCKDB[(fa:fa-database DuckDB)]\n        DUCKDB -->|Data Stored| QUERY{fa:fa-search Query Execution}\n        QUERY -->|Results| VIZ[fa:fa-chart-bar Visualization]\n    \n        style CSV fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n        style DUCKDB fill:#3b82f6,stroke:#93c5fd,stroke-width:2px,color:#fff\n        style QUERY fill:#0055b8,stroke:#60a5fa,stroke-width:2px,color:#fff\n        style VIZ fill:#3b82f6,stroke:#93c5fd,stroke-width:2px,color:#fff\n    ",
+        "format": "mermaid",
+        "created_at": 1774570023.66332,
+        "metadata": {},
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570023.665857,
+      "elapsed_s": 54.592,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "tools",
+        "data": {
+          "messages": [
+            {
+              "content": "Saved diagram artifact: Data Pipeline: CSV \u2192 DuckDB \u2192 Query \u2192 Visualization (id=55d41146). Diagram is visible in Artifacts panel and inline in the chat.",
+              "type": "tool"
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570040.748223,
+      "elapsed_s": 71.674,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-2-63c038a1",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "",
+        "started_at": 1774570023.665453,
+        "finished_at": 1774570040.7481222,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570040.748283,
+      "elapsed_s": 71.674,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-db737348",
+        "label": "Composing response...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774570040.7481668,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570040.748304,
+      "elapsed_s": 71.674,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Here",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570040.850632,
+      "elapsed_s": 71.777,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " is",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570040.954564,
+      "elapsed_s": 71.881,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570041.057083,
+      "elapsed_s": 71.983,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Mer",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570041.159169,
+      "elapsed_s": 72.085,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "maid",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570041.260758,
+      "elapsed_s": 72.187,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " diagram",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570041.3633122,
+      "elapsed_s": 72.289,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " showing",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570041.464693,
+      "elapsed_s": 72.391,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570041.566166,
+      "elapsed_s": 72.492,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " data",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570041.6679811,
+      "elapsed_s": 72.594,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " pipeline",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570041.770067,
+      "elapsed_s": 72.696,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " flow",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570041.871735,
+      "elapsed_s": 72.798,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ":",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570042.0774348,
+      "elapsed_s": 73.003,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n\n**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570042.1801229,
+      "elapsed_s": 73.106,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Data",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570042.279242,
+      "elapsed_s": 73.205,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Pipeline",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570042.383894,
+      "elapsed_s": 73.31,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ":",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570042.488343,
+      "elapsed_s": 73.414,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " CSV",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570042.5917811,
+      "elapsed_s": 73.518,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2192",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570042.696797,
+      "elapsed_s": 73.623,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Duck",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570042.8029451,
+      "elapsed_s": 73.729,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "DB",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570042.906485,
+      "elapsed_s": 73.833,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2192",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570043.0126138,
+      "elapsed_s": 73.939,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Query",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570043.118997,
+      "elapsed_s": 74.045,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2192",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570043.223317,
+      "elapsed_s": 74.149,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Visualization",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570043.3293571,
+      "elapsed_s": 74.255,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570043.541763,
+      "elapsed_s": 74.468,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n\nThe",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570043.648212,
+      "elapsed_s": 74.574,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " diagram",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570043.755865,
+      "elapsed_s": 74.682,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " illustrates",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570043.863482,
+      "elapsed_s": 74.79,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570043.969974,
+      "elapsed_s": 74.896,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " four",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570044.076341,
+      "elapsed_s": 75.002,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "-stage",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570044.184125,
+      "elapsed_s": 75.11,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " pipeline",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570044.286038,
+      "elapsed_s": 75.212,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ":",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570044.495838,
+      "elapsed_s": 75.422,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n1",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570044.603301,
+      "elapsed_s": 75.529,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570044.710162,
+      "elapsed_s": 75.636,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570044.8181062,
+      "elapsed_s": 75.744,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "CSV",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570044.92641,
+      "elapsed_s": 75.852,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Upload",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570045.035232,
+      "elapsed_s": 75.961,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570045.143918,
+      "elapsed_s": 76.07,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2014",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570045.250412,
+      "elapsed_s": 76.176,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Raw",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570045.357138,
+      "elapsed_s": 76.283,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " data",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570045.465806,
+      "elapsed_s": 76.392,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " files",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570045.573998,
+      "elapsed_s": 76.5,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " are",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570045.682393,
+      "elapsed_s": 76.608,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " uploaded",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570045.899202,
+      "elapsed_s": 76.825,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n2",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570046.007541,
+      "elapsed_s": 76.934,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570046.115965,
+      "elapsed_s": 77.042,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570046.223216,
+      "elapsed_s": 77.149,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "D",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570046.3307369,
+      "elapsed_s": 77.257,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "uck",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570046.4391391,
+      "elapsed_s": 77.365,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "DB",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570046.5446,
+      "elapsed_s": 77.471,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " In",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570046.651917,
+      "elapsed_s": 77.578,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "gestion",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570046.7600079,
+      "elapsed_s": 77.686,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570046.867556,
+      "elapsed_s": 77.794,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2014",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570046.974359,
+      "elapsed_s": 77.9,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Data",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570047.081873,
+      "elapsed_s": 78.008,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " is",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570047.190604,
+      "elapsed_s": 78.117,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " stored",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570047.2967749,
+      "elapsed_s": 78.223,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " in",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570047.404963,
+      "elapsed_s": 78.331,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570047.51305,
+      "elapsed_s": 78.439,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Duck",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570047.621454,
+      "elapsed_s": 78.547,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "DB",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570047.729711,
+      "elapsed_s": 78.656,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " database",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570047.946625,
+      "elapsed_s": 78.873,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n3",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570048.053231,
+      "elapsed_s": 78.979,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570048.161265,
+      "elapsed_s": 79.087,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570048.266604,
+      "elapsed_s": 79.193,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Query",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570048.374219,
+      "elapsed_s": 79.3,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Execution",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570048.4812438,
+      "elapsed_s": 79.407,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570048.589157,
+      "elapsed_s": 79.515,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2014",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570048.696758,
+      "elapsed_s": 79.623,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " SQL",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570048.80385,
+      "elapsed_s": 79.73,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " queries",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570048.910976,
+      "elapsed_s": 79.837,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " are",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570049.017076,
+      "elapsed_s": 79.943,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " executed",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570049.123466,
+      "elapsed_s": 80.05,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " against",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570049.2286131,
+      "elapsed_s": 80.155,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570049.334188,
+      "elapsed_s": 80.26,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " stored",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570049.44188,
+      "elapsed_s": 80.368,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " data",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570049.654594,
+      "elapsed_s": 80.581,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n4",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570049.761954,
+      "elapsed_s": 80.688,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570049.8678458,
+      "elapsed_s": 80.794,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " **",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570049.9737768,
+      "elapsed_s": 80.9,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "Visualization",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570050.0799968,
+      "elapsed_s": 81.006,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "**",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570050.185808,
+      "elapsed_s": 81.112,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " \u2014",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570050.290879,
+      "elapsed_s": 81.217,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " Query",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570050.397426,
+      "elapsed_s": 81.323,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " results",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570050.504651,
+      "elapsed_s": 81.431,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " are",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570050.6120589,
+      "elapsed_s": 81.538,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " rendered",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570050.719808,
+      "elapsed_s": 81.646,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " as",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570050.826775,
+      "elapsed_s": 81.753,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " charts",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570050.9332511,
+      "elapsed_s": 81.859,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " or",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570051.039875,
+      "elapsed_s": 81.966,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " tables",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570051.250344,
+      "elapsed_s": 82.176,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "\n\nThe",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570051.356568,
+      "elapsed_s": 82.283,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " diagram",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570051.4630232,
+      "elapsed_s": 82.389,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " uses",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570051.570368,
+      "elapsed_s": 82.496,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " FontAwesome",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570051.678148,
+      "elapsed_s": 82.604,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " icons",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570051.7862191,
+      "elapsed_s": 82.712,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " and",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570051.894024,
+      "elapsed_s": 82.82,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " the",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.0018098,
+      "elapsed_s": 82.928,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " One",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.1081972,
+      "elapsed_s": 83.034,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": "GS",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.214067,
+      "elapsed_s": 83.14,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " dark",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.321255,
+      "elapsed_s": 83.247,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " theme",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.430433,
+      "elapsed_s": 83.356,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " for",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.53652,
+      "elapsed_s": 83.463,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " a",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.6447942,
+      "elapsed_s": 83.571,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " professional",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.7510169,
+      "elapsed_s": 83.677,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": " appearance",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.857353,
+      "elapsed_s": 83.783,
+      "event_type": "token_delta",
+      "agent_id": "orchestrator",
+      "data": {
+        "token": ".",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.9667652,
+      "elapsed_s": 83.893,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "responding-db737348",
+        "label": "Thinking...",
+        "status": "done",
+        "detail": "Summarizing findings...",
+        "started_at": 1774570040.7481668,
+        "finished_at": 1774570052.966131,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.966847,
+      "elapsed_s": 83.893,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "model",
+        "data": {
+          "messages": [
+            {
+              "content": "Here is the Mermaid diagram showing the data pipeline flow:\n\n**Data Pipeline: CSV \u2192 DuckDB \u2192 Query \u2192 Visualization**\n\nThe diagram illustrates the four-stage pipeline:\n1. **CSV Upload** \u2014 Raw data files are uploaded\n2. **DuckDB Ingestion** \u2014 Data is stored in the DuckDB database\n3. **Query Execution** \u2014 SQL queries are executed against the stored data\n4. **Visualization** \u2014 Query results are rendered as charts or tables\n\nThe diagram uses FontAwesome icons and the OneGS dark theme for a professional appearance.",
+              "type": "ai"
+            }
+          ]
+        },
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.967464,
+      "elapsed_s": 83.893,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "TodoListMiddleware.after_model",
+        "data": null,
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.967766,
+      "elapsed_s": 83.894,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "done",
+        "label": "Complete",
+        "status": "done",
+        "started_at": 1774570052.967693,
+        "finished_at": 1774570052.967693,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774570052.9678268,
+      "elapsed_s": 83.894,
+      "event_type": "done",
+      "agent_id": "orchestrator",
+      "data": {
+        "session_id": "e2e-mermaid-1774569969",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

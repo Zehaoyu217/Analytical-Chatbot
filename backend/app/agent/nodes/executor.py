@@ -124,9 +124,7 @@ def _preview_args(tool_name: str, args: dict) -> str:
         sql = args.get("sql", "")
         return f"SQL: {sql[:80]}..." if len(sql) > 80 else f"SQL: {sql}"
     if tool_name == "run_python":
-        code = args.get("code", "")
-        first_line = code.split("\n")[0] if code else ""
-        return f"Code: {first_line[:60]}..." if len(first_line) > 60 else f"Code: {first_line}"
+        return args.get("code", "")
     if tool_name == "get_schema":
         return f"Table: {args.get('table_name', '')}"
     return str(args)[:80]

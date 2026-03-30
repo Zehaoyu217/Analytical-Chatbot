@@ -1,0 +1,79 @@
+{
+  "session_id": "ac57c7c8-4bb4-49e1-9a8f-90f6083aa163",
+  "timestamp": "2026-03-28T06:16:03.012129+00:00",
+  "question": "Plot GDP growth trend over time",
+  "response": "",
+  "total_elapsed_s": 4.255,
+  "event_count": 4,
+  "events": [
+    {
+      "timestamp": 1774678563.016429,
+      "elapsed_s": 0.004,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-4dca03b7",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774678563.014845,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774678563.0184069,
+      "elapsed_s": 0.006,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Plot GDP growth trend over time",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "ac57c7c8-4bb4-49e1-9a8f-90f6083aa163",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774678563.019934,
+      "elapsed_s": 0.008,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Plot GDP growth trend over time",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "ac57c7c8-4bb4-49e1-9a8f-90f6083aa163",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774678563.0206752,
+      "elapsed_s": 0.009,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "ac57c7c8-4bb4-49e1-9a8f-90f6083aa163",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

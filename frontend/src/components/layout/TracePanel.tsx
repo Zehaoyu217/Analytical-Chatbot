@@ -17,7 +17,7 @@ function formatElapsed(startedAt: number | null, finishedAt: number | null): str
 }
 
 const STATUS_COLORS: Record<string, string> = {
-  running: "text-indigo-400 bg-indigo-500/10",
+  running: "text-amber-400 bg-amber-500/10",
   done: "text-emerald-400 bg-emerald-500/10",
   error: "text-rose-400 bg-rose-500/10",
   pending: "text-[var(--text-muted)] bg-[var(--surface-3)]",
@@ -43,18 +43,18 @@ function TraceEntry({ step, index }: { step: ProgressStep; index: number }) {
         className="w-full flex items-center gap-2 px-3 py-1.5 hover:bg-[rgba(255,255,255,0.02)] transition-colors text-left"
       >
         {/* Index */}
-        <span className="text-[9px] font-mono text-[var(--text-muted)] w-5 text-right shrink-0">
+        <span className="text-[10px] font-mono text-[var(--text-muted)] w-5 text-right shrink-0">
           {index + 1}
         </span>
 
         {/* Status badge */}
-        <span className={`text-[9px] font-semibold uppercase px-1.5 py-0.5 rounded ${statusColor} shrink-0`}>
+        <span className={`text-[10px] font-semibold uppercase px-1.5 py-0.5 rounded-[var(--radius-sm)] ${statusColor} shrink-0`}>
           {step.status}
         </span>
 
         {/* Type badge */}
         {step.type && (
-          <span className="text-[9px] font-mono text-[var(--text-muted)] bg-[var(--surface-3)] px-1 py-0.5 rounded shrink-0">
+          <span className="text-[10px] font-mono text-[var(--text-muted)] bg-[var(--surface-3)] px-1 py-0.5 rounded-[var(--radius-sm)] shrink-0">
             {step.type}
           </span>
         )}
@@ -66,13 +66,13 @@ function TraceEntry({ step, index }: { step: ProgressStep; index: number }) {
 
         {/* Elapsed */}
         {elapsed && (
-          <span className="text-[9px] font-mono text-emerald-400/60 shrink-0">
+          <span className="text-[10px] font-mono text-emerald-400/60 shrink-0">
             {elapsed}
           </span>
         )}
 
         {/* Time */}
-        <span className="text-[9px] font-mono text-[var(--text-muted)] shrink-0">
+        <span className="text-[10px] font-mono text-[var(--text-muted)] shrink-0">
           {formatTime(step.started_at)}
         </span>
 
@@ -87,11 +87,11 @@ function TraceEntry({ step, index }: { step: ProgressStep; index: number }) {
 
       {expanded && (
         <div className="px-3 pb-2 pl-10">
-          <div className="bg-[var(--surface-3)] rounded-md p-2 text-[10px] font-mono text-[var(--text-secondary)] relative group">
+          <div className="bg-[var(--surface-3)] rounded-[var(--radius-sm)] p-2 text-[10px] font-mono text-[var(--text-secondary)] relative group">
             {/* Copy button */}
             <button
               onClick={handleCopy}
-              className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded hover:bg-[var(--surface-2)]"
+              className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded-[var(--radius-sm)] hover:bg-[var(--surface-2)]"
               title="Copy trace entry"
             >
               <span className="material-symbols-rounded text-[12px] text-[var(--text-muted)]">
@@ -102,7 +102,7 @@ function TraceEntry({ step, index }: { step: ProgressStep; index: number }) {
             {/* Agent info */}
             {step.agent_id && (
               <div className="mb-1">
-                <span className="text-indigo-400">agent_id:</span> {step.agent_id}
+                <span className="text-amber-400">agent_id:</span> {step.agent_id}
                 {step.parent_agent_id && (
                   <span className="ml-2 text-[var(--text-muted)]">parent: {step.parent_agent_id}</span>
                 )}
@@ -171,7 +171,7 @@ export function TracePanel() {
           <span className="text-[10px] font-mono text-emerald-400/70">{doneSteps} done</span>
         )}
         {runningSteps > 0 && (
-          <span className="text-[10px] font-mono text-indigo-400">{runningSteps} running</span>
+          <span className="text-[10px] font-mono text-amber-400">{runningSteps} running</span>
         )}
         {errorSteps > 0 && (
           <span className="text-[10px] font-mono text-rose-400">{errorSteps} errors</span>
@@ -180,7 +180,7 @@ export function TracePanel() {
           <span className="text-[10px] font-mono text-amber-400/70">{artifacts.length} artifacts</span>
         )}
         {activeAgents.length > 0 && (
-          <span className="text-[10px] font-mono text-indigo-400">{activeAgents.length} active agents</span>
+          <span className="text-[10px] font-mono text-amber-400">{activeAgents.length} active agents</span>
         )}
       </div>
 

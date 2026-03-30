@@ -5,44 +5,49 @@ interface Props {
   spec: string;
 }
 
+const FONT = "'IBM Plex Sans', Inter, system-ui, sans-serif";
+
 // Professional dark theme matching our design system
 const DARK_THEME_CONFIG = {
   background: "transparent",
-  font: "Inter",
+  font: FONT,
   title: {
-    color: "#f1f3f9",
-    fontSize: 14,
-    fontWeight: 600,
-    font: "Inter",
+    color: "#e8ecf4",
+    fontSize: 17,
+    fontWeight: 700,
+    font: FONT,
     anchor: "start" as const,
-    offset: 10,
+    offset: 12,
   },
   axis: {
-    labelColor: "#9da3b4",
-    titleColor: "#9da3b4",
+    labelColor: "#8494ad",
+    titleColor: "#8494ad",
     gridColor: "rgba(255,255,255,0.04)",
     domainColor: "rgba(255,255,255,0.1)",
     tickColor: "rgba(255,255,255,0.1)",
-    labelFontSize: 11,
-    titleFontSize: 12,
-    labelFont: "Inter",
-    titleFont: "Inter",
+    labelFontSize: 13,   // tick values — one smaller than body
+    titleFontSize: 14,   // X/Y axis titles — matches conversation body
+    labelFont: FONT,
+    titleFont: FONT,
+    labelPadding: 6,
   },
   legend: {
-    labelColor: "#9da3b4",
-    titleColor: "#f1f3f9",
-    labelFontSize: 11,
-    titleFontSize: 12,
-    labelFont: "Inter",
-    titleFont: "Inter",
+    labelColor: "#8494ad",
+    titleColor: "#e8ecf4",
+    labelFontSize: 13,
+    titleFontSize: 14,
+    labelFont: FONT,
+    titleFont: FONT,
+    orient: "bottom",
+    padding: 12,
   },
   view: {
     strokeWidth: 0,
   },
   range: {
     category: [
-      "#818cf8", "#a78bfa", "#22d3ee", "#10b981", "#f59e0b",
-      "#f43f5e", "#ec4899", "#6366f1", "#14b8a6", "#8b5cf6",
+      "#3d7be8", "#2eb89a", "#e8a820", "#e05c7c", "#9b7fe8",
+      "#5fb8d4", "#22c55e", "#f43f5e", "#e8a820", "#5c6278",
     ],
   },
 };
@@ -51,15 +56,14 @@ const DARK_THEME_CONFIG = {
 const TOOLTIP_OPTS = {
   theme: "dark" as const,
   style: {
-    "background-color": "rgba(15, 17, 26, 0.95)",
-    "border": "1px solid rgba(129, 140, 248, 0.2)",
-    "border-radius": "8px",
-    "padding": "8px 12px",
-    "font-family": "Inter, system-ui, sans-serif",
+    "background-color": "#1a2038",
+    "border": "1px solid rgba(255,255,255,0.11)",
+    "border-radius": "6px",
+    "padding": "7px 11px",
+    "font-family": "'IBM Plex Sans', Inter, system-ui, sans-serif",
     "font-size": "12px",
-    "color": "#e2e8f0",
-    "box-shadow": "0 4px 20px rgba(0, 0, 0, 0.4)",
-    "backdrop-filter": "blur(8px)",
+    "color": "#e8ecf4",
+    "box-shadow": "0 4px 16px rgba(0,0,0,0.45)",
   },
 };
 

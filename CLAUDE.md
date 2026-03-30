@@ -28,7 +28,7 @@ Open http://localhost:5173 in browser.
 - **Agent modes**: `single` (one agent + skills, default) or `multi` (orchestrator + 2 sub-agents) — toggle via `config.yaml`
 - **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4, Zustand, React Query
 - **Charts**: Altair (Vega-Lite preferred), matplotlib fallback
-- **LLM**: Ollama (local, default: qwen3:8b), Claude/OpenAI (cloud) via LangChain
+- **LLM**: OpenRouter (default: `openai/gpt-oss-120b:free`), Ollama (local), Claude/OpenAI/Google (cloud) via LangChain
 - **Sandbox**: Subprocess + AST import whitelist
 
 ---
@@ -93,7 +93,11 @@ EventBus → SSE Stream → UI
 ### Key Design Decisions
 - **deepagents SDK** — planning, context management, sub-agent delegation out of the box
 - **Data context in system prompt** — schemas + 5-row sample pre-loaded, avoids extra roundtrips
-- **Auto-save artifacts** — `query_duckdb` auto-saves results as HTML table artifacts
+- **Auto-save artifacts** — `query_duckdb` auto-saves results as HTML table artifacts; model must NOT echo data as markdown (system prompt "No Data Echo" rule)
+- **Fast path for tables** — simple "show/list/get data" requests go directly to `query_duckdb`, never through `load_skill` or `run_python`
+- **No reflexion in `run_python`** — reflexion was removed because `llm.ainvoke()` inside LangGraph `astream()` gets intercepted by deepagents SDK and leaks LLM tokens into the chat stream
+- **sandbox_helpers package** — all chart/table/diagram helpers live in `backend/sandbox_helpers/`; auto-imported in every sandbox subprocess via `PYTHONPATH`; skills reference these built-ins rather than copy-pasting code
+- **JSON artifact sanitization** — `run_python` strips trailing `"}` / `'}` from code before execution; some models (GPT-OSS) leak JSON object-close chars into code strings
 - **EventBus (A2UI)** — asyncio.Queue per session decouples event emission from SSE consumption
 
 ---
@@ -142,30 +146,43 @@ Skills are hierarchical, folder-based knowledge modules the agent loads on deman
 
 ```
 backend/app/skills/
-├── visualization/           # Top-level skill
-│   ├── SKILL.md             # JSON metadata block, followed by content
-│   ├── interactive_charts/  # Sub-skill
-│   │   └── SKILL.md
-│   └── styled_theme/        # Sub-skill
-│       └── SKILL.md
-├── data_profiling/SKILL.md
-├── sql_analysis/SKILL.md
-├── dashboard/SKILL.md
-├── ...
+├── altair_charts/SKILL.md   # Chart type selection + gs_theme() usage (SOP)
+├── tables/SKILL.md          # When to use query_duckdb vs styled_table_html() (SOP)
+├── mermaid/SKILL.md         # Mermaid diagram guide + GS_MERMAID_THEME usage (SOP)
+├── dashboard/SKILL.md       # A2UI component JSON schema reference (SOP)
+└── design_system/SKILL.md   # Design tokens and layout guidance
 ```
 
 - Agent sees skill names + descriptions by default (injected into system prompt)
-- `load_skill("visualization")` loads full skill content on demand
-- `load_skill("visualization/interactive_charts")` loads a sub-skill
-- For basic charts, `run_python()` is called directly (no skill loading needed — avoids multi-step tool chain issues with small models)
+- `load_skill("altair_charts")` loads full chart instructions on demand
+- `load_skill("mermaid")` loads Mermaid diagram guide on demand
+- For plain table queries, `query_duckdb` is used directly — no skill loading needed
 - Skills are auto-discovered from `backend/app/skills/` directory
 
 ### Sandbox Helpers (available inside `run_python`)
+
+All helpers come from `backend/sandbox_helpers/` — a Python package auto-imported at sandbox startup via `PYTHONPATH`. No explicit import needed inside user code.
+
 - `_db` — pre-connected DuckDB instance
 - `print_full(df)` — print DataFrame without truncation
-- `save_table_html(df, title)` — save table as HTML artifact
-- `save_chart_vegalite(chart, title)` — save Altair chart as Vega-Lite artifact
-- `styled_chart(chart, title, width, height)` — apply dark theme to Altair charts
+- `save_artifact(content, title)` — **universal save**: DataFrame/HTML → table, Altair chart → chart, Mermaid string → diagram
+- `gs_theme(chart, title, width, height)` — apply OneGS dark theme to any Altair chart
+- `styled_table_html(df, title)` — build enterprise dark-themed HTML table string
+- `GS_MERMAID_THEME` — string constant; prepend to Mermaid diagrams for GS styling
+- `PRIMARY, ACCENT_PURPLE, CAT_PALETTE, W_STANDARD, H_STANDARD, ...` — OneGS chart constants (see `sandbox_helpers/charting.py`)
+- `styled_chart(chart, title, width, height)` — alias for `gs_theme()`; prefer `gs_theme()` for new code
+- `save_table_html`, `save_chart_vegalite`, `save_mermaid` — lower-level alternatives to `save_artifact`
+
+**Package layout:**
+```
+backend/sandbox_helpers/
+├── __init__.py     # exports everything
+├── charting.py     # color/size constants + gs_theme()
+├── tables.py       # styled_table_html()
+└── diagrams.py     # GS_MERMAID_THEME
+```
+
+**Keep skills and helpers in sync.** When you add or change a helper in `sandbox_helpers/`, update the relevant `SKILL.md` to reflect it — and vice versa: if a skill's code pattern becomes stable and reusable, consider promoting it into the package.
 
 ### Whitelisted Packages
 pandas, numpy, matplotlib, seaborn, plotly, scipy, scikit-learn, statsmodels, duckdb, altair, vl-convert
@@ -194,7 +211,7 @@ pandas, numpy, matplotlib, seaborn, plotly, scipy, scikit-learn, statsmodels, du
 
 ## Config
 
-- `config/config.yaml` — LLM provider (default: ollama), model (default: qwen3.5:9b), agent mode (single/multi), ports, database path, sandbox
+- `config/config.yaml` — LLM provider (default: `openrouter`), model (default: `openai/gpt-oss-120b:free`), agent mode (single/multi), ports, database path, sandbox
 - `backend/sandbox-requirements.txt` — packages available in sandbox
 - Environment: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GOOGLE_API_KEY`, `CONFIG_PATH`
 
@@ -266,4 +283,4 @@ When implementing enhancements from `docs/roadmap.md`, follow this pattern:
 ---
 
 ## Last Updated
-2026-03-20 — Hierarchical skills system, single-agent mode with inline chart pattern, auto-cleanup of traces >3 days, trace_summary.py CLI tool, system prompt hardened for small models (qwen3.5:9b).
+2026-03-25 — `sandbox_helpers` Python package (charting constants, `gs_theme()`, `styled_table_html()`, `GS_MERMAID_THEME`) auto-imported in every sandbox call; skills updated to reference built-in helpers; reflexion removed from `run_python` (was leaking LLM tokens into chat stream); fast-path for simple table queries via `query_duckdb`; "No Data Echo" system prompt rule added; JSON artifact sanitization in `run_python` for models that leak `"}` into code strings (GPT-OSS).

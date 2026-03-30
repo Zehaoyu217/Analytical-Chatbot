@@ -12,37 +12,34 @@ export function SuggestionChips({ onSend }: Props) {
   if (suggestions.length === 0 || isStreaming) return null;
 
   return (
-    <div className="px-6 pb-1 shrink-0">
+    <div className="px-5 pb-1 shrink-0">
       <div className="max-w-3xl mx-auto">
         <AnimatePresence>
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="flex flex-wrap gap-2"
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-wrap gap-1.5"
           >
             {suggestions.map((chip, i) => (
               <motion.button
                 key={chip.prompt}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.06, duration: 0.2 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: i * 0.04, duration: 0.15 }}
                 onClick={() => onSend(chip.prompt)}
-                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium
-                  bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text-secondary)]
-                  hover:border-indigo-500/40 hover:text-indigo-300 hover:bg-indigo-500/8
-                  active:scale-95 transition-all duration-150 cursor-pointer"
+                className="group flex items-center gap-1 px-2.5 py-1 rounded-[var(--radius-sm)] text-[11px] font-mono
+                  bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text-muted)]
+                  hover:border-amber-500/35 hover:text-amber-400
+                  active:scale-[0.97] transition-all duration-150 cursor-pointer"
               >
                 {chip.icon && (
-                  <span className="material-symbols-rounded text-[14px] opacity-60 group-hover:opacity-100 transition-opacity">
+                  <span className="material-symbols-rounded text-[12px] opacity-50 group-hover:opacity-80 transition-opacity">
                     {chip.icon}
                   </span>
                 )}
                 {chip.label}
-                <span className="material-symbols-rounded text-[12px] opacity-0 group-hover:opacity-60 -mr-0.5 transition-opacity">
-                  arrow_forward
-                </span>
               </motion.button>
             ))}
           </motion.div>

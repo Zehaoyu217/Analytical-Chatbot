@@ -1,0 +1,63 @@
+skill_name: donut_chart
+skill_description: "Donut charts for part-of-whole composition — NEVER use pie charts"
+
+content: |
+  # Donut Charts — Templates
+
+  NEVER pie. Max 6 slices (group rest into "Other"). NEVER `.interactive()`. ALWAYS `gs_theme()` + `save_artifact()`.
+
+  ## A — Standard Donut
+  ```python
+  import altair as alt
+  df = _db.execute("SELECT category, value FROM your_table ORDER BY value DESC").df()
+  if len(df) > 6:
+      top5 = df.nlargest(5, 'value')
+      import pandas as pd
+      df = pd.concat([top5, pd.DataFrame([{'category': 'Other',
+                      'value': df.iloc[5:]['value'].sum()}])], ignore_index=True)
+  n = len(df)
+  chart = alt.Chart(df).mark_arc(
+      innerRadius=DONUT_INNER, outerRadius=DONUT_OUTER, padAngle=0.02,
+  ).encode(
+      theta=alt.Theta('value:Q', stack=True),
+      color=alt.Color('category:N', scale=alt.Scale(range=CAT_PALETTE[:n]),
+                       legend=alt.Legend(title=None, orient='right')),
+      tooltip=[alt.Tooltip('category:N', title='Category'),
+               alt.Tooltip('value:Q', title='Value', format=',.1f')]
+  )
+  chart = gs_theme(chart, "Allocation", width=W_SQUARE, height=H_SQUARE)
+  save_artifact(chart, "Allocation")
+  ```
+
+  ## B — Donut with Percentage Tooltip
+  ```python
+  import altair as alt, pandas as pd
+  df = _db.execute("SELECT category, value FROM your_table ORDER BY value DESC").df()
+  total = df['value'].sum()
+  df['pct'] = (df['value'] / total * 100).round(1)
+  if len(df) > 6:
+      top5 = df.nlargest(5, 'value')
+      other_val = df.iloc[5:]['value'].sum()
+      df = pd.concat([top5, pd.DataFrame([{'category': 'Other', 'value': other_val,
+                      'pct': round(100 - top5['pct'].sum(), 1)}])], ignore_index=True)
+  n = len(df)
+  chart = alt.Chart(df).mark_arc(
+      innerRadius=DONUT_INNER, outerRadius=DONUT_OUTER, padAngle=0.02
+  ).encode(
+      theta=alt.Theta('value:Q', stack=True),
+      color=alt.Color('category:N', scale=alt.Scale(range=CAT_PALETTE[:n]),
+                       legend=alt.Legend(title=None, orient='right')),
+      tooltip=[alt.Tooltip('category:N', title='Category'),
+               alt.Tooltip('value:Q', title='Value', format=',.1f'),
+               alt.Tooltip('pct:Q', title='Share (%)', format='.1f')]
+  )
+  chart = gs_theme(chart, "Portfolio Allocation", width=W_SQUARE, height=H_SQUARE)
+  save_artifact(chart, "Portfolio Allocation")
+  ```
+
+  ## Rules
+  - Max 6 slices — group excess into "Other"
+  - NEVER `mark_arc` without `innerRadius` (that creates a pie)
+  - Sort descending by value in SQL
+  - Use `CAT_PALETTE[:n]`, legend `orient='right'`
+  - If all slices are similar size, consider horizontal bar instead

@@ -1,0 +1,104 @@
+{
+  "session_id": "11837d75-f81c-46f6-8058-2993f9791905",
+  "timestamp": "2026-03-28T05:35:41.702531+00:00",
+  "question": "Show the latest 5 quarters in a table",
+  "response": "",
+  "total_elapsed_s": 10.787,
+  "event_count": 6,
+  "events": [
+    {
+      "timestamp": 1774676141.706222,
+      "elapsed_s": 0.004,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-0a660b76",
+        "label": "Thinking...",
+        "status": "running",
+        "detail": "",
+        "started_at": 1774676141.7049322,
+        "finished_at": null,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774676141.707724,
+      "elapsed_s": 0.005,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PatchToolCallsMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "Show the latest 5 quarters in a table",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "11837d75-f81c-46f6-8058-2993f9791905",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774676141.7090628,
+      "elapsed_s": 0.007,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "PersistentStateMiddleware.before_agent",
+        "data": {
+          "messages": [
+            {
+              "content": "[PERSISTENT STATE \u2014 always current, never truncated]\n[Turn #0]",
+              "type": "system"
+            },
+            {
+              "content": "Show the latest 5 quarters in a table",
+              "type": "human"
+            }
+          ]
+        },
+        "session_id": "11837d75-f81c-46f6-8058-2993f9791905",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774676141.7098272,
+      "elapsed_s": 0.007,
+      "event_type": "message",
+      "agent_id": "orchestrator",
+      "data": {
+        "node": "ToolResultCompactionMiddleware.before_agent",
+        "data": null,
+        "session_id": "11837d75-f81c-46f6-8058-2993f9791905",
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774676152.489347,
+      "elapsed_s": 10.787,
+      "event_type": "progress",
+      "agent_id": "orchestrator",
+      "data": {
+        "id": "thinking-0a660b76",
+        "label": "Error",
+        "status": "error",
+        "detail": "Provider returned error",
+        "started_at": 1774676141.7049322,
+        "finished_at": 1774676152.489216,
+        "agent_id": "orchestrator"
+      }
+    },
+    {
+      "timestamp": 1774676152.489481,
+      "elapsed_s": 10.787,
+      "event_type": "error",
+      "agent_id": "orchestrator",
+      "data": {
+        "error": "Provider returned error",
+        "agent_id": "orchestrator"
+      }
+    }
+  ]
+}

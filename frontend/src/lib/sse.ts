@@ -31,6 +31,8 @@ export interface SSECallbacks {
   onSubagentDone?: (data: { agent_name: string }) => void;
   // Follow-up suggestions
   onSuggestions?: (chips: SuggestionChip[]) => void;
+  // Inline A2UI components rendered in chat bubbles
+  onInlineComponent?: (event: { components: DashboardComponent[]; title?: string }) => void;
 }
 
 export async function streamChat(
@@ -132,6 +134,9 @@ export async function streamChat(
               break;
             case "suggestions":
               callbacks.onSuggestions?.(data.chips as SuggestionChip[]);
+              break;
+            case "inline_component":
+              callbacks.onInlineComponent?.(data as { components: DashboardComponent[]; title?: string });
               break;
             case "message":
             default:
